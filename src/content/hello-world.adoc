@@ -6,7 +6,11 @@
 :jbake-status: published
 :jbake-tags: log
 :description: 내집마련 해커톤을 통한 개인 블로그 제작 과정 소개
+:jbake-og: {"image": "img/jdk/duke.jpg"}
 :idprefix:
+:toc:
+:sectnums:
+
 
  == 서비스 환경
 - 정적 사이트 생성 플랫폼 : https://jbake.org/[JBake]
