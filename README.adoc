@@ -2,7 +2,8 @@
 정상혁의 개발 블로그
 
 image::https://api.netlify.com/api/v1/badges/ec666dc3-a1a6-4d63-9cc1-55815147c9cf/deploy-status[Netlify Status, link="https://app.netlify.com/sites/anew0m/deploys"]
-
+image::https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status[Netlify Status, link="https://app.netlify.com/sites/anew0m/deploys"]
+image::[![Netlify Status](https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status)](https://app.netlify.com/sites/anew0m/deploys)
 
 == 사용 기술
 * http://jbake.org/[Jbake]
