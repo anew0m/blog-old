@@ -1,0 +1,20 @@
+= 내집마련 해커톤을 통한 개인 블로그 제작
+정민호
+2019-09-21
+:jbake-last_updated: 2019-09-21
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: log
+:description: 내집마련 해커톤을 통한 개인 블로그 제작 과정 소개
+:idprefix:
+
+ == 서비스 환경
+- 정적 사이트 생성 플랫폼 : https://jbake.org/[JBake]
+- 컨텐츠 저장소    : GitHub
+- 빌드 및 배포     : https://www.netlify.com/[Netlify(Ubuntu 14.04)] , https://travis-ci.org/[Travis CI(Ubuntu 14.04)]
+- 댓글             : https://help.disqus.com/[Disqus]
+- 방문자 통계 집계 : https://analytics.google.com/analytics/web/[Google Analytics]
+
+----
+참조URL : https://blog.benelog.net/migration-to-static-site.html
+----
