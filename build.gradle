@@ -21,7 +21,7 @@ apply plugin: 'org.ajoberstar.git-publish'
 
 
 gitPublish {
-    repoUri = 'https://github.com/benelog/blog.git'
+    repoUri = 'https://github.com/anew0m/blog.git'
     branch = 'gh-pages'
     repoDir = file('public')
     contents {
