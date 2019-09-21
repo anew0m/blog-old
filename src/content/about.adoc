@@ -3,4 +3,4 @@
 :jbake-status: published
 ~~~~~~
 
-SW 개발에 대한 글 모음
+평범한 일상과 IT에 관련된 글 모음
