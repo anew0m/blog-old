@@ -4,7 +4,7 @@
 :jbake-last_updated: 2019-09-21
 :jbake-type: post
 :jbake-status: published
-:jbake-tags: 해커톤
+:jbake-tags: hackerton
 :description: '내집마련 해커톤'을 통한 개인 블로그 제작 과정 소개
 :jbake-og: {"image": "img/jdk/duke.jpg"}
 :idprefix:
