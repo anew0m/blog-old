@@ -1,12 +1,15 @@
-= 개발을 통한 자기수양
-정상혁의 개발 블로그
+= 정민호의 블로그
 
 image::https://api.netlify.com/api/v1/badges/ec666dc3-a1a6-4d63-9cc1-55815147c9cf/deploy-status[Netlify Status, link="https://app.netlify.com/sites/anew0m/deploys"]
-image::https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status[Netlify Status, link="https://app.netlify.com/sites/anew0m/deploys"]
-image::[![Netlify Status](https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status)](https://app.netlify.com/sites/anew0m/deploys)
+
+평범한 일상과 IT와 관련된 글을 작성하는 블로그입니다.
+
+본 블로그는 https://blog.benelog.net/migration-to-static-site.html[개발 수양록 블로그의 정상혁님이 작성하신 글]을 참조하였으며, 정상혁님의 레파지토리를 fork 하여 구축되었습니다.
+
+
 
 == 사용 기술
 * http://jbake.org/[Jbake]
 * Gradle
-* 템플릿 : https://github.com/manikmagar/jbake-future-imperfect-template
+* 사이트 템플릿 : https://github.com/manikmagar/jbake-future-imperfect-template
 
