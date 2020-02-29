@@ -1,0 +1,1130 @@
+<!DOCTYPE HTML>
+<!--
+    Future Imperfect by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2) - 정민호의 블로그</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="파이썬3을 이용해 공공데이터포털의 이용해 아파트 정보를 수집합니다.">
+    <meta name="author" content="정민호">
+    <meta name="keywords" content="부동산, 개인프로젝트">
+    <meta name="generator" content="JBake">
+	<meta property="og:image" content="https://anew0m.netlify.com/img/jdk/duke.jpg"/>
+
+    <link rel="stylesheet" href="css/google-font.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/add-on.css" />
+    <link rel="stylesheet" href="css/monokai-sublime.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="img/favicon/favicon.png">
+  </head>
+  <body>
+     <!-- Wrapper -->
+        <div id="wrapper">
+
+<!-- Header -->
+<header id="header">
+            <h2><a href="https://anew0m.netlify.com/">정민호의 블로그</a></h2>
+
+    <nav class="links">
+        <ul>
+        			<li>
+	                    <a href=" archive.html">
+	                       
+	                            <i class="fa fa-archive">&nbsp;</i>Archive
+	                        
+	                    </a>
+                	</li>
+        		
+        		 
+        			<li>
+	                    <a href=" about.html">
+	                       
+	                            <i class="fa fa-user">&nbsp;</i>About
+	                        
+	                    </a>
+                	</li>
+        		
+        		 
+        			<li>
+	                    <a href=" feed.xml">
+	                       
+	                            <i class="fa fa-rss">&nbsp;</i>Subscribe
+	                        
+	                    </a>
+                	</li>
+        		
+        		 
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:https://anew0m.netlify.com/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Menu -->
+<section id="menu">
+
+    <!-- Search -->
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:https://anew0m.netlify.com/">
+            </form>
+        </section>
+
+    <!-- Links -->
+        <section>
+            <ul class="links">
+        		 <li>
+                    <a href=" archive.html">
+                       
+                            <i class="fa fa-archive">&nbsp;</i>Archive
+                        
+                    </a>
+                </li>
+        		 <li>
+                    <a href=" about.html">
+                       
+                            <i class="fa fa-user">&nbsp;</i>About
+                        
+                    </a>
+                </li>
+        		 <li>
+                    <a href=" feed.xml">
+                       
+                            <i class="fa fa-rss">&nbsp;</i>Subscribe
+                        
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    <!-- Recent Posts -->
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                    <li>
+                        <a href="HowHome-01.html"><p>어떡하집 프로젝트 구상</p></a>
+                    </li>
+                    <li>
+                        <a href="HowHome-02-AptData-02.html"><p>어떡하집 프로젝트 - 아파트 정보 수집 계획(수집 정보 정의)</p></a>
+                    </li>
+                    <li>
+                        <a href="HowHome-02-AptData-04.html"><p>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</p></a>
+                    </li>
+                    <li>
+                        <a href="HowHome-02-AptData-01.html"><p>어떡하집 프로젝트 - 아파트 정보 수집 계획</p></a>
+                    </li>
+            </ul>
+        </section>
+
+    <!-- Actions -->
+        <!--
+        <section>
+            <ul class="actions vertical">
+                <li><a href="#" class="button big fit">Log In</a></li>
+            </ul>
+        </section>
+        -->
+</section>
+	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h1><a href="HowHome-02-AptData-04.html">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</a></h1>
+
+            <p>파이썬3을 이용해 공공데이터포털의 이용해 아파트 정보를 수집합니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='Feb 13, 2020'>
+            Feb 13, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#들어가며">1. 들어가며</a></li>
+<li><a href="#공공데이터포털">2. 공공데이터포털</a>
+<ul class="sectlevel2">
+<li><a href="#공동주택_단지_목록제공_서비스">2.1. 공동주택 단지 목록제공 서비스</a></li>
+<li><a href="#공동주택_기본_정보제공_서비스">2.2. 공동주택 기본 정보제공 서비스</a></li>
+<li><a href="#아파트_실거래_상세_자료">2.3. 아파트 실거래 상세 자료</a></li>
+</ul>
+</li>
+<li><a href="#공공데이터포털_전체_코드">3. 공공데이터포털 전체 코드</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="들어가며">1. 들어가며</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>공공데이터 포털을 파이썬을 이용해 데이터를 수집해 보려고 합니다.
+파이썬을 사용하면서 사용할 툴은 아래와 같습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.anaconda.com/distribution/" class="bare">https://www.anaconda.com/distribution/</a> - <a href="https://www.anaconda.com/distribution/">아나콘다</a></p>
+</li>
+<li>
+<p><a href="https://www.jetbrains.com/pycharm/" class="bare">https://www.jetbrains.com/pycharm/</a> - <a href="https://www.jetbrains.com/pycharm/">파이참</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>아나콘다에는 파이썬을 비롯한 유용한 라이브러리가 포함되어 있습니다.
+가볍게 파이썬만 설치하는것 보다 아나콘다를 설치하는게 편하지 않을까 생각합니다.</p>
+</div>
+<div class="paragraph">
+<p>파이썬 설치 및 아나콘다 설치는 아래 URL을 참고하여 설치하였습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://bradbury.tistory.com/63" class="bare">https://bradbury.tistory.com/63</a> - <a href="https://bradbury.tistory.com/63">파이참(PyCharm) 설치 및 아나콘다 가상환경 적용</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="공공데이터포털">2. 공공데이터포털</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>공공데이터포털에서 활용신청한 데이터는 '마이페이지 &#8594; 오픈API &#8594; 개발계정' 으로 접근하면 아래의 그림처럼 목록을 보실 수 있습니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-01.png" alt="공공데이터포털">
+</div>
+</div>
+<div class="sect2">
+<h3 id="공동주택_단지_목록제공_서비스">2.1. 공동주택 단지 목록제공 서비스</h3>
+<div class="paragraph">
+<p>먼저 공동주택 단지 목록 제공 서비스에서 데이터를 가져와 보겠습니다.
+공동주택 단지 목록 제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-01.png" alt="단지목록-1">
+</div>
+</div>
+<div class="paragraph">
+<p>하단의 상세기능정보에서 도로명 아파트 목록의 '실행&#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.</p>
+</div>
+<div class="paragraph">
+<p>만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-02.png" alt="단지목록-2">
+</div>
+</div>
+<div class="paragraph">
+<p>미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;roadCode={도로명코드}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}" class="bare">http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;roadCode={도로명코드}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-03.png" alt="단지목록-3">
+</div>
+</div>
+<div class="paragraph">
+<p>GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>URL 주소 : <a href="http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?" class="bare">http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?</a></p>
+</li>
+<li>
+<p>요청변수 : ?serviceKey={인증키}</p>
+</li>
+<li>
+<p>요청변수 : &amp;roadCode={도로명코드}</p>
+</li>
+<li>
+<p>요청변수 : &amp;pageNo={페이지번호}</p>
+</li>
+<li>
+<p>요청변수 : &amp;numOfRows={페이지목록건수}</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>파이참을 실행하고 프로젝트를 생성 후 API를 테스트할 *.py 파일을 생성합니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-04.png" alt="파이참-4">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-05.png" alt="파이참-5">
+</div>
+</div>
+<div class="paragraph">
+<p>API를 이용해 데이터를 가져오고 json으로 변환하기 위해 requesets, xmltodict, json 라이브러리를 사용합니다.
+파이참에서 라이브러리 설치 및 코드스타일 설정은 아래의 URL을 참조하였습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://tariat.tistory.com/692" class="bare">https://tariat.tistory.com/692</a> - <a href="https://tariat.tistory.com/692">파이참(pycharm)에서 라이브러리 쉽게 설치하는 방법!</a></p>
+</li>
+<li>
+<p><a href="https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv" class="bare">https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv</a> - <a href="https://velog.io/@city7310/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%BD%94%EB%93%9C-%ED%8F%AC%EB%A7%A4%ED%84%B0-%EC%9D%B4%EC%95%BC%EA%B8%B0-5wjxdei9iv">파이썬 코드 스타일 이야기 - (1) Style Checker, Formatter들 구경하기</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python">import requests, xmltodict, json
+
+# 테스팅 관련 변수
+testYn      = True
+#testYn      = False
+
+# 공공데이터 포털 API 호출관련 기본 변수
+serviceKey  = "1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D"
+pageNo      = "1"   # 페이지번호
+numOfRows   = "100"  # 페이지내목록수
+
+# 아파트목록 관련 변수
+roadCode    = "263802006002"    # 도로명코드
+bjdCode     = "2638010100"      # 법정동코드
+
+# 에러관련 변수
+ERR_STATUS_CODE  = "ERR_STATUS_CODE"
+ERR_RESULT_CODE  = "ERR_RESULT_CODE"
+
+
+
+"""
+'아파트(도로명) 목록 ' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+"""
+def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
+    url = "http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;roadCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, roadCode, pageNo, numOfRows)
+    return url
+
+"""
+'아파트(법정동) 목록 ' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+"""
+def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
+    url = "http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;bjdCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, bjdCode, pageNo, numOfRows)
+    return url
+
+"""
+URL을 통해 API를 호출하여 결과값 JSON으로 생성
+"""
+def getJsonFromUrlContent( url ) :
+    response = requests.get(url)
+    if( testYn == True ) :
+        print("response")
+        print(response)
+        print("status code :", response.status_code)
+
+    # Err 체크
+    if( response.status_code != 200 ) :
+        return ERR_STATUS_CODE
+
+    response = response.content
+    if (testYn == True):
+        print("response")
+        print(response)
+
+    dict = xmltodict.parse(response)
+    if( testYn == True ) :
+        print("dict")
+        print(dict)
+        print("resultCode :", json.dumps(dict['response']['header']['resultCode']))
+
+    resultCode = json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False)
+    print(resultCode)
+    # Err 체크
+    if( json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False) != "\"00\"" ) :
+    #if( resultCode != "\"00\"" ) :
+        return ERR_RESULT_CODE
+
+    jsonString = json.dumps(dict['response']['body'], ensure_ascii=False)
+    jsonObj = json.loads(jsonString)
+    if( testYn == True ) :
+        print("jsonObj")
+        print(jsonObj)
+
+    return jsonObj
+
+
+def checkJsonObj( jsonObj ) :
+    ERR_STATUS_CODE = "ERR_STATUS_CODE"
+    ERR_RESULT_CODE = "ERR_RESULT_CODE"
+
+    if( jsonObj == ERR_STATUS_CODE ) :
+        return False
+    elif( jsonObj == ERR_RESULT_CODE ) :
+        return False
+    else :
+        return True
+
+url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
+jsonObj = getJsonFromUrlContent(url)
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj['items']['item'] :
+        print(item)
+else :
+    print("ERR")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-06.png" alt="파이참-5">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="공동주택_기본_정보제공_서비스">2.2. 공동주택 기본 정보제공 서비스</h3>
+<div class="paragraph">
+<p>공동주택 기본 정보제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-01.png" alt="기본정보-1">
+</div>
+</div>
+<div class="paragraph">
+<p>하단의 상세기능정보에서 공동주택 기본 정보조회의 '실행&#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.</p>
+</div>
+<div class="paragraph">
+<p>만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-02.png" alt="기본정보-2">
+</div>
+</div>
+<div class="paragraph">
+<p>미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;kaptCode={단지코드}" class="bare">http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;kaptCode={단지코드}</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-03.png" alt="기본정보-3">
+</div>
+</div>
+<div class="paragraph">
+<p>GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>URL 주소 : <a href="http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo" class="bare">http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo</a></p>
+</li>
+<li>
+<p>요청변수 : ?serviceKey={인증키}</p>
+</li>
+<li>
+<p>요청변수 : &amp;kaptCode={단지코드}</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python"># 아파트 기본정보 관련 변수
+kaptCode    = "A10027875"
+
+"""
+'아파트 기본정보 ' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+kaptCode   MM 단지코드
+"""
+def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
+    url = "http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;kaptCode={}".format(serviceKey, kaptCode)
+    return url
+
+url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
+jsonObj = getJsonFromUrlContent(url)
+
+print(jsonObj['item'])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-04.png" alt="기본정보-4">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="아파트_실거래_상세_자료">2.3. 아파트 실거래 상세 자료</h3>
+<div class="paragraph">
+<p>아파트 실거래 상세 자료에 접속하시면 아래의 그림처럼 보실 수 있습니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-01.png" alt="아파트실거래-1">
+</div>
+</div>
+<div class="paragraph">
+<p>하단의 상세기능정보에서 공동주택 기본 정보조회의 '실행&#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.</p>
+</div>
+<div class="paragraph">
+<p>만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-02.png" alt="아파트실거래-2">
+</div>
+</div>
+<div class="paragraph">
+<p>미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}&amp;LAWD_CD={지역코드}&amp;DEAL_YMD={계약년월}" class="bare">http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}&amp;LAWD_CD={지역코드}&amp;DEAL_YMD={계약년월}</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-03.png" alt="아파트실거래-3">
+</div>
+</div>
+<div class="paragraph">
+<p>GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>URL 주소 : <a href="http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev" class="bare">http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev</a></p>
+</li>
+<li>
+<p>요청변수 : ?serviceKey={인증키}</p>
+</li>
+<li>
+<p>요청변수 : &amp;pageNo={페이지번호}</p>
+</li>
+<li>
+<p>요청변수 : &amp;numOfRows={페이지목록건수}</p>
+</li>
+<li>
+<p>요청변수 : &amp;LAWD_CD={지역코드}</p>
+</li>
+<li>
+<p>요청변수 : &amp;DEAL_YMD={계약년월}</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python"># 아파트 실거래 관련 변수
+LAWD_CD     = "11110"   # 지역코드
+DEAL_YMD    = "201512"  # 계약년월
+
+"""
+'아파트매매 실거래 상세 자료' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3050988/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+LAWD_CD    NN 지역코드
+DEAL_YMD   NN 계약월
+"""
+def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
+    url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;pageNo={}&amp;numOfRows={}&amp;LAWD_CD={}&amp;DEAL_YMD={}".format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
+    return url
+
+url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
+jsonObj = getJsonFromUrlContent(url)
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj['items']['item'] :
+        print(item)
+else :
+    print("ERR")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-04.png" alt="아파트실거래-4">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="공공데이터포털_전체_코드">3. 공공데이터포털 전체 코드</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>공공데이터를 가져오는 코드는 각 API 별로 함수화하여 코드를 작성하였습니다.
+공공데이터 API를 테스트하기 위해 함수화 했지만 아직 코드에 <a href="https://ko.wikipedia.org/wiki/%EC%BD%94%EB%93%9C_%EC%8A%A4%EB%A9%9C">나쁜냄새</a>가 존재하는것 같습니다.</p>
+</div>
+<div class="paragraph">
+<p>추후 이 코드를 리팩토링해보겠습니다.</p>
+</div>
+<div class="paragraph">
+<p>아래는 작성한 전체 코드 입니다.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python">import requests, xmltodict, json
+
+# 테스팅 관련 변수
+testYn      = True
+#testYn      = False
+
+# 공공데이터 포털 API 호출관련 기본 변수
+serviceKey  = "1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D"
+pageNo      = "1"   # 페이지번호
+numOfRows   = "100"  # 페이지내목록수
+
+# 아파트목록 관련 변수
+roadCode    = "263802006002"    # 도로명코드
+bjdCode     = "2638010100"      # 법정동코드
+
+# 아파트 기본정보 관련 변수
+kaptCode    = "A10027875"
+
+# 아파트 실거래 관련 변수
+LAWD_CD     = "11110"   # 지역코드
+DEAL_YMD    = "201512"  # 계약년월
+
+# 에러관련 변수
+ERR_STATUS_CODE  = "ERR_STATUS_CODE"
+ERR_RESULT_CODE  = "ERR_RESULT_CODE"
+
+
+
+"""
+'아파트(도로명) 목록 ' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+"""
+def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
+    url = "http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;roadCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, roadCode, pageNo, numOfRows)
+    return url
+
+"""
+'아파트(법정동) 목록 ' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+"""
+def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
+    url = "http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;bjdCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, bjdCode, pageNo, numOfRows)
+    return url
+
+
+
+"""
+'아파트 기본정보 ' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+kaptCode   MM 단지코드
+"""
+def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
+    url = "http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;kaptCode={}".format(serviceKey, kaptCode)
+    return url
+
+
+
+"""
+'아파트매매 실거래 상세 자료' API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3050988/openapi.do
+
+## NN -&gt; 필수(notNull)
+serviceKey NN 서비스키
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+LAWD_CD    NN 지역코드
+DEAL_YMD   NN 계약월
+"""
+def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
+    url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;pageNo={}&amp;numOfRows={}&amp;LAWD_CD={}&amp;DEAL_YMD={}".format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
+    return url
+
+
+
+"""
+URL을 통해 API를 호출하여 결과값 JSON으로 생성
+"""
+def getJsonFromUrlContent( url ) :
+    response = requests.get(url)
+    if( testYn == True ) :
+        print("response")
+        print(response)
+        print("status code :", response.status_code)
+
+    # Err 체크
+    if( response.status_code != 200 ) :
+        return ERR_STATUS_CODE
+
+    response = response.content
+    if (testYn == True):
+        print("response")
+        print(response)
+
+    dict = xmltodict.parse(response)
+    if( testYn == True ) :
+        print("dict")
+        print(dict)
+        print("resultCode :", json.dumps(dict['response']['header']['resultCode']))
+
+    resultCode = json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False)
+    print(resultCode)
+    # Err 체크
+    if( json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False) != "\"00\"" ) :
+    #if( resultCode != "\"00\"" ) :
+        return ERR_RESULT_CODE
+
+    jsonString = json.dumps(dict['response']['body'], ensure_ascii=False)
+    jsonObj = json.loads(jsonString)
+    if( testYn == True ) :
+        print("jsonObj")
+        print(jsonObj)
+
+    return jsonObj
+
+
+def checkJsonObj( jsonObj ) :
+    ERR_STATUS_CODE = "ERR_STATUS_CODE"
+    ERR_RESULT_CODE = "ERR_RESULT_CODE"
+
+    if( jsonObj == ERR_STATUS_CODE ) :
+        return False
+    elif( jsonObj == ERR_RESULT_CODE ) :
+        return False
+    else :
+        return True
+
+#url = getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows )          # 아파트목록(도로명)
+#url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
+#url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
+url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
+jsonObj = getJsonFromUrlContent(url)
+
+#print(jsonObj['item'])
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj['items']['item'] :
+        print(item)
+else :
+    print("ERR")</code></pre>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&text=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HowHome-02-AptData-04.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HowHome-02-AptData-04.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='tags/부동산.html'>부동산</a></li>
+ 	        <li><a href='tags/개인프로젝트.html'>개인프로젝트</a></li>
+
+				<li><a class="icon fa-comment" href="HowHome-02-AptData-04.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
+		
+<ul class="actions pagination">
+  	
+  		        <li><a href="Relational_Data_Modeling_Note-07.html" 
+                class="button big previous">관계형 데이터 모델링 노트 7장</a></li>
+        <li><a href="HowHome-02-AptData-02.html" 
+                class="button big next">어떡하집 프로젝트 - 아파트 정보 수집 계획(수집 정보 정의)</a></li>
+	
+</ul>
+		
+<div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.identifier = 'HowHome-02-AptData-04.html';
+    };
+    var disqus_shortname = 'anew0m';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.setAttribute('data-timestamp', + new Date());
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <!--<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>-->
+</div>
+    </div>
+
+<!-- Sidebar -->
+<section id="sidebar">
+
+    <!-- Intro -->
+        <section id="intro">
+                                    <a href="/" class="logo"><img src="img/main/intro.jpg" class="intro-circle" width="150px" alt="anew0m" /></a>
+
+
+                <header>
+                    <h2>정민호의 블로그</h2>
+                    <p>평범한 일상과 IT에 관련된 글 모음</p>
+                </header>
+
+            <ul class="icons">
+                    <li><a href="feed.xml" type="application/rss+xml"
+                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
+<li><a href="//github.com/anew0m" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/anew0m" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+<li><a href="mailto:anew0m@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+            </ul>
+        </section>
+
+    <!-- Posts List -->
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="HowHome-01.html">어떡하집 프로젝트 구상</a></h3>
+                                 <time class="published"
+							            datetime='Feb 13, 2020'>
+							            Feb 13, 2020</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="HowHome-02-AptData-02.html">어떡하집 프로젝트 - 아파트 정보 수집 계획(수집 정보 정의)</a></h3>
+                                 <time class="published"
+							            datetime='Feb 13, 2020'>
+							            Feb 13, 2020</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="HowHome-02-AptData-04.html">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</a></h3>
+                                 <time class="published"
+							            datetime='Feb 13, 2020'>
+							            Feb 13, 2020</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="HowHome-02-AptData-01.html">어떡하집 프로젝트 - 아파트 정보 수집 계획</a></h3>
+                                 <time class="published"
+							            datetime='Feb 13, 2020'>
+							            Feb 13, 2020</time>
+                            </header>
+                        </article>
+                    </li>
+
+
+                    <li>
+                        <ul class="actions">
+                            <li><a href="archive.html"
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+            </ul>
+        </section>
+
+    <!-- Tags List can be show/hide from config-->
+        <section id="tags">
+            <ul class="posts">
+                <header>
+                    <h3>Tags</h3>
+                </header>
+
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/책소개.html">책소개</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 1 </span>
+                            </header>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/hackerton.html">hackerton</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 1 </span>
+                            </header>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/부동산.html">부동산</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 5 </span>
+                            </header>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/책정리.html">책정리</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 5 </span>
+                            </header>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/개인프로젝트.html">개인프로젝트</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 5 </span>
+                            </header>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/데이터모델링.html">데이터모델링</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 6 </span>
+                            </header>
+                        </article>
+                    </li>
+            </ul>
+        </section>
+
+
+    <!-- About -->
+        <section class="blurb">
+            <h2>About</h2>
+            <p>introduce</p>
+
+            <ul class="actions">
+                <li><a href="about.html" class="button">Learn More</a></li>
+            </ul>
+        </section>
+
+
+        <section id="footer">
+            <p class="copyright">&copy; 정민호의 블로그. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported For SSG by <a href="https://github.com/jpescador/hugo-future-imperfect">Julio Pescador</a>. Adapted to JBake by <a href="//github.com/manikmagar" target="_blank">Manik Magar</a>. Baked with <a href="http://jbake.org">JBake v2.6.4</a>.
+            <a href="/sitemap.xml" target="_blank">Sitemap</a>.</p>
+        </section>
+
+</section>
+		</div>
+		<a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+		<div id="push"></div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/backToTop.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script src="js/readingTime.js"></script>
+
+			<script id="dsq-count-scr" src="//anew0m.disqus.com/count.js" async></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-149448484-1', 'auto');
+  ga('send', 'pageview', {
+    'page': 'HowHome-02-AptData-04.html',
+    'title': '어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)'
+      });
+</script>
+		<!-- This is called by default since this theme uses highlight.js -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+
+  </body>
+</html>

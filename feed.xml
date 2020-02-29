@@ -6,8 +6,8 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sat, 29 Feb 2020 14:23:23 +0000</pubDate>
-    <lastBuildDate>Sat, 29 Feb 2020 14:23:23 +0000</lastBuildDate>
+    <pubDate>Sat, 29 Feb 2020 17:34:39 +0000</pubDate>
+    <lastBuildDate>Sat, 29 Feb 2020 17:34:39 +0000</lastBuildDate>
 
     <item>
       <title>어떡하집 프로젝트 - 아파트 정보 수집 계획</title>
@@ -2709,550 +2709,639 @@ FK는 11.건물관리번호와 12.법정동코드, 13.도로명코드, 14.지하
 	</description>
     </item>
     <item>
-      <title>관계형 데이터 모델링 노트 6장</title>
-      <link>https://anew0m.netlify.com//Relational_Data_Modeling_Note-06.html</link>
-      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">Relational_Data_Modeling_Note-06.html</guid>
+      <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</title>
+      <link>https://anew0m.netlify.com//HowHome-02-AptData-04.html</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">HowHome-02-AptData-04.html</guid>
       	<description>
 	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
 &lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
 &lt;ul class=&quot;sectlevel1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#엔터티_이야기&quot;&gt;1. 엔터티 이야기&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#정규화_이야기&quot;&gt;2. 정규화 이야기&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#데이터_통합과_서브타입_이야기&quot;&gt;3. 데이터 통합과 서브타입 이야기&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#속성_이야기&quot;&gt;4. 속성 이야기&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#관계_이야기&quot;&gt;5. 관계 이야기&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#이력_데이터_이야기&quot;&gt;6. 이력 데이터 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#들어가며&quot;&gt;1. 들어가며&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#공공데이터포털&quot;&gt;2. 공공데이터포털&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#공동주택_단지_목록제공_서비스&quot;&gt;2.1. 공동주택 단지 목록제공 서비스&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#공동주택_기본_정보제공_서비스&quot;&gt;2.2. 공동주택 기본 정보제공 서비스&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#아파트_실거래_상세_자료&quot;&gt;2.3. 아파트 실거래 상세 자료&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#공공데이터포털_전체_코드&quot;&gt;3. 공공데이터포털 전체 코드&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;들어가며&quot;&gt;1. 들어가며&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
-&lt;hr&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;공공데이터 포털을 파이썬을 이용해 데이터를 수집해 보려고 합니다.
+파이썬을 사용하면서 사용할 툴은 아래와 같습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.anaconda.com/distribution/&quot; class=&quot;bare&quot;&gt;https://www.anaconda.com/distribution/&lt;/a&gt; - &lt;a href=&quot;https://www.anaconda.com/distribution/&quot;&gt;아나콘다&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.jetbrains.com/pycharm/&quot; class=&quot;bare&quot;&gt;https://www.jetbrains.com/pycharm/&lt;/a&gt; - &lt;a href=&quot;https://www.jetbrains.com/pycharm/&quot;&gt;파이참&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;아나콘다에는 파이썬을 비롯한 유용한 라이브러리가 포함되어 있습니다.
+가볍게 파이썬만 설치하는것 보다 아나콘다를 설치하는게 편하지 않을까 생각합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;파이썬 설치 및 아나콘다 설치는 아래 URL을 참고하여 설치하였습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bradbury.tistory.com/63&quot; class=&quot;bare&quot;&gt;https://bradbury.tistory.com/63&lt;/a&gt; - &lt;a href=&quot;https://bradbury.tistory.com/63&quot;&gt;파이참(PyCharm) 설치 및 아나콘다 가상환경 적용&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;엔터티_이야기&quot;&gt;1. 엔터티 이야기&lt;/h2&gt;
+&lt;h2 id=&quot;공공데이터포털&quot;&gt;2. 공공데이터포털&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
-
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;공공데이터포털에서 활용신청한 데이터는 &apos;마이페이지 &amp;#8594; 오픈API &amp;#8594; 개발계정&apos; 으로 접근하면 아래의 그림처럼 목록을 보실 수 있습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;정규화_이야기&quot;&gt;2. 정규화 이야기&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;데이터_통합과_서브타입_이야기&quot;&gt;3. 데이터 통합과 서브타입 이야기&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;속성_이야기&quot;&gt;4. 속성 이야기&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;관계_이야기&quot;&gt;5. 관계 이야기&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;이력_데이터_이야기&quot;&gt;6. 이력 데이터 이야기&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;hr&gt;
-&lt;div class=&quot;sidebarblock&quot;&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;요약&lt;/div&gt;
-&lt;div class=&quot;olist arabic&quot;&gt;
-&lt;ol class=&quot;arabic&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터&lt;/p&gt;
-&lt;div class=&quot;olist loweralpha&quot;&gt;
-&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터 개요&lt;/p&gt;
-&lt;div class=&quot;olist lowerroman&quot;&gt;
-&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터(Alterd Data)란?&lt;/p&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-01.png&quot; alt=&quot;공공데이터포털&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;공동주택_단지_목록제공_서비스&quot;&gt;2.1. 공동주택 단지 목록제공 서비스&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;먼저 공동주택 단지 목록 제공 서비스에서 데이터를 가져와 보겠습니다.
+공동주택 단지 목록 제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-01.png&quot; alt=&quot;단지목록-1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;하단의 상세기능정보에서 도로명 아파트 목록의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-02.png&quot; alt=&quot;단지목록-2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;amp;roadCode={도로명코드}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;amp;roadCode={도로명코드}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-03.png&quot; alt=&quot;단지목록-3&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;지나간 데이터(Bygone Data). 즉 입력된 데이터가 변경(정정 아님)된 데이터를 이력데이터라고 함&lt;/p&gt;
+&lt;p&gt;URL 주소 : &lt;a href=&quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;이력 데이터는 원천 데이터의 함수 종속이나 파생 종속과 연관됨&lt;/p&gt;
+&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;이력 데이터를 관리하는 이유는 데이터의 과거 상태를 추적할 필요가 있기 때문&lt;/p&gt;
+&lt;p&gt;요청변수 : &amp;amp;roadCode={도로명코드}&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;모델링 시 주요 엔터티는 이력 데이터 요건이 없더라도 생길 것을 대비하는 것이 좋음&lt;/p&gt;
+&lt;p&gt;요청변수 : &amp;amp;pageNo={페이지번호}&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;주 식별자가 아닌 주 식별자에 종속된 속성 값이 바뀌면 이력 데이터가 생기게 됨&lt;/p&gt;
+&lt;p&gt;요청변수 : &amp;amp;numOfRows={페이지목록건수}&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;내역데이터란&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;파이참을 실행하고 프로젝트를 생성 후 API를 테스트할 *.py 파일을 생성합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-04.png&quot; alt=&quot;파이참-4&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-05.png&quot; alt=&quot;파이참-5&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;API를 이용해 데이터를 가져오고 json으로 변환하기 위해 requesets, xmltodict, json 라이브러리를 사용합니다.
+파이참에서 라이브러리 설치 및 코드스타일 설정은 아래의 URL을 참조하였습니다.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;예전에 쌓인 데이터여도 변경되지 않았다면 이력 데이터가 아니라 내역 데이터&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://tariat.tistory.com/692&quot; class=&quot;bare&quot;&gt;https://tariat.tistory.com/692&lt;/a&gt; - &lt;a href=&quot;https://tariat.tistory.com/692&quot;&gt;파이참(pycharm)에서 라이브러리 쉽게 설치하는 방법!&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;과거 데이터라도 본질(원천) 데이터일 수 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;내역 데이터는 살아있는 데이터이며, 내역 성격의 엔터티는 이력 데이터를 같이 관리하지 않아야함&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv&quot; class=&quot;bare&quot;&gt;https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv&lt;/a&gt; - &lt;a href=&quot;https://velog.io/@city7310/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%BD%94%EB%93%9C-%ED%8F%AC%EB%A7%A4%ED%84%B0-%EC%9D%B4%EC%95%BC%EA%B8%B0-5wjxdei9iv&quot;&gt;파이썬 코드 스타일 이야기 - (1) Style Checker, Formatter들 구경하기&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 엔터티 설계 시점&lt;/p&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import requests, xmltodict, json
+
+# 테스팅 관련 변수
+testYn      = True
+#testYn      = False
+
+# 공공데이터 포털 API 호출관련 기본 변수
+serviceKey  = &quot;1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D&quot;
+pageNo      = &quot;1&quot;   # 페이지번호
+numOfRows   = &quot;100&quot;  # 페이지내목록수
+
+# 아파트목록 관련 변수
+roadCode    = &quot;263802006002&quot;    # 도로명코드
+bjdCode     = &quot;2638010100&quot;      # 법정동코드
+
+# 에러관련 변수
+ERR_STATUS_CODE  = &quot;ERR_STATUS_CODE&quot;
+ERR_RESULT_CODE  = &quot;ERR_RESULT_CODE&quot;
+
+
+
+&quot;&quot;&quot;
+&apos;아파트(도로명) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;amp;roadCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, roadCode, pageNo, numOfRows)
+    return url
+
+&quot;&quot;&quot;
+&apos;아파트(법정동) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;amp;bjdCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, bjdCode, pageNo, numOfRows)
+    return url
+
+&quot;&quot;&quot;
+URL을 통해 API를 호출하여 결과값 JSON으로 생성
+&quot;&quot;&quot;
+def getJsonFromUrlContent( url ) :
+    response = requests.get(url)
+    if( testYn == True ) :
+        print(&quot;response&quot;)
+        print(response)
+        print(&quot;status code :&quot;, response.status_code)
+
+    # Err 체크
+    if( response.status_code != 200 ) :
+        return ERR_STATUS_CODE
+
+    response = response.content
+    if (testYn == True):
+        print(&quot;response&quot;)
+        print(response)
+
+    dict = xmltodict.parse(response)
+    if( testYn == True ) :
+        print(&quot;dict&quot;)
+        print(dict)
+        print(&quot;resultCode :&quot;, json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;]))
+
+    resultCode = json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False)
+    print(resultCode)
+    # Err 체크
+    if( json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False) != &quot;\&quot;00\&quot;&quot; ) :
+    #if( resultCode != &quot;\&quot;00\&quot;&quot; ) :
+        return ERR_RESULT_CODE
+
+    jsonString = json.dumps(dict[&apos;response&apos;][&apos;body&apos;], ensure_ascii=False)
+    jsonObj = json.loads(jsonString)
+    if( testYn == True ) :
+        print(&quot;jsonObj&quot;)
+        print(jsonObj)
+
+    return jsonObj
+
+
+def checkJsonObj( jsonObj ) :
+    ERR_STATUS_CODE = &quot;ERR_STATUS_CODE&quot;
+    ERR_RESULT_CODE = &quot;ERR_RESULT_CODE&quot;
+
+    if( jsonObj == ERR_STATUS_CODE ) :
+        return False
+    elif( jsonObj == ERR_RESULT_CODE ) :
+        return False
+    else :
+        return True
+
+url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
+jsonObj = getJsonFromUrlContent(url)
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
+        print(item)
+else :
+    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-06.png&quot; alt=&quot;파이참-5&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;공동주택_기본_정보제공_서비스&quot;&gt;2.2. 공동주택 기본 정보제공 서비스&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;공동주택 기본 정보제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-01.png&quot; alt=&quot;기본정보-1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;하단의 상세기능정보에서 공동주택 기본 정보조회의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-02.png&quot; alt=&quot;기본정보-2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;amp;kaptCode={단지코드}&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;amp;kaptCode={단지코드}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-03.png&quot; alt=&quot;기본정보-3&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;1. 원천 엔터티와 동시에 이력 엔터티를 설계&lt;/p&gt;
+&lt;p&gt;URL 주소 : &lt;a href=&quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;kaptCode={단지코드}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;# 아파트 기본정보 관련 변수
+kaptCode    = &quot;A10027875&quot;
+
+&quot;&quot;&quot;
+&apos;아파트 기본정보 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+kaptCode   MM 단지코드
+&quot;&quot;&quot;
+def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;amp;kaptCode={}&quot;.format(serviceKey, kaptCode)
+    return url
+
+url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
+jsonObj = getJsonFromUrlContent(url)
+
+print(jsonObj[&apos;item&apos;])&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-04.png&quot; alt=&quot;기본정보-4&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;아파트_실거래_상세_자료&quot;&gt;2.3. 아파트 실거래 상세 자료&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;아파트 실거래 상세 자료에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-01.png&quot; alt=&quot;아파트실거래-1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;하단의 상세기능정보에서 공동주택 기본 정보조회의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-02.png&quot; alt=&quot;아파트실거래-2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&amp;amp;LAWD_CD={지역코드}&amp;amp;DEAL_YMD={계약년월}&quot; class=&quot;bare&quot;&gt;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&amp;amp;LAWD_CD={지역코드}&amp;amp;DEAL_YMD={계약년월}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-03.png&quot; alt=&quot;아파트실거래-3&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;이력 엔터티만을 설계하는 특정 시점이 사실상 없다는 것을 의미&lt;/p&gt;
+&lt;p&gt;URL 주소 : &lt;a href=&quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev&quot; class=&quot;bare&quot;&gt;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;따라서 본질(원천) 데이터를 먼저 확고히 해야한 다는 점만 주의하면, 주요 엔터티는 개념 모델링 단계에서 이력 엔터티를 고려(또는 논의)하는 것이 현실적으로 효율적&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;2. 원천 엔터티의 설계가 끝난 시점인 논리 모델링이 끝난 후 또는 물리 모델링 시점에 설계&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터를 논리 모델링이 끝난 물리 모델링 단계에서 설계하면 기존(원천) 엔터티가 영향을 받을 수 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+&lt;p&gt;요청변수 : &amp;amp;pageNo={페이지번호}&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;이력 엔터티 설계 시점은 종합적인 사고가 가능하다는 전제하에서는 한 번에 설계하는게 좋으며, 본질 데이터를 설계할 때 최소한 모델 구조에 대한 변경을 염두에 두고 이력 데이터를 고민해야함&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
+&lt;p&gt;요청변수 : &amp;amp;numOfRows={페이지목록건수}&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;중요한 엔터티는 업무 식별자(또는 주 식별자)와 주요 핵심 속성, 이력 데이터 관리 방안, 심각한 성능 이슈 등을 한꺼번에 고민하고 종합적으로 분석 판단해야함&lt;/p&gt;
+&lt;p&gt;요청변수 : &amp;amp;LAWD_CD={지역코드}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;DEAL_YMD={계약년월}&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;그리고 이력 데이터를 설계할 때는 선분이력 방식으로 설계할지를 같이 결정해야하며, 선분이력 시 종료일자 속성이 주 식별자에 포함된다면 그 엔터티에는 하위(자식) 엔터티가 없어야 함&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;# 아파트 실거래 관련 변수
+LAWD_CD     = &quot;11110&quot;   # 지역코드
+DEAL_YMD    = &quot;201512&quot;  # 계약년월
+
+&quot;&quot;&quot;
+&apos;아파트매매 실거래 상세 자료&apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3050988/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+LAWD_CD    NN 지역코드
+DEAL_YMD   NN 계약월
+&quot;&quot;&quot;
+def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
+    url = &quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&amp;amp;LAWD_CD={}&amp;amp;DEAL_YMD={}&quot;.format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
+    return url
+
+url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
+jsonObj = getJsonFromUrlContent(url)
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
+        print(item)
+else :
+    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 엔터티 설계 방법&lt;/p&gt;
-&lt;div class=&quot;olist loweralpha&quot;&gt;
-&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;이력 엔터티 설계 방법 개요&lt;/p&gt;
-&lt;div class=&quot;olist lowerroman&quot;&gt;
-&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;엔터티 단위 이력&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;스냅샷 방식으로 저장 공간의 낭비가 심하나, 특정 시점의 전체 속성 값을 조회하는 요건이 많을 때 사용하면 좋음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;데이터 관리하기가 수월하며, 하위(자식) 엔터티에 미치는 영향도 차단했기 대문에 모델이 안정적인 장점이 있으나, 거의 유사한 스키마의 엔터티를 동일하게 유지해야하는 부담이 존재&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;실무에서 가장 많이 사용하는 방법이며, 원천 엔터티의 하위 엔터티 또는 서브타입이 존재한다면 이 방법을 사용해야 함&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;속성 단위 이력(변경된 속성)&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;변경된 속성의 데이터만 별도로 관리하여 저장 공간이 가장 절약되지만, 과거 특정한 시점에 대해 변경된 속성 값과 변경되지 않은 속성 값을 같이 조회하기 어려움&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;변경 데이터를 별도의 엔터티에서 관리하는 방법과 함께 관리하는 방법으로 나뉠 수 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-04.png&quot; alt=&quot;아파트실거래-4&quot;&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;속성 그룹 단위 이력(유사)&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;속성 중 내용(도메인)이 유사하거나 같이 사용될 수 있는 속성을 묶어서 별도의 엔터티에서 이력 데이터를 관리하는 방법&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;적절하게 사용할 시 엔터티 단위 이력과 속성 단위 이력의 장점만을 살릴 수 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;엔터티 단위 이력 설계&lt;/p&gt;
-&lt;div class=&quot;olist lowerroman&quot;&gt;
-&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터를 별도의 엔터티에서 관리하는 방법&lt;/p&gt;
-&lt;div class=&quot;olist upperalpha&quot;&gt;
-&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;실체 엔터티&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;실체 엔터티에서는 원천 데이터를 관리하는 엔터티를 변경없이 그대로 존재하며, 이력 데이터는 원천 엔터티와 별도로 이력 엔터티에서 관리함(이력 엔터티의 주식별자에 변경일자 속성 추가)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;하위(이력) 엔터티가 존재하기 때문에 원천 데이터와 이력 데이터를 한꺼번에 조회하는 요건이 많다면 비효율이 발생&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;비효율을 개선하기 위해 비정규화의 일종인 중복데이터를 사용할 수 있으나, 데이터 중복이 심하게 발생하므로 원칙적으로 사용을 지양해야함&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;기준 엔터티&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;기준 엔터티이면서 원천 엔터티인 엔터티는 기준일자 속성까지 포함하여 관리&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;데이터는 과거에 입력됐지만 현재도 살아 있는 원천 데이터&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;기준 데이터에 대한 이력(정정 아님) 데이터를 설계할 시 별도의 이력 엔터티 생성 후 관리(이력 엔터티의 주식별자에 변경일자 속성 추가)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;또는 기준 엔터티에는 현재의 데이터만 관리하고 별도의 이력 엔터티 생성 후 관리(이력 엔터티의 주식별자에 변경일자 속성 추가)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;행위 엔터티&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;행위 엔터티에서는 이력을 관리하고자 하는 대상의 엔터티들의 구조를 그대로 이력 엔터티를 생성하여 관리함&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;공공데이터포털_전체_코드&quot;&gt;3. 공공데이터포털 전체 코드&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;공공데이터를 가져오는 코드는 각 API 별로 함수화하여 코드를 작성하였습니다.
+공공데이터 API를 테스트하기 위해 함수화 했지만 아직 코드에 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%BD%94%EB%93%9C_%EC%8A%A4%EB%A9%9C&quot;&gt;나쁜냄새&lt;/a&gt;가 존재하는것 같습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;추후 이 코드를 리팩토링해보겠습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;하나의 엔터티에 원천 데이터와 변경 데이터를 함께 관리하는 방법&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;일반적으로 주요 실체, 행위, 엔터티에는 사용하지 않지만, 기준 엔터티는 하위 엔터티가 존재하지 않고 데이터양도 적어서 이 방법을 사용하기 적절&lt;/p&gt;
-&lt;div class=&quot;olist upperalpha&quot;&gt;
-&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;실체 엔터티&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;아래는 작성한 전체 코드 입니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터를 설계할 때는 먼저 원천 데이터를 설계&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;원천 데이터와 변경 데이터를 함께 관리하기 때문에 엔터티 명에 굳이 &apos;~이력&amp;#8217;을 붙이지 않음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;원천 엔터티에 변경일자 속성 또는 순번 등의 인조식별자를 추가하며, 변경일자 속성에는 변경되지 않았다는 것을 의미하는 값으로 &apos;9999-12-31&amp;#8217;을 사용함&lt;/p&gt;
-&lt;div class=&quot;olist upperalpha&quot;&gt;
-&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;기준 엔터티&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;조회하는데 문제가 없다면 굳이 이력 데이터 개념으로 설계할 필요는 없음&lt;/p&gt;
-&lt;div class=&quot;olist upperalpha&quot;&gt;
-&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;행위 엔터티&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;하위(자식) 엔터티가 존재할 때 원천 데이터와 변경 데이터를 함께 관리하는 것은 바람직하지 않음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;(?) 이해가 잘 안됨&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;속성 단위로 이력 데이터를 설계하는 방법&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;특정 속성에 대한 이력 엔터티를 생성 후 변경일자 및 변경값 관리&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;중복 데이터가 없어 데이터 저장공간이 절약되지만, 변경되지 않은 속성까지 함께 조회하긴 어려움&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;실무에서 많이 사용되지 않지만, 자주 사용하는 중요한 속성에 대해서는 이 방법의 사용을 고려해야 함&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;원천 데이터를 별도의 엔터티에서 관리하면서, 변경 데이터와 원천 데이터를 함께 관리하는 방법&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;원천 엔터티의 이력을 관리하고자하는 특정 속성을 추출하여 별도의 엔터티에서 데이터를 관리&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;변경 이력 데이터로 설계한 것인지, 발생내역 데이터로 설계한 것인지 구분해야 함&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;속성 단위 이력 설계&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;역할을 관리하는 별도의 엔터티를 설계할 때 자주 사용됨&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;별도의 엔터티에서 관리하는 이유는 역할은 보통 한 개가 아니라는 사실과 함께 이력 데이터까지 고려하기 때문&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;성능 문제를 해결하기 위해 이력 데이터를 선분이력으로 관리하거나, 또는 비정규화(데이터 중복)하는 방법이 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;속성 그룹 단위 이력 설계&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;속성 단위 이력 설계하는 방법과 같으며, 다만 성경이 유사한 속성들을 그룹으로 묶어서 관리하는데 차이가 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;유사한 속성들을 그룹으로 묶어서 관리하는 이유는 같이 조회되는 요건을 처리하기 위함&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;따라서 유사한 속성이 아니더라도 같이 사용되는 속성을 그룹으로 묶을 수도 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;적절하게 사용하면 효율적인 모델이 되지만, 명확한 기준 없이 속성을 묶으면 원천 엔터티나 이력 엔터티의 성격이 혼한스러워질 수 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;종 테이블(Vertical Table)을 이용한 이력 설계&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;변경된 속성을 종 테이블 형식의 별도 엔터티에서 통합 관리하는 것&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이 방법을 사용할 시 엔터티명과 속성명에 대한 관리 부담이 부가적으로 생기며, 관리할 속성이 명확하지 않고 특정 시점의 모든 속성 데이터를 조회하기 어려움&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;하지만 모델을 형상 관리할 필요가 없다는게 큰 장점으로 실무에서 자주 사용되지만, 지나치게 유연해서 가능하면 사용을 자제하고 종 테이블로 관리할 시 심사숙고하여 결정할 것&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;종 테이블은 유연한 만큼 이력 엔터티를 통합하는데 자유도가 높아 무분별하게 통합할 위험이 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;따라서 성격이 유사하거나, 같은 영역에 있는 몇개의 이력 엔터티를 통합하는게 바람직하고, 조인해서 사용하기 보다는 필요할 때 참고할 용도로 사용하면 효과적임&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;선분이력&lt;/p&gt;
-&lt;div class=&quot;olist loweralpha&quot;&gt;
-&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;선분이력 개요&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;선분이력은 과거 특정 시점의 데이터를 조회하는 요건이 많을 때 사용하는 방법으로 조회성능을 고려한 기법으로, 선분이력이 필요한 경우는 그다지 많지 않으므로 남용 주의&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;특정 데이터가 변경된 시작일자와 변경 전의 종료일자가 이어지도록 인위적으로 데이터를 관리하는 것이 핵심이므로 변경된 릴레이션의 시작과 종료 시점을 연결하면 하나의 선분이 되는 것이 중요&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;넓은 범위의 조회가 있고 성능 문제를 해결해야 한다면 선분이력 방법을 사용해야 하며, 선분이력의 종료일자에 대한 기본 값은 &apos;9999년 12월 31일&amp;#8217;이 적당하며, Default 제약을 설정해 사용하는것이 좋음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;선분이력을 사용할 때 시작일자와 종료일자가 겹치지 않도록 주의&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;선분이력의 종료일자는 추출 속성으로 성능향상을 위해 존재하는 속성이지 본질적인 속성이 아니며, 데이터 성격상 없어도 되는 속성이므로 도입시 성능상 커다란 이득이 있는지도 따져봐야함&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;성능향상을 위해 사용된 만큼 주 식별자에 포함하여 관리하는것이 좋으며, 변경순번과 같이 인조식별자를 사용하는 것은 바람직하지 않음&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 엔터티 설계 절차&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;이력 엔터티를 설계하는 시작점은 이력 데이터를 관리하는 요건이 있느냐 인데, 이력 데이터를 쌓아두지 않더라도 이력 엔터티를 설계해 두는 것은 의미가 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 엔터티는 총 5단계로 아래와 같이 분류 될 수 있음&lt;/p&gt;
-&lt;div class=&quot;olist loweralpha&quot;&gt;
-&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;변경 데이터를 관리해야 하는 요건이 있는지&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터를 어떤 방법으로 관리해야 가장 효율적인지 분석&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;선분이력 방법을 채택할지 결정&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 엔터티의 주 식별자(PK) 확정&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;다른 엔터티와의 관계를 감안하여 최종적으로 확인&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;서브타입 이력 모델&lt;/p&gt;
-&lt;div class=&quot;olist loweralpha&quot;&gt;
-&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;슈퍼·서브타입 엔터티별로 이력 데이터를 관리하는 방법&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;슈퍼타입 이력 엔터티와 서브타입 이력 엔터티간 참조 무결성 제약이 없기 떄문에 데이터 무결성을 장담할 수 없음&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;특정 시점의 데이터를 조회하기 복잡&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;슈퍼·서브타입 엔터티와 동일한 구조의 엔터티로 이력 데이터를 관리하는 방법&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;직관적이고 엔터티 간에 참조 무결성 제약이 존재해 데이터 정합성이 맞으며, 조회하기 쉬움&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;성능에 문제가 있을시 선분이력 방법을 적용할 수 있음&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;속성 단위로 이력 데이터를 관리하는 방법&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;특정 속성을 대상으로 이력을 관리할 때 사용&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;정정 데이터&lt;/p&gt;
-&lt;div class=&quot;olist loweralpha&quot;&gt;
-&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;정정 데이터란&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;정정 데이터는 데이터가 잘못돼 수정한 데이터로써 데이터를 변경한 이력 데이터와는 다름&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;정정 데이터 관리 방법&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;정정 데이터를 관리하는 방법은 정정이력을 관리하지 않고 데이터 업데이트하는 방법&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;하나의 엔터티에서 변경이력 데이터를 관리하면서, 정정 데이터도 함께 관리하는 방법&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import requests, xmltodict, json
+
+# 테스팅 관련 변수
+testYn      = True
+#testYn      = False
+
+# 공공데이터 포털 API 호출관련 기본 변수
+serviceKey  = &quot;1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D&quot;
+pageNo      = &quot;1&quot;   # 페이지번호
+numOfRows   = &quot;100&quot;  # 페이지내목록수
+
+# 아파트목록 관련 변수
+roadCode    = &quot;263802006002&quot;    # 도로명코드
+bjdCode     = &quot;2638010100&quot;      # 법정동코드
+
+# 아파트 기본정보 관련 변수
+kaptCode    = &quot;A10027875&quot;
+
+# 아파트 실거래 관련 변수
+LAWD_CD     = &quot;11110&quot;   # 지역코드
+DEAL_YMD    = &quot;201512&quot;  # 계약년월
+
+# 에러관련 변수
+ERR_STATUS_CODE  = &quot;ERR_STATUS_CODE&quot;
+ERR_RESULT_CODE  = &quot;ERR_RESULT_CODE&quot;
+
+
+
+&quot;&quot;&quot;
+&apos;아파트(도로명) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;amp;roadCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, roadCode, pageNo, numOfRows)
+    return url
+
+&quot;&quot;&quot;
+&apos;아파트(법정동) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;amp;bjdCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, bjdCode, pageNo, numOfRows)
+    return url
+
+
+
+&quot;&quot;&quot;
+&apos;아파트 기본정보 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+kaptCode   MM 단지코드
+&quot;&quot;&quot;
+def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;amp;kaptCode={}&quot;.format(serviceKey, kaptCode)
+    return url
+
+
+
+&quot;&quot;&quot;
+&apos;아파트매매 실거래 상세 자료&apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3050988/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+LAWD_CD    NN 지역코드
+DEAL_YMD   NN 계약월
+&quot;&quot;&quot;
+def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
+    url = &quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&amp;amp;LAWD_CD={}&amp;amp;DEAL_YMD={}&quot;.format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
+    return url
+
+
+
+&quot;&quot;&quot;
+URL을 통해 API를 호출하여 결과값 JSON으로 생성
+&quot;&quot;&quot;
+def getJsonFromUrlContent( url ) :
+    response = requests.get(url)
+    if( testYn == True ) :
+        print(&quot;response&quot;)
+        print(response)
+        print(&quot;status code :&quot;, response.status_code)
+
+    # Err 체크
+    if( response.status_code != 200 ) :
+        return ERR_STATUS_CODE
+
+    response = response.content
+    if (testYn == True):
+        print(&quot;response&quot;)
+        print(response)
+
+    dict = xmltodict.parse(response)
+    if( testYn == True ) :
+        print(&quot;dict&quot;)
+        print(dict)
+        print(&quot;resultCode :&quot;, json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;]))
+
+    resultCode = json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False)
+    print(resultCode)
+    # Err 체크
+    if( json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False) != &quot;\&quot;00\&quot;&quot; ) :
+    #if( resultCode != &quot;\&quot;00\&quot;&quot; ) :
+        return ERR_RESULT_CODE
+
+    jsonString = json.dumps(dict[&apos;response&apos;][&apos;body&apos;], ensure_ascii=False)
+    jsonObj = json.loads(jsonString)
+    if( testYn == True ) :
+        print(&quot;jsonObj&quot;)
+        print(jsonObj)
+
+    return jsonObj
+
+
+def checkJsonObj( jsonObj ) :
+    ERR_STATUS_CODE = &quot;ERR_STATUS_CODE&quot;
+    ERR_RESULT_CODE = &quot;ERR_RESULT_CODE&quot;
+
+    if( jsonObj == ERR_STATUS_CODE ) :
+        return False
+    elif( jsonObj == ERR_RESULT_CODE ) :
+        return False
+    else :
+        return True
+
+#url = getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows )          # 아파트목록(도로명)
+#url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
+#url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
+url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
+jsonObj = getJsonFromUrlContent(url)
+
+#print(jsonObj[&apos;item&apos;])
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
+        print(item)
+else :
+    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3931,6 +4020,557 @@ FK는 11.건물관리번호와 12.법정동코드, 13.도로명코드, 14.지하
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;비정규화 방법 - 슈퍼타입 엔터티의 속성과 서브타입 엔터티 간 속성 이동&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>관계형 데이터 모델링 노트 6장</title>
+      <link>https://anew0m.netlify.com//Relational_Data_Modeling_Note-06.html</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">Relational_Data_Modeling_Note-06.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#엔터티_이야기&quot;&gt;1. 엔터티 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#정규화_이야기&quot;&gt;2. 정규화 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#데이터_통합과_서브타입_이야기&quot;&gt;3. 데이터 통합과 서브타입 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#속성_이야기&quot;&gt;4. 속성 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#관계_이야기&quot;&gt;5. 관계 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#이력_데이터_이야기&quot;&gt;6. 이력 데이터 이야기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;hr&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;엔터티_이야기&quot;&gt;1. 엔터티 이야기&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;정규화_이야기&quot;&gt;2. 정규화 이야기&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;데이터_통합과_서브타입_이야기&quot;&gt;3. 데이터 통합과 서브타입 이야기&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;속성_이야기&quot;&gt;4. 속성 이야기&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;관계_이야기&quot;&gt;5. 관계 이야기&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;이력_데이터_이야기&quot;&gt;6. 이력 데이터 이야기&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;hr&gt;
+&lt;div class=&quot;sidebarblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;요약&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터&lt;/p&gt;
+&lt;div class=&quot;olist loweralpha&quot;&gt;
+&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터 개요&lt;/p&gt;
+&lt;div class=&quot;olist lowerroman&quot;&gt;
+&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터(Alterd Data)란?&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;지나간 데이터(Bygone Data). 즉 입력된 데이터가 변경(정정 아님)된 데이터를 이력데이터라고 함&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터는 원천 데이터의 함수 종속이나 파생 종속과 연관됨&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터를 관리하는 이유는 데이터의 과거 상태를 추적할 필요가 있기 때문&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;모델링 시 주요 엔터티는 이력 데이터 요건이 없더라도 생길 것을 대비하는 것이 좋음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;주 식별자가 아닌 주 식별자에 종속된 속성 값이 바뀌면 이력 데이터가 생기게 됨&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;내역데이터란&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;예전에 쌓인 데이터여도 변경되지 않았다면 이력 데이터가 아니라 내역 데이터&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;과거 데이터라도 본질(원천) 데이터일 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;내역 데이터는 살아있는 데이터이며, 내역 성격의 엔터티는 이력 데이터를 같이 관리하지 않아야함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티 설계 시점&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;1. 원천 엔터티와 동시에 이력 엔터티를 설계&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티만을 설계하는 특정 시점이 사실상 없다는 것을 의미&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;따라서 본질(원천) 데이터를 먼저 확고히 해야한 다는 점만 주의하면, 주요 엔터티는 개념 모델링 단계에서 이력 엔터티를 고려(또는 논의)하는 것이 현실적으로 효율적&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2. 원천 엔터티의 설계가 끝난 시점인 논리 모델링이 끝난 후 또는 물리 모델링 시점에 설계&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터를 논리 모델링이 끝난 물리 모델링 단계에서 설계하면 기존(원천) 엔터티가 영향을 받을 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티 설계 시점은 종합적인 사고가 가능하다는 전제하에서는 한 번에 설계하는게 좋으며, 본질 데이터를 설계할 때 최소한 모델 구조에 대한 변경을 염두에 두고 이력 데이터를 고민해야함&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;중요한 엔터티는 업무 식별자(또는 주 식별자)와 주요 핵심 속성, 이력 데이터 관리 방안, 심각한 성능 이슈 등을 한꺼번에 고민하고 종합적으로 분석 판단해야함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;그리고 이력 데이터를 설계할 때는 선분이력 방식으로 설계할지를 같이 결정해야하며, 선분이력 시 종료일자 속성이 주 식별자에 포함된다면 그 엔터티에는 하위(자식) 엔터티가 없어야 함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티 설계 방법&lt;/p&gt;
+&lt;div class=&quot;olist loweralpha&quot;&gt;
+&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티 설계 방법 개요&lt;/p&gt;
+&lt;div class=&quot;olist lowerroman&quot;&gt;
+&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;엔터티 단위 이력&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;스냅샷 방식으로 저장 공간의 낭비가 심하나, 특정 시점의 전체 속성 값을 조회하는 요건이 많을 때 사용하면 좋음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 관리하기가 수월하며, 하위(자식) 엔터티에 미치는 영향도 차단했기 대문에 모델이 안정적인 장점이 있으나, 거의 유사한 스키마의 엔터티를 동일하게 유지해야하는 부담이 존재&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;실무에서 가장 많이 사용하는 방법이며, 원천 엔터티의 하위 엔터티 또는 서브타입이 존재한다면 이 방법을 사용해야 함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;속성 단위 이력(변경된 속성)&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;변경된 속성의 데이터만 별도로 관리하여 저장 공간이 가장 절약되지만, 과거 특정한 시점에 대해 변경된 속성 값과 변경되지 않은 속성 값을 같이 조회하기 어려움&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;변경 데이터를 별도의 엔터티에서 관리하는 방법과 함께 관리하는 방법으로 나뉠 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;속성 그룹 단위 이력(유사)&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;속성 중 내용(도메인)이 유사하거나 같이 사용될 수 있는 속성을 묶어서 별도의 엔터티에서 이력 데이터를 관리하는 방법&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;적절하게 사용할 시 엔터티 단위 이력과 속성 단위 이력의 장점만을 살릴 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;엔터티 단위 이력 설계&lt;/p&gt;
+&lt;div class=&quot;olist lowerroman&quot;&gt;
+&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터를 별도의 엔터티에서 관리하는 방법&lt;/p&gt;
+&lt;div class=&quot;olist upperalpha&quot;&gt;
+&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;실체 엔터티&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;실체 엔터티에서는 원천 데이터를 관리하는 엔터티를 변경없이 그대로 존재하며, 이력 데이터는 원천 엔터티와 별도로 이력 엔터티에서 관리함(이력 엔터티의 주식별자에 변경일자 속성 추가)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;하위(이력) 엔터티가 존재하기 때문에 원천 데이터와 이력 데이터를 한꺼번에 조회하는 요건이 많다면 비효율이 발생&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;비효율을 개선하기 위해 비정규화의 일종인 중복데이터를 사용할 수 있으나, 데이터 중복이 심하게 발생하므로 원칙적으로 사용을 지양해야함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;기준 엔터티&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;기준 엔터티이면서 원천 엔터티인 엔터티는 기준일자 속성까지 포함하여 관리&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터는 과거에 입력됐지만 현재도 살아 있는 원천 데이터&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;기준 데이터에 대한 이력(정정 아님) 데이터를 설계할 시 별도의 이력 엔터티 생성 후 관리(이력 엔터티의 주식별자에 변경일자 속성 추가)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;또는 기준 엔터티에는 현재의 데이터만 관리하고 별도의 이력 엔터티 생성 후 관리(이력 엔터티의 주식별자에 변경일자 속성 추가)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;행위 엔터티&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;행위 엔터티에서는 이력을 관리하고자 하는 대상의 엔터티들의 구조를 그대로 이력 엔터티를 생성하여 관리함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;하나의 엔터티에 원천 데이터와 변경 데이터를 함께 관리하는 방법&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;일반적으로 주요 실체, 행위, 엔터티에는 사용하지 않지만, 기준 엔터티는 하위 엔터티가 존재하지 않고 데이터양도 적어서 이 방법을 사용하기 적절&lt;/p&gt;
+&lt;div class=&quot;olist upperalpha&quot;&gt;
+&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;실체 엔터티&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터를 설계할 때는 먼저 원천 데이터를 설계&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;원천 데이터와 변경 데이터를 함께 관리하기 때문에 엔터티 명에 굳이 &apos;~이력&amp;#8217;을 붙이지 않음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;원천 엔터티에 변경일자 속성 또는 순번 등의 인조식별자를 추가하며, 변경일자 속성에는 변경되지 않았다는 것을 의미하는 값으로 &apos;9999-12-31&amp;#8217;을 사용함&lt;/p&gt;
+&lt;div class=&quot;olist upperalpha&quot;&gt;
+&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;기준 엔터티&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;조회하는데 문제가 없다면 굳이 이력 데이터 개념으로 설계할 필요는 없음&lt;/p&gt;
+&lt;div class=&quot;olist upperalpha&quot;&gt;
+&lt;ol class=&quot;upperalpha&quot; type=&quot;A&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;행위 엔터티&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;하위(자식) 엔터티가 존재할 때 원천 데이터와 변경 데이터를 함께 관리하는 것은 바람직하지 않음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;(?) 이해가 잘 안됨&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;속성 단위로 이력 데이터를 설계하는 방법&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;특정 속성에 대한 이력 엔터티를 생성 후 변경일자 및 변경값 관리&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;중복 데이터가 없어 데이터 저장공간이 절약되지만, 변경되지 않은 속성까지 함께 조회하긴 어려움&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;실무에서 많이 사용되지 않지만, 자주 사용하는 중요한 속성에 대해서는 이 방법의 사용을 고려해야 함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;원천 데이터를 별도의 엔터티에서 관리하면서, 변경 데이터와 원천 데이터를 함께 관리하는 방법&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;원천 엔터티의 이력을 관리하고자하는 특정 속성을 추출하여 별도의 엔터티에서 데이터를 관리&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;변경 이력 데이터로 설계한 것인지, 발생내역 데이터로 설계한 것인지 구분해야 함&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;속성 단위 이력 설계&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;역할을 관리하는 별도의 엔터티를 설계할 때 자주 사용됨&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;별도의 엔터티에서 관리하는 이유는 역할은 보통 한 개가 아니라는 사실과 함께 이력 데이터까지 고려하기 때문&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;성능 문제를 해결하기 위해 이력 데이터를 선분이력으로 관리하거나, 또는 비정규화(데이터 중복)하는 방법이 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;속성 그룹 단위 이력 설계&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;속성 단위 이력 설계하는 방법과 같으며, 다만 성경이 유사한 속성들을 그룹으로 묶어서 관리하는데 차이가 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;유사한 속성들을 그룹으로 묶어서 관리하는 이유는 같이 조회되는 요건을 처리하기 위함&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;따라서 유사한 속성이 아니더라도 같이 사용되는 속성을 그룹으로 묶을 수도 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;적절하게 사용하면 효율적인 모델이 되지만, 명확한 기준 없이 속성을 묶으면 원천 엔터티나 이력 엔터티의 성격이 혼한스러워질 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;종 테이블(Vertical Table)을 이용한 이력 설계&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;변경된 속성을 종 테이블 형식의 별도 엔터티에서 통합 관리하는 것&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이 방법을 사용할 시 엔터티명과 속성명에 대한 관리 부담이 부가적으로 생기며, 관리할 속성이 명확하지 않고 특정 시점의 모든 속성 데이터를 조회하기 어려움&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;하지만 모델을 형상 관리할 필요가 없다는게 큰 장점으로 실무에서 자주 사용되지만, 지나치게 유연해서 가능하면 사용을 자제하고 종 테이블로 관리할 시 심사숙고하여 결정할 것&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;종 테이블은 유연한 만큼 이력 엔터티를 통합하는데 자유도가 높아 무분별하게 통합할 위험이 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;따라서 성격이 유사하거나, 같은 영역에 있는 몇개의 이력 엔터티를 통합하는게 바람직하고, 조인해서 사용하기 보다는 필요할 때 참고할 용도로 사용하면 효과적임&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;선분이력&lt;/p&gt;
+&lt;div class=&quot;olist loweralpha&quot;&gt;
+&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;선분이력 개요&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;선분이력은 과거 특정 시점의 데이터를 조회하는 요건이 많을 때 사용하는 방법으로 조회성능을 고려한 기법으로, 선분이력이 필요한 경우는 그다지 많지 않으므로 남용 주의&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;특정 데이터가 변경된 시작일자와 변경 전의 종료일자가 이어지도록 인위적으로 데이터를 관리하는 것이 핵심이므로 변경된 릴레이션의 시작과 종료 시점을 연결하면 하나의 선분이 되는 것이 중요&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;넓은 범위의 조회가 있고 성능 문제를 해결해야 한다면 선분이력 방법을 사용해야 하며, 선분이력의 종료일자에 대한 기본 값은 &apos;9999년 12월 31일&amp;#8217;이 적당하며, Default 제약을 설정해 사용하는것이 좋음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;선분이력을 사용할 때 시작일자와 종료일자가 겹치지 않도록 주의&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;선분이력의 종료일자는 추출 속성으로 성능향상을 위해 존재하는 속성이지 본질적인 속성이 아니며, 데이터 성격상 없어도 되는 속성이므로 도입시 성능상 커다란 이득이 있는지도 따져봐야함&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;성능향상을 위해 사용된 만큼 주 식별자에 포함하여 관리하는것이 좋으며, 변경순번과 같이 인조식별자를 사용하는 것은 바람직하지 않음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티 설계 절차&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티를 설계하는 시작점은 이력 데이터를 관리하는 요건이 있느냐 인데, 이력 데이터를 쌓아두지 않더라도 이력 엔터티를 설계해 두는 것은 의미가 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티는 총 5단계로 아래와 같이 분류 될 수 있음&lt;/p&gt;
+&lt;div class=&quot;olist loweralpha&quot;&gt;
+&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;변경 데이터를 관리해야 하는 요건이 있는지&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터를 어떤 방법으로 관리해야 가장 효율적인지 분석&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;선분이력 방법을 채택할지 결정&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 엔터티의 주 식별자(PK) 확정&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;다른 엔터티와의 관계를 감안하여 최종적으로 확인&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;서브타입 이력 모델&lt;/p&gt;
+&lt;div class=&quot;olist loweralpha&quot;&gt;
+&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;슈퍼·서브타입 엔터티별로 이력 데이터를 관리하는 방법&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;슈퍼타입 이력 엔터티와 서브타입 이력 엔터티간 참조 무결성 제약이 없기 떄문에 데이터 무결성을 장담할 수 없음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;특정 시점의 데이터를 조회하기 복잡&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;슈퍼·서브타입 엔터티와 동일한 구조의 엔터티로 이력 데이터를 관리하는 방법&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;직관적이고 엔터티 간에 참조 무결성 제약이 존재해 데이터 정합성이 맞으며, 조회하기 쉬움&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;성능에 문제가 있을시 선분이력 방법을 적용할 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;속성 단위로 이력 데이터를 관리하는 방법&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;특정 속성을 대상으로 이력을 관리할 때 사용&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;정정 데이터&lt;/p&gt;
+&lt;div class=&quot;olist loweralpha&quot;&gt;
+&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;정정 데이터란&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;정정 데이터는 데이터가 잘못돼 수정한 데이터로써 데이터를 변경한 이력 데이터와는 다름&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;정정 데이터 관리 방법&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;정정 데이터를 관리하는 방법은 정정이력을 관리하지 않고 데이터 업데이트하는 방법&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;하나의 엔터티에서 변경이력 데이터를 관리하면서, 정정 데이터도 함께 관리하는 방법&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
@@ -5841,63 +6481,6 @@ FK는 11.건물관리번호와 12.법정동코드, 13.도로명코드, 14.지하
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>관계형 데이터 모델링 노트 소개</title>
-      <link>https://anew0m.netlify.com//Relational_Data_Modeling_Note.html</link>
-      <pubDate>Fri, 4 Oct 2019 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">Relational_Data_Modeling_Note.html</guid>
-      	<description>
-	&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://dataprofessional.tistory.com/182&quot;&gt;관계형 데이터 모델링 노트 개정판 - 김기창저&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/Relational_Data_Modeling_Note/book_cover.jpg&quot; alt=&quot;book_cover&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://book.naver.com/bookdb/book_detail.nhn?bid=13445378&quot;&gt;관계형 데이터 모델링 노트 개정판&lt;/a&gt;은 &lt;a href=&quot;http://wisdommind.co.kr/&quot;&gt;위즈덤마인드&lt;/a&gt;의 김기창 대표님이 집필한 책이다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;본 도서는 기존에 발간된 &lt;a href=&quot;https://book.naver.com/bookdb/book_detail.nhn?bid=7421308&quot;&gt;관계형 데이터 모델링 노트 - 재미와 깨달음이 있는 모델링 이야기 프리미엄 가이드 2&lt;/a&gt;를 개선되어 재발간된 책으로, 2018.03.31에 출간되었으며 총 742 페이지로 아래와 같은 구성으로 이루어져있다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sidebarblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;div class=&quot;olist arabic&quot;&gt;
-&lt;ol class=&quot;arabic&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;엔터티 이야기&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;정규화 이야기&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;데이터 통합과 서브타입 이야기&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;속성 이야기&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;관계 이야기&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;이력 데이터 이야기&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;비정규화 이야기&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;본 도서를 요약 및 정리하고자 생각하게된 계기는 네이버 카페인 &lt;a href=&quot;https://cafe.naver.com/dbstudydapsqlp&quot;&gt;데이터와사람들&lt;/a&gt;에서 진행된 &lt;a href=&quot;https://cafe.naver.com/dbstudydapsqlp/5370&quot;&gt;스터디&lt;/a&gt;를 시작하게됨으로써 도서를 요약 및 정리하기로 결심했다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;따라서 책 내용을 정리하여 포스팅 하는 주기는 스터디 일정에 맞춰 19.10.05일 부터 2주 간격으로 한 장씩 포스팅 하고자하지만 유동적으로 변경될 수도 있을것 같다.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
@@ -8692,6 +9275,63 @@ FK는 11.건물관리번호와 12.법정동코드, 13.도로명코드, 14.지하
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>관계형 데이터 모델링 노트 소개</title>
+      <link>https://anew0m.netlify.com//Relational_Data_Modeling_Note.html</link>
+      <pubDate>Fri, 4 Oct 2019 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">Relational_Data_Modeling_Note.html</guid>
+      	<description>
+	&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://dataprofessional.tistory.com/182&quot;&gt;관계형 데이터 모델링 노트 개정판 - 김기창저&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/Relational_Data_Modeling_Note/book_cover.jpg&quot; alt=&quot;book_cover&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://book.naver.com/bookdb/book_detail.nhn?bid=13445378&quot;&gt;관계형 데이터 모델링 노트 개정판&lt;/a&gt;은 &lt;a href=&quot;http://wisdommind.co.kr/&quot;&gt;위즈덤마인드&lt;/a&gt;의 김기창 대표님이 집필한 책이다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;본 도서는 기존에 발간된 &lt;a href=&quot;https://book.naver.com/bookdb/book_detail.nhn?bid=7421308&quot;&gt;관계형 데이터 모델링 노트 - 재미와 깨달음이 있는 모델링 이야기 프리미엄 가이드 2&lt;/a&gt;를 개선되어 재발간된 책으로, 2018.03.31에 출간되었으며 총 742 페이지로 아래와 같은 구성으로 이루어져있다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sidebarblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;엔터티 이야기&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;정규화 이야기&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 통합과 서브타입 이야기&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;속성 이야기&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;관계 이야기&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이력 데이터 이야기&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;비정규화 이야기&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;본 도서를 요약 및 정리하고자 생각하게된 계기는 네이버 카페인 &lt;a href=&quot;https://cafe.naver.com/dbstudydapsqlp&quot;&gt;데이터와사람들&lt;/a&gt;에서 진행된 &lt;a href=&quot;https://cafe.naver.com/dbstudydapsqlp/5370&quot;&gt;스터디&lt;/a&gt;를 시작하게됨으로써 도서를 요약 및 정리하기로 결심했다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;따라서 책 내용을 정리하여 포스팅 하는 주기는 스터디 일정에 맞춰 19.10.05일 부터 2주 간격으로 한 장씩 포스팅 하고자하지만 유동적으로 변경될 수도 있을것 같다.&lt;/p&gt;
 &lt;/div&gt;
 	</description>
     </item>
