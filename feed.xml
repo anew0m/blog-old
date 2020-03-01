@@ -6,165 +6,644 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sat, 29 Feb 2020 17:34:39 +0000</pubDate>
-    <lastBuildDate>Sat, 29 Feb 2020 17:34:39 +0000</lastBuildDate>
+    <pubDate>Sun, 1 Mar 2020 14:29:44 +0000</pubDate>
+    <lastBuildDate>Sun, 1 Mar 2020 14:29:44 +0000</lastBuildDate>
 
     <item>
-      <title>어떡하집 프로젝트 - 아파트 정보 수집 계획</title>
-      <link>https://anew0m.netlify.com//HowHome-02-AptData-01.html</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">HowHome-02-AptData-01.html</guid>
+      <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</title>
+      <link>https://anew0m.netlify.com//HowHome-02-AptData-04.html</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">HowHome-02-AptData-04.html</guid>
       	<description>
 	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
 &lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
 &lt;ul class=&quot;sectlevel1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#아파트_정보_수집_계획&quot;&gt;1. 아파트 정보 수집 계획&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;아파트_정보_수집_계획&quot;&gt;1. 아파트 정보 수집 계획&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;먼저 아파트 정보 수집을 하려고 합니다. 따라서 위해 아래와 같은 작업들을 수행하려고 합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;olist arabic&quot;&gt;
-&lt;ol class=&quot;arabic&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;아파트 수집 정보 정의&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;아파트 정보 수집 방안 수립&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;아파트 정보 저장 방안 수립&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>어떡하집 프로젝트 구상</title>
-      <link>https://anew0m.netlify.com//HowHome-01.html</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">HowHome-01.html</guid>
-      	<description>
-	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
-&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
-&lt;ul class=&quot;sectlevel1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#프로젝트를_시작한_동기&quot;&gt;1. 프로젝트를 시작한 동기&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#프로젝트_진행계획&quot;&gt;2. 프로젝트 진행계획&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#프로젝트_이슈사항&quot;&gt;3. 프로젝트 이슈사항&lt;/a&gt;
+&lt;li&gt;&lt;a href=&quot;#들어가며&quot;&gt;1. 들어가며&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#공공데이터포털&quot;&gt;2. 공공데이터포털&lt;/a&gt;
 &lt;ul class=&quot;sectlevel2&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#데이터_수집_부분&quot;&gt;3.1. 데이터 수집 부분&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#변경되는_주소정보&quot;&gt;3.2. 변경되는 주소정보&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#아파트_줄임말&quot;&gt;3.3. 아파트 줄임말&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#공동주택_단지_목록제공_서비스&quot;&gt;2.1. 공동주택 단지 목록제공 서비스&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#공동주택_기본_정보제공_서비스&quot;&gt;2.2. 공동주택 기본 정보제공 서비스&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#아파트_실거래_상세_자료&quot;&gt;2.3. 아파트 실거래 상세 자료&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#프로젝트를_하면서_기대하는_것&quot;&gt;4. 프로젝트를 하면서 기대하는 것&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#공공데이터포털_전체_코드&quot;&gt;3. 공공데이터포털 전체 코드&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;프로젝트를_시작한_동기&quot;&gt;1. 프로젝트를 시작한 동기&lt;/h2&gt;
+&lt;h2 id=&quot;들어가며&quot;&gt;1. 들어가며&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;저는 오래전부터 내집마련에 관심을 가지고 있지만 막상 이렇다할 행동을 취한것은 없었습니다. 그나마 해둔것이라곤 시드머니를 만들기 위해 돈을 아껴쓰고 모으는 행동 뿐이었습니다.&lt;/p&gt;
+&lt;p&gt;공공데이터 포털을 파이썬을 이용해 데이터를 수집해 보려고 합니다.
+파이썬을 사용하면서 사용할 툴은 아래와 같습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.anaconda.com/distribution/&quot; class=&quot;bare&quot;&gt;https://www.anaconda.com/distribution/&lt;/a&gt; - &lt;a href=&quot;https://www.anaconda.com/distribution/&quot;&gt;아나콘다&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.jetbrains.com/pycharm/&quot; class=&quot;bare&quot;&gt;https://www.jetbrains.com/pycharm/&lt;/a&gt; - &lt;a href=&quot;https://www.jetbrains.com/pycharm/&quot;&gt;파이참&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;그러다 최근 부동산에 대한 관심도가 부쩍 늘어났습니다. 부동산관련 카페에서 다른사람이 작성한 글을 읽어보거나, 유튜브 등을 보고 있습니다.&lt;/p&gt;
+&lt;p&gt;아나콘다에는 파이썬을 비롯한 유용한 라이브러리가 포함되어 있습니다.
+가볍게 파이썬만 설치하는것 보다 아나콘다를 설치하는게 편하지 않을까 생각합니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;그 중에 이 프로젝트를 해봐야겠다고 마음먹게한 유튜브 영상이 하나 있었습니다.&lt;/p&gt;
+&lt;p&gt;파이썬 설치 및 아나콘다 설치는 아래 URL을 참고하여 설치하였습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;그 영상은 유튜버 &lt;a href=&quot;https://www.youtube.com/channel/UC8tWxC9EPKUCrHmEhiYTbhQ&quot;&gt;렘군RemGoon&lt;/a&gt;이란 분이 업로드한 &lt;a href=&quot;https://www.youtube.com/watch?v=0G9nu5tHMnc&quot;&gt;부동산 랜드마크를 활용한 투자법 1탄&lt;/a&gt;과 &lt;a href=&quot;https://www.youtube.com/watch?v=TVms39NqQNA&quot;&gt;부동산 랜드마크를 활용한 투자법 2탄&lt;/a&gt; 이었습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;이 영상에서는 랜드마크 아파트. 즉, 해당 지역의 아파트 중 시세를 이끌어 가는 대장(랜드마크) 아파트와 저평가된 아파트를 찾는 방법을 알려주었습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;따라서 저는 이 방법을 시스템화하여 자동으로 랜드마크 아파트와 저평가된 아파트를 찾아주는 프로젝트를 구상하게 되었습니다.&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://bradbury.tistory.com/63&quot; class=&quot;bare&quot;&gt;https://bradbury.tistory.com/63&lt;/a&gt; - &lt;a href=&quot;https://bradbury.tistory.com/63&quot;&gt;파이참(PyCharm) 설치 및 아나콘다 가상환경 적용&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;프로젝트_진행계획&quot;&gt;2. 프로젝트 진행계획&lt;/h2&gt;
+&lt;h2 id=&quot;공공데이터포털&quot;&gt;2. 공공데이터포털&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;프로젝트는 사전조사 &amp;#8594; 설계 &amp;#8594; 구현 단계로 진행하려고 합니다.&lt;/p&gt;
+&lt;p&gt;공공데이터포털에서 활용신청한 데이터는 &apos;마이페이지 &amp;#8594; 오픈API &amp;#8594; 개발계정&apos; 으로 접근하면 아래의 그림처럼 목록을 보실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-01.png&quot; alt=&quot;공공데이터포털&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;공동주택_단지_목록제공_서비스&quot;&gt;2.1. 공동주택 단지 목록제공 서비스&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;먼저 공동주택 단지 목록 제공 서비스에서 데이터를 가져와 보겠습니다.
+공동주택 단지 목록 제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-01.png&quot; alt=&quot;단지목록-1&quot;&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;사전조사 단계에서는 부동산과 관련하여 유사 시스템을 분석 합니다.
-유사 시스템을 분석함으로써 어떤 데이터들을 수집할 것인지 명확하게 정의할 수 있고 또, 제공하는 기능들을 통해 본 시스템에서 구현할 기능에 대한 인사이트를 얻을 수 있기 떄문입니다.&lt;/p&gt;
+&lt;p&gt;하단의 상세기능정보에서 도로명 아파트 목록의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;설계 단계에서는 데이터를 수집과 처리, 제공하는 과정들을 제공하기 위해 어떤 툴을 사용하고 어떻게 구현할 것인지 정의 합니다.&lt;/p&gt;
+&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-02.png&quot; alt=&quot;단지목록-2&quot;&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;구현 단계에서는 시스템을 구현하기 위한 환경을 구축하고 기능을 개발합니다.&lt;/p&gt;
+&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;프로젝트를 진행함에 있어 각 단계는 반드시 순서에 맞춰 진행하지 않고 필요 또는 제가 생각하는 우선순위에 따라서 유동적으로 진행하려고 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;amp;roadCode={도로명코드}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;amp;roadCode={도로명코드}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-03.png&quot; alt=&quot;단지목록-3&quot;&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;그리고 제가 어떻게 조사하고 설계, 구현 했는지 포스팅 해보려고 합니다.
-포스팅은 최소 한 주에 하나는 포스팅하려고 합니다.&lt;/p&gt;
+&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;URL 주소 : &lt;a href=&quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;roadCode={도로명코드}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;pageNo={페이지번호}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;numOfRows={페이지목록건수}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;파이참을 실행하고 프로젝트를 생성 후 API를 테스트할 *.py 파일을 생성합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-04.png&quot; alt=&quot;파이참-4&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-05.png&quot; alt=&quot;파이참-5&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;API를 이용해 데이터를 가져오고 json으로 변환하기 위해 requesets, xmltodict, json 라이브러리를 사용합니다.
+파이참에서 라이브러리 설치 및 코드스타일 설정은 아래의 URL을 참조하였습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://tariat.tistory.com/692&quot; class=&quot;bare&quot;&gt;https://tariat.tistory.com/692&lt;/a&gt; - &lt;a href=&quot;https://tariat.tistory.com/692&quot;&gt;파이참(pycharm)에서 라이브러리 쉽게 설치하는 방법!&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv&quot; class=&quot;bare&quot;&gt;https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv&lt;/a&gt; - &lt;a href=&quot;https://velog.io/@city7310/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%BD%94%EB%93%9C-%ED%8F%AC%EB%A7%A4%ED%84%B0-%EC%9D%B4%EC%95%BC%EA%B8%B0-5wjxdei9iv&quot;&gt;파이썬 코드 스타일 이야기 - (1) Style Checker, Formatter들 구경하기&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import requests, xmltodict, json
+
+# 테스팅 관련 변수
+testYn      = True
+#testYn      = False
+
+# 공공데이터 포털 API 호출관련 기본 변수
+serviceKey  = &quot;1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D&quot;
+pageNo      = &quot;1&quot;   # 페이지번호
+numOfRows   = &quot;100&quot;  # 페이지내목록수
+
+# 아파트목록 관련 변수
+roadCode    = &quot;263802006002&quot;    # 도로명코드
+bjdCode     = &quot;2638010100&quot;      # 법정동코드
+
+# 에러관련 변수
+ERR_STATUS_CODE  = &quot;ERR_STATUS_CODE&quot;
+ERR_RESULT_CODE  = &quot;ERR_RESULT_CODE&quot;
+
+
+
+&quot;&quot;&quot;
+&apos;아파트(도로명) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;amp;roadCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, roadCode, pageNo, numOfRows)
+    return url
+
+&quot;&quot;&quot;
+&apos;아파트(법정동) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;amp;bjdCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, bjdCode, pageNo, numOfRows)
+    return url
+
+&quot;&quot;&quot;
+URL을 통해 API를 호출하여 결과값 JSON으로 생성
+&quot;&quot;&quot;
+def getJsonFromUrlContent( url ) :
+    response = requests.get(url)
+    if( testYn == True ) :
+        print(&quot;response&quot;)
+        print(response)
+        print(&quot;status code :&quot;, response.status_code)
+
+    # Err 체크
+    if( response.status_code != 200 ) :
+        return ERR_STATUS_CODE
+
+    response = response.content
+    if (testYn == True):
+        print(&quot;response&quot;)
+        print(response)
+
+    dict = xmltodict.parse(response)
+    if( testYn == True ) :
+        print(&quot;dict&quot;)
+        print(dict)
+        print(&quot;resultCode :&quot;, json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;]))
+
+    resultCode = json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False)
+    print(resultCode)
+    # Err 체크
+    if( json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False) != &quot;\&quot;00\&quot;&quot; ) :
+    #if( resultCode != &quot;\&quot;00\&quot;&quot; ) :
+        return ERR_RESULT_CODE
+
+    jsonString = json.dumps(dict[&apos;response&apos;][&apos;body&apos;], ensure_ascii=False)
+    jsonObj = json.loads(jsonString)
+    if( testYn == True ) :
+        print(&quot;jsonObj&quot;)
+        print(jsonObj)
+
+    return jsonObj
+
+
+def checkJsonObj( jsonObj ) :
+    ERR_STATUS_CODE = &quot;ERR_STATUS_CODE&quot;
+    ERR_RESULT_CODE = &quot;ERR_RESULT_CODE&quot;
+
+    if( jsonObj == ERR_STATUS_CODE ) :
+        return False
+    elif( jsonObj == ERR_RESULT_CODE ) :
+        return False
+    else :
+        return True
+
+url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
+jsonObj = getJsonFromUrlContent(url)
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
+        print(item)
+else :
+    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-06.png&quot; alt=&quot;파이참-5&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;공동주택_기본_정보제공_서비스&quot;&gt;2.2. 공동주택 기본 정보제공 서비스&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;공동주택 기본 정보제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-01.png&quot; alt=&quot;기본정보-1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;하단의 상세기능정보에서 공동주택 기본 정보조회의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-02.png&quot; alt=&quot;기본정보-2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;amp;kaptCode={단지코드}&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;amp;kaptCode={단지코드}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-03.png&quot; alt=&quot;기본정보-3&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;URL 주소 : &lt;a href=&quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;kaptCode={단지코드}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;# 아파트 기본정보 관련 변수
+kaptCode    = &quot;A10027875&quot;
+
+&quot;&quot;&quot;
+&apos;아파트 기본정보 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+kaptCode   MM 단지코드
+&quot;&quot;&quot;
+def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;amp;kaptCode={}&quot;.format(serviceKey, kaptCode)
+    return url
+
+url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
+jsonObj = getJsonFromUrlContent(url)
+
+print(jsonObj[&apos;item&apos;])&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-04.png&quot; alt=&quot;기본정보-4&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;아파트_실거래_상세_자료&quot;&gt;2.3. 아파트 실거래 상세 자료&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;아파트 실거래 상세 자료에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-01.png&quot; alt=&quot;아파트실거래-1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;하단의 상세기능정보에서 공동주택 기본 정보조회의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
+팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-02.png&quot; alt=&quot;아파트실거래-2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
+여기서 필요한 정보는 상단의 URL 정보가 필요하며,
+상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&amp;amp;LAWD_CD={지역코드}&amp;amp;DEAL_YMD={계약년월}&quot; class=&quot;bare&quot;&gt;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&amp;amp;LAWD_CD={지역코드}&amp;amp;DEAL_YMD={계약년월}&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-03.png&quot; alt=&quot;아파트실거래-3&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
+이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;URL 주소 : &lt;a href=&quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev&quot; class=&quot;bare&quot;&gt;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;pageNo={페이지번호}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;numOfRows={페이지목록건수}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;LAWD_CD={지역코드}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;요청변수 : &amp;amp;DEAL_YMD={계약년월}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;# 아파트 실거래 관련 변수
+LAWD_CD     = &quot;11110&quot;   # 지역코드
+DEAL_YMD    = &quot;201512&quot;  # 계약년월
+
+&quot;&quot;&quot;
+&apos;아파트매매 실거래 상세 자료&apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3050988/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+LAWD_CD    NN 지역코드
+DEAL_YMD   NN 계약월
+&quot;&quot;&quot;
+def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
+    url = &quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&amp;amp;LAWD_CD={}&amp;amp;DEAL_YMD={}&quot;.format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
+    return url
+
+url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
+jsonObj = getJsonFromUrlContent(url)
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
+        print(item)
+else :
+    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-04.png&quot; alt=&quot;아파트실거래-4&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;프로젝트_이슈사항&quot;&gt;3. 프로젝트 이슈사항&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;데이터_수집_부분&quot;&gt;3.1. 데이터 수집 부분&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;현재 프로젝트를 진행함에 있어 수집되어야 할 정보는 아파트와 관련된 정보입니다.
-아파트와 관련된 정보는 아파트의 좌표와 주소(도로명/지번), 관련기사, 매매가, 전세가, 세대수, 평수, 평면도 등이 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;이 정보들 중 관련기사 정보를 수집할 때 특정 사이트에서 어뷰징 행위로 간주될텐데 이를 어떻게 풀것이며, 수집하는 속도를 어떻게 높일 것 인지 고민됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;변경되는_주소정보&quot;&gt;3.2. 변경되는 주소정보&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;사실 저는 회사에서 프로젝트를 하기 전까지 주소는 바뀌지 않는 정보인 줄 알았습니다.
-주소가 변경되는 정확한 이유는 모르겠지만 아마도 도로가 변경되거나, 도시가 생기거나 하는 등의 이유가 있지 않을까 생각됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;변경되는 주소는 아마도 &lt;a href=&quot;https://post.naver.com/viewer/postView.nhn?volumeNo=7135987&amp;amp;memberNo=36248235&quot;&gt;PNU 코드&lt;/a&gt;로 막연하게 해결할 수 있지 않을까 생각되는데, 문제는 주소정보를 어떻게 자동으로 최신화 할 것인지 고민됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;아파트_줄임말&quot;&gt;3.3. 아파트 줄임말&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;아파트 명칭이 유일하면 좋겠지만 그렇지 않고, 여러 사람들이 특정 아파트를 하나의 명칭으로 표현하면 좋겠지만 이것도 그렇지 않습니다.
-앞서 소개한 유튜브 동영상에서도 &apos;래미안힐스테이트&amp;#8217;를 지명인 고덕과 합쳐서 &apos;고래힐&amp;#8217;이라고 표현하고 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;데이터 수집할 때 여러 사이트에서 아파트 정보를 수집하려고 생각하는데, 하나의 아파트가 여러 명칭들로 표현되면 난감 할것 같습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;수작업으로 아파트 명칭의 메타정보를 관리하기엔 아파트의 수가 너무나 많은데 이를 어떻게 해결할지 고민됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;프로젝트를_하면서_기대하는_것&quot;&gt;4. 프로젝트를 하면서 기대하는 것&lt;/h2&gt;
+&lt;h2 id=&quot;공공데이터포털_전체_코드&quot;&gt;3. 공공데이터포털 전체 코드&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;이 프로젝트를 진행하면서 부동산에 관한 지식과 데이터와 관련된 전공 지식 향상을 기대하고 있습니다.&lt;/p&gt;
+&lt;p&gt;공공데이터를 가져오는 코드는 각 API 별로 함수화하여 코드를 작성하였습니다.
+공공데이터 API를 테스트하기 위해 함수화 했지만 아직 코드에 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%BD%94%EB%93%9C_%EC%8A%A4%EB%A9%9C&quot;&gt;나쁜냄새&lt;/a&gt;가 존재하는것 같습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;그리고 언제가 될진 모르겠지만 향후 내집마련 시 이 시스템을 통해 인사이트를 얻을 수 있기를 기대하고 있습니다.&lt;/p&gt;
+&lt;p&gt;추후 이 코드를 리팩토링해보겠습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;시스템에서는 저평가된 지역 및 아파트를 도출 해주고, 특정 지역의 호재/악재를 파악 할 수 있기를 기대하고 있습니다.&lt;/p&gt;
+&lt;p&gt;아래는 작성한 전체 코드 입니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;또 해외 부동산 정보를 수집하여 국내의 부동산과 비교함으로써 어떠한 상관관계가 있는지 파악할 수 있지 않을까 기대합니다.&lt;/p&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import requests, xmltodict, json
+
+# 테스팅 관련 변수
+testYn      = True
+#testYn      = False
+
+# 공공데이터 포털 API 호출관련 기본 변수
+serviceKey  = &quot;1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D&quot;
+pageNo      = &quot;1&quot;   # 페이지번호
+numOfRows   = &quot;100&quot;  # 페이지내목록수
+
+# 아파트목록 관련 변수
+roadCode    = &quot;263802006002&quot;    # 도로명코드
+bjdCode     = &quot;2638010100&quot;      # 법정동코드
+
+# 아파트 기본정보 관련 변수
+kaptCode    = &quot;A10027875&quot;
+
+# 아파트 실거래 관련 변수
+LAWD_CD     = &quot;11110&quot;   # 지역코드
+DEAL_YMD    = &quot;201512&quot;  # 계약년월
+
+# 에러관련 변수
+ERR_STATUS_CODE  = &quot;ERR_STATUS_CODE&quot;
+ERR_RESULT_CODE  = &quot;ERR_RESULT_CODE&quot;
+
+
+
+&quot;&quot;&quot;
+&apos;아파트(도로명) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;amp;roadCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, roadCode, pageNo, numOfRows)
+    return url
+
+&quot;&quot;&quot;
+&apos;아파트(법정동) 목록 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+&quot;&quot;&quot;
+def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;amp;bjdCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, bjdCode, pageNo, numOfRows)
+    return url
+
+
+
+&quot;&quot;&quot;
+&apos;아파트 기본정보 &apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3039714/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+kaptCode   MM 단지코드
+&quot;&quot;&quot;
+def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
+    url = &quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;amp;kaptCode={}&quot;.format(serviceKey, kaptCode)
+    return url
+
+
+
+&quot;&quot;&quot;
+&apos;아파트매매 실거래 상세 자료&apos; API 호출을 위한 URL 생성
+https://www.data.go.kr/dataset/3050988/openapi.do
+
+## NN -&amp;gt; 필수(notNull)
+serviceKey NN 서비스키
+pageNo        페이지 번호
+numOfRows     한 페이지 결과 수
+LAWD_CD    NN 지역코드
+DEAL_YMD   NN 계약월
+&quot;&quot;&quot;
+def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
+    url = &quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&amp;amp;LAWD_CD={}&amp;amp;DEAL_YMD={}&quot;.format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
+    return url
+
+
+
+&quot;&quot;&quot;
+URL을 통해 API를 호출하여 결과값 JSON으로 생성
+&quot;&quot;&quot;
+def getJsonFromUrlContent( url ) :
+    response = requests.get(url)
+    if( testYn == True ) :
+        print(&quot;response&quot;)
+        print(response)
+        print(&quot;status code :&quot;, response.status_code)
+
+    # Err 체크
+    if( response.status_code != 200 ) :
+        return ERR_STATUS_CODE
+
+    response = response.content
+    if (testYn == True):
+        print(&quot;response&quot;)
+        print(response)
+
+    dict = xmltodict.parse(response)
+    if( testYn == True ) :
+        print(&quot;dict&quot;)
+        print(dict)
+        print(&quot;resultCode :&quot;, json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;]))
+
+    resultCode = json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False)
+    print(resultCode)
+    # Err 체크
+    if( json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False) != &quot;\&quot;00\&quot;&quot; ) :
+    #if( resultCode != &quot;\&quot;00\&quot;&quot; ) :
+        return ERR_RESULT_CODE
+
+    jsonString = json.dumps(dict[&apos;response&apos;][&apos;body&apos;], ensure_ascii=False)
+    jsonObj = json.loads(jsonString)
+    if( testYn == True ) :
+        print(&quot;jsonObj&quot;)
+        print(jsonObj)
+
+    return jsonObj
+
+
+def checkJsonObj( jsonObj ) :
+    ERR_STATUS_CODE = &quot;ERR_STATUS_CODE&quot;
+    ERR_RESULT_CODE = &quot;ERR_RESULT_CODE&quot;
+
+    if( jsonObj == ERR_STATUS_CODE ) :
+        return False
+    elif( jsonObj == ERR_RESULT_CODE ) :
+        return False
+    else :
+        return True
+
+#url = getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows )          # 아파트목록(도로명)
+#url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
+#url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
+url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
+jsonObj = getJsonFromUrlContent(url)
+
+#print(jsonObj[&apos;item&apos;])
+
+if ( checkJsonObj(jsonObj) ) :
+    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
+        print(item)
+else :
+    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -173,7 +652,7 @@
     <item>
       <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-1)</title>
       <link>https://anew0m.netlify.com//HowHome-02-AptData-03.html</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">HowHome-02-AptData-03.html</guid>
       	<description>
 	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
@@ -455,7 +934,7 @@ API 활용신청은 참고문서를 참조하여 신청하였습니다.&lt;/p&gt
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&amp;amp;cPath=99MD&quot; class=&quot;bare&quot;&gt;http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&amp;amp;cPath=99MD&lt;/a&gt; &lt;a href=&quot;http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&amp;amp;cPath=99MD&quot;&gt;도로명주소 개발자센터&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&amp;amp;cPath=99MD&quot; class=&quot;bare&quot;&gt;http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&amp;amp;cPath=99MD&lt;/a&gt; - &lt;a href=&quot;http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&amp;amp;cPath=99MD&quot;&gt;도로명주소 개발자센터&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -714,7 +1193,7 @@ FK는 11.건물관리번호와 12.법정동코드, 13.도로명코드, 14.지하
     <item>
       <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(수집 정보 정의)</title>
       <link>https://anew0m.netlify.com//HowHome-02-AptData-02.html</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Feb 2020 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">HowHome-02-AptData-02.html</guid>
       	<description>
 	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
@@ -2709,640 +3188,161 @@ FK는 11.건물관리번호와 12.법정동코드, 13.도로명코드, 14.지하
 	</description>
     </item>
     <item>
-      <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</title>
-      <link>https://anew0m.netlify.com//HowHome-02-AptData-04.html</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">HowHome-02-AptData-04.html</guid>
+      <title>어떡하집 프로젝트 - 아파트 정보 수집 계획</title>
+      <link>https://anew0m.netlify.com//HowHome-02-AptData-01.html</link>
+      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">HowHome-02-AptData-01.html</guid>
       	<description>
 	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
 &lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
 &lt;ul class=&quot;sectlevel1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#들어가며&quot;&gt;1. 들어가며&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#공공데이터포털&quot;&gt;2. 공공데이터포털&lt;/a&gt;
+&lt;li&gt;&lt;a href=&quot;#아파트_정보_수집_계획&quot;&gt;1. 아파트 정보 수집 계획&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;아파트_정보_수집_계획&quot;&gt;1. 아파트 정보 수집 계획&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;먼저 아파트 정보 수집을 하려고 합니다. 따라서 위해 아래와 같은 작업들을 수행하려고 합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;아파트 수집 정보 정의&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;아파트 정보 수집 방안 수립&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;아파트 정보 저장 방안 수립&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>어떡하집 프로젝트 구상</title>
+      <link>https://anew0m.netlify.com//HowHome-01.html</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">HowHome-01.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#프로젝트를_시작한_동기&quot;&gt;1. 프로젝트를 시작한 동기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#프로젝트_진행계획&quot;&gt;2. 프로젝트 진행계획&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#프로젝트_이슈사항&quot;&gt;3. 프로젝트 이슈사항&lt;/a&gt;
 &lt;ul class=&quot;sectlevel2&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#공동주택_단지_목록제공_서비스&quot;&gt;2.1. 공동주택 단지 목록제공 서비스&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#공동주택_기본_정보제공_서비스&quot;&gt;2.2. 공동주택 기본 정보제공 서비스&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#아파트_실거래_상세_자료&quot;&gt;2.3. 아파트 실거래 상세 자료&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#데이터_수집_부분&quot;&gt;3.1. 데이터 수집 부분&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#변경되는_주소정보&quot;&gt;3.2. 변경되는 주소정보&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#아파트_줄임말&quot;&gt;3.3. 아파트 줄임말&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#공공데이터포털_전체_코드&quot;&gt;3. 공공데이터포털 전체 코드&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#프로젝트를_하면서_기대하는_것&quot;&gt;4. 프로젝트를 하면서 기대하는 것&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;들어가며&quot;&gt;1. 들어가며&lt;/h2&gt;
+&lt;h2 id=&quot;프로젝트를_시작한_동기&quot;&gt;1. 프로젝트를 시작한 동기&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;공공데이터 포털을 파이썬을 이용해 데이터를 수집해 보려고 합니다.
-파이썬을 사용하면서 사용할 툴은 아래와 같습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.anaconda.com/distribution/&quot; class=&quot;bare&quot;&gt;https://www.anaconda.com/distribution/&lt;/a&gt; - &lt;a href=&quot;https://www.anaconda.com/distribution/&quot;&gt;아나콘다&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.jetbrains.com/pycharm/&quot; class=&quot;bare&quot;&gt;https://www.jetbrains.com/pycharm/&lt;/a&gt; - &lt;a href=&quot;https://www.jetbrains.com/pycharm/&quot;&gt;파이참&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;저는 오래전부터 내집마련에 관심을 가지고 있지만 막상 이렇다할 행동을 취한것은 없었습니다. 그나마 해둔것이라곤 시드머니를 만들기 위해 돈을 아껴쓰고 모으는 행동 뿐이었습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;아나콘다에는 파이썬을 비롯한 유용한 라이브러리가 포함되어 있습니다.
-가볍게 파이썬만 설치하는것 보다 아나콘다를 설치하는게 편하지 않을까 생각합니다.&lt;/p&gt;
+&lt;p&gt;그러다 최근 부동산에 대한 관심도가 부쩍 늘어났습니다. 부동산관련 카페에서 다른사람이 작성한 글을 읽어보거나, 유튜브 등을 보고 있습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;파이썬 설치 및 아나콘다 설치는 아래 URL을 참고하여 설치하였습니다.&lt;/p&gt;
+&lt;p&gt;그 중에 이 프로젝트를 해봐야겠다고 마음먹게한 유튜브 영상이 하나 있었습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://bradbury.tistory.com/63&quot; class=&quot;bare&quot;&gt;https://bradbury.tistory.com/63&lt;/a&gt; - &lt;a href=&quot;https://bradbury.tistory.com/63&quot;&gt;파이참(PyCharm) 설치 및 아나콘다 가상환경 적용&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;그 영상은 유튜버 &lt;a href=&quot;https://www.youtube.com/channel/UC8tWxC9EPKUCrHmEhiYTbhQ&quot;&gt;렘군RemGoon&lt;/a&gt;이란 분이 업로드한 &lt;a href=&quot;https://www.youtube.com/watch?v=0G9nu5tHMnc&quot;&gt;부동산 랜드마크를 활용한 투자법 1탄&lt;/a&gt;과 &lt;a href=&quot;https://www.youtube.com/watch?v=TVms39NqQNA&quot;&gt;부동산 랜드마크를 활용한 투자법 2탄&lt;/a&gt; 이었습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;이 영상에서는 랜드마크 아파트. 즉, 해당 지역의 아파트 중 시세를 이끌어 가는 대장(랜드마크) 아파트와 저평가된 아파트를 찾는 방법을 알려주었습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;따라서 저는 이 방법을 시스템화하여 자동으로 랜드마크 아파트와 저평가된 아파트를 찾아주는 프로젝트를 구상하게 되었습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;공공데이터포털&quot;&gt;2. 공공데이터포털&lt;/h2&gt;
+&lt;h2 id=&quot;프로젝트_진행계획&quot;&gt;2. 프로젝트 진행계획&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;공공데이터포털에서 활용신청한 데이터는 &apos;마이페이지 &amp;#8594; 오픈API &amp;#8594; 개발계정&apos; 으로 접근하면 아래의 그림처럼 목록을 보실 수 있습니다.&lt;/p&gt;
+&lt;p&gt;프로젝트는 사전조사 &amp;#8594; 설계 &amp;#8594; 구현 단계로 진행하려고 합니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-01.png&quot; alt=&quot;공공데이터포털&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;사전조사 단계에서는 부동산과 관련하여 유사 시스템을 분석 합니다.
+유사 시스템을 분석함으로써 어떤 데이터들을 수집할 것인지 명확하게 정의할 수 있고 또, 제공하는 기능들을 통해 본 시스템에서 구현할 기능에 대한 인사이트를 얻을 수 있기 떄문입니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;설계 단계에서는 데이터를 수집과 처리, 제공하는 과정들을 제공하기 위해 어떤 툴을 사용하고 어떻게 구현할 것인지 정의 합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;구현 단계에서는 시스템을 구현하기 위한 환경을 구축하고 기능을 개발합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;프로젝트를 진행함에 있어 각 단계는 반드시 순서에 맞춰 진행하지 않고 필요 또는 제가 생각하는 우선순위에 따라서 유동적으로 진행하려고 합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;그리고 제가 어떻게 조사하고 설계, 구현 했는지 포스팅 해보려고 합니다.
+포스팅은 최소 한 주에 하나는 포스팅하려고 합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;프로젝트_이슈사항&quot;&gt;3. 프로젝트 이슈사항&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;데이터_수집_부분&quot;&gt;3.1. 데이터 수집 부분&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;현재 프로젝트를 진행함에 있어 수집되어야 할 정보는 아파트와 관련된 정보입니다.
+아파트와 관련된 정보는 아파트의 좌표와 주소(도로명/지번), 관련기사, 매매가, 전세가, 세대수, 평수, 평면도 등이 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;이 정보들 중 관련기사 정보를 수집할 때 특정 사이트에서 어뷰징 행위로 간주될텐데 이를 어떻게 풀것이며, 수집하는 속도를 어떻게 높일 것 인지 고민됩니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;공동주택_단지_목록제공_서비스&quot;&gt;2.1. 공동주택 단지 목록제공 서비스&lt;/h3&gt;
+&lt;h3 id=&quot;변경되는_주소정보&quot;&gt;3.2. 변경되는 주소정보&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;먼저 공동주택 단지 목록 제공 서비스에서 데이터를 가져와 보겠습니다.
-공동주택 단지 목록 제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-01.png&quot; alt=&quot;단지목록-1&quot;&gt;
-&lt;/div&gt;
+&lt;p&gt;사실 저는 회사에서 프로젝트를 하기 전까지 주소는 바뀌지 않는 정보인 줄 알았습니다.
+주소가 변경되는 정확한 이유는 모르겠지만 아마도 도로가 변경되거나, 도시가 생기거나 하는 등의 이유가 있지 않을까 생각됩니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;하단의 상세기능정보에서 도로명 아파트 목록의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
-팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-02.png&quot; alt=&quot;단지목록-2&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
-여기서 필요한 정보는 상단의 URL 정보가 필요하며,
-상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;amp;roadCode={도로명코드}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;amp;roadCode={도로명코드}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-03.png&quot; alt=&quot;단지목록-3&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
-이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;URL 주소 : &lt;a href=&quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;roadCode={도로명코드}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;pageNo={페이지번호}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;numOfRows={페이지목록건수}&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;파이참을 실행하고 프로젝트를 생성 후 API를 테스트할 *.py 파일을 생성합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-04.png&quot; alt=&quot;파이참-4&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-05.png&quot; alt=&quot;파이참-5&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;API를 이용해 데이터를 가져오고 json으로 변환하기 위해 requesets, xmltodict, json 라이브러리를 사용합니다.
-파이참에서 라이브러리 설치 및 코드스타일 설정은 아래의 URL을 참조하였습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://tariat.tistory.com/692&quot; class=&quot;bare&quot;&gt;https://tariat.tistory.com/692&lt;/a&gt; - &lt;a href=&quot;https://tariat.tistory.com/692&quot;&gt;파이참(pycharm)에서 라이브러리 쉽게 설치하는 방법!&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv&quot; class=&quot;bare&quot;&gt;https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv&lt;/a&gt; - &lt;a href=&quot;https://velog.io/@city7310/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%BD%94%EB%93%9C-%ED%8F%AC%EB%A7%A4%ED%84%B0-%EC%9D%B4%EC%95%BC%EA%B8%B0-5wjxdei9iv&quot;&gt;파이썬 코드 스타일 이야기 - (1) Style Checker, Formatter들 구경하기&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import requests, xmltodict, json
-
-# 테스팅 관련 변수
-testYn      = True
-#testYn      = False
-
-# 공공데이터 포털 API 호출관련 기본 변수
-serviceKey  = &quot;1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D&quot;
-pageNo      = &quot;1&quot;   # 페이지번호
-numOfRows   = &quot;100&quot;  # 페이지내목록수
-
-# 아파트목록 관련 변수
-roadCode    = &quot;263802006002&quot;    # 도로명코드
-bjdCode     = &quot;2638010100&quot;      # 법정동코드
-
-# 에러관련 변수
-ERR_STATUS_CODE  = &quot;ERR_STATUS_CODE&quot;
-ERR_RESULT_CODE  = &quot;ERR_RESULT_CODE&quot;
-
-
-
-&quot;&quot;&quot;
-&apos;아파트(도로명) 목록 &apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-&quot;&quot;&quot;
-def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
-    url = &quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;amp;roadCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, roadCode, pageNo, numOfRows)
-    return url
-
-&quot;&quot;&quot;
-&apos;아파트(법정동) 목록 &apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-&quot;&quot;&quot;
-def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
-    url = &quot;http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;amp;bjdCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, bjdCode, pageNo, numOfRows)
-    return url
-
-&quot;&quot;&quot;
-URL을 통해 API를 호출하여 결과값 JSON으로 생성
-&quot;&quot;&quot;
-def getJsonFromUrlContent( url ) :
-    response = requests.get(url)
-    if( testYn == True ) :
-        print(&quot;response&quot;)
-        print(response)
-        print(&quot;status code :&quot;, response.status_code)
-
-    # Err 체크
-    if( response.status_code != 200 ) :
-        return ERR_STATUS_CODE
-
-    response = response.content
-    if (testYn == True):
-        print(&quot;response&quot;)
-        print(response)
-
-    dict = xmltodict.parse(response)
-    if( testYn == True ) :
-        print(&quot;dict&quot;)
-        print(dict)
-        print(&quot;resultCode :&quot;, json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;]))
-
-    resultCode = json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False)
-    print(resultCode)
-    # Err 체크
-    if( json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False) != &quot;\&quot;00\&quot;&quot; ) :
-    #if( resultCode != &quot;\&quot;00\&quot;&quot; ) :
-        return ERR_RESULT_CODE
-
-    jsonString = json.dumps(dict[&apos;response&apos;][&apos;body&apos;], ensure_ascii=False)
-    jsonObj = json.loads(jsonString)
-    if( testYn == True ) :
-        print(&quot;jsonObj&quot;)
-        print(jsonObj)
-
-    return jsonObj
-
-
-def checkJsonObj( jsonObj ) :
-    ERR_STATUS_CODE = &quot;ERR_STATUS_CODE&quot;
-    ERR_RESULT_CODE = &quot;ERR_RESULT_CODE&quot;
-
-    if( jsonObj == ERR_STATUS_CODE ) :
-        return False
-    elif( jsonObj == ERR_RESULT_CODE ) :
-        return False
-    else :
-        return True
-
-url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
-jsonObj = getJsonFromUrlContent(url)
-
-if ( checkJsonObj(jsonObj) ) :
-    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
-        print(item)
-else :
-    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-06.png&quot; alt=&quot;파이참-5&quot;&gt;
-&lt;/div&gt;
+&lt;p&gt;변경되는 주소는 아마도 &lt;a href=&quot;https://post.naver.com/viewer/postView.nhn?volumeNo=7135987&amp;amp;memberNo=36248235&quot;&gt;PNU 코드&lt;/a&gt;로 막연하게 해결할 수 있지 않을까 생각되는데, 문제는 주소정보를 어떻게 자동으로 최신화 할 것인지 고민됩니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;공동주택_기본_정보제공_서비스&quot;&gt;2.2. 공동주택 기본 정보제공 서비스&lt;/h3&gt;
+&lt;h3 id=&quot;아파트_줄임말&quot;&gt;3.3. 아파트 줄임말&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;공동주택 기본 정보제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-01.png&quot; alt=&quot;기본정보-1&quot;&gt;
-&lt;/div&gt;
+&lt;p&gt;아파트 명칭이 유일하면 좋겠지만 그렇지 않고, 여러 사람들이 특정 아파트를 하나의 명칭으로 표현하면 좋겠지만 이것도 그렇지 않습니다.
+앞서 소개한 유튜브 동영상에서도 &apos;래미안힐스테이트&amp;#8217;를 지명인 고덕과 합쳐서 &apos;고래힐&amp;#8217;이라고 표현하고 있습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;하단의 상세기능정보에서 공동주택 기본 정보조회의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
-팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
+&lt;p&gt;데이터 수집할 때 여러 사이트에서 아파트 정보를 수집하려고 생각하는데, 하나의 아파트가 여러 명칭들로 표현되면 난감 할것 같습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-02.png&quot; alt=&quot;기본정보-2&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
-여기서 필요한 정보는 상단의 URL 정보가 필요하며,
-상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;amp;kaptCode={단지코드}&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;amp;kaptCode={단지코드}&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-03.png&quot; alt=&quot;기본정보-3&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
-이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;URL 주소 : &lt;a href=&quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo&quot; class=&quot;bare&quot;&gt;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;kaptCode={단지코드}&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;# 아파트 기본정보 관련 변수
-kaptCode    = &quot;A10027875&quot;
-
-&quot;&quot;&quot;
-&apos;아파트 기본정보 &apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-kaptCode   MM 단지코드
-&quot;&quot;&quot;
-def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
-    url = &quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;amp;kaptCode={}&quot;.format(serviceKey, kaptCode)
-    return url
-
-url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
-jsonObj = getJsonFromUrlContent(url)
-
-print(jsonObj[&apos;item&apos;])&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-04.png&quot; alt=&quot;기본정보-4&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;아파트_실거래_상세_자료&quot;&gt;2.3. 아파트 실거래 상세 자료&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;아파트 실거래 상세 자료에 접속하시면 아래의 그림처럼 보실 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-01.png&quot; alt=&quot;아파트실거래-1&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;하단의 상세기능정보에서 공동주택 기본 정보조회의 &apos;실행&amp;#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
-팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-02.png&quot; alt=&quot;아파트실거래-2&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
-여기서 필요한 정보는 상단의 URL 정보가 필요하며,
-상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&amp;amp;LAWD_CD={지역코드}&amp;amp;DEAL_YMD={계약년월}&quot; class=&quot;bare&quot;&gt;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;amp;pageNo={페이지번호}&amp;amp;numOfRows={페이지목록건수}&amp;amp;LAWD_CD={지역코드}&amp;amp;DEAL_YMD={계약년월}&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-03.png&quot; alt=&quot;아파트실거래-3&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
-이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;URL 주소 : &lt;a href=&quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev&quot; class=&quot;bare&quot;&gt;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : ?serviceKey={인증키}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;pageNo={페이지번호}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;numOfRows={페이지목록건수}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;LAWD_CD={지역코드}&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;요청변수 : &amp;amp;DEAL_YMD={계약년월}&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;# 아파트 실거래 관련 변수
-LAWD_CD     = &quot;11110&quot;   # 지역코드
-DEAL_YMD    = &quot;201512&quot;  # 계약년월
-
-&quot;&quot;&quot;
-&apos;아파트매매 실거래 상세 자료&apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3050988/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-LAWD_CD    NN 지역코드
-DEAL_YMD   NN 계약월
-&quot;&quot;&quot;
-def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
-    url = &quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&amp;amp;LAWD_CD={}&amp;amp;DEAL_YMD={}&quot;.format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
-    return url
-
-url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
-jsonObj = getJsonFromUrlContent(url)
-
-if ( checkJsonObj(jsonObj) ) :
-    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
-        print(item)
-else :
-    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-04.png&quot; alt=&quot;아파트실거래-4&quot;&gt;
-&lt;/div&gt;
+&lt;p&gt;수작업으로 아파트 명칭의 메타정보를 관리하기엔 아파트의 수가 너무나 많은데 이를 어떻게 해결할지 고민됩니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;공공데이터포털_전체_코드&quot;&gt;3. 공공데이터포털 전체 코드&lt;/h2&gt;
+&lt;h2 id=&quot;프로젝트를_하면서_기대하는_것&quot;&gt;4. 프로젝트를 하면서 기대하는 것&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;공공데이터를 가져오는 코드는 각 API 별로 함수화하여 코드를 작성하였습니다.
-공공데이터 API를 테스트하기 위해 함수화 했지만 아직 코드에 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%BD%94%EB%93%9C_%EC%8A%A4%EB%A9%9C&quot;&gt;나쁜냄새&lt;/a&gt;가 존재하는것 같습니다.&lt;/p&gt;
+&lt;p&gt;이 프로젝트를 진행하면서 부동산에 관한 지식과 데이터와 관련된 전공 지식 향상을 기대하고 있습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;추후 이 코드를 리팩토링해보겠습니다.&lt;/p&gt;
+&lt;p&gt;그리고 언제가 될진 모르겠지만 향후 내집마련 시 이 시스템을 통해 인사이트를 얻을 수 있기를 기대하고 있습니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;아래는 작성한 전체 코드 입니다.&lt;/p&gt;
+&lt;p&gt;시스템에서는 저평가된 지역 및 아파트를 도출 해주고, 특정 지역의 호재/악재를 파악 할 수 있기를 기대하고 있습니다.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import requests, xmltodict, json
-
-# 테스팅 관련 변수
-testYn      = True
-#testYn      = False
-
-# 공공데이터 포털 API 호출관련 기본 변수
-serviceKey  = &quot;1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D&quot;
-pageNo      = &quot;1&quot;   # 페이지번호
-numOfRows   = &quot;100&quot;  # 페이지내목록수
-
-# 아파트목록 관련 변수
-roadCode    = &quot;263802006002&quot;    # 도로명코드
-bjdCode     = &quot;2638010100&quot;      # 법정동코드
-
-# 아파트 기본정보 관련 변수
-kaptCode    = &quot;A10027875&quot;
-
-# 아파트 실거래 관련 변수
-LAWD_CD     = &quot;11110&quot;   # 지역코드
-DEAL_YMD    = &quot;201512&quot;  # 계약년월
-
-# 에러관련 변수
-ERR_STATUS_CODE  = &quot;ERR_STATUS_CODE&quot;
-ERR_RESULT_CODE  = &quot;ERR_RESULT_CODE&quot;
-
-
-
-&quot;&quot;&quot;
-&apos;아파트(도로명) 목록 &apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-&quot;&quot;&quot;
-def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
-    url = &quot;http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;amp;roadCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, roadCode, pageNo, numOfRows)
-    return url
-
-&quot;&quot;&quot;
-&apos;아파트(법정동) 목록 &apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-&quot;&quot;&quot;
-def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
-    url = &quot;http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;amp;bjdCode={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&quot;.format(serviceKey, bjdCode, pageNo, numOfRows)
-    return url
-
-
-
-&quot;&quot;&quot;
-&apos;아파트 기본정보 &apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-kaptCode   MM 단지코드
-&quot;&quot;&quot;
-def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
-    url = &quot;http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;amp;kaptCode={}&quot;.format(serviceKey, kaptCode)
-    return url
-
-
-
-&quot;&quot;&quot;
-&apos;아파트매매 실거래 상세 자료&apos; API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3050988/openapi.do
-
-## NN -&amp;gt; 필수(notNull)
-serviceKey NN 서비스키
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-LAWD_CD    NN 지역코드
-DEAL_YMD   NN 계약월
-&quot;&quot;&quot;
-def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
-    url = &quot;http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;amp;pageNo={}&amp;amp;numOfRows={}&amp;amp;LAWD_CD={}&amp;amp;DEAL_YMD={}&quot;.format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
-    return url
-
-
-
-&quot;&quot;&quot;
-URL을 통해 API를 호출하여 결과값 JSON으로 생성
-&quot;&quot;&quot;
-def getJsonFromUrlContent( url ) :
-    response = requests.get(url)
-    if( testYn == True ) :
-        print(&quot;response&quot;)
-        print(response)
-        print(&quot;status code :&quot;, response.status_code)
-
-    # Err 체크
-    if( response.status_code != 200 ) :
-        return ERR_STATUS_CODE
-
-    response = response.content
-    if (testYn == True):
-        print(&quot;response&quot;)
-        print(response)
-
-    dict = xmltodict.parse(response)
-    if( testYn == True ) :
-        print(&quot;dict&quot;)
-        print(dict)
-        print(&quot;resultCode :&quot;, json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;]))
-
-    resultCode = json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False)
-    print(resultCode)
-    # Err 체크
-    if( json.dumps(dict[&apos;response&apos;][&apos;header&apos;][&apos;resultCode&apos;], ensure_ascii=False) != &quot;\&quot;00\&quot;&quot; ) :
-    #if( resultCode != &quot;\&quot;00\&quot;&quot; ) :
-        return ERR_RESULT_CODE
-
-    jsonString = json.dumps(dict[&apos;response&apos;][&apos;body&apos;], ensure_ascii=False)
-    jsonObj = json.loads(jsonString)
-    if( testYn == True ) :
-        print(&quot;jsonObj&quot;)
-        print(jsonObj)
-
-    return jsonObj
-
-
-def checkJsonObj( jsonObj ) :
-    ERR_STATUS_CODE = &quot;ERR_STATUS_CODE&quot;
-    ERR_RESULT_CODE = &quot;ERR_RESULT_CODE&quot;
-
-    if( jsonObj == ERR_STATUS_CODE ) :
-        return False
-    elif( jsonObj == ERR_RESULT_CODE ) :
-        return False
-    else :
-        return True
-
-#url = getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows )          # 아파트목록(도로명)
-#url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
-#url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
-url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
-jsonObj = getJsonFromUrlContent(url)
-
-#print(jsonObj[&apos;item&apos;])
-
-if ( checkJsonObj(jsonObj) ) :
-    for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
-        print(item)
-else :
-    print(&quot;ERR&quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;또 해외 부동산 정보를 수집하여 국내의 부동산과 비교함으로써 어떠한 상관관계가 있는지 파악할 수 있지 않을까 기대합니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
