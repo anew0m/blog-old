@@ -8,6 +8,7 @@
   <head>
     <meta charset="utf-8"/>
     <title><#if (content.title)??><#escape x as x?xml>${content.title}</#escape></#if> - ${config.site_title}</title>
+    <meta name="google-site-verification" content="NjTrEtPZ_cX4UYx9pg4mIKBm4cl_zNC7V7PNl4sj4aQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="${(content.description)!}">
     <meta name="author" content="${content.author!config.site_author}">
