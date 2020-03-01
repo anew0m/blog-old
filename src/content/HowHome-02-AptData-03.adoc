@@ -1,6 +1,6 @@
 = 어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-1)
 정민호
-2020-02-13
+2020-02-28
 :jbake-last_updated: 2020-02-28
 :jbake-type: post
 :jbake-status: published
@@ -150,7 +150,7 @@ image::img/HowHome/AptData/02/AptData03/data-bjdCode-03.png[법정동코드_3]
 도로명주소 개발자센터에서는 도로명정보를 API와 DB형태로 구축할 수 있게 정보를 제공하고 있습니다.
 도로명주소 개발자센터 사이트 주소는 아래와 같습니다.
 
-- http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&cPath=99MD http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&cPath=99MD[도로명주소 개발자센터]
+- http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&cPath=99MD - http://www.juso.go.kr/addrlink/addrlinkJusoDBUse.do?menu=main&cPath=99MD[도로명주소 개발자센터]
 
 도로명주소DB에서 제공되는 정보는 건물, 주소, 사서함주소, 위치정보, 영문주소, 상세주소 정보를 제공하고 있습니다.
 핵심이 되는 정보는 건물 정보와 주소 정보로 추측되고, 건물과 주소 정보는 아래와 같이 정의하고 있습니다.

@@ -1,6 +1,6 @@
 = 어떡하집 프로젝트 - 아파트 정보 수집 계획
 정민호
-2020-02-13
+2020-02-15
 :jbake-last_updated: 2020-02-15
 :jbake-type: post
 :jbake-status: published
