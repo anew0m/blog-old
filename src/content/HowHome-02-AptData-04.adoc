@@ -331,6 +331,7 @@ image::img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-04.png[아파트실거
 [source, python, linenum]
 ----
 import requests, xmltodict, json
+import pandas as pd
 
 # 테스팅 관련 변수
 testYn      = True
