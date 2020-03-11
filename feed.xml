@@ -6,8 +6,8 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 1 Mar 2020 15:02:22 +0000</pubDate>
-    <lastBuildDate>Sun, 1 Mar 2020 15:02:22 +0000</lastBuildDate>
+    <pubDate>Wed, 11 Mar 2020 13:29:19 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Mar 2020 13:29:19 +0000</lastBuildDate>
 
     <item>
       <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</title>
@@ -630,6 +630,14 @@ def checkJsonObj( jsonObj ) :
     else :
         return True
 
+&quot;&quot;&quot;
+JSON 데이터를 CSV 파일로 변환
+&quot;&quot;&quot;
+def createCsvFileFromJson( jsonObj ) :
+    df = pd.DataFrame(jsonObj)
+    df.to_csv(&apos;aptTest.csv&apos;, header=True, index=True, encoding=&apos;UTF-8&apos;)
+
+
 #url = getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows )          # 아파트목록(도로명)
 #url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
 #url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
@@ -639,6 +647,7 @@ jsonObj = getJsonFromUrlContent(url)
 #print(jsonObj[&apos;item&apos;])
 
 if ( checkJsonObj(jsonObj) ) :
+    createCsvFileFromJson( jsonObj )    ## JSON to CSV File
     for item in jsonObj[&apos;items&apos;][&apos;item&apos;] :
         print(item)
 else :
