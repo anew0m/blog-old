@@ -6,8 +6,8 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Wed, 11 Mar 2020 13:29:19 +0000</pubDate>
-    <lastBuildDate>Wed, 11 Mar 2020 13:29:19 +0000</lastBuildDate>
+    <pubDate>Wed, 11 Mar 2020 13:31:13 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Mar 2020 13:31:13 +0000</lastBuildDate>
 
     <item>
       <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</title>
@@ -490,6 +490,7 @@ else :
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre class=&quot;prettyprint highlight linenums&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;import requests, xmltodict, json
+import pandas as pd
 
 # 테스팅 관련 변수
 testYn      = True
