@@ -20,7 +20,7 @@
 
 - https://extrememanual.net/8513 - https://extrememanual.net/8513[버추얼박스(VirtualBox) CentOS7 설치하는 방법]
 - https://blog.miyam.net/56 - https://blog.miyam.net/56[CentOS 7 SSH 설치]
-- https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af - https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af[Centos 7에서 PostgreSQL 11 설치하기]
+- https://medium.com/@jinseok.choi/centos-7에서-postgresql-11-설치하기-77bc0da9d0af - https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af[Centos 7에서 PostgreSQL 11 설치하기]
 
 
 == DB 접속 및 테이블 생성
@@ -103,7 +103,7 @@ image::img/HowHome/AptData/05/AptData-05-Standard-06.png[데이터가져오기1]
 
 'CSV에서 가져오기'를 선택하고 '다음'을 선택합니다.
 먼저 'Source_name'란을 선택하면 파일을 선택할 수 있는 파일브라우저가 표출되는데 주소DB의 '개선_도로명코드_전체분.txt'를 선택하겠습니다. (txt 파일이 보이지 않으면 우측하단의 *.csv를 * 또는 *.txt로 변경하시면 보입니다.)
-그 다음 인코딩과 컬럼 구분자를 가이드에 따라 각각 'ms949', '|'로 변경하여 진행합니다.
+그 다음 인코딩과 컬럼 구분자, 헤더구분을 가이드에 따라 각각 'ms949', '|', 'none'으로 변경하여 진행합니다.
 
 image::img/HowHome/AptData/05/AptData-05-Standard-07.png[데이터가져오기2]
 
