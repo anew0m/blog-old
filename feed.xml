@@ -6,8 +6,8 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 15 Mar 2020 04:08:04 +0000</pubDate>
-    <lastBuildDate>Sun, 15 Mar 2020 04:08:04 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Mar 2020 04:17:49 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Mar 2020 04:17:49 +0000</lastBuildDate>
 
     <item>
       <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)</title>
@@ -42,7 +42,7 @@
 &lt;p&gt;&lt;a href=&quot;https://blog.miyam.net/56&quot; class=&quot;bare&quot;&gt;https://blog.miyam.net/56&lt;/a&gt; - &lt;a href=&quot;https://blog.miyam.net/56&quot;&gt;CentOS 7 SSH 설치&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&quot; class=&quot;bare&quot;&gt;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&lt;/a&gt; - &lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&quot;&gt;Centos 7에서 PostgreSQL 11 설치하기&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7에서-postgresql-11-설치하기-77bc0da9d0af&quot; class=&quot;bare&quot;&gt;https://medium.com/@jinseok.choi/centos-7에서-postgresql-11-설치하기-77bc0da9d0af&lt;/a&gt; - &lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&quot;&gt;Centos 7에서 PostgreSQL 11 설치하기&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -191,7 +191,7 @@ PAS(중복) -&amp;gt; PAW(중복) -&amp;gt; PAR(중복) -&amp;gt; PAD(중복) -&
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&apos;CSV에서 가져오기&amp;#8217;를 선택하고 &apos;다음&amp;#8217;을 선택합니다.
 먼저 &apos;Source_name&amp;#8217;란을 선택하면 파일을 선택할 수 있는 파일브라우저가 표출되는데 주소DB의 &apos;개선_도로명코드_전체분.txt&amp;#8217;를 선택하겠습니다. (txt 파일이 보이지 않으면 우측하단의 *.csv를 * 또는 *.txt로 변경하시면 보입니다.)
-그 다음 인코딩과 컬럼 구분자를 가이드에 따라 각각 &apos;ms949&apos;, &apos;|&apos;로 변경하여 진행합니다.&lt;/p&gt;
+그 다음 인코딩과 컬럼 구분자, 헤더구분을 가이드에 따라 각각 &apos;ms949&apos;, &apos;|&apos;, &apos;none&amp;#8217;으로 변경하여 진행합니다.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
