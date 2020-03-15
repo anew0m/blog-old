@@ -6,9 +6,220 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sat, 14 Mar 2020 18:16:35 +0000</pubDate>
-    <lastBuildDate>Sat, 14 Mar 2020 18:16:35 +0000</lastBuildDate>
+    <pubDate>Sun, 15 Mar 2020 04:08:04 +0000</pubDate>
+    <lastBuildDate>Sun, 15 Mar 2020 04:08:04 +0000</lastBuildDate>
 
+    <item>
+      <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)</title>
+      <link>https://anew0m.netlify.com//HowHome-02-AptData-05.html</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">HowHome-02-AptData-05.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#들어가며&quot;&gt;1. 들어가며&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#db_접속_및_테이블_생성&quot;&gt;2. DB 접속 및 테이블 생성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#db_데이터_import&quot;&gt;3. DB 데이터 Import&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;들어가며&quot;&gt;1. 들어가며&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;공공데이터 포털에서 받은 데이터를 DB에 저장하는 과정을 테스트하기 위해_(공공데이터 약관에따라 일반&amp;#8594;서버구축으로 변경)_
+임시로 가상머신에 CentOS-7 64비트 버전을 최소설치하고 PostgreSQL 11을 설치하고자 합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;가상머신 설치 및 SSH 설정, PostgreSQL 11 설치 방법은 구글에 검색하시거나 아래 링크를 참조해주시면 좋을것 같습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://extrememanual.net/8513&quot; class=&quot;bare&quot;&gt;https://extrememanual.net/8513&lt;/a&gt; - &lt;a href=&quot;https://extrememanual.net/8513&quot;&gt;버추얼박스(VirtualBox) CentOS7 설치하는 방법&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.miyam.net/56&quot; class=&quot;bare&quot;&gt;https://blog.miyam.net/56&lt;/a&gt; - &lt;a href=&quot;https://blog.miyam.net/56&quot;&gt;CentOS 7 SSH 설치&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&quot; class=&quot;bare&quot;&gt;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&lt;/a&gt; - &lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&quot;&gt;Centos 7에서 PostgreSQL 11 설치하기&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;db_접속_및_테이블_생성&quot;&gt;2. DB 접속 및 테이블 생성&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;저는 PostgreSQL DB 접속을 pgAdmin이 아닌 DBeaver를 통해 접속을 하였고, 주소 데이터를 관리할 rowdata 계정을 추가하였습니다.
+도로명과 법정동 정보는 HowHome 프로젝트에서 사용할 용어로 표준화 하였습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;먼저 테이블 생성에 앞서 데이터 표준사전을 만든 후 테이블을 생성하였습니다.
+데이터 표준사전의 기본 구성은 아래와 같고, 저는 별도로 원본 주소정보의 스키마 정보를 저장해 놓았습니다.
+&lt;em&gt;(의도는 데이터 표준사전이었지만 프로젝트가 안정될 때까지 작업 겸용으로 유지할 계획입니다.)&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;재개정이력&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;표준사전 변경시 어떤 변동사항이 있는지를 기록&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;원본주소정보&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;도로명과 법정동 원본 스키마 정보와 표준용어 매핑&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;단어분리&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;용어를 구성하는 최소 단어 단위로 분리&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;표준단어&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;단어의 의미와 약어(최대3자리) 정보 관리&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;표준도메인&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;데이터 도메인 분류와 데이터 타입 및 길이 정보 관리&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;표준용어&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;용어정보와 용어가 속해있는 표준 도메인 정보 관리&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;표준코드&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;DB에서 사용될 공통코드 등 각종 코드 정보 관리&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;행정표준용어&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;표준단어 작성시 참조&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;표준 단어의 약어는 대략 아래의 규칙을 기반으로 작성하였습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;- 약어는 자음 3자리로하며, 연속된 자음은 사용하지 않음
+( Password -&amp;gt; PSW )
+
+- 첫번째 철자는 자음/모음 상관없이 반드시 사용
+( Apple -&amp;gt; APL )
+
+- 전체 단어 철자가 3자 이하인 단어는 그대로 사용
+( ID, ETC )
+
+- 영문명 내의 전치사(for, of, about, to by, as), 관사(a, an), 정관사(the), 접속사(and, or,that)는 영문약어를 생성할 때 대상에서 제외
+( In And Out -&amp;gt; INO
+
+- 중복 시 다음 자음 사용, 자음 모두 중복 시 처음 나오는 모음을 사용
+( Password -&amp;gt; PAS(중복) -&amp;gt; PSR(중복) -&amp;gt; PSD(중복) -&amp;gt; PSS(중복) -&amp;gt; PWR(중복) -&amp;gt; PWD(중복) -&amp;gt; PRD(중복) -&amp;gt;
+PAS(중복) -&amp;gt; PAW(중복) -&amp;gt; PAR(중복) -&amp;gt; PAD(중복) -&amp;gt; PSO(중복) -&amp;gt; PWO(중복) -&amp;gt; POR(중복) -&amp;gt; POD )
+
+- 2단어로 된 복합어 사용시 앞의 단어에서 2자리 뒤의 단어에서 1자리로 약어 생성
+( Left Right -&amp;gt; LFR, Keyboard Mouse -&amp;gt; KBM, The Rock -&amp;gt; RCK, A apple -&amp;gt; APL)
+
+- 3단어로 된 복합어 사용시 각 단어의 첫글자로 약어 생성
+( Left Middle Right -&amp;gt; LMR, Keyboard Mouse Monitor -&amp;gt; KMM, The Left Right -&amp;gt; LFR )
+
+- 4단어 이상으로 된 복합어 사용시 앞의 단어에서 2자리 마지막 단어에서 1자리로 약어 생성
+( Left Right Keyboard Mouse -&amp;gt; LFM, Left Keyboard Mouse Monitor -&amp;gt; LFS, The Rock a Apple -&amp;gt; RCA )&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;완성된 표준 사전 및 테이블 생성 스크립트는 아래 링크를 통해 다운로드 받으실 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-01.png&quot; alt=&quot;표준사전및스크립트&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-02.png&quot; alt=&quot;표준사전&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-03.png&quot; alt=&quot;스크립트&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;테이블 생성 스크립트를 실행하면 아래 그림과 같이 테이블이 생성 됩니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-04.png&quot; alt=&quot;테이블&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;db_데이터_import&quot;&gt;3. DB 데이터 Import&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;PostgreSQL에 주소정보 데이터(*.csv)를 Import 하는 방법은 DBeaver와 psql의 copy 명령어를 이용하는 2가지 방법이 있습니다.
+저는 두가지 방법 중 다소 불편하고 느린 방법이긴 하지만 DBeaver를 통해 데이터를 넣고자 합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;psql의 copy를 이용해보니 MS949 인코딩을 지원하지 않고, UTF-8로 변환하니 한글 데이터의 Byte가 2 &amp;#8594; 3으로 변경되다보니 문제가 발생하였습니다.
+&lt;em&gt;(참고 : psql -h localhost -U postgres postgres -c &quot;COPY rowdata_addr.tbl_rna_dtl_adr FROM &apos;/mnt/public_folder/202002/202002_상세주소DB_전체분/adrdc/adrdc_all.csv&apos;(DELIMITER &apos;|&apos;, FORMAT CSV, ENCODING &apos;ms949&apos;);&quot;)&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;먼저 DBeaver에 데이터를 Import 하기전 지역별로 분할되어 있는 파일을 하나로 합칩니다.
+주소DB를 예로들면 코드, 부가정보, 주소, 지번 별로 데이터가 나뉘는것을 확인 할 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;따라서 각 분류별로 폴더를 생성하고 파일을 이동하고
+명령프롬트프(CMD)를 본 폴더위치로 이동하여 &apos;type *.txt &amp;gt; ../부가정보_all.txt&apos; 를 실행하면,
+상위폴더에 텍스트파일들이 합쳐진 &apos;부가정보_all.txt&apos; 이 생성된것을 학인할 수 있습니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-05.png&quot; alt=&quot;파일합치기&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;스키마 내 테이블 목록에서 오른쪽 클릭하면 여러 항목들이 표출되는데 이 중 &apos;데이터 가져오기&amp;#8217;를 선택합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-06.png&quot; alt=&quot;데이터가져오기1&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&apos;CSV에서 가져오기&amp;#8217;를 선택하고 &apos;다음&amp;#8217;을 선택합니다.
+먼저 &apos;Source_name&amp;#8217;란을 선택하면 파일을 선택할 수 있는 파일브라우저가 표출되는데 주소DB의 &apos;개선_도로명코드_전체분.txt&amp;#8217;를 선택하겠습니다. (txt 파일이 보이지 않으면 우측하단의 *.csv를 * 또는 *.txt로 변경하시면 보입니다.)
+그 다음 인코딩과 컬럼 구분자를 가이드에 따라 각각 &apos;ms949&apos;, &apos;|&apos;로 변경하여 진행합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-07.png&quot; alt=&quot;데이터가져오기2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Column mapping 에서 Columns가 매핑되지 않을 땐 skip을 선택하여 진행합니다.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Settings 에서 테이블을 비우고 데이터를 추가하길 원하면 &apos;Truncate target table(s) before load&apos; 를 선택합니다.
+Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 저는 50,000 건 마다 Insert 할 수 있도록 설정 하였습니다.
+(지나치게 짧거나 큰 주기로 Insert 을 하게 되면 속도저하의 원인이 될 수 있습니다.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-08.png&quot; alt=&quot;데이터가져오기3&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-09.png&quot; alt=&quot;데이터가져오기4&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
     <item>
       <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</title>
       <link>https://anew0m.netlify.com//HowHome-02-AptData-04.html</link>
@@ -3354,217 +3565,6 @@ FK는 11.건물관리번호와 12.법정동코드, 13.도로명코드, 14.지하
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;또 해외 부동산 정보를 수집하여 국내의 부동산과 비교함으로써 어떠한 상관관계가 있는지 파악할 수 있지 않을까 기대합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-	</description>
-    </item>
-    <item>
-      <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)</title>
-      <link>https://anew0m.netlify.com//HowHome-02-AptData-05.html</link>
-      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">HowHome-02-AptData-05.html</guid>
-      	<description>
-	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
-&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
-&lt;ul class=&quot;sectlevel1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#들어가며&quot;&gt;1. 들어가며&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#db_접속_및_테이블_생성&quot;&gt;2. DB 접속 및 테이블 생성&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#db_데이터_import&quot;&gt;3. DB 데이터 Import&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;들어가며&quot;&gt;1. 들어가며&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;공공데이터 포털에서 받은 데이터를 DB에 저장하는 과정을 테스트하기 위해_(공공데이터 약관에따라 일반&amp;#8594;서버구축으로 변경)_
-임시로 가상머신에 CentOS-7 64비트 버전을 최소설치하고 PostgreSQL 11을 설치하고자 합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;가상머신 설치 및 SSH 설정, PostgreSQL 11 설치 방법은 구글에 검색하시거나 아래 링크를 참조해주시면 좋을것 같습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://extrememanual.net/8513&quot; class=&quot;bare&quot;&gt;https://extrememanual.net/8513&lt;/a&gt; - &lt;a href=&quot;https://extrememanual.net/8513&quot;&gt;버추얼박스(VirtualBox) CentOS7 설치하는 방법&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.miyam.net/56&quot; class=&quot;bare&quot;&gt;https://blog.miyam.net/56&lt;/a&gt; - &lt;a href=&quot;https://blog.miyam.net/56&quot;&gt;CentOS 7 SSH 설치&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&quot; class=&quot;bare&quot;&gt;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&lt;/a&gt; - &lt;a href=&quot;https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af&quot;&gt;Centos 7에서 PostgreSQL 11 설치하기&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;db_접속_및_테이블_생성&quot;&gt;2. DB 접속 및 테이블 생성&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;저는 PostgreSQL DB 접속을 pgAdmin이 아닌 DBeaver를 통해 접속을 하였고, 주소 데이터를 관리할 rowdata 계정을 추가하였습니다.
-도로명과 법정동 정보는 HowHome 프로젝트에서 사용할 용어로 표준화 하였습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;먼저 테이블 생성에 앞서 데이터 표준사전을 만든 후 테이블을 생성하였습니다.
-데이터 표준사전의 기본 구성은 아래와 같고, 저는 별도로 원본 주소정보의 스키마 정보를 저장해 놓았습니다.
-&lt;em&gt;(의도는 데이터 표준사전이었지만 프로젝트가 안정될 때까지 작업 겸용으로 유지할 계획입니다.)&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;dlist&quot;&gt;
-&lt;dl&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;재개정이력&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;표준사전 변경시 어떤 변동사항이 있는지를 기록&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;원본주소정보&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;도로명과 법정동 원본 스키마 정보와 표준용어 매핑&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;단어분리&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;용어를 구성하는 최소 단어 단위로 분리&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;표준단어&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;단어의 의미와 약어(최대3자리) 정보 관리&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;표준도메인&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;데이터 도메인 분류와 데이터 타입 및 길이 정보 관리&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;표준용어&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;용어정보와 용어가 속해있는 표준 도메인 정보 관리&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;표준코드&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;DB에서 사용될 공통코드 등 각종 코드 정보 관리&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;행정표준용어&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;표준단어 작성시 참조&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;표준 단어의 약어는 대략 아래의 규칙을 기반으로 작성하였습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;- 약어는 자음 3자리로하며, 연속된 자음은 사용하지 않음
-( Password -&amp;gt; PSW )
-
-- 첫번째 철자는 자음/모음 상관없이 반드시 사용
-( Apple -&amp;gt; APL )
-
-- 전체 단어 철자가 3자 이하인 단어는 그대로 사용
-( ID, ETC )
-
-- 영문명 내의 전치사(for, of, about, to by, as), 관사(a, an), 정관사(the), 접속사(and, or,that)는 영문약어를 생성할 때 대상에서 제외
-( In And Out -&amp;gt; INO
-
-- 중복 시 다음 자음 사용, 자음 모두 중복 시 처음 나오는 모음을 사용
-( Password -&amp;gt; PAS(중복) -&amp;gt; PSR(중복) -&amp;gt; PSD(중복) -&amp;gt; PSS(중복) -&amp;gt; PWR(중복) -&amp;gt; PWD(중복) -&amp;gt; PRD(중복) -&amp;gt;
-PAS(중복) -&amp;gt; PAW(중복) -&amp;gt; PAR(중복) -&amp;gt; PAD(중복) -&amp;gt; PSO(중복) -&amp;gt; PWO(중복) -&amp;gt; POR(중복) -&amp;gt; POD )
-
-- 2단어로 된 복합어 사용시 앞의 단어에서 2자리 뒤의 단어에서 1자리로 약어 생성
-( Left Right -&amp;gt; LFR, Keyboard Mouse -&amp;gt; KBM, The Rock -&amp;gt; RCK, A apple -&amp;gt; APL)
-
-- 3단어로 된 복합어 사용시 각 단어의 첫글자로 약어 생성
-( Left Middle Right -&amp;gt; LMR, Keyboard Mouse Monitor -&amp;gt; KMM, The Left Right -&amp;gt; LFR )
-
-- 4단어 이상으로 된 복합어 사용시 앞의 단어에서 2자리 마지막 단어에서 1자리로 약어 생성
-( Left Right Keyboard Mouse -&amp;gt; LFM, Left Keyboard Mouse Monitor -&amp;gt; LFS, The Rock a Apple -&amp;gt; RCA )&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;완성된 표준 사전 및 테이블 생성 스크립트는 아래 링크를 통해 다운로드 받으실 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-01.png&quot; alt=&quot;표준사전및스크립트&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-02.png&quot; alt=&quot;표준사전&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-03.png&quot; alt=&quot;스크립트&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;테이블 생성 스크립트를 실행하면 아래 그림과 같이 테이블이 생성 됩니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-04.png&quot; alt=&quot;테이블&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;db_데이터_import&quot;&gt;3. DB 데이터 Import&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;PostgreSQL에 주소정보 데이터(*.csv)를 Import 하는 방법은 DBeaver와 psql의 copy 명령어를 이용하는 2가지 방법이 있습니다.
-저는 두가지 방법 중 다소 불편하고 느린 방법이긴 하지만 DBeaver를 통해 데이터를 넣고자 합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;psql의 copy를 이용해보니 MS949 인코딩을 지원하지 않고, UTF-8로 변환하니 한글 데이터의 Byte가 2 &amp;#8594; 3으로 변경되다보니 문제가 발생하였습니다.
-&lt;em&gt;(참고 : psql -h localhost -U postgres postgres -c &quot;COPY rowdata_addr.tbl_rna_dtl_adr FROM &apos;/mnt/public_folder/202002/202002_상세주소DB_전체분/adrdc/adrdc_all.csv&apos;(DELIMITER &apos;|&apos;, FORMAT CSV, ENCODING &apos;ms949&apos;);&quot;)&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;먼저 DBeaver에 데이터를 Import 하기전 지역별로 분할되어 있는 파일을 하나로 합칩니다.
-주소DB를 예로들면 코드, 부가정보, 주소, 지번 별로 데이터가 나뉘는것을 확인 할 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;따라서 각 분류별로 폴더를 생성하고 파일을 이동하고
-명령프롬트프(CMD)를 본 폴더위치로 이동하여 &apos;type *.txt &amp;gt; ../부가정보_all.txt&apos; 를 실행하면,
-상위폴더에 텍스트파일들이 합쳐진 &apos;부가정보_all.txt&apos; 이 생성된것을 학인할 수 있습니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-05.png&quot; alt=&quot;파일합치기&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;스키마 내 테이블 목록에서 오른쪽 클릭하면 여러 항목들이 표출되는데 이 중 &apos;데이터 가져오기&amp;#8217;를 선택합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-06.png&quot; alt=&quot;데이터가져오기1&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&apos;CSV에서 가져오기&amp;#8217;를 선택하고 &apos;다음&amp;#8217;을 선택합니다.
-먼저 &apos;Source_name&amp;#8217;란을 선택하면 파일을 선택할 수 있는 파일브라우저가 표출되는데 주소DB의 &apos;개선_도로명코드_전체분.txt&amp;#8217;를 선택하겠습니다. (txt 파일이 보이지 않으면 우측하단의 *.csv를 * 또는 *.txt로 변경하시면 보입니다.)
-그 다음 인코딩과 컬럼 구분자를 가이드에 따라 각각 &apos;ms949&apos;, &apos;|&apos;로 변경하여 진행합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-07.png&quot; alt=&quot;데이터가져오기2&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Column mapping 에서 Columns가 매핑되지 않을 땐 skip을 선택하여 진행합니다.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Settings 에서 테이블을 비우고 데이터를 추가하길 원하면 &apos;Truncate target table(s) before load&apos; 를 선택합니다.
-Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 저는 50,000 건 마다 Insert 할 수 있도록 설정 하였습니다.
-(지나치게 짧거나 큰 주기로 Insert 을 하게 되면 속도저하의 원인이 될 수 있습니다.)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-08.png&quot; alt=&quot;데이터가져오기3&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;img/HowHome/AptData/05/AptData-05-Standard-09.png&quot; alt=&quot;데이터가져오기4&quot;&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
