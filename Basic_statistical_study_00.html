@@ -7,12 +7,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>어떡하집 프로젝트 - 1차 시스템 구축 계획 - 정민호의 블로그</title>
+    <title>기초 통계분석 - 02 - 정민호의 블로그</title>
     <meta name="google-site-verification" content="NjTrEtPZ_cX4UYx9pg4mIKBm4cl_zNC7V7PNl4sj4aQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="1차 시스템 목표로 Elastic 스택을 기반으로 데이터를 저장하고 시각화 합니다.">
+    <meta name="description" content="'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습">
     <meta name="author" content="정민호">
-    <meta name="keywords" content="부동산, 개인프로젝트">
+    <meta name="keywords" content="빅데이터, 통계분석">
     <meta name="generator" content="JBake">
 	<meta property="og:image" content="https://anew0m.netlify.com/img/jdk/duke.jpg"/>
 
@@ -161,14 +161,14 @@
 <article class="post">
    <header>
     <div class="title">
-                    <h1><a href="HowHome-03-Dev-01.html">어떡하집 프로젝트 - 1차 시스템 구축 계획</a></h1>
+                    <h1><a href="Basic_statistical_study_00.html">기초 통계분석 - 02</a></h1>
 
-            <p>1차 시스템 목표로 Elastic 스택을 기반으로 데이터를 저장하고 시각화 합니다.</p>
+            <p>'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습</p>
     </div>
     <div class="meta">
          <time class="published"
-            datetime='Mar 22, 2020'>
-            Mar 22, 2020</time>
+            datetime='May 18, 2020'>
+            May 18, 2020</time>
             <div class="published eta"></div>
         <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
     </div>
@@ -181,83 +181,276 @@
        <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#들어가며">1. 들어가며</a></li>
-<li><a href="#1차_시스템_구성도_및_데이터_흐름도">2. 1차 : 시스템 구성도 및 데이터 흐름도</a></li>
-<li><a href="#데이터_수집_코드">3. 데이터 수집 코드</a></li>
+<li><a href="#기술통계학">1. 기술통계학</a>
+<ul class="sectlevel2">
+<li><a href="#그래프">1.1. 그래프</a></li>
+<li><a href="#모수와_통계량">1.2. 모수와 통계량</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="sect1">
-<h2 id="들어가며">1. 들어가며</h2>
+<h2 id="기술통계학">1. 기술통계학</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="그래프">1.1. 그래프</h3>
+<div class="sect3">
+<h4 id="기술통계학의_개요">1.1.1. 기술통계학의 개요</h4>
 <div class="paragraph">
-<p>기존에 ELK를 사용하던 경험이 있어 Elastic 스택을 사용하기로 결정하였습니다.
-Logstash와 Fluentd 사이에서 고민을 하였지만, 아직 배경지식이 얕아 차후에 고민을 더 해보겠습니다.</p>
-</div>
-<div class="paragraph">
-<p>제가 구상하는 시스템의 모토(?)는 아래와 같습니다. 생각되로 잘 될지는 모르겠지만 노력해 보겠습니다.</p>
+<p>통게학은 기술통계학을 통해 자료를 요약하고, 이를 바탕으로 추측통계학을 통해 모집단의 특성을 추측한다.
+통계학에서 자료를 통해 알고자 하는 것이 '모집단&#8217;의 특성이다.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>PC에 종속적이지 않을 것</p>
+<p>기술통계학(descriptive statistics) : 자료를 수집 및 정리하여 자료의 특성으로 자료를 요약하는 분야</p>
 </li>
 <li>
-<p>무중단 운영</p>
-</li>
-<li>
-<p>SW간 상호 독립적일 것</p>
-</li>
-<li>
-<p>누구나 사용할 수 있을 것</p>
+<p>추측통계학(inferential statistics) : 표본의 특성을 통해 모집단의특성을 추론</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>우선 1차 시스템을 목표로 하고 저의 시야가 보</p>
+</div>
+<div class="sect3">
+<h4 id="그래프의_개요">1.1.2. 그래프의 개요</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>그래프(graph) : 자료의 모양을 그림으로 표현하는 것</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="산점도">1.1.3. 산점도</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>산점도(plot) : x축과 y축으로 구성된 좌표계 위에 이차원(양적변수 두 개) 자료를 점으로 표현하여 두 변수 간의 관계를 나타낼 수 있는 도표</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="막대그래프와_히스토그램">1.1.4. 막대그래프와 히스토그램</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>막대그래프 : 이산형 혹은 질적 자료의 개수를 나타내기 위해 주로 사용</p>
+</li>
+<li>
+<p>히스토그램 : 연속현 자료의 개수 호근 비율을 나타내기 위해 주로 사용</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="원_도표">1.1.5. 원 도표</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>원도표(pie-chart) : 질적 자료에서 각 범주가 데이터에서 차지하는 비율을 나타내는데 사용할 수 있는 그래프.
+원의 각 조각은 데이터의 범주를 나태내므로, 조각의 크기를 비교, 대조함으로써 각 범주의 상대적인 크기를 평가할 수 있음</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="1차_시스템_구성도_및_데이터_흐름도">2. 1차 : 시스템 구성도 및 데이터 흐름도</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/01/HowHome_시스템구성도_1차.png" alt="1차 시스템구성도">
+<div class="sect2">
+<h3 id="모수와_통계량">1.2. 모수와 통계량</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>기본적인 자료의 특성</p>
+<div class="ulist">
+<ul>
+<li>
+<p>최대값과 최솟값 : 자료 중 가장 큰 값과 가장 작은 값</p>
+</li>
+<li>
+<p>최빈값 : 가장 많이 관찰된 값</p>
+</li>
+<li>
+<p>평균과 중앙값 : 자료들의 중심</p>
+</li>
+<li>
+<p>표준편차와 사분위수 범위 : 자료들이 퍼져 있는 정도</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="최대값과_최솟값">1.2.1. 최대값과 최솟값</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>최대값 : 자료들 중 가장 큰 값</p>
+</li>
+<li>
+<p>최솟값 : 자료들 중 가장 작은 값</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="paragraph">
-<p>위의 그림은 1차 시스템 구성도 입니다.
-기본적으로 모든 시스템은 도커를 이용하여 컨테이너 기반으로 구성하였고, 이를 관리하기 위해 쿠버네티스와 앤서블을 사용할 계획입니다.
-각 시스템을 컨테이너로 구성함으로써 개별 PC의 개별 도커로 운영될 수도 있고, 공용 PC의 공용 도커에서 운영될 수도 있습니다.</p>
-</div>
-<div class="paragraph">
-<p>아래 그림은 1차 시스템의 데이터흐름도 입니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/01/HowHome_데이터흐름도_1차.png" alt="1차 데이터흐름도">
+<div class="sect3">
+<h4 id="최빈값">1.2.2. 최빈값</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>최빈값(mode) : 자료등중 가장 많이 관찰된 값</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="paragraph">
-<p>공공데이터포털이나 법정동코드, 도로명주소는 RDB 기반의 PostgreSQL 에 저장할 수 있도록 하였습니다.
-현재는 주소 데이터를 CSV 파일 기반으로 받아서 수동으로 업로드 하고 있지만 차후 자동화할 계획입니다.</p>
+<div class="sect3">
+<h4 id="평균과_중앙값">1.2.3. 평균과 중앙값</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>평균과 중앙값이 전체 자료들을 대표하는 값이기는 하지만, 대표값만으로 전체 집단을 나타내면 개별 자료가 갖고 있는 특성들은 모두 무시됨</p>
+</li>
+<li>
+<p>중앙값(median) 또는 중위수 : 자료들의 순서상 중심, 자료를 순서대로 나열해 놓아 순서상 가운데 위치하는 값을 나타냄</p>
+<div class="ulist">
+<ul>
+<li>
+<p>중앙값 수식</p>
+<div class="ulist">
+<ul>
+<li>
+<p>홀수일 때 : \$x_{median} = x_{ ({n+1} / {2}) }\$</p>
+</li>
+<li>
+<p>짝수일 때 : \$x_{median} = { x_{ ({n} / {2}) } + x_{ ({n} / {2} + 1) } } / {2}\$</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>아파트 정보는 파이썬으로 수집하고 Filebeat를 이용해 Kafka로 전달하고, Logstash를 통해 Kafka가 전달받은 데이터를 가져와 Elasticsearch 또는 PostgreSQL에 저장하도록 합니다.
-Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하여 보여줍니다.</p>
+</li>
+<li>
+<p>중앙값 특성</p>
+<div class="ulist">
+<ul>
+<li>
+<p>강건함(robust) :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>양 끝 값의 변화에 민감하게 반응하지 않음</p>
+</li>
+<li>
+<p>끝 값이 변하더라도 순위에 영향을 미치지 않으면, 중앙값은 변하지 않음</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>평균(mean) : 자료들의 무게 중심, 산술평균</p>
+</li>
+</ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="표준편차와_사분위수_범위">1.2.4. 표준편차와 사분위수 범위</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>표준편차</p>
+<div class="ulist">
+<ul>
+<li>
+<p>편차(deviation) : 개별 관찰값과 평균과의 차이</p>
+</li>
+<li>
+<p>자유도(degrees of freedom) : n개의 자료가 있을 때 그들의 편차 중 (n-1)개는 원하는 값을 마음대로 가질 수 있는 정도</p>
+</li>
+<li>
+<p>분산(variance) : 편차 제곱의 평균</p>
+</li>
+<li>
+<p>표준편차(standard deviation)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>평균과 분산을 같이 쓰기에는 평균의 단위는 길이이고 분산의 단위는 면적이므로 일치하지 않음</p>
+</li>
+<li>
+<p>따라서 단위를 맞추기 위해 제곱으로 되어 있는 분산의 제곱근을 구하면됨</p>
+</li>
+<li>
+<p>표준편차를 이용하여 일반적으로 '평균±표준편차&#8217;의 형태로 자료의 편균과 퍼진 정도를 숫자로 표현</p>
+</li>
+</ul>
 </div>
-<div class="sect1">
-<h2 id="데이터_수집_코드">3. 데이터 수집 코드</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>파이썬으로 작성한 데이터 수집코드는 기존 단일 파일로 구현하였던것을 각 기능(역할)별로 파일로 나누어 리팩토링 하였습니다.
-파이썬의 코드의 작성규칙은 <a href="https://www.python.org/dev/peps/pep-0008/">pep8</a>을 준수하려했지만 아직 완벽하지 않은것 같습니다.</p>
+</li>
+<li>
+<p>변동계수(coefficient of variance) : 평균에 대한 상대적인 변동성의 크기</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$CV = {8} / {bar x}\$</p>
+</li>
+</ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/01/Python%20수집소스%20구성.png" alt="1차 데이터흐름도">
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>사분위수</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사분위수(quartile) : 전체 자료를 순서대로 나열한 후 4등분 한 각각의 위치로, 자료의 25%, 50%, 75%, 100%가 되는 값</p>
+<div class="ulist">
+<ul>
+<li>
+<p>25% : 제1사분위수(Q1), 50% : 제2사분위수(Q2) / 중앙값, 75% : 제3사분위수(Q3), 100% : 제1사분위수(Q4)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>사분위수 범위(inter quartile range) : 제1사분위수에서 제3사분위수. 중앙값을 포함하는 영역을 나타내는 가장 작은 영역</p>
+</li>
+<li>
+<p>이상치(outlier) : 관찰된 자료가 다른 값들과 많이 떨어져 있는 값</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사분위수와 사분위수 범위를 이용해 판별</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>자료 출처에 따른 자료의 특성</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표본 : 통계량(statistic)</p>
+</li>
+<li>
+<p>모집단 : 모수(parameter)</p>
+</li>
+<li>
+<p>즉 표본의 특성을 통계량, 모집단의 특성을 모수</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -269,43 +462,43 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
 <!-- Social Share Button HTML -->
 
 <!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&text=어떡하집 프로젝트 - 1차 시스템 구축 계획&via=" target="_blank" class="share-btn twitter">
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&text=기초 통계분석 - 02&via=" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
 </a></li>
 
 <!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html" target="_blank" class="share-btn google-plus">
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_00.html" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
 </a></li>
 
 <!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HowHome-03-Dev-01.html" target="_blank" class="share-btn facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//Basic_statistical_study_00.html" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
 </a></li>
 
 <!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&title=어떡하집 프로젝트 - 1차 시스템 구축 계획" target="_blank" class="share-btn reddit">
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&title=기초 통계분석 - 02" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
 </a></li>
 
 <!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&title=어떡하집 프로젝트 - 1차 시스템 구축 계획" target="_blank" class="share-btn linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&title=기초 통계분석 - 02" target="_blank" class="share-btn linkedin">
     <i class="fa fa-linkedin"></i>
     <p>LinkedIn</p>
 </a></li>
 
 <!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&title=어떡하집 프로젝트 - 1차 시스템 구축 계획" target="_blank" class="share-btn stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&title=기초 통계분석 - 02" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
 </a></li>
 
 <!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HowHome-03-Dev-01.html" target="_blank" class="share-btn email">
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//Basic_statistical_study_00.html" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
 </a></li>
@@ -318,10 +511,10 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
 		<ul class="stats">
     	    <!-- Display the categories associated with this post -->
     	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='tags/부동산.html'>부동산</a></li>
- 	        <li><a href='tags/개인프로젝트.html'>개인프로젝트</a></li>
+ 	        <li><a href='tags/빅데이터.html'>빅데이터</a></li>
+ 	        <li><a href='tags/통계분석.html'>통계분석</a></li>
 
-				<li><a class="icon fa-comment" href="HowHome-03-Dev-01.html#disqus_thread"> &nbsp;</a></li>
+				<li><a class="icon fa-comment" href="Basic_statistical_study_00.html#disqus_thread"> &nbsp;</a></li>
  		</ul>
     	
     </footer>
@@ -329,10 +522,8 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
 		
 <ul class="actions pagination">
   	
-  		        <li><a href="HowHome-02-AptData-05.html" 
-                class="button big previous">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)</a></li>
-        <li><a href="Bigdata_basic_study_00.html" 
-                class="button big next">빅데이터 관련 학습노트 - 00 - 전체 정리</a></li>
+  		        <li><a href="Bigdata_basic_study_00.html" 
+                class="button big previous">빅데이터 관련 학습노트 - 00 - 전체 정리</a></li>
 	
 </ul>
 		
@@ -340,7 +531,7 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_config = function () {
-      this.page.identifier = 'HowHome-03-Dev-01.html';
+      this.page.identifier = 'Basic_statistical_study_00.html';
     };
     var disqus_shortname = 'anew0m';
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -598,8 +789,8 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-149448484-1', 'auto');
   ga('send', 'pageview', {
-    'page': 'HowHome-03-Dev-01.html',
-    'title': '어떡하집 프로젝트 - 1차 시스템 구축 계획'
+    'page': 'Basic_statistical_study_00.html',
+    'title': '기초 통계분석 - 02'
       });
 </script>
 		<!-- This is called by default since this theme uses highlight.js -->
