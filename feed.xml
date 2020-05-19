@@ -6,14 +6,14 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Tue, 19 May 2020 12:50:49 +0000</pubDate>
-    <lastBuildDate>Tue, 19 May 2020 12:50:49 +0000</lastBuildDate>
+    <pubDate>Tue, 19 May 2020 12:52:27 +0000</pubDate>
+    <lastBuildDate>Tue, 19 May 2020 12:52:27 +0000</lastBuildDate>
 
     <item>
       <title>기초 통계분석 - 02</title>
-      <link>https://anew0m.netlify.com//Basic_statistical_study_00.html</link>
+      <link>https://anew0m.netlify.com//Basic_statistical_study_02.html</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">Basic_statistical_study_00.html</guid>
+      <guid isPermaLink="false">Basic_statistical_study_02.html</guid>
       	<description>
 	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
 &lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
@@ -290,6 +290,46 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>기초 통계분석 - 01</title>
+      <link>https://anew0m.netlify.com//Basic_statistical_study_01.html</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">Basic_statistical_study_01.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#작성중&quot;&gt;1. 작성중&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;작성중&quot;&gt;1. 작성중&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>기초 통계분석 - 00</title>
+      <link>https://anew0m.netlify.com//Basic_statistical_study_00.html</link>
+      <pubDate>Sat, 16 May 2020 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">Basic_statistical_study_00.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#작성중&quot;&gt;1. 작성중&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;작성중&quot;&gt;1. 작성중&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 	</description>
