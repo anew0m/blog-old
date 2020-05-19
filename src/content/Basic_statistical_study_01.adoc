@@ -1,0 +1,16 @@
+= 기초 통계분석 - 01
+정민호
+2020-05-17
+:jbake-last_updated: 2020-05-16
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: 빅데이터, 통계분석
+:description: 'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습
+:jbake-og: {"image": "img/jdk/duke.jpg"}
+:idprefix:
+:toc:
+:sectnums:
+
+
+
+== 작성중
