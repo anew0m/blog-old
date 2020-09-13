@@ -60,7 +60,12 @@ G. 텐서플로 그래프
 
 그리고 본 책과 관련하여 유튜브에 강의를 올려 주셨습니다. 주소는 아래와 같으며 현재(2020.09.13) 8장까지 강좌가 있습니다.
 
-* https://www.youtube.com/watch?v=kpuRasV_Q9k&list=PLJN246lAkhQjX3LOdLVnfdFaCbGouEBeb[핸즈온 머신러닝 2판 강좌]
+* https://www.youtube.com/playlist?list=PLJN246lAkhQjX3LOdLVnfdFaCbGouEBeb[강좌 - 핸즈온 머신러닝 2판]
+* https://drive.google.com/drive/folders/18V9V7VADM6K86_BwL6XwjTXbUDdv9qK0[슬라이드 - 핸즈온 머신러닝 2판]
+* https://github.com/rickiepark/handson-ml2[깃허브 - 핸즈온 머신러닝 2판]
+* https://tensorflow.blog/handson-ml2/[오탈자 - 핸즈온 머신러닝 2판]
+* https://www.inflearn.com/course/핸즈온-머신러닝[인프런  - 핸즈온 머신러닝 2판]
+
 
 본 책을 요약 및 정리하고자 생각하게된 계기는 기존에 데이터분석 분야를 공부하고 싶어서 이것저것 공부를 했었습니다.
 하지만 중구난방으로 공부한다는 느낌이 다소 많이 들었고, 실제 사용해보지 않으니 잘 다가오지 않았습니다.
