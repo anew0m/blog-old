@@ -134,16 +134,16 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="HandsOnML2_01-2.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?</p></a>
+                    </li>
+                    <li>
+                        <a href="HandsOnML2_01-3.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.3 애플리케이션 사례</p></a>
+                    </li>
+                    <li>
                         <a href="HandsOnML2_00.html"><p>핸즈온 머신러닝 소개</p></a>
                     </li>
                     <li>
                         <a href="HandsOnML2_01-1.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.1 머신러닝이란?</p></a>
-                    </li>
-                    <li>
-                        <a href="HowHome-03-Dev-02.html"><p>어떡하집 프로젝트 - 근황</p></a>
-                    </li>
-                    <li>
-                        <a href="Basic_statistical_study_21.html"><p>기초 통계분석 - 21 - 표현 정리</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,605 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="HandsOnML2_01-2.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?</a></h2>
+
+
+            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.2절 왜 머신러닝을 사용하는가? 요약 및 정리</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='Sep 19, 2020'>
+            Sep 19, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
+<ul class="sectlevel2">
+<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
+<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
+<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
+<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
+<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
+<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
+<li><a href="#연습문제">1.7. 연습문제</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
+<div class="sectionbody">
+<hr>
+<div class="sect2">
+<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>기존의 솔루션이 많은 수동 조정과 규칙이 필요한 문제를 해결하고자 할 때</p>
+</li>
+<li>
+<p>전통적인 방식으로는 해결 방법이 없는 복잡한 문제를 해결하고자 할 때</p>
+</li>
+<li>
+<p>대용량의 데이터에서 통찰을 얻고자 할 때</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>사례 - 스팸 필터</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>전통적인 접근 방법</p>
+<div class="ulist">
+<ul>
+<li>
+<p>스팸에 어떤 단어들이 주로 나타나는지 연구하여 규칙을 작성함</p>
+</li>
+<li>
+<p>규칙을 이용해 스팸메일의 패턴을 감지하는 알고리즘을 작성하여 메일 분류</p>
+</li>
+<li>
+<p>프로그램을 테스트하고 스팸 단어가 변경될 경우 위 방법을 반복</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>문제점</p>
+<div class="ulist">
+<ul>
+<li>
+<p>문제가 어렵기 때문에 규칙이 점점길고 복잡해지므로 유지보수하기 매우 힘들어짐</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>머신러닝 접근 방법</p>
+<div class="ulist">
+<ul>
+<li>
+<p>스팸에 어떤 단어들이 주로 나타나는지 연구하여 규칙을 작성함</p>
+</li>
+<li>
+<p>규칙을 이용해 프로그램이 자동으로 인식하고 별도의 작업하지 않아도 자동으로 스팸메일의 패턴을 감지하여 메일 분류</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>데이터 마이닝</p>
+<div class="ulist">
+<ul>
+<li>
+<p>대용량의 데이터를 분석하면 겉으로 보이지 않던 패턴 발견</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>머신러닝 사용 분야</p>
+<div class="ulist">
+<ul>
+<li>
+<p>기존솔루션으로 많은 수동 조정과 규칙이 필요한 문제</p>
+<div class="ulist">
+<ul>
+<li>
+<p>하나의 머신러닝 모델이 코드를 간단한게 만들고 전통적인 방법보다 더 잘 수행되도록 할수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>전통적인 방식으로는 해결 방법이 없는 복잡한 문제</p>
+<div class="ulist">
+<ul>
+<li>
+<p>가장 뛰어난 머신러닝 기법으로 해결 방법을 찾을 수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>유동적인 환경</p>
+<div class="ulist">
+<ul>
+<li>
+<p>머신러닝 시스템은 새로운 데이터에 적응할 수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>복잡한 문제와 대량의 데이터에서 통찰 얻기</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
+<hr>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-2.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-2.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-2.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='tags/데이터분석.html'>데이터분석</a></li>
+ 	        <li><a href='tags/책정리.html'>책정리</a></li>
+
+				<li><a class="icon fa-comment" href="HandsOnML2_01-2.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="HandsOnML2_01-3.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.3 애플리케이션 사례</a></h2>
+
+
+            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.3절 애플리케이션 사례 요약 및 정리</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='Sep 19, 2020'>
+            Sep 19, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
+<ul class="sectlevel2">
+<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
+<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
+<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
+<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
+<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
+<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
+<li><a href="#연습문제">1.7. 연습문제</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
+<div class="sectionbody">
+<hr>
+<div class="sect2">
+<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>분류, 구분</p>
+</li>
+<li>
+<p>진단, 예측, 감지, 추천</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>텍스트</p>
+<div class="ulist">
+<ul>
+<li>
+<p>자동으로 뉴스 기사를 분류</p>
+<div class="ulist">
+<ul>
+<li>
+<p>텍스트 분류 작업, 자연어 처리(natural language processing; NLP) 작업</p>
+</li>
+<li>
+<p>순환 신경망(recurrent neural network; RNN), 합성곱 신경망(convolutional neural network; CNN), 트랜스포머(Transformer)를 사용해 해결</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>토론 포럼에서 부정적인 코멘트를 자동 구분하기</p>
+<div class="ulist">
+<ul>
+<li>
+<p>텍스트 분류 작업</p>
+</li>
+<li>
+<p>자연어 처리(natural language processing; NLP) 도구 사용</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>긴 문서를 자동 요약</p>
+<div class="ulist">
+<ul>
+<li>
+<p>텍스트 요약</p>
+</li>
+<li>
+<p>자연어 처리(natural language processing; NLP) 도구 사용</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>챗봇 또는 개인 비서 만들기</p>
+<div class="ulist">
+<ul>
+<li>
+<p>자연어 이해(natural language understanding; NLU)와 질문-대답(question-answering) 모듈을 포함해
+여러가지 자연어 처리(natural language processing; NLP) 컴포넌트 필요</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>음성/영상</p>
+<div class="ulist">
+<ul>
+<li>
+<p>생산라인에서 제품 이미지를 분석해 자동 분류</p>
+<div class="ulist">
+<ul>
+<li>
+<p>이미지 분류 작업</p>
+</li>
+<li>
+<p>일반적으로 합성곱 신경망(convolutional neural network; CNN)을 사용하여 수행</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>뇌를 스캔하여 종양 진단</p>
+<div class="ulist">
+<ul>
+<li>
+<p>시맨틱 분할 작업</p>
+</li>
+<li>
+<p>일반적으로 합성곱 신경망(convolutional neural network; CNN)을 사용하여 이미지의 각 픽셀을 분류</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>음성 명령에 반응하는 앱 만들기</p>
+<div class="ulist">
+<ul>
+<li>
+<p>음성 인식 작업</p>
+</li>
+<li>
+<p>순환 신경망(recurrent neural network; RNN), 합성곱 신경망(convolutional neural network; CNN), 트랜스포머(Transformer)를 사용</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>기타</p>
+<div class="ulist">
+<ul>
+<li>
+<p>다양한 성능 지표를 기반으로 회사의 내년도 수익 예측</p>
+<div class="ulist">
+<ul>
+<li>
+<p>회귀 작업(숫자로 값을 예측)</p>
+</li>
+<li>
+<p>선형 회귀(linear regression)나 다항 회귀(polynomial regression) 모델, 회귀 SVM(support vector machine), 회귀 랜덤 포레스트(random forest),
+인공신경망(artificial neural network)과 같은 회귀 모델을 사용해서 해결</p>
+</li>
+<li>
+<p>지난 성능 지표의 시퀀스를 고려한다면 한다면
+순환 신경망(recurrent neural network; RNN), 합성곱 신경망(convolutional neural network; CNN), 트랜스포머(Transformer)를 사용</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>신용 카드 부정 거래 감지</p>
+<div class="ulist">
+<ul>
+<li>
+<p>이상치 탐지 작업</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>구매 이력을 기반으로 고객을 나누고 각 집합마다 다른 마케팅 전략 계획하기</p>
+<div class="ulist">
+<ul>
+<li>
+<p>군집(clustering)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>고차원의 복잡한 데이터셋을 명확하고 의미 있는 그래프로 표현</p>
+<div class="ulist">
+<ul>
+<li>
+<p>데이터 시각화 작업</p>
+</li>
+<li>
+<p>차원축소(dimensionality reduction) 기법 많이 사용</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>과거 구매 이력을 기반으로 고객이 관심을 가질 수 있는 상품 추천</p>
+<div class="ulist">
+<ul>
+<li>
+<p>추천 시스템</p>
+</li>
+<li>
+<p>데이터를 인공 신경망에 주입하고 그 결과물로 상품 추천</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>지능형 게임 봇 만들기</p>
+<div class="ulist">
+<ul>
+<li>
+<p>보통 강화 학습(reinforcement learning; RL)으로 해결</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
+<hr>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-3.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.3 애플리케이션 사례&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-3.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-3.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-3.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.3 애플리케이션 사례" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-3.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.3 애플리케이션 사례" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-3.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.3 애플리케이션 사례" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-3.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='tags/데이터분석.html'>데이터분석</a></li>
+ 	        <li><a href='tags/책정리.html'>책정리</a></li>
+
+				<li><a class="icon fa-comment" href="HandsOnML2_01-3.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -378,491 +977,6 @@
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="HowHome-03-Dev-02.html">어떡하집 프로젝트 - 근황</a></h2>
-
-
-            <p>오랜기간 멈춰있던 시스템 개발의 근황을 전달드립니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='Sep 13, 2020'>
-            Sep 13, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#2020_09_13_현재_상황">1. 2020.09.13 현재 상황</a></li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="2020_09_13_현재_상황">1. 2020.09.13 현재 상황</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>어떡하집 프로젝트는 04월 즘에 테스트 시스템까지 구축을 끝 마친 상태입니다.</p>
-</div>
-<div class="paragraph">
-<p>시스템 구축 할 때 <a href="https://www.data.go.kr/">공공데이터포털</a>에서 아파트 실거래 정보를 가져오던 중 API를 제공하는 서버에 문제가있어서 일시중단하게되었습니다.
-그 후 5~6월 즘 다시 아파트 실거래 정보를 가져오려했지만 문제가 해결되지 않아 아직까지 중단된 상태입니다.
-왜 그런지는 모르겠지만 현재(2020.09.13)까지 해결 되지 않았습니다. 추후 본격적으로 작업을 다시 시작할 때 다시 문의를 해봐야겠습니다.</p>
-</div>
-<div class="paragraph">
-<p>초기 설계에선 logstash를 사용하였지만 실제구축에선 logstash를 nifi로 변경하여 진행하였습니다.
-아래 사진은 개발진행상태(?) 입니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/02/server.png" alt="VB를 이용한 서버 구성">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/02/use_nifi.png" alt="nifi 현황">
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HowHome-03-Dev-02.html&text=어떡하집 프로젝트 - 근황&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HowHome-03-Dev-02.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HowHome-03-Dev-02.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HowHome-03-Dev-02.html&title=어떡하집 프로젝트 - 근황" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HowHome-03-Dev-02.html&title=어떡하집 프로젝트 - 근황" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HowHome-03-Dev-02.html&title=어떡하집 프로젝트 - 근황" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HowHome-03-Dev-02.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='tags/부동산.html'>부동산</a></li>
- 	        <li><a href='tags/개인프로젝트.html'>개인프로젝트</a></li>
-
-				<li><a class="icon fa-comment" href="HowHome-03-Dev-02.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="HandsOnML2_00.html">핸즈온 머신러닝 소개</a></h2>
-
-
-            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`을 요약 및 정리하기전 간략히 소개하고자 한다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='Sep 13, 2020'>
-            Sep 13, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div class="paragraph">
-<p><a href="https://book.naver.com/bookdb/book_detail.nhn?bid=16328592">핸즈온 머신러닝 2판(사이킷런, 케라스, 텐서플로 2를 활용한 머신러닝, 딥러닝 완벽 실무)</a> -
-<a href="https://book.naver.com/search/search.nhn?query=%EB%B0%95%ED%95%B4%EC%84%A0&amp;frameFilterType=1&amp;frameFilterValue=1154889">박해선</a> 번역</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HandsOnML2/00/book_cover.jpg" alt="book_cover">
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://book.naver.com/bookdb/book_detail.nhn?bid=16328592">핸즈온 머신러닝 2판(사이킷런, 케라스, 텐서플로 2를 활용한 머신러닝, 딥러닝 완벽 실무)</a>은
-'오렐리랑 제롱(Aurelien Geron)'이 집필하고 <a href="https://book.naver.com/search/search.nhn?query=%EB%B0%95%ED%95%B4%EC%84%A0&amp;frameFilterType=1&amp;frameFilterValue=1154889">박해선</a>님이 번역하신 책이다.</p>
-</div>
-<div class="paragraph">
-<p>이 책을 사고나서 알게된것이지만 번역을 하신 박해선님이 이 분야와 관련한 여러 책을 번역하셨습니다.
-그래서 그런지 본 책을 잘 읽히게 번역을 하셨다는 평이 많습니다.</p>
-</div>
-<div class="paragraph">
-<p>책의 목차는 3개의 Part 19개의 Chapter로 구성되어있으며, 책 규격은 183*235mm, 1809g, 952p, ISBN : 9791162242964 입니다.
-(출처 : <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=K532639960&amp;start=pnaver_02" class="bare">https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=K532639960&amp;start=pnaver_02</a>)</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>머신러닝</strong></p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>한눈에 보는 머신러닝</p>
-</li>
-<li>
-<p>머신러닝 프로젝트 처음부터 끝까지</p>
-</li>
-<li>
-<p>분류</p>
-</li>
-<li>
-<p>모델 훈련</p>
-</li>
-<li>
-<p>서포트 벡터 머신</p>
-</li>
-<li>
-<p>결정 트리</p>
-</li>
-<li>
-<p>앙상블 학습과 랜덤 포레스트</p>
-</li>
-<li>
-<p>차원 축소</p>
-</li>
-<li>
-<p>비지도 학습</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>신경망과 머신러닝</strong></p>
-<div class="olist arabic">
-<ol class="arabic" start="10">
-<li>
-<p>케라스를 사용한 인공 신경망 소개</p>
-</li>
-<li>
-<p>심층 신경망 훈련하기</p>
-</li>
-<li>
-<p>텐서플로를 사용한 사용자 정의 모델과 훈련</p>
-</li>
-<li>
-<p>텐서플로에서 데이터 적재와 전처리하기</p>
-</li>
-<li>
-<p>합성곱 신경망을 사용한 컴퓨터 비전</p>
-</li>
-<li>
-<p>RNN과 CNN을 사용해 시퀀스 처리하기</p>
-</li>
-<li>
-<p>RNN과 어텐션을 사용한 자연어 처리</p>
-</li>
-<li>
-<p>오토인코더와 GAN을 사용한 표현 학습과 생성적 학습</p>
-</li>
-<li>
-<p>강화 학습</p>
-</li>
-<li>
-<p>대규모 텐서플로 모델 훈련과 배포</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>부록</strong></p>
-<div class="olist upperalpha">
-<ol class="upperalpha">
-<li>
-<p>연습문제 정답</p>
-</li>
-<li>
-<p>머신러닝 프로젝트 체크리스트</p>
-</li>
-<li>
-<p>SVM 쌍대 문제</p>
-</li>
-<li>
-<p>자동 미분</p>
-</li>
-<li>
-<p>유명한 다른 인공 신경망 구조</p>
-</li>
-<li>
-<p>특수한 데이터 구조</p>
-</li>
-<li>
-<p>텐서플로 그래프</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>그리고 본 책과 관련하여 유튜브에 강의를 올려 주셨습니다. 주소는 아래와 같으며 현재(2020.09.13) 8장까지 강좌가 있습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.youtube.com/playlist?list=PLJN246lAkhQjX3LOdLVnfdFaCbGouEBeb">강좌 - 핸즈온 머신러닝 2판</a></p>
-</li>
-<li>
-<p><a href="https://drive.google.com/drive/folders/18V9V7VADM6K86_BwL6XwjTXbUDdv9qK0">슬라이드 - 핸즈온 머신러닝 2판</a></p>
-</li>
-<li>
-<p><a href="https://github.com/rickiepark/handson-ml2">깃허브 - 핸즈온 머신러닝 2판</a></p>
-</li>
-<li>
-<p><a href="https://tensorflow.blog/handson-ml2/">오탈자 - 핸즈온 머신러닝 2판</a></p>
-</li>
-<li>
-<p><a href="https://www.inflearn.com/course/핸즈온-머신러닝">인프런  - 핸즈온 머신러닝 2판</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>본 책을 요약 및 정리하고자 생각하게된 계기는 기존에 데이터분석 분야를 공부하고 싶어서 이것저것 공부를 했었습니다.
-하지만 중구난방으로 공부한다는 느낌이 다소 많이 들었고, 실제 사용해보지 않으니 잘 다가오지 않았습니다.
-그러던 중 멘토님께 이 책을 추천 받게되어 책을 요약 및 정리하겠다고 생각하였습니다.</p>
-</div>
-<div class="paragraph">
-<p>책은 2개월에 완독하는 것을 목표로 해보겠습니다. (2020.09.13(일) - 2020.11.08(일))
-평일에는 퇴근이 늦어 눈으로 읽게 될 것같고 주말에 실습위주가 되지 않을까 생각합니다.</p>
-</div>
-<div class="paragraph">
-<p>진도는 단순히 수치로 계산해 봤을 때 약 16p 정도를 하루에 하면 될것 같습니다.(952p / 60일)
-아래는 세부 일정입니다. 아직 책을 수령받기 전이기도하고 내용의 난이도를 잘 모르기에 대략적으로 구성해보았습니다.
-(Part1 : 3주, Part2 : 5주)</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>W1 ~ W8 - 핸즈온 머신러닝(30p - 928p, 100.0%)</strong></p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>W1 ~ W3 - 머신러닝 (30p - 351p, 35.8%)</strong></p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>W1 - 한눈에 보는 머신러닝 (30p - 67p, 4.1%)</p>
-</li>
-<li>
-<p>W1 - 머신러닝 프로젝트 처음부터 끝까지 (68p - 126p, 6.5%)</p>
-</li>
-<li>
-<p>W2 - 분류 (127p - 157p, 3.3%)</p>
-</li>
-<li>
-<p>W2 - 모델 훈련 (158p - 204p, 5.1%)</p>
-</li>
-<li>
-<p>W2 - 서포트 벡터 머신 (205p - 228p, 2.6%)</p>
-</li>
-<li>
-<p>W2 - 결정 트리 (229p - 245p, 1.8%)</p>
-</li>
-<li>
-<p>W2 - 앙상블 학습과 랜덤 포레스트 (246p - 273p, 3%)</p>
-</li>
-<li>
-<p>W3 - 차원 축소 (274p - 299p, 2.8%)</p>
-</li>
-<li>
-<p>W3 - 비지도 학습 (300p - 351p, 5.7%)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>W4 ~ W8 - 신경망과 머신러닝 (352p - 842p, 54.7%)</strong></p>
-<div class="olist arabic">
-<ol class="arabic" start="10">
-<li>
-<p>W4 - 케라스를 사용한 인공 신경망 소개 (352p - 411p, 6.6%)</p>
-</li>
-<li>
-<p>W4 - 심층 신경망 훈련하기 (412p - 461p, 5.5%)</p>
-</li>
-<li>
-<p>W5 - 텐서플로를 사용한 사용자 정의 모델과 훈련 (462p - 503p, 4.6%)</p>
-</li>
-<li>
-<p>W5 - 텐서플로에서 데이터 적재와 전처리하기 (504p - 541p, 4.1%)</p>
-</li>
-<li>
-<p>W5 - 합성곱 신경망을 사용한 컴퓨터 비전 (542p - 597p, 6.1%)</p>
-</li>
-<li>
-<p>W6 - RNN과 CNN을 사용해 시퀀스 처리하기 (598p - 627p, 3.2%)</p>
-</li>
-<li>
-<p>W6 - RNN과 어텐션을 사용한 자연어 처리 (628p - 673p, 5%)</p>
-</li>
-<li>
-<p>W7 - 오토인코더와 GAN을 사용한 표현 학습과 생성적 학습 (674p - 719p, 5%)</p>
-</li>
-<li>
-<p>W7 - 강화 학습 (720p - 783p, 7%)</p>
-</li>
-<li>
-<p>W8 - 대규모 텐서플로 모델 훈련과 배포 (784p - 842p, 6.5%)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>W8 ~ W8 - 부록 (843p - 928p, 9.5%)</strong></p>
-<div class="olist upperalpha">
-<ol class="upperalpha">
-<li>
-<p>W8 - 연습문제 정답 (843p - 880p, 4.1%)</p>
-</li>
-<li>
-<p>W8 - 머신러닝 프로젝트 체크리스트 (881p - 886p, 0.6%)</p>
-</li>
-<li>
-<p>W8 - SVM 쌍대 문제 (887p - 890p, 0.3%)</p>
-</li>
-<li>
-<p>W8 - 자동 미분 (891p - 898p, 0.8%)</p>
-</li>
-<li>
-<p>W8 - 유명한 다른 인공 신경망 구조 (899p - 908p, 1%)</p>
-</li>
-<li>
-<p>W8 - 특수한 데이터 구조 (909p - 916p, 0.8%)</p>
-</li>
-<li>
-<p>W8 - 텐서플로 그래프 (917p - 928p, 1.2%)</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>책을 정리하겠노라 마음은 먹었지만 실천하는것과 별개인것 같습니다.
-시작이 반이라는데 이미 반을 했으니 중간에 흐지부지 그만두지 않기 위해 노력하겠습니다.</p>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_00.html&text=핸즈온 머신러닝 소개&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_00.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_00.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_00.html&title=핸즈온 머신러닝 소개" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_00.html&title=핸즈온 머신러닝 소개" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_00.html&title=핸즈온 머신러닝 소개" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_00.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='tags/데이터분석.html'>데이터분석</a></li>
- 	        <li><a href='tags/책소개.html'>책소개</a></li>
-
-				<li><a class="icon fa-comment" href="HandsOnML2_00.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="#"
@@ -933,6 +1047,28 @@
                     <li>
                         <article>
                             <header>
+                                <h3><a href="HandsOnML2_01-2.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?</a></h3>
+                                 <time class="published"
+							            datetime='Sep 19, 2020'>
+							            Sep 19, 2020</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="HandsOnML2_01-3.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.3 애플리케이션 사례</a></h3>
+                                 <time class="published"
+							            datetime='Sep 19, 2020'>
+							            Sep 19, 2020</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="HandsOnML2_00.html">핸즈온 머신러닝 소개</a></h3>
                                  <time class="published"
 							            datetime='Sep 13, 2020'>
@@ -948,28 +1084,6 @@
                                  <time class="published"
 							            datetime='Sep 13, 2020'>
 							            Sep 13, 2020</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="HowHome-03-Dev-02.html">어떡하집 프로젝트 - 근황</a></h3>
-                                 <time class="published"
-							            datetime='Sep 13, 2020'>
-							            Sep 13, 2020</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="Basic_statistical_study_21.html">기초 통계분석 - 21 - 표현 정리</a></h3>
-                                 <time class="published"
-							            datetime='May 24, 2020'>
-							            May 24, 2020</time>
                             </header>
                         </article>
                     </li>
@@ -1008,7 +1122,7 @@
                             <header>
                                 <a href="tags/데이터분석.html">데이터분석</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 5 </span>
+                                <span style="float:right;"> 7 </span>
                             </header>
                         </article>
                     </li>
@@ -1035,7 +1149,7 @@
                             <header>
                                 <a href="tags/책정리.html">책정리</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 6 </span>
+                                <span style="float:right;"> 8 </span>
                             </header>
                         </article>
                     </li>
