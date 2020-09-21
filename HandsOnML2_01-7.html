@@ -7,12 +7,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1) - 정민호의 블로그</title>
+    <title>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제 - 정민호의 블로그</title>
     <meta name="google-site-verification" content="NjTrEtPZ_cX4UYx9pg4mIKBm4cl_zNC7V7PNl4sj4aQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="버추얼박스에서 OS를 설치하고 DB를 설치하여 주소 데이터를 저장합니다.">
+    <meta name="description" content="'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.7절 연습문제 및 정리">
     <meta name="author" content="정민호">
-    <meta name="keywords" content="부동산, 개인프로젝트">
+    <meta name="keywords" content="데이터분석, 책정리">
     <meta name="generator" content="JBake">
 	<meta property="og:image" content="https://anew0m.netlify.com/img/jdk/duke.jpg"/>
 
@@ -161,14 +161,14 @@
 <article class="post">
    <header>
     <div class="title">
-                    <h1><a href="HowHome-02-AptData-05.html">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)</a></h1>
+                    <h1><a href="HandsOnML2_01-7.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</a></h1>
 
-            <p>버추얼박스에서 OS를 설치하고 DB를 설치하여 주소 데이터를 저장합니다.</p>
+            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.7절 연습문제 및 정리</p>
     </div>
     <div class="meta">
          <time class="published"
-            datetime='Mar 15, 2020'>
-            Mar 15, 2020</time>
+            datetime='Sep 21, 2020'>
+            Sep 21, 2020</time>
             <div class="published eta"></div>
         <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
     </div>
@@ -181,202 +181,115 @@
        <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#들어가며">1. 들어가며</a></li>
-<li><a href="#db_접속_및_테이블_생성">2. DB 접속 및 테이블 생성</a></li>
-<li><a href="#db_데이터_import">3. DB 데이터 Import</a></li>
+<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
+<ul class="sectlevel2">
+<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
+<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
+<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
+<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
+<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
+<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
+<li><a href="#연습문제">1.7. 연습문제</a></li>
 </ul>
-</div>
-<div class="sect1">
-<h2 id="들어가며">1. 들어가며</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>공공데이터 포털에서 받은 데이터를 DB에 저장하는 과정을 테스트하기 위해_(공공데이터 약관에따라 일반&#8594;서버구축으로 변경)_
-임시로 가상머신에 CentOS-7 64비트 버전을 최소설치하고 PostgreSQL 11을 설치하고자 합니다.</p>
-</div>
-<div class="paragraph">
-<p>가상머신 설치 및 SSH 설정, PostgreSQL 11 설치 방법은 구글에 검색하시거나 아래 링크를 참조해주시면 좋을것 같습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://extrememanual.net/8513" class="bare">https://extrememanual.net/8513</a> - <a href="https://extrememanual.net/8513">버추얼박스(VirtualBox) CentOS7 설치하는 방법</a></p>
-</li>
-<li>
-<p><a href="https://blog.miyam.net/56" class="bare">https://blog.miyam.net/56</a> - <a href="https://blog.miyam.net/56">CentOS 7 SSH 설치</a></p>
-</li>
-<li>
-<p><a href="https://medium.com/@jinseok.choi/centos-7에서-postgresql-11-설치하기-77bc0da9d0af" class="bare">https://medium.com/@jinseok.choi/centos-7에서-postgresql-11-설치하기-77bc0da9d0af</a> - <a href="https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af">Centos 7에서 PostgreSQL 11 설치하기</a></p>
 </li>
 </ul>
 </div>
+<div id="preamble">
+<div class="sectionbody">
+<hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="db_접속_및_테이블_생성">2. DB 접속 및 테이블 생성</h2>
+<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>저는 PostgreSQL DB 접속을 pgAdmin이 아닌 DBeaver를 통해 접속을 하였고, 주소 데이터를 관리할 rowdata 계정을 추가하였습니다.
-도로명과 법정동 정보는 HowHome 프로젝트에서 사용할 용어로 표준화 하였습니다.</p>
+<hr>
+<div class="sect2">
+<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
+<hr>
 </div>
-<div class="paragraph">
-<p>먼저 테이블 생성에 앞서 데이터 표준사전을 만든 후 테이블을 생성하였습니다.
-데이터 표준사전의 기본 구성은 아래와 같고, 저는 별도로 원본 주소정보의 스키마 정보를 저장해 놓았습니다.
-<em>(의도는 데이터 표준사전이었지만 프로젝트가 안정될 때까지 작업 겸용으로 유지할 계획입니다.)</em></p>
+<div class="sect2">
+<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
+<hr>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">재개정이력</dt>
-<dd>
-<p>표준사전 변경시 어떤 변동사항이 있는지를 기록</p>
-</dd>
-<dt class="hdlist1">원본주소정보</dt>
-<dd>
-<p>도로명과 법정동 원본 스키마 정보와 표준용어 매핑</p>
-</dd>
-<dt class="hdlist1">단어분리</dt>
-<dd>
-<p>용어를 구성하는 최소 단어 단위로 분리</p>
-</dd>
-<dt class="hdlist1">표준단어</dt>
-<dd>
-<p>단어의 의미와 약어(최대3자리) 정보 관리</p>
-</dd>
-<dt class="hdlist1">표준도메인</dt>
-<dd>
-<p>데이터 도메인 분류와 데이터 타입 및 길이 정보 관리</p>
-</dd>
-<dt class="hdlist1">표준용어</dt>
-<dd>
-<p>용어정보와 용어가 속해있는 표준 도메인 정보 관리</p>
-</dd>
-<dt class="hdlist1">표준코드</dt>
-<dd>
-<p>DB에서 사용될 공통코드 등 각종 코드 정보 관리</p>
-</dd>
-<dt class="hdlist1">행정표준용어</dt>
-<dd>
-<p>표준단어 작성시 참조</p>
-</dd>
-</dl>
+<div class="sect2">
+<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
+<hr>
 </div>
-<div class="paragraph">
-<p>표준 단어의 약어는 대략 아래의 규칙을 기반으로 작성하였습니다.</p>
+<div class="sect2">
+<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
+<hr>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>- 약어는 자음 3자리로하며, 연속된 자음은 사용하지 않음
-( Password -&gt; PSW )
-
-- 첫번째 철자는 자음/모음 상관없이 반드시 사용
-( Apple -&gt; APL )
-
-- 전체 단어 철자가 3자 이하인 단어는 그대로 사용
-( ID, ETC )
-
-- 영문명 내의 전치사(for, of, about, to by, as), 관사(a, an), 정관사(the), 접속사(and, or,that)는 영문약어를 생성할 때 대상에서 제외
-( In And Out -&gt; INO
-
-- 중복 시 다음 자음 사용, 자음 모두 중복 시 처음 나오는 모음을 사용
-( Password -&gt; PAS(중복) -&gt; PSR(중복) -&gt; PSD(중복) -&gt; PSS(중복) -&gt; PWR(중복) -&gt; PWD(중복) -&gt; PRD(중복) -&gt;
-PAS(중복) -&gt; PAW(중복) -&gt; PAR(중복) -&gt; PAD(중복) -&gt; PSO(중복) -&gt; PWO(중복) -&gt; POR(중복) -&gt; POD )
-
-- 2단어로 된 복합어 사용시 앞의 단어에서 2자리 뒤의 단어에서 1자리로 약어 생성
-( Left Right -&gt; LFR, Keyboard Mouse -&gt; KBM, The Rock -&gt; RCK, A apple -&gt; APL)
-
-- 3단어로 된 복합어 사용시 각 단어의 첫글자로 약어 생성
-( Left Middle Right -&gt; LMR, Keyboard Mouse Monitor -&gt; KMM, The Left Right -&gt; LFR )
-
-- 4단어 이상으로 된 복합어 사용시 앞의 단어에서 2자리 마지막 단어에서 1자리로 약어 생성
-( Left Right Keyboard Mouse -&gt; LFM, Left Keyboard Mouse Monitor -&gt; LFS, The Rock a Apple -&gt; RCA )</pre>
+<div class="sect2">
+<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
+<hr>
 </div>
+<div class="sect2">
+<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
+<hr>
 </div>
-<div class="paragraph">
-<p>완성된 표준 사전 및 테이블 생성 스크립트는 아래 링크를 통해 다운로드 받으실 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-01.png" alt="표준사전및스크립트">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-02.png" alt="표준사전">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-03.png" alt="스크립트">
-</div>
-</div>
-<div class="paragraph">
-<p>테이블 생성 스크립트를 실행하면 아래 그림과 같이 테이블이 생성 됩니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-04.png" alt="테이블">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="db_데이터_import">3. DB 데이터 Import</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>PostgreSQL에 주소정보 데이터(*.csv)를 Import 하는 방법은 DBeaver와 psql의 copy 명령어를 이용하는 2가지 방법이 있습니다.
-저는 두가지 방법 중 다소 불편하고 느린 방법이긴 하지만 DBeaver를 통해 데이터를 넣고자 합니다.</p>
-</div>
-<div class="paragraph">
-<p>psql의 copy를 이용해보니 MS949 인코딩을 지원하지 않고, UTF-8로 변환하니 한글 데이터의 Byte가 2 &#8594; 3으로 변경되다보니 문제가 발생하였습니다.
-<em>(참고 : psql -h localhost -U postgres postgres -c "COPY rowdata_addr.tbl_rna_dtl_adr FROM '/mnt/public_folder/202002/202002_상세주소DB_전체분/adrdc/adrdc_all.csv'(DELIMITER '|', FORMAT CSV, ENCODING 'ms949');")</em></p>
-</div>
-<div class="paragraph">
-<p>먼저 DBeaver에 데이터를 Import 하기전 지역별로 분할되어 있는 파일을 하나로 합칩니다.
-주소DB를 예로들면 코드, 부가정보, 주소, 지번 별로 데이터가 나뉘는것을 확인 할 수 있습니다.</p>
-</div>
-<div class="paragraph">
-<p>따라서 각 분류별로 폴더를 생성하고 파일을 이동하고
-명령프롬트프(CMD)를 본 폴더위치로 이동하여 'type *.txt &gt; ../부가정보_all.txt' 를 실행하면,
-상위폴더에 텍스트파일들이 합쳐진 '부가정보_all.txt' 이 생성된것을 학인할 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-05.png" alt="파일합치기">
-</div>
-</div>
-<div class="paragraph">
-<p>스키마 내 테이블 목록에서 오른쪽 클릭하면 여러 항목들이 표출되는데 이 중 '데이터 가져오기&#8217;를 선택합니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-06.png" alt="데이터가져오기1">
-</div>
-</div>
-<div class="paragraph">
-<p>'CSV에서 가져오기&#8217;를 선택하고 '다음&#8217;을 선택합니다.
-먼저 'Source_name&#8217;란을 선택하면 파일을 선택할 수 있는 파일브라우저가 표출되는데 주소DB의 '개선_도로명코드_전체분.txt&#8217;를 선택하겠습니다. (txt 파일이 보이지 않으면 우측하단의 *.csv를 * 또는 *.txt로 변경하시면 보입니다.)
-그 다음 인코딩과 컬럼 구분자, 헤더구분을 가이드에 따라 각각 'ms949', '|', 'none&#8217;으로 변경하여 진행합니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-07.png" alt="데이터가져오기2">
-</div>
-</div>
-<div class="paragraph">
-<p>Column mapping 에서 Columns가 매핑되지 않을 땐 skip을 선택하여 진행합니다.</p>
-</div>
-<div class="paragraph">
-<p>Settings 에서 테이블을 비우고 데이터를 추가하길 원하면 'Truncate target table(s) before load' 를 선택합니다.
-Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 저는 50,000 건 마다 Insert 할 수 있도록 설정 하였습니다.
-(지나치게 짧거나 큰 주기로 Insert 을 하게 되면 속도저하의 원인이 될 수 있습니다.)</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-08.png" alt="데이터가져오기3">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-09.png" alt="데이터가져오기4">
+<div class="sect2">
+<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
+<hr>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>머신러닝의 정의</p>
+</li>
+<li>
+<p>머신러닝이 도움을 줄 수 있는 문제 유형 네 가지</p>
+</li>
+<li>
+<p>레이블된 훈련 세트란?</p>
+</li>
+<li>
+<p>가장 널리 사용되는 지도 학습 작업 두 가지</p>
+</li>
+<li>
+<p>보편적인 비지도 학습 작업 네 가지</p>
+</li>
+<li>
+<p>사전 정보가 없는 여러 지형에서 로봇을 걸어가게 하려면 어떤 종류의 머신러닝 알고리즘을 사용할 수 있나?</p>
+</li>
+<li>
+<p>고객을 여러 그룹으로 분할하려면 어떤 알고리즘을 사용할 수 있나?</p>
+</li>
+<li>
+<p>스팸 감지의 문제는 지도 학습과 비지도 학습 중 어떤 문제로 볼 수 있나?</p>
+</li>
+<li>
+<p>온라인 학습 시스템이란?</p>
+</li>
+<li>
+<p>외부 메모리 학습이란?</p>
+</li>
+<li>
+<p>예측을 하기 위해 유사도 측정에 의존하는 학습 알고리즘은 무엇인가?</p>
+</li>
+<li>
+<p>모델 파라미터와 학습 알고리즘의 하이퍼파라미터 사이에는 어떤 차이가 있나?</p>
+</li>
+<li>
+<p>모델 기반 알고리즘이 찾는 것은 무엇인가? 성공을 위해 이 알고리즘이 사용하는 가장 일반적인 전력은 무엇인가? 예측은 어떻게 만드나?</p>
+</li>
+<li>
+<p>머신러닝의 주요 도전 과제는 무엇인가?</p>
+</li>
+<li>
+<p>모델이 훈련 데이터에서의 성능은 좋지만 새로운 샘플에서의 일반화 성능이 나쁘다면 어떤 문제가 있는 것인가? 간으한 해결책 세 가지는 무엇인가?</p>
+</li>
+<li>
+<p>테스트 세트가 무엇이고 왜 사용해야 하나?</p>
+</li>
+<li>
+<p>검증 세트의 목적은 무엇인가?</p>
+</li>
+<li>
+<p>훈련-개발 세트가 무엇인가?</p>
+</li>
+<li>
+<p>테스트 세트를 사용해 하이퍼파라미터를 튜닝하면 어떤 문제가 생기나?</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -388,43 +301,43 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
 <!-- Social Share Button HTML -->
 
 <!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&text=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)&via=" target="_blank" class="share-btn twitter">
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-7.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제&via=" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
 </a></li>
 
 <!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html" target="_blank" class="share-btn google-plus">
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-7.html" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
 </a></li>
 
 <!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HowHome-02-AptData-05.html" target="_blank" class="share-btn facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-7.html" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
 </a></li>
 
 <!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)" target="_blank" class="share-btn reddit">
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-7.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
 </a></li>
 
 <!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)" target="_blank" class="share-btn linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-7.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제" target="_blank" class="share-btn linkedin">
     <i class="fa fa-linkedin"></i>
     <p>LinkedIn</p>
 </a></li>
 
 <!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)" target="_blank" class="share-btn stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-7.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
 </a></li>
 
 <!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HowHome-02-AptData-05.html" target="_blank" class="share-btn email">
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-7.html" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
 </a></li>
@@ -437,10 +350,10 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
 		<ul class="stats">
     	    <!-- Display the categories associated with this post -->
     	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='tags/부동산.html'>부동산</a></li>
- 	        <li><a href='tags/개인프로젝트.html'>개인프로젝트</a></li>
+ 	        <li><a href='tags/데이터분석.html'>데이터분석</a></li>
+ 	        <li><a href='tags/책정리.html'>책정리</a></li>
 
-				<li><a class="icon fa-comment" href="HowHome-02-AptData-05.html#disqus_thread"> &nbsp;</a></li>
+				<li><a class="icon fa-comment" href="HandsOnML2_01-7.html#disqus_thread"> &nbsp;</a></li>
  		</ul>
     	
     </footer>
@@ -448,10 +361,8 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
 		
 <ul class="actions pagination">
   	
-  		        <li><a href="HowHome-02-AptData-04.html" 
-                class="button big previous">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</a></li>
-        <li><a href="HowHome-03-Dev-01.html" 
-                class="button big next">어떡하집 프로젝트 - 1차 시스템 구축 계획</a></li>
+  		        <li><a href="HandsOnML2_01-6.html" 
+                class="button big previous">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</a></li>
 	
 </ul>
 		
@@ -459,7 +370,7 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_config = function () {
-      this.page.identifier = 'HowHome-02-AptData-05.html';
+      this.page.identifier = 'HandsOnML2_01-7.html';
     };
     var disqus_shortname = 'anew0m';
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -717,8 +628,8 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-149448484-1', 'auto');
   ga('send', 'pageview', {
-    'page': 'HowHome-02-AptData-05.html',
-    'title': '어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)'
+    'page': 'HandsOnML2_01-7.html',
+    'title': '핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제'
       });
 </script>
 		<!-- This is called by default since this theme uses highlight.js -->
