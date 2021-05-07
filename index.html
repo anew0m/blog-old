@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="aws_study_01.html"><p>(기초) AWS - 개요</p></a>
+                    </li>
+                    <li>
                         <a href="HandsOnML2_01-6.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="HandsOnML2_01-2.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?</p></a>
-                    </li>
-                    <li>
-                        <a href="HandsOnML2_01-4.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.4 머신러닝 시스템의 종류</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,210 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="aws_study_01.html">(기초) AWS - 개요</a></h2>
+
+
+            <p>AWS에 대해 알아봅니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 06, 2021'>
+            May 06, 2021</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#학습_동기">1. 학습 동기</a></li>
+<li><a href="#강의_내용">2. 강의 내용</a>
+<ul class="sectlevel2">
+<li><a href="#iam">2.1. IAM</a></li>
+<li><a href="#ec2">2.2. EC2</a></li>
+<li><a href="#rds">2.3. RDS</a></li>
+<li><a href="#s3">2.4. S3</a></li>
+<li><a href="#cloudwatch">2.5. CloudWatch</a></li>
+<li><a href="#lambda">2.6. Lambda</a></li>
+<li><a href="#cloudfront">2.7. CloudFront</a></li>
+<li><a href="#dynamodb">2.8. DynamoDB</a></li>
+<li><a href="#api_gateway">2.9. API Gateway</a></li>
+<li><a href="#cicd">2.10. CI/CD</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="학습_동기">1. 학습 동기</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>관심있는 분야이기도 했고, 회사에서 AWS 관리할 좋은 기회가 생겨 늦게나마 학습을 시작하게되었습니다.</p>
+</div>
+<div class="paragraph">
+<p>학습은 인프런의 <a href="https://www.inflearn.com/course/aws-%EC%9E%85%EB%AC%B8/">AWS(Amazon Web Service) 입문자를 위한 강의</a> 란 강의를 통해 진행을 하려고 합니다.</p>
+</div>
+<div class="paragraph">
+<p>그리고 부족한 부분은 아래 두 책을 통해 채우려고 합니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://book.naver.com/bookdb/book_detail.nhn?bid=14483604">아마존 웹 서비스 AWS Discovery Book - 클라우드 서비스 개념을 이해하고 직접 구성해보기</a>, ISBN : 9788956748238</p>
+</li>
+<li>
+<p><a href="https://book.naver.com/bookdb/book_detail.nhn?bid=16261278">14가지 AWS 구축 패턴(배워서 바로 쓰는) - 서버리스에서 마이크로서비스와 AI까지, 실무에 바로 써먹는</a>, ISBN : 9791162242841</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>빠른 학습 진행을 위해 블로그에 실습 과정을 담진 않을 생각이고, 강의에 있는 개념정리 정도만 기록해두려고 합니다.</p>
+</div>
+<div class="paragraph">
+<p>선행 강의가 끝나면 <a href="https://www.inflearn.com/course/aws-%EC%A4%91%EC%83%81%EA%B8%89%EC%9E%90">AWS(Amazon Web Service) 중/상급자를 위한 강의</a> 란 강의를 추가로 들을 예정입니다.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="강의_내용">2. 강의 내용</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>아래 내용은 <a href="https://www.inflearn.com/course/aws-%EC%9E%85%EB%AC%B8/">AWS(Amazon Web Service) 입문자를 위한 강의</a>에서 '강의 소개&#8217;에 있는 내용입니다.</p>
+</div>
+<div class="sect2">
+<h3 id="iam">2.1. IAM</h3>
+<div class="paragraph">
+<p>AWS를 사용하는데 있어 필요한 유저/그룹의 생성 및 다양한 관리 방법들을 배울 수 있습니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ec2">2.2. EC2</h3>
+<div class="paragraph">
+<p>원격으로 인스턴스를 생성하여 nginx를 사용한 간단한 웹사이트 생성을 할 수 있으며 다양한 인스턴스의 유형 및 생성 방법을 배울 수 있습니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rds">2.3. RDS</h3>
+<div class="paragraph">
+<p>AWS에서는 MySQL, PostgresDB등 다양한 데이터베이스 서비스를 제공합니다. 어떻게 AWS에서 데이터베이스를 사용할 수 있을지를 배우고, 데이터베이스를 운영하는데 있어 중요한 개념(백업, 보안 등)들을 알아봅니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3">2.4. S3</h3>
+<div class="paragraph">
+<p>AWS에서 가장 오래된 서비스 중 하나이며 주로 파일(오브젝트)들을 업로드하고 다운로드하는 용도로 사용됩니다. 그러나 S3에서는 많은 스토리지 유형이 존재하며 그들의 차이를 이해하고 있어야 필요할때 적재적소에 원하는 서비스를 사용할 수 있습니다. 따라서 비용적인 측면, 성능면에서도 이득을 볼 수 있습니다. S3를 어떻게 사용하며 다양한 접근 방법에 대해서 배우실 수 있습니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloudwatch">2.5. CloudWatch</h3>
+<div class="paragraph">
+<p>클라우드 서비스를 사용하게 된다면 꼭 접해볼 수 있는 기본적인, 그러나 매우 강력한 기능들을 제공합니다. 실시간 시스템 Logging서비스 및 알람 설정 기능을 통하여 개발자들에게 필요한 정보를 전달해줍니다. 이를 통하여 손쉬운 디버깅을 가능케 해줍니다. 다양한 Metrics를 통해 더 효율적인 AWS 관리를 가능케 해줍니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="lambda">2.6. Lambda</h3>
+<div class="paragraph">
+<p>AWS내에 존재하는 수많은 이벤트들이 발동될 시 구현된 Lambda함수가 실행되어 전처리 역할을 가능케 해줄 뿐만 아니라 또다른 AWS 리소스들을 불러오는데 사용됩니다. 특히 Lambda는 Serverless 아키텍쳐를 디자인하는데 매우 중추적인 역할을 담당합니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloudfront">2.7. CloudFront</h3>
+<div class="paragraph">
+<p>Contents Delivery Network(CDN)에 기반을 두고 있으며 전세계에 흩어져있는 유저들에게 최상의 서비스를 제공하는데 필요되어지는 리소스입니다. 처음 구현하기에 요구되어지는 설정사항은 다소 복잡하나 이후에는 매우 편리한 기능들이 제공됩니다. 약간의 네트워크 지식을 가지고 계시다면 CloudFront를 훨씬 이해하는데 수월합니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dynamodb">2.8. DynamoDB</h3>
+<div class="paragraph">
+<p>AWS에서 제공하는 NoSQL 데이터베이스입니다. Batch data와 Stream data를 load하는데 적합한 서비스이며 NoSQL만이 지니고 있는 강력한 장점들이 어우러져 있는 매우 효용가치가 큰 데이터베이스입니다. 본 강의에서는 기존 관계형 데이터베이스와 어떤 차이가 있으며 DynamoDB만이 가지고 있는 장점들에 대해서 학습합니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="api_gateway">2.9. API Gateway</h3>
+<div class="paragraph">
+<p>API Gateway를 사용하여 나만의 API를 만들고 RestAPI에서 제공되어지는 다양한 메소드들을 호출하고 테스트하며 AWS에서 제공되어지는 다양한 리소스들(예시
+Lambda Function)과 병합하여 더욱 정교한 파이프라인을 만들고 유지할 수 있습니다. 실제 웹에서 사용되어지는 API역시 API Gateway를 통하여 구현 가능합니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cicd">2.10. CI/CD</h3>
+<div class="paragraph">
+<p>소프트웨어 및 어플리케이션 배포는 한번으로 끝나지 않습니다. 지속적인 유지보수 및 관리가 필요합니다. 이를 매우 용이하게 해주는 AWS 리소스중 Code Commit, Code Deploy, Code Pipeline을 배움으로써 전반적인 소프트웨어 개발 및 배포과정을 이해하실 수 있으며 AWS를 통한 CI/CD파이프라인 구축을 체험하실 수 있습니다. 나만의 코드를 repository에 업로드하여 branch를 통한 간편한 코드 유지가 가능합니다. AWS에서 제공하는 다양한 배포 방법을 학습합니다. 대표적으로 Rolling 배포방식과 Blue/Green 배포방식이 있습니다.</p>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_01.html&text=(기초) AWS - 개요&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_01.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_01.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_01.html&title=(기초) AWS - 개요" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_01.html&title=(기초) AWS - 개요" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_01.html&title=(기초) AWS - 개요" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_01.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='tags/학습.html'>학습</a></li>
+ 	        <li><a href='tags/AWS.html'>AWS</a></li>
+
+				<li><a class="icon fa-comment" href="aws_study_01.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -574,263 +778,6 @@
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="HandsOnML2_01-2.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?</a></h2>
-
-
-            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.2절 왜 머신러닝을 사용하는가? 요약 및 정리</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='Sep 19, 2020'>
-            Sep 19, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
-<ul class="sectlevel2">
-<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
-<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
-<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
-<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
-<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
-<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
-<li><a href="#연습문제">1.7. 연습문제</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div id="preamble">
-<div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
-<div class="sectionbody">
-<hr>
-<div class="sect2">
-<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>기존의 솔루션이 많은 수동 조정과 규칙이 필요한 문제를 해결하고자 할 때</p>
-</li>
-<li>
-<p>전통적인 방식으로는 해결 방법이 없는 복잡한 문제를 해결하고자 할 때</p>
-</li>
-<li>
-<p>대용량의 데이터에서 통찰을 얻고자 할 때</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>사례 - 스팸 필터</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>전통적인 접근 방법</p>
-<div class="ulist">
-<ul>
-<li>
-<p>스팸에 어떤 단어들이 주로 나타나는지 연구하여 규칙을 작성함</p>
-</li>
-<li>
-<p>규칙을 이용해 스팸메일의 패턴을 감지하는 알고리즘을 작성하여 메일 분류</p>
-</li>
-<li>
-<p>프로그램을 테스트하고 스팸 단어가 변경될 경우 위 방법을 반복</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>문제점</p>
-<div class="ulist">
-<ul>
-<li>
-<p>문제가 어렵기 때문에 규칙이 점점길고 복잡해지므로 유지보수하기 매우 힘들어짐</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>머신러닝 접근 방법</p>
-<div class="ulist">
-<ul>
-<li>
-<p>스팸에 어떤 단어들이 주로 나타나는지 연구하여 규칙을 작성함</p>
-</li>
-<li>
-<p>규칙을 이용해 프로그램이 자동으로 인식하고 별도의 작업하지 않아도 자동으로 스팸메일의 패턴을 감지하여 메일 분류</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>데이터 마이닝</p>
-<div class="ulist">
-<ul>
-<li>
-<p>대용량의 데이터를 분석하면 겉으로 보이지 않던 패턴 발견</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>머신러닝 사용 분야</p>
-<div class="ulist">
-<ul>
-<li>
-<p>기존솔루션으로 많은 수동 조정과 규칙이 필요한 문제</p>
-<div class="ulist">
-<ul>
-<li>
-<p>하나의 머신러닝 모델이 코드를 간단한게 만들고 전통적인 방법보다 더 잘 수행되도록 할수 있음</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>전통적인 방식으로는 해결 방법이 없는 복잡한 문제</p>
-<div class="ulist">
-<ul>
-<li>
-<p>가장 뛰어난 머신러닝 기법으로 해결 방법을 찾을 수 있음</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>유동적인 환경</p>
-<div class="ulist">
-<ul>
-<li>
-<p>머신러닝 시스템은 새로운 데이터에 적응할 수 있음</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>복잡한 문제와 대량의 데이터에서 통찰 얻기</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
-<hr>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-2.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-2.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-2.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.2 왜 머신러닝을 사용하는가?" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-2.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='tags/데이터분석.html'>데이터분석</a></li>
- 	        <li><a href='tags/책정리.html'>책정리</a></li>
-
-				<li><a class="icon fa-comment" href="HandsOnML2_01-2.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="#"
@@ -901,6 +848,17 @@
                     <li>
                         <article>
                             <header>
+                                <h3><a href="aws_study_01.html">(기초) AWS - 개요</a></h3>
+                                 <time class="published"
+							            datetime='May 06, 2021'>
+							            May 06, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="HandsOnML2_01-6.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</a></h3>
                                  <time class="published"
 							            datetime='Sep 21, 2020'>
@@ -931,17 +889,6 @@
                         </article>
                     </li>
 
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="HandsOnML2_01-4.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.4 머신러닝 시스템의 종류</a></h3>
-                                 <time class="published"
-							            datetime='Sep 19, 2020'>
-							            Sep 19, 2020</time>
-                            </header>
-                        </article>
-                    </li>
-
 
             </ul>
         </section>
@@ -959,6 +906,15 @@
                                 <a href="tags/책소개.html">책소개</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 2 </span>
+                            </header>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/학습.html">학습</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 1 </span>
                             </header>
                         </article>
                     </li>
@@ -1022,6 +978,15 @@
                                 <a href="tags/데이터모델링.html">데이터모델링</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 6 </span>
+                            </header>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <header>
+                                <a href="tags/AWS.html">AWS</a>
+                                <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
+                                <span style="float:right;"> 1 </span>
                             </header>
                         </article>
                     </li>
