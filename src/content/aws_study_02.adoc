@@ -1,0 +1,34 @@
+= (기초) AWS - IAM
+정민호
+2021-05-06
+:jbake-last_updated: 2021-05-07
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: 학습, AWS
+:description: AWS에 대해 알아봅니다.
+:jbake-og: {"image": "img/jdk/duke.jpg"}
+:idprefix:
+:toc:
+:sectnums:
+
+
+== IAM(Identity & Access Management) 개요
+유저를 관리하고 접근 레벨 및 권한에 대한 관리
+
+ - 접근키(Access Key), 비밀키(Secret Access Key)
+ - 매우 세밀한 접근 권한 부여 기능 (Granular Permission)
+ - 비밀번호를 수시로 변경 가능
+ - 다중인증(Multi-Factor Authentication) 기능
+
+== IAM(Identity & Access Management) 종류
+
+ - 그룹(Group)
+ - 유저(User)
+ - 역할(Role)
+ - 정책(Policy)
+
+정책은 하나의 그룹, 역할에 추가 시킬 수 있음
+
+하나의 그룹 안에 다수의 유저가 존재 가능
+
+IAM은 유니버셜(Universal) 하여 지역 설정이 필요 없음
