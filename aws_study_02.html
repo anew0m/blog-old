@@ -7,24 +7,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title> - 정민호의 블로그</title>
+    <title>(기초) AWS - IAM - 정민호의 블로그</title>
     <meta name="google-site-verification" content="NjTrEtPZ_cX4UYx9pg4mIKBm4cl_zNC7V7PNl4sj4aQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="AWS에 대해 알아봅니다.">
     <meta name="author" content="정민호">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="학습, AWS">
     <meta name="generator" content="JBake">
-	<meta property="og:image" content="https://anew0m.netlify.com/img/main/intro.jpg"/>
+	<meta property="og:image" content="https://anew0m.netlify.com/img/jdk/duke.jpg"/>
 
-    <link rel="stylesheet" href="../css/google-font.css" />
-    <link rel="stylesheet" href="../css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/add-on.css" />
-    <link rel="stylesheet" href="../css/monokai-sublime.css">
+    <link rel="stylesheet" href="css/google-font.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/add-on.css" />
+    <link rel="stylesheet" href="css/monokai-sublime.css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="js/html5shiv.min.js"></script>
     <![endif]-->
 
     <!-- Fav and touch icons -->
@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
-    <link rel="shortcut icon" href="../img/favicon/favicon.png">
+    <link rel="shortcut icon" href="img/favicon/favicon.png">
   </head>
   <body>
      <!-- Wrapper -->
@@ -45,7 +45,7 @@
     <nav class="links">
         <ul>
         			<li>
-	                    <a href=" ../archive.html">
+	                    <a href=" archive.html">
 	                       
 	                            <i class="fa fa-archive">&nbsp;</i>Archive
 	                        
@@ -54,7 +54,7 @@
         		
         		 
         			<li>
-	                    <a href=" ../about.html">
+	                    <a href=" about.html">
 	                       
 	                            <i class="fa fa-user">&nbsp;</i>About
 	                        
@@ -63,7 +63,7 @@
         		
         		 
         			<li>
-	                    <a href=" ../feed.xml">
+	                    <a href=" feed.xml">
 	                       
 	                            <i class="fa fa-rss">&nbsp;</i>Subscribe
 	                        
@@ -104,21 +104,21 @@
         <section>
             <ul class="links">
         		 <li>
-                    <a href=" ../archive.html">
+                    <a href=" archive.html">
                        
                             <i class="fa fa-archive">&nbsp;</i>Archive
                         
                     </a>
                 </li>
         		 <li>
-                    <a href=" ../about.html">
+                    <a href=" about.html">
                        
                             <i class="fa fa-user">&nbsp;</i>About
                         
                     </a>
                 </li>
         		 <li>
-                    <a href=" ../feed.xml">
+                    <a href=" feed.xml">
                        
                             <i class="fa fa-rss">&nbsp;</i>Subscribe
                         
@@ -134,16 +134,16 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
-                        <a href="../../aws_study_01.html"><p>(기초) AWS - 개요</p></a>
+                        <a href="aws_study_01.html"><p>(기초) AWS - 개요</p></a>
                     </li>
                     <li>
-                        <a href="../../aws_study_02.html"><p>(기초) AWS - IAM</p></a>
+                        <a href="aws_study_02.html"><p>(기초) AWS - IAM</p></a>
                     </li>
                     <li>
-                        <a href="../../HandsOnML2_01-6.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</p></a>
+                        <a href="HandsOnML2_01-6.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</p></a>
                     </li>
                     <li>
-                        <a href="../../HandsOnML2_01-7.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</p></a>
+                        <a href="HandsOnML2_01-7.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</p></a>
                     </li>
             </ul>
         </section>
@@ -157,15 +157,11 @@
         </section>
         -->
 </section>
-
-    <div id="main">
-        <h1>Tag: AWS</h1>
-        
-<article class="post" data-file="../aws_study_01.html" data-target="article">
-<header>
+	<div id="main">
+<article class="post">
+   <header>
     <div class="title">
-                    <h2><a href="../aws_study_01.html">(기초) AWS - 개요</a></h2>
-
+                    <h1><a href="aws_study_02.html">(기초) AWS - IAM</a></h1>
 
             <p>AWS에 대해 알아봅니다.</p>
     </div>
@@ -174,67 +170,177 @@
             datetime='May 06, 2021'>
             May 06, 2021</time>
             <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+        <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
     </div>
 </header>
 
+    
   
-        
-    <p></p>
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#iam_개요">1. IAM 개요</a></li>
+<li><a href="#iamidentity_access_management_유형">2. IAM(Identity &amp; Access Management) 유형</a></li>
+<li><a href="#iam_정책_시뮬레이터">3. IAM 정책 시뮬레이터</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="iam_개요">1. IAM 개요</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>IAM(Identity &amp; Access Management)은 유저와 접근 레벨 및 권한에 대한 관리</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>접근키(Access Key), 비밀키(Secret Access Key)</p>
+</li>
+<li>
+<p>매우 세밀한 접근 권한 부여 기능 (Granular Permission)</p>
+</li>
+<li>
+<p>비밀번호를 수시로 변경 가능</p>
+</li>
+<li>
+<p>다중인증(Multi-Factor Authentication) 기능</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="iamidentity_access_management_유형">2. IAM(Identity &amp; Access Management) 유형</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>정책은 하나의 그룹, 역할에 추가 시킬 수 있으며, 하나의 그룹 안에 다수의 유저가 존재 가능</p>
+</div>
+<div class="paragraph">
+<p>IAM은 유니버셜(Universal)하여 지역 설정이 필요 없음</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>그룹(Group)</p>
+</li>
+<li>
+<p>유저(User)</p>
+</li>
+<li>
+<p>역할(Role)</p>
+</li>
+<li>
+<p>정책(Policy)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="iam_정책_시뮬레이터">3. IAM 정책 시뮬레이터</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>개발환경(Staging or Develop)에서 실제환경(Production)으로 빌드하기전 IAM 정책이 잘 작동되는지 테스트하기 위함</p>
+</div>
+<div class="paragraph">
+<p>IAM과 관련된 문제들을 디버깅하기에 최적화된 툴
+(이미 실제로 유저에 부여된 다양한 정책들도 테스트 가능)</p>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_02.html&text=(기초) AWS - IAM&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_02.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_02.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_02.html&title=(기초) AWS - IAM" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_02.html&title=(기초) AWS - IAM" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_02.html&title=(기초) AWS - IAM" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_02.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
 
     <footer>
-        <ul class="actions">
-            <li><a href="../aws_study_01.html" class="button big">Continue Reading</a></li>
-        </ul>
 	
 		<ul class="stats">
     	    <!-- Display the categories associated with this post -->
     	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/학습.html'>학습</a></li>
- 	        <li><a href='../tags/AWS.html'>AWS</a></li>
+ 	        <li><a href='tags/학습.html'>학습</a></li>
+ 	        <li><a href='tags/AWS.html'>AWS</a></li>
 
-				<li><a class="icon fa-comment" href="../aws_study_01.html#disqus_thread"> &nbsp;</a></li>
+				<li><a class="icon fa-comment" href="aws_study_02.html#disqus_thread"> &nbsp;</a></li>
  		</ul>
+    	
     </footer>
 </article>
-        
-<article class="post" data-file="../aws_study_02.html" data-target="article">
-<header>
-    <div class="title">
-                    <h2><a href="../aws_study_02.html">(기초) AWS - IAM</a></h2>
-
-
-            <p>AWS에 대해 알아봅니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 06, 2021'>
-            May 06, 2021</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-  
-        
-    <p></p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="../aws_study_02.html" class="button big">Continue Reading</a></li>
-        </ul>
+		
+<ul class="actions pagination">
+  	
+  		        <li><a href="HandsOnML2_01-7.html" 
+                class="button big previous">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</a></li>
+        <li><a href="aws_study_01.html" 
+                class="button big next">(기초) AWS - 개요</a></li>
 	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/학습.html'>학습</a></li>
- 	        <li><a href='../tags/AWS.html'>AWS</a></li>
-
-				<li><a class="icon fa-comment" href="../aws_study_02.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    </footer>
-</article>
-        
+</ul>
+		
+<div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.identifier = 'aws_study_02.html';
+    };
+    var disqus_shortname = 'anew0m';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.setAttribute('data-timestamp', + new Date());
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <!--<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>-->
+</div>
     </div>
 
 <!-- Sidebar -->
@@ -242,7 +348,7 @@
 
     <!-- Intro -->
         <section id="intro">
-                                    <a href="/" class="logo"><img src="../img/main/intro.jpg" class="intro-circle" width="150px" alt="anew0m" /></a>
+                                    <a href="/" class="logo"><img src="img/main/intro.jpg" class="intro-circle" width="150px" alt="anew0m" /></a>
 
 
                 <header>
@@ -294,7 +400,7 @@
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../aws_study_01.html">(기초) AWS - 개요</a></h3>
+                                <h3><a href="aws_study_01.html">(기초) AWS - 개요</a></h3>
                                  <time class="published"
 							            datetime='May 06, 2021'>
 							            May 06, 2021</time>
@@ -305,7 +411,7 @@
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../aws_study_02.html">(기초) AWS - IAM</a></h3>
+                                <h3><a href="aws_study_02.html">(기초) AWS - IAM</a></h3>
                                  <time class="published"
 							            datetime='May 06, 2021'>
 							            May 06, 2021</time>
@@ -316,7 +422,7 @@
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../HandsOnML2_01-6.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</a></h3>
+                                <h3><a href="HandsOnML2_01-6.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</a></h3>
                                  <time class="published"
 							            datetime='Sep 21, 2020'>
 							            Sep 21, 2020</time>
@@ -327,7 +433,7 @@
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../HandsOnML2_01-7.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</a></h3>
+                                <h3><a href="HandsOnML2_01-7.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</a></h3>
                                  <time class="published"
 							            datetime='Sep 21, 2020'>
 							            Sep 21, 2020</time>
@@ -338,7 +444,7 @@
 
                     <li>
                         <ul class="actions">
-                            <li><a href="../archive.html"
+                            <li><a href="archive.html"
                             class="button">View more posts</a></li>
                         </ul>
                     </li>
@@ -355,7 +461,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/책소개.html">책소개</a>
+                                <a href="tags/책소개.html">책소개</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 2 </span>
                             </header>
@@ -364,7 +470,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/hackerton.html">hackerton</a>
+                                <a href="tags/hackerton.html">hackerton</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 1 </span>
                             </header>
@@ -373,7 +479,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/학습.html">학습</a>
+                                <a href="tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 2 </span>
                             </header>
@@ -382,7 +488,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/데이터분석.html">데이터분석</a>
+                                <a href="tags/데이터분석.html">데이터분석</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 11 </span>
                             </header>
@@ -391,7 +497,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/부동산.html">부동산</a>
+                                <a href="tags/부동산.html">부동산</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 8 </span>
                             </header>
@@ -400,7 +506,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/책정리.html">책정리</a>
+                                <a href="tags/책정리.html">책정리</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 12 </span>
                             </header>
@@ -409,7 +515,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/개인프로젝트.html">개인프로젝트</a>
+                                <a href="tags/개인프로젝트.html">개인프로젝트</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 8 </span>
                             </header>
@@ -418,7 +524,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/통계분석.html">통계분석</a>
+                                <a href="tags/통계분석.html">통계분석</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 5 </span>
                             </header>
@@ -427,7 +533,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/데이터모델링.html">데이터모델링</a>
+                                <a href="tags/데이터모델링.html">데이터모델링</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 6 </span>
                             </header>
@@ -436,7 +542,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/AWS.html">AWS</a>
+                                <a href="tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 2 </span>
                             </header>
@@ -445,7 +551,7 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/빅데이터.html">빅데이터</a>
+                                <a href="tags/빅데이터.html">빅데이터</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
                                 <span style="float:right;"> 8 </span>
                             </header>
@@ -461,7 +567,7 @@
             <p>introduce</p>
 
             <ul class="actions">
-                <li><a href="../about.html" class="button">Learn More</a></li>
+                <li><a href="about.html" class="button">Learn More</a></li>
             </ul>
         </section>
 
@@ -481,13 +587,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-		<script src="../js/jquery.min.js"></script>
-		<script src="../js/skel.min.js"></script>
-		<script src="../js/util.js"></script>
-		<script src="../js/main.js"></script>
-		<script src="../js/backToTop.js"></script>
-		<script src="../js/highlight.pack.js"></script>
-		<script src="../js/readingTime.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/backToTop.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script src="js/readingTime.js"></script>
 
 			<script id="dsq-count-scr" src="//anew0m.disqus.com/count.js" async></script>
 <script>
@@ -497,8 +603,8 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-149448484-1', 'auto');
   ga('send', 'pageview', {
-    'page': 'https://anew0m.netlify.com/',
-    'title': '정민호의 블로그'
+    'page': 'aws_study_02.html',
+    'title': '(기초) AWS - IAM'
       });
 </script>
 		<!-- This is called by default since this theme uses highlight.js -->
