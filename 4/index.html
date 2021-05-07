@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="../../aws_study_03.html"><p>(기초) AWS - EC2</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_01.html"><p>(기초) AWS - 개요</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="../../HandsOnML2_01-6.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</p></a>
-                    </li>
-                    <li>
-                        <a href="../../HandsOnML2_01-7.html"><p>핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,225 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../HandsOnML2_01-1.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.1 머신러닝이란?</a></h2>
+
+
+            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.1절 머신러닝이란? 요약 및 정리</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='Sep 13, 2020'>
+            Sep 13, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
+<ul class="sectlevel2">
+<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
+<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
+<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
+<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
+<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
+<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
+<li><a href="#연습문제">1.7. 연습문제</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
+<div class="sectionbody">
+<hr>
+<div class="sect2">
+<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="quoteblock">
+<blockquote>
+<div class="ulist">
+<ul>
+<li>
+<p>[머신러닝은] 명시적인 프로그래밍 없이 컴퓨터가 학습하는 능력을 갖추게 하는 연구분야</p>
+</li>
+</ul>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; 아서 새뮤얼(Arthur Samuel)
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="ulist">
+<ul>
+<li>
+<p>어떤 작업 T에 대한 컴퓨터 프로그램의 성능을 P로 측정했을 때 경험 E로 인해 성능이 향상됐다면,
+이 컴퓨터 프로그램은 작업 T와 성능 측정 P에 대해 경험 E로 학습한 것이다.</p>
+</li>
+</ul>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; 톰 미첼(Tom Mitchell)
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>제가 생각하는 머신러닝은 사용자가 목표로 하는 기능을 컴퓨터가 스스로 학습하여 보다 정확하게 수행하는 것을 뜻하는것 같습니다.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>사례 - 스팸 필터</p>
+<div class="ulist">
+<ul>
+<li>
+<p>스팸필터는 스팸 메일과 일반 메일의 샘플을 이용해 스팸 메일 구분법을 배울 수 있는 머신러닝 프로그램</p>
+</li>
+<li>
+<p>시스템이 학습하는 데 사용하는 샘플을 <strong>훈련 세트</strong> 라고 하고 각 훈련 데이터를 <strong>훈련 사례(또는 샘플)</strong> 라고함</p>
+</li>
+<li>
+<p>작업 T는 새로운 메일이 스팸인지 구분하는 것이고, 경험 E는 <strong>훈련 데이터</strong> 이며, 성능 측정 P는 직접 정의해야함</p>
+</li>
+<li>
+<p>예를 들면 정확히 분류된 메일의 비율을 P로 사용할 수 있으며, 이 성능 측정을 <strong>정확도</strong> 라고 부르며 분류작업에 자주 사용됨</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>훈련 세트(training set) : 시스템이 학습하는 데 사용하는 샘플</p>
+</li>
+<li>
+<p>훈련 사례 또는 샘플(training instance) : 각 훈련 데이터</p>
+</li>
+<li>
+<p>훈련 데이터(training data) : 시스템 훈련 경험</p>
+</li>
+<li>
+<p>정확도(accuracy) : 사용자가 목표로 하는 기능의 성공률</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
+<hr>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-1.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.1 머신러닝이란?&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-1.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-1.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-1.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.1 머신러닝이란?" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-1.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.1 머신러닝이란?" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-1.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.1 머신러닝이란?" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-1.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/데이터분석.html'>데이터분석</a></li>
+ 	        <li><a href='../tags/책정리.html'>책정리</a></li>
+
+				<li><a class="icon fa-comment" href="../HandsOnML2_01-1.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -644,344 +863,13 @@
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../Basic_statistical_study_21.html">기초 통계분석 - 21 - 표현 정리</a></h2>
-
-
-            <p>'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 24, 2020'>
-            May 24, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#용어_및_표현">1. 용어 및 표현</a>
-<ul class="sectlevel2">
-<li><a href="#확률과_확률분포">1.1. 확률과 확률분포</a></li>
-<li><a href="#표본분포">1.2. 표본분포</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="용어_및_표현">1. 용어 및 표현</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="확률과_확률분포">1.1. 확률과 확률분포</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>시행(=실험,=확률시행,=확률실험) : <em>E</em></p>
-</li>
-<li>
-<p>표본공간 : <em>Ω</em></p>
-</li>
-<li>
-<p>평균 : <em>μ</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>모집단에서의 평균 : <em>μ</em></p>
-</li>
-<li>
-<p>표본에서의 평균 : \$bar X\$</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>분산 : 편차 제곱(²)의 평균</p>
-<div class="ulist">
-<ul>
-<li>
-<p>모집단에서의 분산 : <em>σ²</em></p>
-</li>
-<li>
-<p>표본에서의 분산 : <em>s²</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>표준편차 : 분산의 제곱근(√)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>모집단에서의 표준편차 : <em>σ</em> = <em>\$sqrt σ^{2}\$</em></p>
-</li>
-<li>
-<p>표본에서의 표준편차 : <em>s</em> = <em>\$sqrt s^{2}\$</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>사건 : <em>A, B, C, &#8230;&#8203;</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>배반사건 : A ∩ B = ∅</p>
-</li>
-<li>
-<p>독립사건 : A ⊥ B</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>확률</p>
-<div class="ulist">
-<ul>
-<li>
-<p>수학적확률 : \$1 / O\$</p>
-<div class="ulist">
-<ul>
-<li>
-<p>시행의 결과로 나올 수 있는 결과 수 : <em>O</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>통계적확률 : \$P(A) = n / N\$</p>
-<div class="ulist">
-<ul>
-<li>
-<p>실험 횟수 : <em>N</em></p>
-</li>
-<li>
-<p>사건발생 횟수 : <em>n</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>조건부확률 : <em>P(A|B)</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>확률변수</p>
-<div class="ulist">
-<ul>
-<li>
-<p>확률변수 : X, Y, Z, &#8230;&#8203;</p>
-</li>
-<li>
-<p>확률변수실수값 : x, y, z, &#8230;&#8203;</p>
-</li>
-<li>
-<p>확률변수(X)의 평균 : \$bar X\$</p>
-</li>
-<li>
-<p>확률변수(X)의 기댓값 : <em>E(X)</em></p>
-</li>
-<li>
-<p>확률변수(X)의 분산 : <em>Var(x) = E[(X - E(X))²]</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>분포함수</p>
-<div class="ulist">
-<ul>
-<li>
-<p>누적분포함수 : <em>F(x)</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>베르누이 시행 : <em>Bernoulli(p)</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>베르누이 시행의 기댓값 : <em>p = E(X)</em></p>
-</li>
-<li>
-<p>베르누이 시행의 분산  : <em>p * (1 - p) = Var(X)</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>이항분포 : <em>B(n, p)</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>이항분포를 따르는 확률변수(X) : <em>X ~ B(n, p)</em></p>
-</li>
-<li>
-<p>이항분포의 기댓값 : <em>np = E(X)</em></p>
-</li>
-<li>
-<p>이항분포의 분산 : <em>np(1 - p) = Var(X)</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>정규분포</p>
-<div class="ulist">
-<ul>
-<li>
-<p>정규분포의 모수 : <em>N(μ, σ²)</em></p>
-</li>
-<li>
-<p>정규분포의 분포함수 : <em>F(x) = P(X ≤ x)</em></p>
-</li>
-<li>
-<p>표준정규분포 : <em>Z</em></p>
-</li>
-<li>
-<p>표준정규분포(Z)와 정규분포</p>
-<div class="ulist">
-<ul>
-<li>
-<p>\$Z = {X - mu} / sigma = {확률변수(X) - 평균(mu)} / {표준편차(sigma)}\$</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>표준정규분포의 값(z)과 정규분포의 값(x) 변환 : <em>x = μ + z · σ</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>_x = μ + z · σ = 정규분포값(x) = 평균(μ) + 표준정규분포값(z) * 표준편차(σ)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="표본분포">1.2. 표본분포</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>모수 : <em>P</em></p>
-</li>
-<li>
-<p>표본분포 : \$((N), (n)) = {N!} / {n! * (N - n)!}\$</p>
-<div class="ulist">
-<ul>
-<li>
-<p>\$((모집단크기(N)), (표본크기(n))) = {모집단크기(N)!} / {표본크기(n)! * (모집단크기(N) - 표본크기(n))!}\$ &#8658; \$((100), (10)) = {100!} / {10! * 90!}\$</p>
-</li>
-<li>
-<p>모집단의 크기 : <em>N</em></p>
-</li>
-<li>
-<p>표본의 크기 : <em>n</em></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>표본평균 분포의 기댓값 : \$E(bar X) = sum_{bar X} bar x * p(bar x)\$</p>
-</li>
-<li>
-<p>표본평균² 의 기댓값 : \$sum_{bar X} bar x^{2} * p(bar x)\$</p>
-</li>
-<li>
-<p>표본평균 분포의 분산 : \$Var(bar X) = ( sum_{bar X} bar x^{2} * p(bar x) ) - E(bar X) \$</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_21.html&text=기초 통계분석 - 21 - 표현 정리&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_21.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//Basic_statistical_study_21.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_21.html&title=기초 통계분석 - 21 - 표현 정리" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//Basic_statistical_study_21.html&title=기초 통계분석 - 21 - 표현 정리" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_21.html&title=기초 통계분석 - 21 - 표현 정리" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//Basic_statistical_study_21.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/빅데이터.html'>빅데이터</a></li>
- 	        <li><a href='../tags/통계분석.html'>통계분석</a></li>
-
-				<li><a class="icon fa-comment" href="../Basic_statistical_study_21.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../3/"
             class=" button big previous">PREVIOUS</a></li>
 
     <li><span
-            class="button big"> 4 of 11 </span></li>
+            class="button big"> 4 of 12 </span></li>
 
     <li><a href="../5/"
             class=" button big next">NEXT</a></li>
@@ -1045,6 +933,17 @@
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_03.html">(기초) AWS - EC2</a></h3>
+                                 <time class="published"
+							            datetime='May 07, 2021'>
+							            May 07, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_01.html">(기초) AWS - 개요</a></h3>
                                  <time class="published"
 							            datetime='May 06, 2021'>
@@ -1075,17 +974,6 @@
                         </article>
                     </li>
 
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../HandsOnML2_01-7.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.7 연습문제</a></h3>
-                                 <time class="published"
-							            datetime='Sep 21, 2020'>
-							            Sep 21, 2020</time>
-                            </header>
-                        </article>
-                    </li>
-
 
             </ul>
         </section>
@@ -1109,18 +997,18 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/hackerton.html">hackerton</a>
+                                <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 1 </span>
+                                <span style="float:right;"> 3 </span>
                             </header>
                         </article>
                     </li>
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/학습.html">학습</a>
+                                <a href="../tags/hackerton.html">hackerton</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 2 </span>
+                                <span style="float:right;"> 1 </span>
                             </header>
                         </article>
                     </li>
@@ -1172,18 +1060,18 @@
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/데이터모델링.html">데이터모델링</a>
+                                <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 6 </span>
+                                <span style="float:right;"> 3 </span>
                             </header>
                         </article>
                     </li>
                     <li>
                         <article>
                             <header>
-                                <a href="../tags/AWS.html">AWS</a>
+                                <a href="../tags/데이터모델링.html">데이터모델링</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 2 </span>
+                                <span style="float:right;"> 6 </span>
                             </header>
                         </article>
                     </li>
