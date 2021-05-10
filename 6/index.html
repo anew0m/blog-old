@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="../../aws_study_05.html"><p>(기초) AWS - S3</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_04.html"><p>(기초) AWS - RDS</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="../../aws_study_01.html"><p>(기초) AWS - 개요</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_02.html"><p>(기초) AWS - IAM</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,796 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../Basic_statistical_study_03.html">기초 통계분석 - 03 - 확률과 확률분포</a></h2>
+
+
+            <p>'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 19, 2020'>
+            May 19, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#확률과_확률분포">1. 확률과 확률분포</a>
+<ul class="sectlevel2">
+<li><a href="#확률">1.1. 확률</a></li>
+<li><a href="#분포함수">1.2. 분포함수</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="확률과_확률분포">1. 확률과 확률분포</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="확률">1.1. 확률</h3>
+<div class="sect3">
+<h4 id="확률_2">1.1.1. 확률</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>확률</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률(確率, probability) : 가능성의 정도, (어떤 결정 등을) 굳힐 비율, (어떤 일이) 있을(사실일) 것 같은 개연성</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률 용어</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률실험(혹은 시행)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률실험(experiment) 또는 확률시행(trial)은 아래 3가지를 만족할 때</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : Ε</p>
+</li>
+<li>
+<p>(결과 구하기 위한) 어떤 실험을 통해 나타나는 결과를 알지 못함</p>
+</li>
+<li>
+<p>결과는 알지 못하지만 결과로 나타날 수 있는 가능한 경우를 알고 있음</p>
+</li>
+<li>
+<p>동일한 실험(각종 환경이 같은)을 몇 번이고 반복할 수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>표본공간</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표본공간(sample space) : 출현 가능한 모든 결과들의 모임</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : Ω</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>사건</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사건(event) : 표본공간의 각 원소(출현 가능한 개별 결과)들의 부분집합</p>
+</li>
+<li>
+<p>표본점(sample point) : 시행의 한 결과</p>
+</li>
+<li>
+<p>근원사건(elementary event) : 어떤 사건의 하나의 표본점으로 이루어지는 (표본공간의 개별 결과가 하나인) 사건</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : 영어 대문자(A, B, C, &#8230;&#8203; 등)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>합사건 : 어떤 사건의 발생이 사건 A에서 일어나거나 혹은 사건 B에서 일어나는 것</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$A uu B  = { omega in Omega | omega in A or omega in B}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>곱사건 : 어떤 사건의 발생이 사건 A에서 일어나고 사건 B에서도 일어나는 사건, 즉 사건 A와 B가 동시에 일어나는 사건</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$A nn B  = { omega in Omega | omega in A and omega in B}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>여사건 : 어떤 사건이 발생하지 않을 사건</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$A^{c}  = { omega in Omega | omega !in A}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>배반사건 : 두 사건이 겹치는 부분이 없는 사건</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$A nn B = O/\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>독립사건 : 두 사건이 서로 발생에 영향을 끼치지 않을 때 두 사건은 서로 독립</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$A _|_ B\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>합사건, 곱사건, 여사건은 집합 연산의 교환법칙, 결합법칙, 분배법칙, 드 모르간의 법칙을 적용할 수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률의 정의</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수학적 확률</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : O ; Outcome의 약자</p>
+</li>
+<li>
+<p>어떤 시행의 결과로 나타날 수 있는 가능한 결과의 수</p>
+</li>
+<li>
+<p>각 결과들은 나타날 가능성이 동일하다는 가정(각 근원사건이 발생한 가능성은 동일함)</p>
+</li>
+<li>
+<p>동일한 각 결과들의 확률은 \${1} / {O}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>통계적 확률 : 수학적 확률을 통한 정의보다 수없이 많은 관찰을 통해 정의</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : 실험횟수 N , 사건발생 n</p>
+</li>
+<li>
+<p>동일한 조건에서 같은 실험을 N번 반복</p>
+</li>
+<li>
+<p>사건 A가 모두 몇 번 발생했는지를 조사 : n</p>
+</li>
+<li>
+<p>사건 A가 발생할 확률 : \$P(A) = {n} / {N}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률 공리</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률 공리(axioms of probability) : 경험상 인식을 확문적으로 밝힘에 있어 이론적으로 뒷받침하는 확률론의 기본 바탕</p>
+<div class="ulist">
+<ul>
+<li>
+<p>P(A)는 0과 1 사이의 값을 갖고 (0 ≤ P(A) ≤ 1)</p>
+</li>
+<li>
+<p>반드시 일어나는 사건(혹은 표본공간 전체)의 값은 1이며 (P(Ω)=1)</p>
+</li>
+<li>
+<p>서로 배반인 사건 \$A_{1}, A_{2}, A_{3}, ..., A_{n}, ...\$ 의 합칩합에 대해 다음을 만족하면,</p>
+</li>
+<li>
+<p>\$P(uuu_{i=1}^{oo}A_{i}) = sum_{i=1}^{oo}P(A_{i})\$</p>
+</li>
+<li>
+<p>함수값 P(A)를 사건 A의 확률이라 함</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률 법칙</p>
+<div class="ulist">
+<ul>
+<li>
+<p>덧셈법칙</p>
+<div class="ulist">
+<ul>
+<li>
+<p>합사건일 때 (A U B)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$P(A uu B) = P(A) + P(B) - P(A nn B)\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>배반사건일 때 (A n B = ø)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$P(A uu B) = P(A) + P(B)\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>곱셈법칙</p>
+<div class="ulist">
+<ul>
+<li>
+<p>조건부 확률 : 두 사건 A와 B에 대해 사건 B가 발생했다는 조건 하에 사건 A가 발생할 확률</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : P(A|B)</p>
+</li>
+<li>
+<p>\$P(A|B) = {P(A nn B)} / {P(B)}, P(B) &gt; 0\$</p>
+</li>
+<li>
+<p>사건 A와 B가 동시에 일어날 확률일 P(A n B)를 사건 B가 발생할 확률인 P(B)로 나눈 것</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>곱셈법칙</p>
+<div class="ulist">
+<ul>
+<li>
+<p>요약 : \$P(A nn B) = {(P(A nn B) = P(B) * P(A|B), P(A) &gt; 0),
+(P(A nn B) = P(A) * P(B|A), P(B) &gt; 0):}\$</p>
+</li>
+<li>
+<p>확률 P(A)는 0 부터 1까지 실수를 가지므로 아래의 식에서 분모 P(B)를 좌변으로 넘기며, 두 사건 A와 B의 곱집합의 확률 계산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$P(A|B) = {P(A nn B)} / {P(B)}, P(B) &gt; 0\$</p>
+</li>
+<li>
+<p>\$P(B) * P(A|B) = P(A nn B), P(B) &gt; 0\$</p>
+</li>
+<li>
+<p>\$P(A nn B) = P(B) * P(A|B)\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>두 사건 A와 B에서 사건 A가 조건으로 주어지는 조건부 확률 P(B|A)를 전개하며, 곱집합의 확률 계산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$P(B|A) = {P(A nn B)} / {P(A)}, P(A) &gt; 0\$</p>
+</li>
+<li>
+<p>\$P(A nn B) = P(A) * P(B|A)\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>독립사건일 경우의 곱셈법칙</p>
+<div class="ulist">
+<ul>
+<li>
+<p>요약 : \${(P(B | A) = {P(A nn B)} / {P(A)} = {P(A) * P(B)} / {P(A)} = P(B)),
+(P(A | B) = {P(A nn B)} / {P(B)} = {P(A) * P(B)} / {P(B)} = P(B)):}, if A _|_ B\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>여사건의 확률</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사건 A의 여사건 \$P(A^{c})\$은 아래와 같음</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$P(A) + P(A^{c}) = 1\$</p>
+</li>
+<li>
+<p>\$P(A^{c}) = 1 - P(A)\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="확률변수">1.1.2. 확률변수</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>확률변수(random variable) : 표본공간(Ω)에서 각 원소를 실숫값에 대응 시키는 함수</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률변수의 표현</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률변수 : 알파벳 대문자 X, Y, Z, &#8230;&#8203;</p>
+</li>
+<li>
+<p>확률변수 실숫값 : 알파벳 소문자 x, y, z, &#8230;&#8203;</p>
+</li>
+<li>
+<p>확률변수 X가 값 x를 가질 때 X = x 로 표기</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률변수의 종류</p>
+<div class="ulist">
+<ul>
+<li>
+<p>이산형 확률변수(discrete random variable)</p>
+</li>
+<li>
+<p>연속형 확률변수(continuos random variable)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률변수의 평균과 분산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률변수의 평균, 기댓값</p>
+<div class="ulist">
+<ul>
+<li>
+<p>평균</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : \$bar X\$</p>
+</li>
+<li>
+<p>상수값 0, 1, 2 일 때 평균의 수식</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$bar X = sum_{i=1}^{n}{1}/{n} * x_{i} = {1} / {3}(0 + 1 + 2) = 1\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>기대값 : 확률변수의 평균</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : E(X); E(확률변수)</p>
+</li>
+<li>
+<p>확률변수 X가 동전을 두번 던져 앞면이 나오는 횟수의 수식</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$E(X) = sum_{i=1}^{3}x_{i} * P(X = x_{i}) = 0 * {1} / {4} + 1 * {2} / {4} + 2 * {1} / {4} = 1\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률변수 X가 연속형일 경우 연속형 잘에 맞도록 단순 합이 아닌 적분 사용</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$E(X) = int _{모든 x} x * P(X = x)dx\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률변수의 분산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>분산 : 편차 제곱의 평균</p>
+<div class="ulist">
+<ul>
+<li>
+<p>분산을 아래와 같이 편차 제곱의 기대값으로 구함</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$Var(x) = E[(X - E(X))^{2} ]\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>편차를 나타냄에 있어 확률변수의 평균, 즉 기대값을 사용하여 \$bar X\$ 대신 E(X)를 쓰고, 확률변수의 분산은 Var(확률변수) 로 표기</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$Var(x) = E[(X - E(X))^{2} ] = sum_{모든 x}(x - E(X))^{2} * P(X = x)\$</p>
+</li>
+<li>
+<p>수식 : \$Var(X) = E(X^{2}) - E(X)^{2} = [sum_{모든 x} x^{2} * P(X = x)] - [E(X)]^{2}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>동전을 두 번 던져 앞면이 나오는 횟수의 분산 수식</p>
+<div class="ulist">
+<ul>
+<li>
+<p>수식 : \$E(X^{2}) = sum_{i=1}^{3} x_{i}^{2} * P(X = x_{i}) = 0^{2} * {1} / {4} + 1^{2} * {2} / {4} + 2^{2} * {1} / {4} = {1} / {2} + {4} / {4} = {6} / {4}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>위 값에서 기대값의 제곱을 뺌(기대값은 1)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$Var(X) = E(X^{2}) - E(X)^{2} = {6} / {4} - 1 = {2} / {4} = {1} / {2}\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="분포함수">1.2. 분포함수</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>분포함수(누적분포함수; cumulativ distribution function)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : \$F(x) = P(X &lt;= x)\$</p>
+</li>
+<li>
+<p>확률변수 X가 가질 수 있는 임의의 실측값 x에 대해 다음과 같이 정의된 함수 F</p>
+</li>
+<li>
+<p>분포함수의 특성이 모수이며, 모수에 따라 분포함수의 모양이 결정됨</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>확률분포</p>
+<div class="ulist">
+<ul>
+<li>
+<p>확률변수 X가 실측값 x를 갖는 확률 <em>(P(X = x))</em> 에 대한 함수 <em>f(x)</em> 로 나타냄</p>
+</li>
+<li>
+<p>이산형 : 확률질량함수(pmf; probability mass function)</p>
+</li>
+<li>
+<p>연속형 : 확률밀도함수(pdf; probability density function)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="베르누이_시행">1.2.1. 베르누이 시행</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>베르누이 시행(Bernoulli&#8217;s trial) : '성공&#8217;과 '실패' 두가지 결과가 나타는 확률실험</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : <em>Bernoulli(p)</em></p>
+</li>
+<li>
+<p>확률변수 X가 베르누이 싱행에 따라 성공일 때 1, 실패일 때 0을 가질 경우 확률질량함수는 아래와 같음</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$P(X=x) = f(x) = p^{x} * (1-p)^{1-x} , x={(성공 1), (실패 0) :}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>주사위를 던져 3의 배수의 눈이 나오면 성공(1), 아닐경우 실패(0)일 때</p>
+<div class="ulist">
+<ul>
+<li>
+<p>성공 \$(X=1) : P(X=1)=p^{x=1} * (1-p)^{1-(x=1)=p}\$</p>
+</li>
+<li>
+<p>실패 \$(X=0) : P(X=0)=p^{x=0} * (1-p)^{1-(x=0)=1-p}\$</p>
+</li>
+<li>
+<p>확률변수 X가 1을 가질 확률은 p. 3의 배수일 경우 성공이므로 성공확률은 \$p={1}/{3}\$, 즉 확률변수 X가 1을 가질 확률은 \${1}/{3}\$</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>베르누이 시행의 기대값(확률변수의 평균 = (E(확률변수)))</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : <em>E(X), p</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$= sum_{모든 x} x * P(X=x)\$</p>
+</li>
+<li>
+<p>\$= sum_{모든 x} x * f(x)=0*(p^{0}*(1-p)^{1})+1*(p^{1}*(1-p)^{0})=p\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>베르누이 시행의 분산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : <em>Var(X), p * (1 - p)</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$= E(X^{2}) - (EX)^{2}\$</p>
+</li>
+<li>
+<p>\$= sum_{모든 x} {x^{2} * f(x)} - p^{2}\$</p>
+</li>
+<li>
+<p>\$= sum_{모든 x} {(0^{2} * (p^{0} * (1-p)^{1}) + 1^{2} * (p^{1} * (1-p)^{0})} = p\$</p>
+</li>
+<li>
+<p>\$= p - p^{2}\$</p>
+</li>
+<li>
+<p>\$= p(1-p)\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="이항분포">1.2.2. 이항분포</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>이항분포(binomial distribution) : 성공 횟수가 따르는 분포함수</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : <em>B(n, p)</em></p>
+</li>
+<li>
+<p>각 실험이 서로 독립적으로 시행(iid)일 때  시행횟수인 _n_과 성공 확률인 _p_로, 이항분포는 _B(n, p)_로 나타냄</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>이항계수(binomial coefficient) : 확률변수가 어떤 값을 가지는 경우의 수</p>
+<div class="ulist">
+<ul>
+<li>
+<p>표현 : \$nCx or ((n), (x))\$</p>
+</li>
+<li>
+<p>이항계수 뒷부분인 확률을 나타내는 수식</p>
+<div class="ulist">
+<ul>
+<li>
+<p>\$p^{x} (1 - p)^{n - x}\$</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="정규분포">1.2.3. 정규분포</h4>
+<div class="paragraph">
+<p>작성중..</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_03.html&text=기초 통계분석 - 03 - 확률과 확률분포&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_03.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//Basic_statistical_study_03.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_03.html&title=기초 통계분석 - 03 - 확률과 확률분포" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//Basic_statistical_study_03.html&title=기초 통계분석 - 03 - 확률과 확률분포" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_03.html&title=기초 통계분석 - 03 - 확률과 확률분포" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//Basic_statistical_study_03.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/빅데이터.html'>빅데이터</a></li>
+ 	        <li><a href='../tags/통계분석.html'>통계분석</a></li>
+
+				<li><a class="icon fa-comment" href="../Basic_statistical_study_03.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -618,103 +1408,6 @@
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../Basic_statistical_study_00.html">기초 통계분석 - 00</a></h2>
-
-
-            <p>'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 16, 2020'>
-            May 16, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#작성중">1. 작성중</a></li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="작성중">1. 작성중</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&text=기초 통계분석 - 00&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_00.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//Basic_statistical_study_00.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&title=기초 통계분석 - 00" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&title=기초 통계분석 - 00" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_00.html&title=기초 통계분석 - 00" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//Basic_statistical_study_00.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/빅데이터.html'>빅데이터</a></li>
- 	        <li><a href='../tags/통계분석.html'>통계분석</a></li>
-
-				<li><a class="icon fa-comment" href="../Basic_statistical_study_00.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../5/"
@@ -785,6 +1478,17 @@
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_05.html">(기초) AWS - S3</a></h3>
+                                 <time class="published"
+							            datetime='May 10, 2021'>
+							            May 10, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_04.html">(기초) AWS - RDS</a></h3>
                                  <time class="published"
 							            datetime='May 10, 2021'>
@@ -808,17 +1512,6 @@
                         <article>
                             <header>
                                 <h3><a href="../aws_study_01.html">(기초) AWS - 개요</a></h3>
-                                 <time class="published"
-							            datetime='May 06, 2021'>
-							            May 06, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_02.html">(기초) AWS - IAM</a></h3>
                                  <time class="published"
 							            datetime='May 06, 2021'>
 							            May 06, 2021</time>
@@ -851,7 +1544,7 @@
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 4 </span>
+                                <span style="float:right;"> 5 </span>
                             </header>
                         </article>
                     </li>
@@ -914,7 +1607,7 @@
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 4 </span>
+                                <span style="float:right;"> 5 </span>
                             </header>
                         </article>
                     </li>

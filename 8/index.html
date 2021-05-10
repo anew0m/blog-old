@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="../../aws_study_05.html"><p>(기초) AWS - S3</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_04.html"><p>(기초) AWS - RDS</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="../../aws_study_01.html"><p>(기초) AWS - 개요</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_02.html"><p>(기초) AWS - IAM</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,1652 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../Bigdata_basic_study_00.html">빅데이터 관련 학습노트 - 00 - 전체 정리</a></h2>
+
+
+            <p>SK 동반성장아카데이 내 '머신러닝의 이해와 실습' 강의 정리</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 09, 2020'>
+            May 09, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#정리1_머신러닝_개요와_데이터전처리">1. 정리1. 머신러닝 개요와 데이터전처리</a>
+<ul class="sectlevel2">
+<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
+<li><a href="#머신러닝의_3가지_방법론">1.2. 머신러닝의 3가지 방법론</a></li>
+<li><a href="#머신러닝_알고리즘의_범주">1.3. 머신러닝 알고리즘의 범주</a></li>
+<li><a href="#데이터_전처리_작업">1.4. 데이터 전처리 작업</a></li>
+</ul>
+</li>
+<li><a href="#정리2_의사결정트리decision_tree">2. 정리2. 의사결정트리(Decision Tree)</a>
+<ul class="sectlevel2">
+<li><a href="#분류_문제의_사용">2.1. 분류 문제의 사용</a></li>
+<li><a href="#엔트로피의_이해">2.2. 엔트로피의 이해</a></li>
+<li><a href="#의사결정트리">2.3. 의사결정트리</a></li>
+</ul>
+</li>
+<li><a href="#정리_3_회귀분석regression_analysis">3. 정리 3. 회귀분석(Regression Analysis)</a>
+<ul class="sectlevel2">
+<li><a href="#비용함수를_표현하는_공식">3.1. 비용함수를 표현하는 공식</a></li>
+<li><a href="#회귀모형의_종류">3.2. 회귀모형의 종류</a></li>
+<li><a href="#결정계수">3.3. 결정계수</a></li>
+<li><a href="#회귀모형의_신뢰도_평가">3.4. 회귀모형의 신뢰도 평가</a></li>
+</ul>
+</li>
+<li><a href="#정리_4_군집분석clustering_analysis">4. 정리 4. 군집분석(Clustering Analysis)</a>
+<ul class="sectlevel2">
+<li><a href="#군집분석의_종류">4.1. 군집분석의 종류</a></li>
+<li><a href="#계층형과_비계층형_군집">4.2. 계층형과 비계층형 군집</a></li>
+<li><a href="#k_means의_단점">4.3. K-means의 단점</a></li>
+<li><a href="#덴드로그램의_용도와_단점">4.4. 덴드로그램의 용도와 단점</a></li>
+</ul>
+</li>
+<li><a href="#정리_5_knnk_nearest_neighbor">5. 정리 5. KNN(K-Nearest Neighbor)</a>
+<ul class="sectlevel2">
+<li><a href="#knn의_공식">5.1. KNN의 공식</a></li>
+<li><a href="#weighted_knn의_공식">5.2. Weighted - KNN의 공식</a></li>
+<li><a href="#knn의_종류">5.3. KNN의 종류</a></li>
+<li><a href="#데이터_정류화">5.4. 데이터 정류화</a></li>
+</ul>
+</li>
+<li><a href="#정리_6_나이브_베이즈naive_bayes">6. 정리 6. 나이브 베이즈(Naive Bayes)</a>
+<ul class="sectlevel2">
+<li><a href="#베이즈_이론식">6.1. 베이즈 이론식</a></li>
+<li><a href="#나이브_베이즈_알고리즘">6.2. 나이브 베이즈 알고리즘</a></li>
+<li><a href="#나이브_베이즈의_적용">6.3. 나이브 베이즈의 적용</a></li>
+<li><a href="#감성분석">6.4. 감성분석</a></li>
+</ul>
+</li>
+<li><a href="#정리_7_svmsupport_vector_machine">7. 정리 7. SVM(Support Vector Machine)</a>
+<ul class="sectlevel2">
+<li><a href="#hyper_plane">7.1. Hyper Plane</a></li>
+<li><a href="#support_vector지지_벡터">7.2. Support Vector(지지 벡터)</a></li>
+<li><a href="#커널_함수">7.3. 커널 함수</a></li>
+<li><a href="#svmsupport_vector_machine">7.4. SVM(Support Vector Machine)</a></li>
+</ul>
+</li>
+<li><a href="#정리_8_텍스트_마이닝text_mining">8. 정리 8. 텍스트 마이닝(Text mining)</a>
+<ul class="sectlevel2">
+<li><a href="#tf_idf의_수식">8.1. TF-IDF의 수식</a></li>
+<li><a href="#tf와_idf">8.2. TF와 IDF</a></li>
+<li><a href="#한글_현태소_분석기">8.3. 한글 현태소 분석기</a></li>
+<li><a href="#텍스트_추출_라이브러리">8.4. 텍스트 추출 라이브러리</a></li>
+</ul>
+</li>
+<li><a href="#정리_9_주성분_분석pca과_밀도기반_군집분석dbscan">9. 정리 9. 주성분 분석(PCA)과 밀도기반 군집분석(DBSCAN)</a>
+<ul class="sectlevel2">
+<li><a href="#pca의_특징">9.1. PCA의 특징</a></li>
+<li><a href="#dbscan_용어">9.2. DBSCAN 용어</a></li>
+<li><a href="#dbscan_vs_k_means">9.3. DBSCAN vs k-means</a></li>
+<li><a href="#pca에서의_새로운_차원_k">9.4. PCA에서의 새로운 차원 k</a></li>
+</ul>
+</li>
+<li><a href="#정리_10_신경망neural_network">10. 정리 10. 신경망(Neural Network)</a>
+<ul class="sectlevel2">
+<li><a href="#신경망의_특징">10.1. 신경망의 특징</a></li>
+<li><a href="#gradient_descent_수식">10.2. Gradient Descent 수식</a></li>
+<li><a href="#신경망의_단점">10.3. 신경망의 단점</a></li>
+</ul>
+</li>
+<li><a href="#정리_11_word2vec">11. 정리 11. Word2Vec</a>
+<ul class="sectlevel2">
+<li><a href="#word2vec의_특징">11.1. Word2Vec의 특징</a></li>
+<li><a href="#skip_gram_알고리즘">11.2. Skip Gram 알고리즘</a></li>
+<li><a href="#skip_gram_변수">11.3. Skip Gram 변수</a></li>
+</ul>
+</li>
+<li><a href="#정리_12_토픽_모델링topic_modeling">12. 정리 12. 토픽 모델링(Topic Modeling)</a>
+<ul class="sectlevel2">
+<li><a href="#토픽_모델링의_개요">12.1. 토픽 모델링의 개요</a></li>
+<li><a href="#lda의_개요">12.2. LDA의 개요</a></li>
+<li><a href="#토픽_모델링의_주요변수">12.3. 토픽 모델링의 주요변수</a></li>
+</ul>
+</li>
+<li><a href="#정리_13_랜덤_포레스트random_forest와_에이다부스트adaboost">13. 정리 13. 랜덤 포레스트(Random Forest)와 에이다부스트(AdaBoost)</a>
+<ul class="sectlevel2">
+<li><a href="#배깅이란">13.1. 배깅이란?</a></li>
+<li><a href="#부스팅이란">13.2. 부스팅이란?</a></li>
+<li><a href="#랜덤_포레스트의_개요">13.3. 랜덤 포레스트의 개요</a></li>
+<li><a href="#에이다부스트의_개요">13.4. 에이다부스트의 개요</a></li>
+</ul>
+</li>
+<li><a href="#정리14_소셜_네트워크_분석social_network_analysis">14. 정리14. 소셜 네트워크 분석(Social Network Analysis)</a>
+<ul class="sectlevel2">
+<li><a href="#sna의_개요">14.1. SNA의 개요</a></li>
+<li><a href="#중심성_지수의_정리">14.2. 중심성 지수의 정리</a></li>
+<li><a href="#소셜_네트워크_분석의_적용분야">14.3. 소셜 네트워크 분석의 적용분야</a></li>
+<li><a href="#그래프의_요소">14.4. 그래프의 요소</a></li>
+<li><a href="#그래프의_종류">14.5. 그래프의 종류</a></li>
+</ul>
+</li>
+<li><a href="#정리_15_랜덤_포레스트_나이브_베이즈_tf_idf_word2vec">15. 정리 15. 랜덤 포레스트, 나이브 베이즈, Tf-Idf, Word2Vec</a>
+<ul class="sectlevel2">
+<li><a href="#나이브_베이즈_tf_idf의_머징_모델">15.1. 나이브 베이즈 + Tf-idf의 머징 모델</a></li>
+<li><a href="#랜덤_포레스트_tf_idf의_머징_모델">15.2. 랜덤 포레스트 + Tf-idf의 머징 모델</a></li>
+<li><a href="#랜덤_포레스트_word2vecdoc2vec">15.3. 랜덤 포레스트 + Word2Vec(doc2vec)</a></li>
+</ul>
+</li>
+<li><a href="#정리_16_유전자_알고리즘genetic_algorithm">16. 정리 16. 유전자 알고리즘(Genetic Algorithm)</a>
+<ul class="sectlevel2">
+<li><a href="#유전자_알고리즘">16.1. 유전자 알고리즘</a></li>
+<li><a href="#교차와_변이">16.2. 교차와 변이</a></li>
+<li><a href="#인코딩과_디코딩">16.3. 인코딩과 디코딩</a></li>
+<li><a href="#적합도_함수">16.4. 적합도 함수</a></li>
+</ul>
+</li>
+<li><a href="#정리_17_연관규칙분석association_rule_analysis">17. 정리 17. 연관규칙분석(Association Rule Analysis)</a>
+<ul class="sectlevel2">
+<li><a href="#지지도support와_신뢰도confidence">17.1. 지지도(Support)와 신뢰도(Confidence)</a></li>
+<li><a href="#향상도lift">17.2. 향상도(Lift)</a></li>
+<li><a href="#어프라이어리_방법론">17.3. 어프라이어리 방법론</a></li>
+</ul>
+</li>
+<li><a href="#정리_18_로지스틱_회귀분석logistic_regression_analysis">18. 정리 18. 로지스틱 회귀분석(Logistic Regression Analysis)</a>
+<ul class="sectlevel2">
+<li><a href="#로지스틱_회귀분석">18.1. 로지스틱 회귀분석</a></li>
+<li><a href="#odds_ratio">18.2. Odds Ratio</a></li>
+<li><a href="#odds_ratio를_이용한_로지스틱_회귀분석">18.3. Odds Ratio를 이용한 로지스틱 회귀분석</a></li>
+<li><a href="#인코딩과_디코딩_2">18.4. 인코딩과 디코딩</a></li>
+<li><a href="#적합도_함수_2">18.5. 적합도 함수</a></li>
+</ul>
+</li>
+<li><a href="#정리_19_시계열분석time_series_analysis">19. 정리 19. 시계열분석(Time Series Analysis)</a>
+<ul class="sectlevel2">
+<li><a href="#시계열_패턴의_구성요소">19.1. 시계열 패턴의 구성요소</a></li>
+<li><a href="#자기상관함수와_교차상관함수">19.2. 자기상관함수와 교차상관함수</a></li>
+<li><a href="#arima의_부분모형">19.3. ARIMA의 부분모형</a></li>
+<li><a href="#정상성의_조건">19.4. 정상성의 조건</a></li>
+</ul>
+</li>
+<li><a href="#정리_20_모델_평가_방법_및_심화_이론">20. 정리 20. 모델 평가 방법 및 심화 이론</a>
+<ul class="sectlevel2">
+<li><a href="#arma_모델">20.1. ARMA 모델</a></li>
+<li><a href="#gradient_descent란">20.2. Gradient descent란?</a></li>
+<li><a href="#layer_j의_delta">20.3. Layer j의 delta</a></li>
+<li><a href="#roc_챠트">20.4. ROC 챠트</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="정리1_머신러닝_개요와_데이터전처리">1. 정리1. 머신러닝 개요와 데이터전처리</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="머신러닝이란">1.1. 머신러닝이란?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>기계 즉 컴퓨터가 주변의 환경에서 발생하는 데이터를 학습하여 유의미한 패턴과 통계적인 함수를 발견하여 앞으로의 행동의 지침이 되는 지식을 얻어내는 행위</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="머신러닝의_3가지_방법론">1.2. 머신러닝의 3가지 방법론</h3>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+감독학습
+</td>
+<td class="hdlist2">
+<p>target 값이 있는 데이터인 경우</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+비감독학습
+</td>
+<td class="hdlist2">
+<p>target 값이 없는 데이터인 경우</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+강화학습
+</td>
+<td class="hdlist2">
+<p>게임의 agent가 스스로 정답이나 목표를 찾아가도록 학습하는 과정</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="머신러닝_알고리즘의_범주">1.3. 머신러닝 알고리즘의 범주</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>회귀</p>
+</li>
+<li>
+<p>분류</p>
+</li>
+<li>
+<p>추천</p>
+</li>
+<li>
+<p>대체</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="데이터_전처리_작업">1.4. 데이터 전처리 작업</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>데이터 멍밍(Munging)</p>
+</li>
+<li>
+<p>랭글링(Wrangling)</p>
+</li>
+<li>
+<p>Missing Data 처리</p>
+</li>
+<li>
+<p>Outlier 처리 등</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리2_의사결정트리decision_tree">2. 정리2. 의사결정트리(Decision Tree)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="분류_문제의_사용">2.1. 분류 문제의 사용</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>분류 문제를 풀기 위해 Tree 모양의 Map을 만드는 것이 효과적임</p>
+</li>
+<li>
+<p>나무 모양을 만들어내는 알고리즘을 의사결정트리라고 함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="엔트로피의_이해">2.2. 엔트로피의 이해</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>의사결정트리를 만드는 과정</p>
+<div class="ulist">
+<ul>
+<li>
+<p>엔트로피가 가장 많이 줄어드는 방법으로 데이터를 나눔</p>
+</li>
+<li>
+<p>다른 속성 기준으로 다시 데이터를 나눔</p>
+</li>
+<li>
+<p>엔트로피가 0이 될 때까지 과정을 반복함</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>정보엔트로피를 구하는 공식 : \$sum_{i=1}^{n}p(x_{i})log_{2}p(x_{i})\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="의사결정트리">2.3. 의사결정트리</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>의사결정트리 알고리즘의 특징</p>
+<div class="ulist">
+<ul>
+<li>
+<p>엔트로피 이용</p>
+</li>
+<li>
+<p>지니계수 이용</p>
+</li>
+<li>
+<p>데이터를 나누는 방법에 대한 고민</p>
+</li>
+<li>
+<p>가장 영향력이 큰 속성을 찾는 방법</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>카이제곱스퀘어 검정의 용도</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2개 범주의 데이터를 나눌 때 상관관계가 0에 가까운지 검정하는 '독립성 검정&#8217;의 용도로 쓰임</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_3_회귀분석regression_analysis">3. 정리 3. 회귀분석(Regression Analysis)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="비용함수를_표현하는_공식">3.1. 비용함수를 표현하는 공식</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cost Function 공식 : \$sum_{i}(y-y_{i})^{2}\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="회귀모형의_종류">3.2. 회귀모형의 종류</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>단순회귀모형</p>
+</li>
+<li>
+<p>다중회귀모형</p>
+</li>
+<li>
+<p>선형회귀모형</p>
+</li>
+<li>
+<p>비선형회귀모형</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="결정계수">3.3. 결정계수</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>회귀모형이 현실데이터를 얼마나 잘 설명하는지 평가하기 위해 도입된 지수</p>
+</li>
+<li>
+<p>0 에서 1 사이의 값</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="회귀모형의_신뢰도_평가">3.4. 회귀모형의 신뢰도 평가</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>F값, P-value 결정계수 등의 변수 값으로 평가</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_4_군집분석clustering_analysis">4. 정리 4. 군집분석(Clustering Analysis)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="군집분석의_종류">4.1. 군집분석의 종류</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>덴드로그램(Dendrogram)</p>
+</li>
+<li>
+<p>K-means(K 평균군집)</p>
+</li>
+<li>
+<p>DBSCAN(Density-Based 군집)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="계층형과_비계층형_군집">4.2. 계층형과 비계층형 군집</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>계층형</p>
+<div class="ulist">
+<ul>
+<li>
+<p>가장 가까운 거리의 데이터부터 차례대로 그룹을 이루어 나가면서 최종적으로 하나의 그룹으로 합치는 방식으로 트리 구조를 만드는 방법</p>
+</li>
+<li>
+<p>종류 : 덴드로그램</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>비계층형</p>
+<div class="ulist">
+<ul>
+<li>
+<p>계층형이 아닌 방법</p>
+</li>
+<li>
+<p>종류 : K-means 또는 DBSCAN</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="k_means의_단점">4.3. K-means의 단점</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>군집이 원의 형태(또는 구)에서 많이 벗어난 경우에는 (예: 길쭉한 형태) 오차가 많이 생기게 됨</p>
+</li>
+<li>
+<p>밀도기반인 군집분석인 DBSCAN을 쓰면 효과적임</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="덴드로그램의_용도와_단점">4.4. 덴드로그램의 용도와 단점</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>본격적인 군집분석을 하기 전에 대략적인 데이터의 패턴을 보고자 할 때 쓰임</p>
+</li>
+<li>
+<p>메모리를 많이 쓰는 경향이 있어서 컴퓨터가 느려짐</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_5_knnk_nearest_neighbor">5. 정리 5. KNN(K-Nearest Neighbor)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="knn의_공식">5.1. KNN의 공식</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>\$y = argmax_{v} \sum_{D_{x}}I(v=y_{i})\$</p>
+</li>
+<li>
+<p>KNN의 공식 X를 중심으로 하는 데이터 집합 \($D_{x}$\) 에서 가장 많은 Lavel을 가지고 있는 v 값을 찾음</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="weighted_knn의_공식">5.2. Weighted - KNN의 공식</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>\$$y = argmax_{v} \sum_{D_{x}}I(v = y_{i}) , w_{i} = {1}/{d(x,x_{i})^{2}}\$</p>
+</li>
+<li>
+<p>Unknown lavel에서 거리의 제곱의 역수를 가중치로 하여 거리가 멀수로 가중치를 떨어뜨리도록 모델을 설계함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="knn의_종류">5.3. KNN의 종류</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>KNN Classifier와 KNN Regressor</p>
+</li>
+<li>
+<p>KNN Classifier : 범주현 데이터 예측</p>
+</li>
+<li>
+<p>KNN Regressor : 연속값 예측</p>
+</li>
+<li>
+<p>target 값에 따라 사용하는 모델이 달라짐</p>
+</li>
+<li>
+<p>옵션은 Weighted의 기능 여부에 따라 4가지로 분류됨</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="데이터_정류화">5.4. 데이터 정류화</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>데이터 속성들을 하나의 scale로 통일해야 함</p>
+</li>
+<li>
+<p>가장 많이 쓰이는 방법은 통계학에서 쓰이는 z정규화 방식임</p>
+</li>
+<li>
+<p>\$z_{i} = {x_{i} - avg(x)} / {sigma} , sigma\$는 표준편자 \$avg(x)\$는 x평균</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_6_나이브_베이즈naive_bayes">6. 정리 6. 나이브 베이즈(Naive Bayes)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="베이즈_이론식">6.1. 베이즈 이론식</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>P(A) * P(B|A) = P(B) * P(A|B)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="나이브_베이즈_알고리즘">6.2. 나이브 베이즈 알고리즘</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>P(특정단어)가 나타날 확률은 일일이 구할 수 없으므로 모두 같다고 생각함</p>
+</li>
+<li>
+<p>X문서 = {'단어1', '단어2', '단어3', &#8230;&#8203; } 일 때에 P(X|스팸)인 확률은 서로 독립이라고 가정하고,
+단순하게 P('단어1'|스팸) * P('단어2'|스팸) * P('단어3'|스팸) * &#8230;&#8203; 으로 계산함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="나이브_베이즈의_적용">6.3. 나이브 베이즈의 적용</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>콜센터의 상담전화가 걸려 올 떄에 쓰는 단어들 목록을 보고 유추하여 해당하는 전문상담원을 연결시켜 주는 모델임</p>
+</li>
+<li>
+<p>결혼을 준비 중인 30대 커플들의 선호하느 ㄴ신혼가구들의 분포를 예측하는 모델임</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="감성분석">6.4. 감성분석</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>영화 댓글을 판별하여 긍정/부정을 예측하는 모델을 말함</p>
+</li>
+<li>
+<p>텍스트 마이닝의 영역에서 '감정분석&#8217;은 나아가 NLP(자연어 처리)까지 발전될 수도 있음</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_7_svmsupport_vector_machine">7. 정리 7. SVM(Support Vector Machine)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="hyper_plane">7.1. Hyper Plane</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>2개의 서로 다른 Class를 구분하는 경계면</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support_vector지지_벡터">7.2. Support Vector(지지 벡터)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Hyper Plane에서 최대한 평행으로 양쪽으로 떨어지면서 가장 먼저 데이터와 만나는 지점을 통화하는 벡터</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="커널_함수">7.3. 커널 함수</h3>
+<div class="paragraph">
+<p>\$K(x_{i}, x_{j}) = Phi(x_{i})^{T} Phi(x_{j})\$</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="svmsupport_vector_machine">7.4. SVM(Support Vector Machine)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>선형여부</p>
+<div class="ulist">
+<ul>
+<li>
+<p>선형 SVM</p>
+</li>
+<li>
+<p>비선형 SVM</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>target 데이터 종류</p>
+<div class="ulist">
+<ul>
+<li>
+<p>분류기를 만드는 SVM</p>
+</li>
+<li>
+<p>회귀모형을 만드는 SVR</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_8_텍스트_마이닝text_mining">8. 정리 8. 텍스트 마이닝(Text mining)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="tf_idf의_수식">8.1. TF-IDF의 수식</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>\$TF_{ij} ** IDF_{i} = TFIDF_{ij}\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tf와_idf">8.2. TF와 IDF</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>TF</p>
+<div class="ulist">
+<ul>
+<li>
+<p>단어의 빈도수이고 해당 문서에서 해당 단어가 나타나는 비율</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>IDF</p>
+<div class="ulist">
+<ul>
+<li>
+<p>역문서 빈도로서 전체 문서에서 해당 단어가 나타나는 문서의 비율의 역수에 log를 취한 값</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="한글_현태소_분석기">8.3. 한글 현태소 분석기</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Twitter</p>
+</li>
+<li>
+<p>Komoran</p>
+</li>
+<li>
+<p>꼬꼬마 등</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="텍스트_추출_라이브러리">8.4. 텍스트 추출 라이브러리</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>html 이나 xml을 파싱하여 순수한 텍스트를 추출함 - BeautifulSoup 등</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_9_주성분_분석pca과_밀도기반_군집분석dbscan">9. 정리 9. 주성분 분석(PCA)과 밀도기반 군집분석(DBSCAN)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="pca의_특징">9.1. PCA의 특징</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>새로운 축은 독립이며 직각임</p>
+</li>
+<li>
+<p>원본 데이터의 차원이 p라면 새롭게 만들어진 데이터의 차원은 k(&lt;p)</p>
+</li>
+<li>
+<p>원본 데이터 X는 U와 V의 곱으로 분리됨</p>
+</li>
+<li>
+<p>U는 데이터를 새로운 차원 k로 설명함</p>
+</li>
+<li>
+<p>V는 원본 차원과 축소 차원의 관계를 설명함</p>
+</li>
+<li>
+<p>정보를 많이 잃어버리지 않고 차원을 축소시킴</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dbscan_용어">9.2. DBSCAN 용어</h3>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+이웃 벡터
+</td>
+<td class="hdlist2">
+<p>반경 \$epsilon\$ 안에 포함된 데이터들</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+핵심 벡터
+</td>
+<td class="hdlist2">
+<p>n개 이상의 이웃 벡터를 가짐</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+직접 접근 기능
+</td>
+<td class="hdlist2">
+<p>핵심 벡터와 이웃 벡터와의 관계(p → q)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+접근 가능
+</td>
+<td class="hdlist2">
+<p>연속적으로 이루어짐</p>
+<div class="ulist">
+<ul>
+<li>
+<p>핵심 벡터 → 이웃 벡터 → 이웃 벡터 → 이웃 벡터 → &#8230;&#8203; 일 때에 접근 가능으로 표현 (p ⇒ q)</p>
+</li>
+<li>
+<p>연결된 p와 q사이에 접근 가능한 벡터가 있었다면 p ⇔ q 로 표현</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dbscan_vs_k_means">9.3. DBSCAN vs k-means</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>밀도기반 vs 거리기반</p>
+</li>
+<li>
+<p>어떤 형태의 군집도 잘 잡는 편 vs 원이나 구 모양에 최적화되어 있음</p>
+</li>
+<li>
+<p>노이즈가 정의됨 vs 노이즈가 정의가 안됨</p>
+</li>
+<li>
+<p>직관적 vs 수학적</p>
+</li>
+<li>
+<p>프로그래밍으로 구현 vs 컴퓨터가 없어도 계산으로 풀 수 있음</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pca에서의_새로운_차원_k">9.4. PCA에서의 새로운 차원 k</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>고윳값 분해를 하여 가장 작으면서 분산을 많이 설명할 수 있는 상위 k개의 추상적인 축을 선택</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_10_신경망neural_network">10. 정리 10. 신경망(Neural Network)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="신경망의_특징">10.1. 신경망의 특징</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>신경세포인 뉴런의 동작을 모방함</p>
+</li>
+<li>
+<p>마빈 민스키에 의해 개발됨</p>
+</li>
+<li>
+<p>플랑크 로젠블랑의 이론임</p>
+</li>
+<li>
+<p>신경망의 가중치 행렬에 대한 최적해를 구해야 함</p>
+</li>
+<li>
+<p>Gradient Descent를 사용함</p>
+</li>
+<li>
+<p>Gradient Descent를 구하기 위하여 Back Propagation(오류 역전파) 알고리즘을 사용함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gradient_descent_수식">10.2. Gradient Descent 수식</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>\$W_{t + 1} larr W_{t} - lambda ** {delE(W_{t})} / {del W_{t}}\$</p>
+</li>
+<li>
+<p>\$lambda\$는 학습률</p>
+</li>
+<li>
+<p>W행렬은 W에 대한 에러함수의 변화율만큼 움직이면서 W를 갱신함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="신경망의_단점">10.3. 신경망의 단점</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>층이 깊어지면 W가 0에 가까워짐</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Anish효과나 Explode효과의 발생으로 훈련이 제대로 이루어지지 않음</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>오버피팅(Overfitting)이 생김</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_11_word2vec">11. 정리 11. Word2Vec</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="word2vec의_특징">11.1. Word2Vec의 특징</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>단어를 벡터로 취급함</p>
+</li>
+<li>
+<p>단어 사이의 거리와 방향까지 알 수 있음</p>
+</li>
+<li>
+<p>단어 임베딩의 size를 정함</p>
+</li>
+<li>
+<p>많은 정보를 보여줌</p>
+</li>
+<li>
+<p>더 확장하여 텍스트 간의 거리를 구하는 방법이 연구됨</p>
+</li>
+<li>
+<p>TF-IDF나 BagOfWords의 한계를 극복함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="skip_gram_알고리즘">11.2. Skip Gram 알고리즘</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>단어의 주변에 나타나는 단어가 무엇인지 예측하는 신경망</p>
+</li>
+<li>
+<p>최종적으로 나타나는 가중치 행렬은 해당 단어를 나타내는 임베딩 벡터의 모임</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="skip_gram_변수">11.3. Skip Gram 변수</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>V : 사전의 크기로서 전체 단어들의 개수</p>
+</li>
+<li>
+<p>N : 단어를 표현할 임베딩 벡터의 크기로서 신경망에서 hidden layer의 size</p>
+</li>
+<li>
+<p>Window Size : 주변에 나타나는 단어를 선정할 때 반경</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_12_토픽_모델링topic_modeling">12. 정리 12. 토픽 모델링(Topic Modeling)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="토픽_모델링의_개요">12.1. 토픽 모델링의 개요</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>구조화되지 않는 대량의 텍스트로부터 숨겨져 있는 주제구조를 발견하기 위한 통계적 추론 알고리즘</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="lda의_개요">12.2. LDA의 개요</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>문서 같은 데이터의 집합에 대한 Generative Probabilistic Model(생성적 확률모델)</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Choose N ~ Possion(\$xi\$).</p>
+</li>
+<li>
+<p>Choose \$theta\$ ~ Dir(\$alpha\$).</p>
+</li>
+<li>
+<p>For each of the N words \$W_{t}\$</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Choose a topic \$Z_{n}\$~Multinomial(\$theta)\$</p>
+</li>
+<li>
+<p>Choose a word \$W_{n}\$ from (\$W_{n} | Z_{n}, beta\$),
+a mutinomial probability conditioned on the topic \$Z_{n}\$.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="토픽_모델링의_주요변수">12.3. 토픽 모델링의 주요변수</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>\$beta_{ik}\$ : 단어 사전에서 i번째 단어가 k번째 주제에 해당할 확률</p>
+</li>
+<li>
+<p>\$W_{ik}\$ : i번째 단어이면서 k번째 주제에 해당하는 단어</p>
+</li>
+<li>
+<p>\$Z_{ik}\$ : i번째 단어의 k번째의 주제</p>
+</li>
+<li>
+<p>\$theta\$ : 디리클레 분포에서 추출되는 차원 k를 갖는 주체벡터</p>
+</li>
+<li>
+<p>\$k\$ : 주체(토픽)의 개수</p>
+</li>
+<li>
+<p>\$N\$ : 문서의 길이</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_13_랜덤_포레스트random_forest와_에이다부스트adaboost">13. 정리 13. 랜덤 포레스트(Random Forest)와 에이다부스트(AdaBoost)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="배깅이란">13.1. 배깅이란?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>훈련데이터에서 중복을 허용하여 여러 표본그룹으로 분할하고 각각의 학습 데이터 그룹마다 약한 학습기를 생성하는 방법</p>
+</li>
+<li>
+<p>결과를 취합할 때에는 다수결로 하거나 평균을 냄</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="부스팅이란">13.2. 부스팅이란?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>가중치에 따라서 학습의 강도를 결정하거나 표본데이터의 크기도 변경하여 애매한 결과가 나오는 모델이나 데이터에 더 집중할 수 있도록 가중치를 변화시키는 방법</p>
+</li>
+<li>
+<p>결과를 취합할 때도 가중치 평균이나 가중치를 투표함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="랜덤_포레스트의_개요">13.3. 랜덤 포레스트의 개요</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>'배깅&#8217;의 일종으로 약한 학습기를 '결정트리&#8217;로 만드는 경우의 모델임</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="에이다부스트의_개요">13.4. 에이다부스트의 개요</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>'부스팅&#8217;의 일종으로 난이도가 높거나 오류율이 높은 데이터를 제대로 분류할 수 있도록 약한 핛ㅂ기마다 가중치에 변화를 주어 정확도를 높이는 방법</p>
+</li>
+<li>
+<p>오류율이 높은 데이터는 더 큰 확률로 Resampling되도록 설계</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리14_소셜_네트워크_분석social_network_analysis">14. 정리14. 소셜 네트워크 분석(Social Network Analysis)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="sna의_개요">14.1. SNA의 개요</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>네트워크 및 그래프 이론을 사용하여 사회구조를 분석하는 머신러닝의 한 분야임</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="중심성_지수의_정리">14.2. 중심성 지수의 정리</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>근접 중심성</p>
+</li>
+<li>
+<p>중개 중심성</p>
+</li>
+<li>
+<p>아이겐벡터(고유벡터) 중심성</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="소셜_네트워크_분석의_적용분야">14.3. 소셜 네트워크 분석의 적용분야</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>커뮤니케이션</p>
+</li>
+<li>
+<p>사회심리학</p>
+</li>
+<li>
+<p>정치</p>
+</li>
+<li>
+<p>조직학</p>
+</li>
+<li>
+<p>지리학 등</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="그래프의_요소">14.4. 그래프의 요소</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>노트와 엣지(연결선)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="그래프의_종류">14.5. 그래프의 종류</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>방향 그래프와 무방향 그래프</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_15_랜덤_포레스트_나이브_베이즈_tf_idf_word2vec">15. 정리 15. 랜덤 포레스트, 나이브 베이즈, Tf-Idf, Word2Vec</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="나이브_베이즈_tf_idf의_머징_모델">15.1. 나이브 베이즈 + Tf-idf의 머징 모델</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Tf-idf의 특성변수가 나이브 베이즈의 입력변수로 들어간 머징 모델임</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="랜덤_포레스트_tf_idf의_머징_모델">15.2. 랜덤 포레스트 + Tf-idf의 머징 모델</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Tf-idf의 특성변수가 랜덤 포레스트의 입력변수로 들어간 머징 모델임</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="랜덤_포레스트_word2vecdoc2vec">15.3. 랜덤 포레스트 + Word2Vec(doc2vec)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>텍스트의 특성벡터를 Word2Vec으로 평균을 내어 계산한 다음 이것을 랜덤 포레스트에 입력변수로 넣어서 만든 머징 모델임</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_16_유전자_알고리즘genetic_algorithm">16. 정리 16. 유전자 알고리즘(Genetic Algorithm)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="유전자_알고리즘">16.1. 유전자 알고리즘</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>생물학적 진화와 자연선택의 기본원리에 영감을 얻은 확률적 탐색 알고리즘</p>
+</li>
+<li>
+<p>'자연선택', '염색체 교배', '교차', '변이&#8217;와 같은 생물학적 매카니즘을 모방함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="교차와_변이">16.2. 교차와 변이</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>교차</p>
+<div class="ulist">
+<ul>
+<li>
+<p>부모염색체가 끊어지는 부분(교차점)을 임의로 선택하고 2개의 부모염색체를 교차시켜서 연결하여 새로운 자식염색체를 만드는 과정</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>변이</p>
+<div class="ulist">
+<ul>
+<li>
+<p>부모염색체의 임의의 셀 부분이 다른 값으로 바뀌어 새로운 자식염색체를 만드는 과정</p>
+</li>
+<li>
+<p>낮은 확률로 허용하는 보조연산자와 같은 기능을 함으로써 지역최적화를 방지하는 기능</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="인코딩과_디코딩">16.3. 인코딩과 디코딩</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>인코딩</p>
+<div class="ulist">
+<ul>
+<li>
+<p>문제를 잘 파악하여 구하고자 하는 솔루션의 format을 염색체 형태로 만드는 방법</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>디코딩</p>
+<div class="ulist">
+<ul>
+<li>
+<p>적합도를 구하기 위하여 현실적인 문제 영역으로 보여주는 부분</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="적합도_함수">16.4. 적합도 함수</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>문제의 규칙과 제약조건을 잘 정리하여 솔루션(해)이 가져야 하는
+상점과 벌점을 중요순위대로 부과하여 전체적인 해의 score를 반환하도록 설계함</p>
+</li>
+<li>
+<p>새로운 해가 환경에 얼마나 잘 적응을 하는지 점수화를 하는 부분임</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_17_연관규칙분석association_rule_analysis">17. 정리 17. 연관규칙분석(Association Rule Analysis)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="지지도support와_신뢰도confidence">17.1. 지지도(Support)와 신뢰도(Confidence)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>지지도 : 상품 X와 Y를 동시에 구입한 비율</p>
+</li>
+<li>
+<p>신뢰도 : 상품 X를 샀을 때에 상품 Y도 같이 구입된 비율</p>
+</li>
+<li>
+<p>s(X &#8658; Y) = support(지지도) = n(X U Y) / N = P(X U Y)</p>
+</li>
+<li>
+<p>c(X &#8658; Y) = confidence(신뢰도) = n(X U Y) / n(X) = P(Y | X)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="향상도lift">17.2. 향상도(Lift)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>전체 트랜잭션 중에서 물품 Y를 구매한 비율에 비해서 물품 X를 구매했을 때에 Y를 구매한 비율을 비교하여 얼마나 향상되었는지 보는 것</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>&#8594; 1이면 아무 의미가 없고 절대값이 1도가 클수록 의미가 있는 규칙으로 추출됨</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lift(A, B) = \${c(A-&gt;B)} / {s(B)}\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="어프라이어리_방법론">17.3. 어프라이어리 방법론</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>빈발항목 집합을 찾아내는 방법</p>
+<div class="ulist">
+<ul>
+<li>
+<p>한 항목집합이 빈발 : 그 집합의 모든 부분집합은 빈발항목집합</p>
+</li>
+<li>
+<p>한 항목집합이 비빈발 : 그 항목집합을 포함하는 모든 집합은 비빈발항목집합</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_18_로지스틱_회귀분석logistic_regression_analysis">18. 정리 18. 로지스틱 회귀분석(Logistic Regression Analysis)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="로지스틱_회귀분석">18.1. 로지스틱 회귀분석</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>결과값이 P(Y = 1 | X)을 예측하기 때문에 2개의 class를 분류하는 문제에 쓰임</p>
+</li>
+<li>
+<p>확장하면 Multi class도 가능함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="odds_ratio">18.2. Odds Ratio</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>class가 0과 1이 있다면 1일 확률과 0일 확률의 비를 의미한</p>
+</li>
+<li>
+<p>\${P(Y=1|x)} / {1-P(Y=1|x)}\$ = Odds Ratio</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="odds_ratio를_이용한_로지스틱_회귀분석">18.3. Odds Ratio를 이용한 로지스틱 회귀분석</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>dds Ratio에 log을 씌운 값이 일반 회귀분석과 같은 수식이 됨</p>
+</li>
+<li>
+<p>ln \${P(Y=1|x)} / {1-P(Y=1|x)} = w^{t}x + b\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="인코딩과_디코딩_2">18.4. 인코딩과 디코딩</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>인코딩</p>
+<div class="ulist">
+<ul>
+<li>
+<p>구하고자 하는 솔루션의 format을 염색체 형태로 만드는 방법</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>디코딩</p>
+<div class="ulist">
+<ul>
+<li>
+<p>적합도를 구하기 위하여 현실적인 문제 영역으로 보여주는 부분</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="적합도_함수_2">18.5. 적합도 함수</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>문제의 규칙과 제약조건을 잘 정리하여 솔루션(해)이 가져야 하는 상점과 벌점을 중요순위대로 부과함</p>
+</li>
+<li>
+<p>전체적인 해의 score를 반환하도록 설계함</p>
+</li>
+<li>
+<p>새로운 해가 환경에 얼마나 잘 적응을 하는지 점수화를 하는 부분임</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_19_시계열분석time_series_analysis">19. 정리 19. 시계열분석(Time Series Analysis)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="시계열_패턴의_구성요소">19.1. 시계열 패턴의 구성요소</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>추세, 잡음, 계절성</p>
+</li>
+<li>
+<p>\$x_{t} = T_{t} + S_{t} + bb"a"_{t}, bb"a"_{t} ~ N(0, sigma)\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="자기상관함수와_교차상관함수">19.2. 자기상관함수와 교차상관함수</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>자기상관함수</p>
+<div class="ulist">
+<ul>
+<li>
+<p>같은 변수의 시계열에서 서로 다른 시간대의 데이터끼리 상관관계를 설명함</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>교차상관함수</p>
+<div class="ulist">
+<ul>
+<li>
+<p>다른 변수의 다른 시계열끼리의 상관관계를 설명함</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="arima의_부분모형">19.3. ARIMA의 부분모형</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>AR(자기회귀모형), I(누적모형), MA(이동평균모형)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="정상성의_조건">19.4. 정상성의 조건</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>모든 시점 t에 대하여 평균이 일정하다. \$E(Z_{t}) = u\$</p>
+</li>
+<li>
+<p>분산 Var \$(Z_{t})\$는 시전 t에 의존하지 않는다.</p>
+</li>
+<li>
+<p>두 시점 t, s에서 공분산 Cov \$(Z_{t} Z_{s})\$는 시차 t - s에 의존하지 않는다.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리_20_모델_평가_방법_및_심화_이론">20. 정리 20. 모델 평가 방법 및 심화 이론</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="arma_모델">20.1. ARMA 모델</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>자기회귀이동평균모형(Auto Regression Movig Average model, ARMA)</p>
+</li>
+<li>
+<p>AR(자기회귀) 모델과 MA(이동평균) 모델이 합쳐진 합성모델임</p>
+</li>
+<li>
+<p>\$Z_{t} = Phi_{1}Z_{t-1} + Phi_{2}Z_{t-2} + ... + Phi_{p}Z_{t-p} + ... + a_{t} - theta_{1}a_{t-1} - theta_{2}a_{t-2} - theta_{3}a_{t-3} - ... -  - theta_{q}a_{t-q}, a_{t}\$</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>=white nosie ~ \$N(0, sigma^{2})\$</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gradient_descent란">20.2. Gradient descent란?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>\$W^{(tau + 1)} = W^{(tau)} - eta grad E(W^{(tau)})\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="layer_j의_delta">20.3. Layer j의 delta</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>\$delta_{j} = {del E_{n}} / {del Z_{j}}\$</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="roc_챠트">20.4. ROC 챠트</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>x축을 FP rate로 하고 y축을 TP rate로 하여 곡선을 그림</p>
+</li>
+<li>
+<p>Curve의 밑면적을 AUC라고 하는데 이 면적이 넓을수록 신뢰성이 강한 모델임</p>
+</li>
+<li>
+<p>Curve의 모양이 좌측 상단으로 치우칠수록 좋은 모델임</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//Bigdata_basic_study_00.html&text=빅데이터 관련 학습노트 - 00 - 전체 정리&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//Bigdata_basic_study_00.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//Bigdata_basic_study_00.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//Bigdata_basic_study_00.html&title=빅데이터 관련 학습노트 - 00 - 전체 정리" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//Bigdata_basic_study_00.html&title=빅데이터 관련 학습노트 - 00 - 전체 정리" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//Bigdata_basic_study_00.html&title=빅데이터 관련 학습노트 - 00 - 전체 정리" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//Bigdata_basic_study_00.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/빅데이터.html'>빅데이터</a></li>
+ 	        <li><a href='../tags/데이터분석.html'>데이터분석</a></li>
+
+				<li><a class="icon fa-comment" href="../Bigdata_basic_study_00.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -616,734 +2262,6 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../HowHome-02-AptData-04.html">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)</a></h2>
-
-
-            <p>파이썬3을 이용해 공공데이터포털의 이용해 아파트 정보를 수집합니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='Feb 29, 2020'>
-            Feb 29, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#들어가며">1. 들어가며</a></li>
-<li><a href="#공공데이터포털">2. 공공데이터포털</a>
-<ul class="sectlevel2">
-<li><a href="#공동주택_단지_목록제공_서비스">2.1. 공동주택 단지 목록제공 서비스</a></li>
-<li><a href="#공동주택_기본_정보제공_서비스">2.2. 공동주택 기본 정보제공 서비스</a></li>
-<li><a href="#아파트_실거래_상세_자료">2.3. 아파트 실거래 상세 자료</a></li>
-</ul>
-</li>
-<li><a href="#공공데이터포털_전체_코드">3. 공공데이터포털 전체 코드</a></li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="들어가며">1. 들어가며</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>공공데이터 포털을 파이썬을 이용해 데이터를 수집해 보려고 합니다.
-파이썬을 사용하면서 사용할 툴은 아래와 같습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.anaconda.com/distribution/" class="bare">https://www.anaconda.com/distribution/</a> - <a href="https://www.anaconda.com/distribution/">아나콘다</a></p>
-</li>
-<li>
-<p><a href="https://www.jetbrains.com/pycharm/" class="bare">https://www.jetbrains.com/pycharm/</a> - <a href="https://www.jetbrains.com/pycharm/">파이참</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>아나콘다에는 파이썬을 비롯한 유용한 라이브러리가 포함되어 있습니다.
-가볍게 파이썬만 설치하는것 보다 아나콘다를 설치하는게 편하지 않을까 생각합니다.</p>
-</div>
-<div class="paragraph">
-<p>파이썬 설치 및 아나콘다 설치는 아래 URL을 참고하여 설치하였습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://bradbury.tistory.com/63" class="bare">https://bradbury.tistory.com/63</a> - <a href="https://bradbury.tistory.com/63">파이참(PyCharm) 설치 및 아나콘다 가상환경 적용</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="공공데이터포털">2. 공공데이터포털</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>공공데이터포털에서 활용신청한 데이터는 '마이페이지 &#8594; 오픈API &#8594; 개발계정' 으로 접근하면 아래의 그림처럼 목록을 보실 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-01.png" alt="공공데이터포털">
-</div>
-</div>
-<div class="sect2">
-<h3 id="공동주택_단지_목록제공_서비스">2.1. 공동주택 단지 목록제공 서비스</h3>
-<div class="paragraph">
-<p>먼저 공동주택 단지 목록 제공 서비스에서 데이터를 가져와 보겠습니다.
-공동주택 단지 목록 제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-01.png" alt="단지목록-1">
-</div>
-</div>
-<div class="paragraph">
-<p>하단의 상세기능정보에서 도로명 아파트 목록의 '실행&#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
-팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.</p>
-</div>
-<div class="paragraph">
-<p>만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-02.png" alt="단지목록-2">
-</div>
-</div>
-<div class="paragraph">
-<p>미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
-여기서 필요한 정보는 상단의 URL 정보가 필요하며,
-상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;roadCode={도로명코드}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}" class="bare">http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={인증키}&amp;roadCode={도로명코드}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}</a></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-03.png" alt="단지목록-3">
-</div>
-</div>
-<div class="paragraph">
-<p>GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
-이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>URL 주소 : <a href="http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?" class="bare">http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?</a></p>
-</li>
-<li>
-<p>요청변수 : ?serviceKey={인증키}</p>
-</li>
-<li>
-<p>요청변수 : &amp;roadCode={도로명코드}</p>
-</li>
-<li>
-<p>요청변수 : &amp;pageNo={페이지번호}</p>
-</li>
-<li>
-<p>요청변수 : &amp;numOfRows={페이지목록건수}</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>파이참을 실행하고 프로젝트를 생성 후 API를 테스트할 *.py 파일을 생성합니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-04.png" alt="파이참-4">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-05.png" alt="파이참-5">
-</div>
-</div>
-<div class="paragraph">
-<p>API를 이용해 데이터를 가져오고 json으로 변환하기 위해 requesets, xmltodict, json 라이브러리를 사용합니다.
-파이참에서 라이브러리 설치 및 코드스타일 설정은 아래의 URL을 참조하였습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://tariat.tistory.com/692" class="bare">https://tariat.tistory.com/692</a> - <a href="https://tariat.tistory.com/692">파이참(pycharm)에서 라이브러리 쉽게 설치하는 방법!</a></p>
-</li>
-<li>
-<p><a href="https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv" class="bare">https://velog.io/@city7310/파이썬-코드-포매터-이야기-5wjxdei9iv</a> - <a href="https://velog.io/@city7310/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%BD%94%EB%93%9C-%ED%8F%AC%EB%A7%A4%ED%84%B0-%EC%9D%B4%EC%95%BC%EA%B8%B0-5wjxdei9iv">파이썬 코드 스타일 이야기 - (1) Style Checker, Formatter들 구경하기</a></p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python">import requests, xmltodict, json
-
-# 테스팅 관련 변수
-testYn      = True
-#testYn      = False
-
-# 공공데이터 포털 API 호출관련 기본 변수
-serviceKey  = "1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D"
-pageNo      = "1"   # 페이지번호
-numOfRows   = "100"  # 페이지내목록수
-
-# 아파트목록 관련 변수
-roadCode    = "263802006002"    # 도로명코드
-bjdCode     = "2638010100"      # 법정동코드
-
-# 에러관련 변수
-ERR_STATUS_CODE  = "ERR_STATUS_CODE"
-ERR_RESULT_CODE  = "ERR_RESULT_CODE"
-
-
-
-"""
-'아파트(도로명) 목록 ' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-"""
-def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
-    url = "http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;roadCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, roadCode, pageNo, numOfRows)
-    return url
-
-"""
-'아파트(법정동) 목록 ' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-"""
-def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
-    url = "http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;bjdCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, bjdCode, pageNo, numOfRows)
-    return url
-
-"""
-URL을 통해 API를 호출하여 결과값 JSON으로 생성
-"""
-def getJsonFromUrlContent( url ) :
-    response = requests.get(url)
-    if( testYn == True ) :
-        print("response")
-        print(response)
-        print("status code :", response.status_code)
-
-    # Err 체크
-    if( response.status_code != 200 ) :
-        return ERR_STATUS_CODE
-
-    response = response.content
-    if (testYn == True):
-        print("response")
-        print(response)
-
-    dict = xmltodict.parse(response)
-    if( testYn == True ) :
-        print("dict")
-        print(dict)
-        print("resultCode :", json.dumps(dict['response']['header']['resultCode']))
-
-    resultCode = json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False)
-    print(resultCode)
-    # Err 체크
-    if( json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False) != "\"00\"" ) :
-    #if( resultCode != "\"00\"" ) :
-        return ERR_RESULT_CODE
-
-    jsonString = json.dumps(dict['response']['body'], ensure_ascii=False)
-    jsonObj = json.loads(jsonString)
-    if( testYn == True ) :
-        print("jsonObj")
-        print(jsonObj)
-
-    return jsonObj
-
-
-def checkJsonObj( jsonObj ) :
-    ERR_STATUS_CODE = "ERR_STATUS_CODE"
-    ERR_RESULT_CODE = "ERR_RESULT_CODE"
-
-    if( jsonObj == ERR_STATUS_CODE ) :
-        return False
-    elif( jsonObj == ERR_RESULT_CODE ) :
-        return False
-    else :
-        return True
-
-url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
-jsonObj = getJsonFromUrlContent(url)
-
-if ( checkJsonObj(jsonObj) ) :
-    for item in jsonObj['items']['item'] :
-        print(item)
-else :
-    print("ERR")</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-1-06.png" alt="파이참-5">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="공동주택_기본_정보제공_서비스">2.2. 공동주택 기본 정보제공 서비스</h3>
-<div class="paragraph">
-<p>공동주택 기본 정보제공 서비스에 접속하시면 아래의 그림처럼 보실 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-01.png" alt="기본정보-1">
-</div>
-</div>
-<div class="paragraph">
-<p>하단의 상세기능정보에서 공동주택 기본 정보조회의 '실행&#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
-팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.</p>
-</div>
-<div class="paragraph">
-<p>만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-02.png" alt="기본정보-2">
-</div>
-</div>
-<div class="paragraph">
-<p>미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
-여기서 필요한 정보는 상단의 URL 정보가 필요하며,
-상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;kaptCode={단지코드}" class="bare">http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={인증키}&amp;kaptCode={단지코드}</a></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-03.png" alt="기본정보-3">
-</div>
-</div>
-<div class="paragraph">
-<p>GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
-이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>URL 주소 : <a href="http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo" class="bare">http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo</a></p>
-</li>
-<li>
-<p>요청변수 : ?serviceKey={인증키}</p>
-</li>
-<li>
-<p>요청변수 : &amp;kaptCode={단지코드}</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python"># 아파트 기본정보 관련 변수
-kaptCode    = "A10027875"
-
-"""
-'아파트 기본정보 ' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-kaptCode   MM 단지코드
-"""
-def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
-    url = "http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;kaptCode={}".format(serviceKey, kaptCode)
-    return url
-
-url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
-jsonObj = getJsonFromUrlContent(url)
-
-print(jsonObj['item'])</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-2-04.png" alt="기본정보-4">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="아파트_실거래_상세_자료">2.3. 아파트 실거래 상세 자료</h3>
-<div class="paragraph">
-<p>아파트 실거래 상세 자료에 접속하시면 아래의 그림처럼 보실 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-01.png" alt="아파트실거래-1">
-</div>
-</div>
-<div class="paragraph">
-<p>하단의 상세기능정보에서 공동주택 기본 정보조회의 '실행&#8217;버튼을 클릭하면 팝업창이 뜨게 됩니다.
-팝업창에서 인증키를 입력하고 미리보기를 클릭합니다.</p>
-</div>
-<div class="paragraph">
-<p>만약 인증키를 신청하지 않으셨다면, 페이지 상단에서 키발급을 받으시면 됩니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-02.png" alt="아파트실거래-2">
-</div>
-</div>
-<div class="paragraph">
-<p>미리보기를 클릭하면 아래의 그림처럼 페이지가 뜨게 됩니다.
-여기서 필요한 정보는 상단의 URL 정보가 필요하며,
-상단의 URL 정보를 가져오면 아래와 같은 정보를 얻을 수 있습니다.</p>
-</div>
-<div class="paragraph">
-<p><a href="http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}&amp;LAWD_CD={지역코드}&amp;DEAL_YMD={계약년월}" class="bare">http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={인증키}&amp;pageNo={페이지번호}&amp;numOfRows={페이지목록건수}&amp;LAWD_CD={지역코드}&amp;DEAL_YMD={계약년월}</a></p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-03.png" alt="아파트실거래-3">
-</div>
-</div>
-<div class="paragraph">
-<p>GET 방식을 사용하므로 가져온 URL은 아래와 같이 분류 할 수 있을 것 같습니다.
-이 정보들을 이용해 파이썬 코드를 작성해 보겠습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>URL 주소 : <a href="http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev" class="bare">http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev</a></p>
-</li>
-<li>
-<p>요청변수 : ?serviceKey={인증키}</p>
-</li>
-<li>
-<p>요청변수 : &amp;pageNo={페이지번호}</p>
-</li>
-<li>
-<p>요청변수 : &amp;numOfRows={페이지목록건수}</p>
-</li>
-<li>
-<p>요청변수 : &amp;LAWD_CD={지역코드}</p>
-</li>
-<li>
-<p>요청변수 : &amp;DEAL_YMD={계약년월}</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>기존에 작성했던 코드에 아래 함수를 추가 작성하였습니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python"># 아파트 실거래 관련 변수
-LAWD_CD     = "11110"   # 지역코드
-DEAL_YMD    = "201512"  # 계약년월
-
-"""
-'아파트매매 실거래 상세 자료' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3050988/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-LAWD_CD    NN 지역코드
-DEAL_YMD   NN 계약월
-"""
-def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
-    url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;pageNo={}&amp;numOfRows={}&amp;LAWD_CD={}&amp;DEAL_YMD={}".format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
-    return url
-
-url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
-jsonObj = getJsonFromUrlContent(url)
-
-if ( checkJsonObj(jsonObj) ) :
-    for item in jsonObj['items']['item'] :
-        print(item)
-else :
-    print("ERR")</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>위 코드를 실행시키면 아래와 같이 정상적으로 데이터를 받아오는걸 확인 할 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/02/AptData04/data-aptInfo-02-3-04.png" alt="아파트실거래-4">
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="공공데이터포털_전체_코드">3. 공공데이터포털 전체 코드</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>공공데이터를 가져오는 코드는 각 API 별로 함수화하여 코드를 작성하였습니다.
-공공데이터 API를 테스트하기 위해 함수화 했지만 아직 코드에 <a href="https://ko.wikipedia.org/wiki/%EC%BD%94%EB%93%9C_%EC%8A%A4%EB%A9%9C">나쁜냄새</a>가 존재하는것 같습니다.</p>
-</div>
-<div class="paragraph">
-<p>추후 이 코드를 리팩토링해보겠습니다.</p>
-</div>
-<div class="paragraph">
-<p>아래는 작성한 전체 코드 입니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="prettyprint highlight linenums"><code class="language-python" data-lang="python">import requests, xmltodict, json
-import pandas as pd
-
-# 테스팅 관련 변수
-testYn      = True
-#testYn      = False
-
-# 공공데이터 포털 API 호출관련 기본 변수
-serviceKey  = "1UUVwM6YiEySmXbqM%2FLN2f3ZP%2F90D7WxGIsw8ROq1eSkW36ZJuS4YMXKAX12UF2SQtXoZ700EadKIRu2fUp7Ew%3D%3D"
-pageNo      = "1"   # 페이지번호
-numOfRows   = "100"  # 페이지내목록수
-
-# 아파트목록 관련 변수
-roadCode    = "263802006002"    # 도로명코드
-bjdCode     = "2638010100"      # 법정동코드
-
-# 아파트 기본정보 관련 변수
-kaptCode    = "A10027875"
-
-# 아파트 실거래 관련 변수
-LAWD_CD     = "11110"   # 지역코드
-DEAL_YMD    = "201512"  # 계약년월
-
-# 에러관련 변수
-ERR_STATUS_CODE  = "ERR_STATUS_CODE"
-ERR_RESULT_CODE  = "ERR_RESULT_CODE"
-
-
-
-"""
-'아파트(도로명) 목록 ' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-"""
-def getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows ) :
-    url = "http://apis.data.go.kr/1611000/AptListService/getRoadnameAptList?serviceKey={}&amp;roadCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, roadCode, pageNo, numOfRows)
-    return url
-
-"""
-'아파트(법정동) 목록 ' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-roadCode   MM 도로명코드(12자리(시군구번호+도로명번호))
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-"""
-def getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows ) :
-    url = "http://apis.data.go.kr/1611000/AptListService/getLegaldongAptList?serviceKey={}&amp;bjdCode={}&amp;pageNo={}&amp;numOfRows={}".format(serviceKey, bjdCode, pageNo, numOfRows)
-    return url
-
-
-
-"""
-'아파트 기본정보 ' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3039714/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-kaptCode   MM 단지코드
-"""
-def getStrFromAptInfoUrl( testYn, serviceKey, kaptCode ) :
-    url = "http://apis.data.go.kr/1611000/AptBasisInfoService/getAphusBassInfo?serviceKey={}&amp;kaptCode={}".format(serviceKey, kaptCode)
-    return url
-
-
-
-"""
-'아파트매매 실거래 상세 자료' API 호출을 위한 URL 생성
-https://www.data.go.kr/dataset/3050988/openapi.do
-
-## NN -&gt; 필수(notNull)
-serviceKey NN 서비스키
-pageNo        페이지 번호
-numOfRows     한 페이지 결과 수
-LAWD_CD    NN 지역코드
-DEAL_YMD   NN 계약월
-"""
-def getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD ) :
-    url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?serviceKey={}&amp;pageNo={}&amp;numOfRows={}&amp;LAWD_CD={}&amp;DEAL_YMD={}".format(serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD)
-    return url
-
-
-
-"""
-URL을 통해 API를 호출하여 결과값 JSON으로 생성
-"""
-def getJsonFromUrlContent( url ) :
-    response = requests.get(url)
-    if( testYn == True ) :
-        print("response")
-        print(response)
-        print("status code :", response.status_code)
-
-    # Err 체크
-    if( response.status_code != 200 ) :
-        return ERR_STATUS_CODE
-
-    response = response.content
-    if (testYn == True):
-        print("response")
-        print(response)
-
-    dict = xmltodict.parse(response)
-    if( testYn == True ) :
-        print("dict")
-        print(dict)
-        print("resultCode :", json.dumps(dict['response']['header']['resultCode']))
-
-    resultCode = json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False)
-    print(resultCode)
-    # Err 체크
-    if( json.dumps(dict['response']['header']['resultCode'], ensure_ascii=False) != "\"00\"" ) :
-    #if( resultCode != "\"00\"" ) :
-        return ERR_RESULT_CODE
-
-    jsonString = json.dumps(dict['response']['body'], ensure_ascii=False)
-    jsonObj = json.loads(jsonString)
-    if( testYn == True ) :
-        print("jsonObj")
-        print(jsonObj)
-
-    return jsonObj
-
-
-def checkJsonObj( jsonObj ) :
-    ERR_STATUS_CODE = "ERR_STATUS_CODE"
-    ERR_RESULT_CODE = "ERR_RESULT_CODE"
-
-    if( jsonObj == ERR_STATUS_CODE ) :
-        return False
-    elif( jsonObj == ERR_RESULT_CODE ) :
-        return False
-    else :
-        return True
-
-"""
-JSON 데이터를 CSV 파일로 변환
-"""
-def createCsvFileFromJson( jsonObj ) :
-    df = pd.DataFrame(jsonObj)
-    #df.to_csv('aptTest.csv', header=True, index=True, encoding='UTF-8')
-    df.to_csv('aptTest.csv', header=True, index=True, encoding='ms949')
-
-
-#url = getStrFromAptListInfoRoadUrl( testYn, serviceKey, roadCode, pageNo, numOfRows )          # 아파트목록(도로명)
-#url = getStrFromAptListInfoBjdUrl( testYn, serviceKey, bjdCode, pageNo, numOfRows )            # 아파트목록(법정동)
-#url = getStrFromAptInfoUrl( testYn, serviceKey, kaptCode )
-url = getStrFromAptTradeInfoUrl( testYn, serviceKey, pageNo, numOfRows, LAWD_CD, DEAL_YMD )    # 아파트실거래정보
-jsonObj = getJsonFromUrlContent(url)
-
-#print(jsonObj['item'])
-
-if ( checkJsonObj(jsonObj) ) :
-    createCsvFileFromJson( jsonObj['items']['item'] )    ## JSON to CSV File
-    for item in jsonObj['items']['item'] :
-        print(item)
-else :
-    print("ERR")</code></pre>
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&text=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HowHome-02-AptData-04.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-04.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 수집 방안 수립-2)" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HowHome-02-AptData-04.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/부동산.html'>부동산</a></li>
- 	        <li><a href='../tags/개인프로젝트.html'>개인프로젝트</a></li>
-
-				<li><a class="icon fa-comment" href="../HowHome-02-AptData-04.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../7/"
@@ -1414,6 +2332,17 @@ else :
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_05.html">(기초) AWS - S3</a></h3>
+                                 <time class="published"
+							            datetime='May 10, 2021'>
+							            May 10, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_04.html">(기초) AWS - RDS</a></h3>
                                  <time class="published"
 							            datetime='May 10, 2021'>
@@ -1437,17 +2366,6 @@ else :
                         <article>
                             <header>
                                 <h3><a href="../aws_study_01.html">(기초) AWS - 개요</a></h3>
-                                 <time class="published"
-							            datetime='May 06, 2021'>
-							            May 06, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_02.html">(기초) AWS - IAM</a></h3>
                                  <time class="published"
 							            datetime='May 06, 2021'>
 							            May 06, 2021</time>
@@ -1480,7 +2398,7 @@ else :
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 4 </span>
+                                <span style="float:right;"> 5 </span>
                             </header>
                         </article>
                     </li>
@@ -1543,7 +2461,7 @@ else :
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 4 </span>
+                                <span style="float:right;"> 5 </span>
                             </header>
                         </article>
                     </li>

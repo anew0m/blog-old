@@ -6,8 +6,8 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Mon, 10 May 2021 06:30:57 +0000</pubDate>
-    <lastBuildDate>Mon, 10 May 2021 06:30:57 +0000</lastBuildDate>
+    <pubDate>Mon, 10 May 2021 10:52:28 +0000</pubDate>
+    <lastBuildDate>Mon, 10 May 2021 10:52:28 +0000</lastBuildDate>
 
     <item>
       <title>(기초) AWS - RDS</title>
@@ -333,6 +333,363 @@
 &lt;p&gt;Multi AZ 기능이 사용되야할 때&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>(기초) AWS - S3</title>
+      <link>https://anew0m.netlify.com//aws_study_05.html</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">aws_study_05.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#s3&quot;&gt;1. S3&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_object_구성요소&quot;&gt;1.1. S3 Object 구성요소&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_data_consistency_model&quot;&gt;1.2. S3 Data Consistency Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_스토리지_종류&quot;&gt;1.3. S3 스토리지 종류&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_요금&quot;&gt;1.4. S3 요금&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_버켓_생성시_알아야_할_것들&quot;&gt;2. S3 - 버켓 생성시 알아야 할 것들&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_사용_용례&quot;&gt;2.1. S3 사용 용례&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#최초_s3_버켓_생성시_비공개private&quot;&gt;2.2. 최초 S3 버켓 생성시 &amp;#8594; 비공개(Private)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_암호화encryption&quot;&gt;3. S3 암호화(Encryption)&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#암호화_유형&quot;&gt;3.1. 암호화 유형&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#s3_암호화_과정&quot;&gt;3.2. S3 암호화 과정&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;s3&quot;&gt;1. S3&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;S3(Simple Storage Service) AWS에서 가장 처음 런칭&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;안전하고 가변적인(Scaling) Object(OS 불가, 이미지, 파일 등만 가능) 저장공간을 제공(ex: Google Cloud)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;편리한 UI 인터페이스를 통해 어디서나 쉽게 데이터를 저장하고 불러올 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;파일 크기는 0KB 부터 5TB까지 지원&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;저장공간 무제한(자동으로 저장공간이 늘어남)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bucket이라는 이름을 사용함(디렉토리와 유사함)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bucket은 보편적인 namespace를 사용함(Bucket 이름은 유니크 해야함)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;s3_object_구성요소&quot;&gt;1.1. S3 Object 구성요소&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Key (파일명)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Value (파일 내 데이터)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Version ID (S3 고유 특징)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Metadata&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CORS(Cross Origin Resource Sharing) (AWS 사용시 종종 출현, 한 버켓의 파일은 다른 버켓에서 접근 가능하게 해주는 기능(지역무시))&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;s3_data_consistency_model&quot;&gt;1.2. S3 Data Consistency Model&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;(PUT) Read after Write Consistency&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;(UPDATE, DELETE) Eventual Consistency (바로 바뀐것 같아 보이지만, 내부적으로는 아님)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;s3_스토리지_종류&quot;&gt;1.3. S3 스토리지 종류&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;일반 S3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;S3 - IA(Infrequent Access)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;S3 - One Zone IA&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Glacier&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Intelligent Tiering&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;일반_s3&quot;&gt;1.3.1. 일반 S3&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;가장 보편적으로 사용되는 스토리지 타입&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;높은 내구성, 가용성(Durability, Availability) (데이터 손실없이 잘 복원 되는지, 데이터 접근이 얼마나 용이한지)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;s3_iainfrequent_access&quot;&gt;1.3.2. S3 - IA(Infrequent Access)&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;자주 접근되지는 않으나 접근시 빠른 접근이 요구되는 파일이 많을시 유용&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;일반 S3에 비해 비용은 저렴하나 접근시 추가 비용 발생&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;멀티 AZ를 통한 데이터 저장 (가용성 높음)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;s3_one_zone_ia&quot;&gt;1.3.3. S3 - One Zone IA&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;단일 AZ를 통한 데이터 저장&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;단일 AZ에 의한 데이터 접근 제한(조금 낮은 가용성)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 접근시 S3 - IA 보다 20% 비용 저렴 (비용과 가용성을 잘 따져 사용)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;glacier&quot;&gt;1.3.4. Glacier&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;거의 접근하지 않을 데이터 저장 시 유용&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;매우 저렴한 비용&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 접근시 대략 4-5시간 소요&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;intelligent_tiering&quot;&gt;1.3.5. Intelligent Tiering&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;2018년 런칭&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 접근 주기가 불규칙할 때 매우 유용&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2가지 티어 존재 (AWS가 자동분류)&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Frequent Tier (데이터 접근이 한달 없을 경우 분류)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Infrequent Tier (데이터 접근할시 분류)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 접근 주기에 따라 두가지 티어중 하나로 선택됨&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Frequent Tier가 비용이 약간 더 비쌈&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;최고의 비용 절감 효율을 누릴 수 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;s3_요금&quot;&gt;1.4. S3 요금&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;GB 당&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PUT, GET, COPY 요청 횟수당&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 다운로드 시 / 다른 리소스로 전송시&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Metadata (object tag)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;s3_버켓_생성시_알아야_할_것들&quot;&gt;2. S3 - 버켓 생성시 알아야 할 것들&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;s3_사용_용례&quot;&gt;2.1. S3 사용 용례&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;파일 저장소 (로그, 다양한 파일들(이미지, 비디오, 압축파일 등))&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;웹사이트 호스팅&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CORS(Cross Origin Resource Sharing)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;최초_s3_버켓_생성시_비공개private&quot;&gt;2.2. 최초 S3 버켓 생성시 &amp;#8594; 비공개(Private)&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;버켓 정책 변경(Bucket Policy)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;접근 제어 리스트 변경 (Access Control List)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;s3_암호화encryption&quot;&gt;3. S3 암호화(Encryption)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;암호화_유형&quot;&gt;3.1. 암호화 유형&lt;/h3&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;파일_업로드다운로드_시&quot;&gt;3.1.1. 파일 업로드/다운로드 시&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SSL / TLS (Secure Socket Layer / Transport Layer Security)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;가만히_있을_시&quot;&gt;3.1.2. 가만히 있을 시&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;SSE(Server-Side Encryption)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SEE-S3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SSE-KMS (누가, 언제, 어떻게 암호를 풀었는지 기록)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SSE-C (딱히 장점은 없어 보임)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;s3_암호화_과정&quot;&gt;3.2. S3 암호화 과정&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;PUT 요청이 생성됨&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;PUT /simon-image.jpg HTTP/1.1
+Host: SimonBucket.s3.&amp;lt;Region&amp;gt;.amazonaws.com
+Date: Thu, 12 Feb 2020 14:26:00 GMT
+Authorization: authorization string
+Content-Type: text/plain
+Content-Length: 82253
+x-amz-meta-author: Simon
+Expect: 100-continue
+[82253 bytes of object data]&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;x-amz-server-side-encryption-paramerer&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;암호화되지 않은 파일 제한&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;PUT /simon-image.jpg HTTP/1.1
+Host: SimonBucket.s3.&amp;lt;Region&amp;gt;.amazonaws.com
+Date: Thu, 12 Feb 2020 14:26:00 GMT
+Authorization: authorization string
+Content-Type: text/plain
+Content-Length: 82253
+x-amz-meta-author: Simon
+Expect: 100-continue
+x-amz-server-side-encryption-parameter: AES-256   &amp;lt;--&amp;lt;--
+[82253 bytes of object data]&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
