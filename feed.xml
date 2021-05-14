@@ -6,9 +6,109 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Tue, 11 May 2021 05:22:07 +0000</pubDate>
-    <lastBuildDate>Tue, 11 May 2021 05:22:07 +0000</lastBuildDate>
+    <pubDate>Fri, 14 May 2021 08:14:36 +0000</pubDate>
+    <lastBuildDate>Fri, 14 May 2021 08:14:36 +0000</lastBuildDate>
 
+    <item>
+      <title>(기초) AWS - Lambda</title>
+      <link>https://anew0m.netlify.com//aws_study_07.html</link>
+      <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">aws_study_07.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#lambda&quot;&gt;1. Lambda&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#lambda_비용&quot;&gt;1.1. Lambda 비용&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#lambda_기타&quot;&gt;1.2. Lambda 기타&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#lambda_사용용례&quot;&gt;1.3. Lambda 사용용례&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;lambda&quot;&gt;1. Lambda&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Serverless의 주축을 담당&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Events를 통하여 Lambda를 실행시킴&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;NodeJS, Python, Java, GO 등 다양한 언어 지원&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Lambda Function&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Lambda &amp;#8594; 다른 서비스 호출&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;lambda_비용&quot;&gt;1.1. Lambda 비용&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Lambda Function이 실행될때만 돈 지불&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;매달 1,000,000 함수 호출까지 무료&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;lambda_기타&quot;&gt;1.2. Lambda 기타&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;최대 300초(5분) 런타임 시간 허용 (Lamda 코드 최대 5분 실행시간 제공)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;512MB의 일시적인 디스크 공간 제공(/tmp/)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;최대 50MB Deployment Package 허용(50MB가 초과될시 S3 버켓 사용)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;lambda_사용용례&quot;&gt;1.3. Lambda 사용용례&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;S3 &amp;#8594; Lambda &amp;#8594; DB&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;S3(PutObject) &amp;#8594; Lambda(데이터변환, 불필요한 데이터 삭제) &amp;#8594; DB(정제된 데이터 업로드)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IoT &amp;#8594; Lambda &amp;#8594; SNS&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;IoT(Topic 속도) &amp;#8594; Lambda(Km &amp;#8594; Mi) &amp;#8594; SNS(속도 게시)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
     <item>
       <title>(기초) AWS - CloudWatch</title>
       <link>https://anew0m.netlify.com//aws_study_06.html</link>
