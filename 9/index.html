@@ -137,13 +137,13 @@
                         <a href="../../aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
                     </li>
                     <li>
+                        <a href="../../aws_study_09.html"><p>(기초) AWS - DynamoDB</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_08.html"><p>(기초) AWS - CloudFront</p></a>
                     </li>
                     <li>
                         <a href="../../aws_study_05.html"><p>(기초) AWS - S3</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_04.html"><p>(기초) AWS - RDS</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,197 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../Bigdata_basic_study_02.html">빅데이터 관련 학습노트 - 02 - 의사결정트리(Decision Tree)</a></h2>
+
+
+            <p>SK 동반성장아카데이 내 '머신러닝의 이해와 실습' 강의 정리</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 09, 2020'>
+            May 09, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#정리">1. 정리</a>
+<ul class="sectlevel2">
+<li><a href="#분류_문제의_사용">1.1. 분류 문제의 사용</a></li>
+<li><a href="#엔트로피의_이해">1.2. 엔트로피의 이해</a></li>
+<li><a href="#의사결정트리">1.3. 의사결정트리</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="img/Bigdata_basic_study/01/ML_Workflow.png" alt="ML_Workflow">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="정리">1. 정리</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="분류_문제의_사용">1.1. 분류 문제의 사용</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>분류 문제를 풀기 위해 Tree 모양의 Map을 만드는 것이 효과적임</p>
+</li>
+<li>
+<p>나무 모양을 만들어내는 알고리즘을 의사결정트리라고 함</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="엔트로피의_이해">1.2. 엔트로피의 이해</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>의사결정트리를 만드는 과정</p>
+<div class="ulist">
+<ul>
+<li>
+<p>엔트로피가 가장 많이 줄어드는 방법으로 데이터를 나눔</p>
+</li>
+<li>
+<p>다른 속성 기준으로 다시 데이터를 나눔</p>
+</li>
+<li>
+<p>엔트로피가 0이 될 때까지 과정을 반복함</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>정보엔트로피를 구하는 공식</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/Bigdata_basic_study/02/정보엔트로피_공식.png" alt="정보엔트로피_공식">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="의사결정트리">1.3. 의사결정트리</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>의사결정트리 알고리즘의 특징</p>
+<div class="ulist">
+<ul>
+<li>
+<p>엔트로피 이용</p>
+</li>
+<li>
+<p>지니계수 이용</p>
+</li>
+<li>
+<p>데이터를 나누는 방법에 대한 고민</p>
+</li>
+<li>
+<p>가장 영향력이 큰 속성을 찾는 방법</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>카이제곱스퀘어 검정의 용도</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2개 범주의 데이터를 나눌 때 상관관계가 0에 가까운지 검정하는 '독립성 검정&#8217;의 용도로 쓰임</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//Bigdata_basic_study_02.html&text=빅데이터 관련 학습노트 - 02 - 의사결정트리(Decision Tree)&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//Bigdata_basic_study_02.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//Bigdata_basic_study_02.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//Bigdata_basic_study_02.html&title=빅데이터 관련 학습노트 - 02 - 의사결정트리(Decision Tree)" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//Bigdata_basic_study_02.html&title=빅데이터 관련 학습노트 - 02 - 의사결정트리(Decision Tree)" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//Bigdata_basic_study_02.html&title=빅데이터 관련 학습노트 - 02 - 의사결정트리(Decision Tree)" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//Bigdata_basic_study_02.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/빅데이터.html'>빅데이터</a></li>
+ 	        <li><a href='../tags/데이터분석.html'>데이터분석</a></li>
+
+				<li><a class="icon fa-comment" href="../Bigdata_basic_study_02.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -1974,301 +2165,13 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../HowHome-02-AptData-05.html">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)</a></h2>
-
-
-            <p>버추얼박스에서 OS를 설치하고 DB를 설치하여 주소 데이터를 저장합니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='Mar 15, 2020'>
-            Mar 15, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#들어가며">1. 들어가며</a></li>
-<li><a href="#db_접속_및_테이블_생성">2. DB 접속 및 테이블 생성</a></li>
-<li><a href="#db_데이터_import">3. DB 데이터 Import</a></li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="들어가며">1. 들어가며</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>공공데이터 포털에서 받은 데이터를 DB에 저장하는 과정을 테스트하기 위해_(공공데이터 약관에따라 일반&#8594;서버구축으로 변경)_
-임시로 가상머신에 CentOS-7 64비트 버전을 최소설치하고 PostgreSQL 11을 설치하고자 합니다.</p>
-</div>
-<div class="paragraph">
-<p>가상머신 설치 및 SSH 설정, PostgreSQL 11 설치 방법은 구글에 검색하시거나 아래 링크를 참조해주시면 좋을것 같습니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://extrememanual.net/8513" class="bare">https://extrememanual.net/8513</a> - <a href="https://extrememanual.net/8513">버추얼박스(VirtualBox) CentOS7 설치하는 방법</a></p>
-</li>
-<li>
-<p><a href="https://blog.miyam.net/56" class="bare">https://blog.miyam.net/56</a> - <a href="https://blog.miyam.net/56">CentOS 7 SSH 설치</a></p>
-</li>
-<li>
-<p><a href="https://medium.com/@jinseok.choi/centos-7에서-postgresql-11-설치하기-77bc0da9d0af" class="bare">https://medium.com/@jinseok.choi/centos-7에서-postgresql-11-설치하기-77bc0da9d0af</a> - <a href="https://medium.com/@jinseok.choi/centos-7%EC%97%90%EC%84%9C-postgresql-11-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-77bc0da9d0af">Centos 7에서 PostgreSQL 11 설치하기</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="db_접속_및_테이블_생성">2. DB 접속 및 테이블 생성</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>저는 PostgreSQL DB 접속을 pgAdmin이 아닌 DBeaver를 통해 접속을 하였고, 주소 데이터를 관리할 rowdata 계정을 추가하였습니다.
-도로명과 법정동 정보는 HowHome 프로젝트에서 사용할 용어로 표준화 하였습니다.</p>
-</div>
-<div class="paragraph">
-<p>먼저 테이블 생성에 앞서 데이터 표준사전을 만든 후 테이블을 생성하였습니다.
-데이터 표준사전의 기본 구성은 아래와 같고, 저는 별도로 원본 주소정보의 스키마 정보를 저장해 놓았습니다.
-<em>(의도는 데이터 표준사전이었지만 프로젝트가 안정될 때까지 작업 겸용으로 유지할 계획입니다.)</em></p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">재개정이력</dt>
-<dd>
-<p>표준사전 변경시 어떤 변동사항이 있는지를 기록</p>
-</dd>
-<dt class="hdlist1">원본주소정보</dt>
-<dd>
-<p>도로명과 법정동 원본 스키마 정보와 표준용어 매핑</p>
-</dd>
-<dt class="hdlist1">단어분리</dt>
-<dd>
-<p>용어를 구성하는 최소 단어 단위로 분리</p>
-</dd>
-<dt class="hdlist1">표준단어</dt>
-<dd>
-<p>단어의 의미와 약어(최대3자리) 정보 관리</p>
-</dd>
-<dt class="hdlist1">표준도메인</dt>
-<dd>
-<p>데이터 도메인 분류와 데이터 타입 및 길이 정보 관리</p>
-</dd>
-<dt class="hdlist1">표준용어</dt>
-<dd>
-<p>용어정보와 용어가 속해있는 표준 도메인 정보 관리</p>
-</dd>
-<dt class="hdlist1">표준코드</dt>
-<dd>
-<p>DB에서 사용될 공통코드 등 각종 코드 정보 관리</p>
-</dd>
-<dt class="hdlist1">행정표준용어</dt>
-<dd>
-<p>표준단어 작성시 참조</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>표준 단어의 약어는 대략 아래의 규칙을 기반으로 작성하였습니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>- 약어는 자음 3자리로하며, 연속된 자음은 사용하지 않음
-( Password -&gt; PSW )
-
-- 첫번째 철자는 자음/모음 상관없이 반드시 사용
-( Apple -&gt; APL )
-
-- 전체 단어 철자가 3자 이하인 단어는 그대로 사용
-( ID, ETC )
-
-- 영문명 내의 전치사(for, of, about, to by, as), 관사(a, an), 정관사(the), 접속사(and, or,that)는 영문약어를 생성할 때 대상에서 제외
-( In And Out -&gt; INO
-
-- 중복 시 다음 자음 사용, 자음 모두 중복 시 처음 나오는 모음을 사용
-( Password -&gt; PAS(중복) -&gt; PSR(중복) -&gt; PSD(중복) -&gt; PSS(중복) -&gt; PWR(중복) -&gt; PWD(중복) -&gt; PRD(중복) -&gt;
-PAS(중복) -&gt; PAW(중복) -&gt; PAR(중복) -&gt; PAD(중복) -&gt; PSO(중복) -&gt; PWO(중복) -&gt; POR(중복) -&gt; POD )
-
-- 2단어로 된 복합어 사용시 앞의 단어에서 2자리 뒤의 단어에서 1자리로 약어 생성
-( Left Right -&gt; LFR, Keyboard Mouse -&gt; KBM, The Rock -&gt; RCK, A apple -&gt; APL)
-
-- 3단어로 된 복합어 사용시 각 단어의 첫글자로 약어 생성
-( Left Middle Right -&gt; LMR, Keyboard Mouse Monitor -&gt; KMM, The Left Right -&gt; LFR )
-
-- 4단어 이상으로 된 복합어 사용시 앞의 단어에서 2자리 마지막 단어에서 1자리로 약어 생성
-( Left Right Keyboard Mouse -&gt; LFM, Left Keyboard Mouse Monitor -&gt; LFS, The Rock a Apple -&gt; RCA )</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>완성된 표준 사전 및 테이블 생성 스크립트는 아래 링크를 통해 다운로드 받으실 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-01.png" alt="표준사전및스크립트">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-02.png" alt="표준사전">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-03.png" alt="스크립트">
-</div>
-</div>
-<div class="paragraph">
-<p>테이블 생성 스크립트를 실행하면 아래 그림과 같이 테이블이 생성 됩니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-04.png" alt="테이블">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="db_데이터_import">3. DB 데이터 Import</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>PostgreSQL에 주소정보 데이터(*.csv)를 Import 하는 방법은 DBeaver와 psql의 copy 명령어를 이용하는 2가지 방법이 있습니다.
-저는 두가지 방법 중 다소 불편하고 느린 방법이긴 하지만 DBeaver를 통해 데이터를 넣고자 합니다.</p>
-</div>
-<div class="paragraph">
-<p>psql의 copy를 이용해보니 MS949 인코딩을 지원하지 않고, UTF-8로 변환하니 한글 데이터의 Byte가 2 &#8594; 3으로 변경되다보니 문제가 발생하였습니다.
-<em>(참고 : psql -h localhost -U postgres postgres -c "COPY rowdata_addr.tbl_rna_dtl_adr FROM '/mnt/public_folder/202002/202002_상세주소DB_전체분/adrdc/adrdc_all.csv'(DELIMITER '|', FORMAT CSV, ENCODING 'ms949');")</em></p>
-</div>
-<div class="paragraph">
-<p>먼저 DBeaver에 데이터를 Import 하기전 지역별로 분할되어 있는 파일을 하나로 합칩니다.
-주소DB를 예로들면 코드, 부가정보, 주소, 지번 별로 데이터가 나뉘는것을 확인 할 수 있습니다.</p>
-</div>
-<div class="paragraph">
-<p>따라서 각 분류별로 폴더를 생성하고 파일을 이동하고
-명령프롬트프(CMD)를 본 폴더위치로 이동하여 'type *.txt &gt; ../부가정보_all.txt' 를 실행하면,
-상위폴더에 텍스트파일들이 합쳐진 '부가정보_all.txt' 이 생성된것을 학인할 수 있습니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-05.png" alt="파일합치기">
-</div>
-</div>
-<div class="paragraph">
-<p>스키마 내 테이블 목록에서 오른쪽 클릭하면 여러 항목들이 표출되는데 이 중 '데이터 가져오기&#8217;를 선택합니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-06.png" alt="데이터가져오기1">
-</div>
-</div>
-<div class="paragraph">
-<p>'CSV에서 가져오기&#8217;를 선택하고 '다음&#8217;을 선택합니다.
-먼저 'Source_name&#8217;란을 선택하면 파일을 선택할 수 있는 파일브라우저가 표출되는데 주소DB의 '개선_도로명코드_전체분.txt&#8217;를 선택하겠습니다. (txt 파일이 보이지 않으면 우측하단의 *.csv를 * 또는 *.txt로 변경하시면 보입니다.)
-그 다음 인코딩과 컬럼 구분자, 헤더구분을 가이드에 따라 각각 'ms949', '|', 'none&#8217;으로 변경하여 진행합니다.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-07.png" alt="데이터가져오기2">
-</div>
-</div>
-<div class="paragraph">
-<p>Column mapping 에서 Columns가 매핑되지 않을 땐 skip을 선택하여 진행합니다.</p>
-</div>
-<div class="paragraph">
-<p>Settings 에서 테이블을 비우고 데이터를 추가하길 원하면 'Truncate target table(s) before load' 를 선택합니다.
-Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 저는 50,000 건 마다 Insert 할 수 있도록 설정 하였습니다.
-(지나치게 짧거나 큰 주기로 Insert 을 하게 되면 속도저하의 원인이 될 수 있습니다.)</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-08.png" alt="데이터가져오기3">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/AptData/05/AptData-05-Standard-09.png" alt="데이터가져오기4">
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&text=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HowHome-02-AptData-05.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HowHome-02-AptData-05.html&title=어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HowHome-02-AptData-05.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/부동산.html'>부동산</a></li>
- 	        <li><a href='../tags/개인프로젝트.html'>개인프로젝트</a></li>
-
-				<li><a class="icon fa-comment" href="../HowHome-02-AptData-05.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../8/"
             class=" button big previous">PREVIOUS</a></li>
 
     <li><span
-            class="button big"> 9 of 13 </span></li>
+            class="button big"> 9 of 14 </span></li>
 
     <li><a href="../10/"
             class=" button big next">NEXT</a></li>
@@ -2343,6 +2246,17 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_09.html">(기초) AWS - DynamoDB</a></h3>
+                                 <time class="published"
+							            datetime='May 14, 2021'>
+							            May 14, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_08.html">(기초) AWS - CloudFront</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
@@ -2355,17 +2269,6 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
                         <article>
                             <header>
                                 <h3><a href="../aws_study_05.html">(기초) AWS - S3</a></h3>
-                                 <time class="published"
-							            datetime='May 10, 2021'>
-							            May 10, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_04.html">(기초) AWS - RDS</a></h3>
                                  <time class="published"
 							            datetime='May 10, 2021'>
 							            May 10, 2021</time>
@@ -2398,7 +2301,7 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 8 </span>
+                                <span style="float:right;"> 9 </span>
                             </header>
                         </article>
                     </li>
@@ -2461,7 +2364,7 @@ Commit after insert of 는 데이터를 커밋하는 주기를 설정하는데 �
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 8 </span>
+                                <span style="float:right;"> 9 </span>
                             </header>
                         </article>
                     </li>
