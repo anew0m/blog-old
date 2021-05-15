@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="../../aws_study_11.html"><p>(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_08.html"><p>(기초) AWS - CloudFront</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,296 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../aws_study_11.html">(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline</a></h2>
+
+
+            <p>AWS에 대해 알아봅니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 14, 2021'>
+            May 14, 2021</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#cicd">1. CI/CD</a>
+<ul class="sectlevel2">
+<li><a href="#cicd의_장점">1.1. CI/CD의 장점</a></li>
+<li><a href="#cicd_중앙_리포지토리repository">1.2. CI/CD - 중앙 리포지토리(Repository)</a></li>
+<li><a href="#cicd_배포준비_및_배포">1.3. CI/CD - 배포준비 및 배포</a></li>
+</ul>
+</li>
+<li><a href="#code_commit">2. Code Commit</a></li>
+<li><a href="#code_deploy">3. Code Deploy</a>
+<ul class="sectlevel2">
+<li><a href="#code_deploy_장점">3.1. Code Deploy 장점</a></li>
+</ul>
+</li>
+<li><a href="#code_pipeline">4. Code Pipeline</a>
+<ul class="sectlevel2">
+<li><a href="#code_pipeline이_하는_일은">4.1. Code Pipeline이 하는 일은?</a></li>
+<li><a href="#code_pipeline_작동_방법">4.2. Code Pipeline 작동 방법</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="cicd">1. CI/CD</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>CI : Continuous Integration(지속적인 통합)</p>
+</li>
+<li>
+<p>CD : Continuous Deployment(지속적인 배포)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="cicd의_장점">1.1. CI/CD의 장점</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>자동화 시스템(Automation) - 테스트</p>
+</li>
+<li>
+<p>Incremental Change</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cicd_중앙_리포지토리repository">1.2. CI/CD - 중앙 리포지토리(Repository)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Github</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Local &amp; Master branch</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cicd_배포준비_및_배포">1.3. CI/CD - 배포준비 및 배포</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>배포준비</p>
+</li>
+<li>
+<p>배포</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="code_commit">2. Code Commit</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>파일들을 보관하는 저장 장소(Repository) - Github과 매우 유사</p>
+<div class="ulist">
+<ul>
+<li>
+<p>코드, 사진, 라이브러리 등등</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>동시에 많은 사람들이 저장 장소 접근 및 업데이트 가능</p>
+</li>
+<li>
+<p>버전 컨트롤 기능 제공</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) 언제 어떻게 누가 저장 장소 내용을 변경하였는지</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="code_deploy">3. Code Deploy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>자동 배포 (Automated Deployment)</p>
+</div>
+<div class="sect2">
+<h3 id="code_deploy_장점">3.1. Code Deploy 장점</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>새로운 기능들의 빠른 배포</p>
+</li>
+<li>
+<p>소프트웨어 &amp; 서버 다운타임 X</p>
+</li>
+<li>
+<p>Manual 에러 X</p>
+</li>
+<li>
+<p>Rolling 배포</p>
+</li>
+<li>
+<p>Blue/Green 배포</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="code_pipeline">4. Code Pipeline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CI/CD 끝판왕!</p>
+</div>
+<div class="sect2">
+<h3 id="code_pipeline이_하는_일은">4.1. Code Pipeline이 하는 일은?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>빌드, 테스트, 배포 과정을 관리</p>
+<div class="ulist">
+<ul>
+<li>
+<p>코드 변경시 Code Pipeline은 이를 감지할 수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>소프트웨어 및 어플리케이션 출시 자동화 가능</p>
+<div class="ulist">
+<ul>
+<li>
+<p>빠르고 쉬운 디버깅을 가능케 해줌</p>
+<div class="ulist">
+<ul>
+<li>
+<p>배포(Deployment) VS 출시(Release)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code_pipeline_작동_방법">4.2. Code Pipeline 작동 방법</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Workflow 정의(Code Pipeline)</p>
+</li>
+<li>
+<p>코드 저장소에서 코드 변경(Code Commit)</p>
+</li>
+<li>
+<p>컴파일, 테스트, 패키지 생성(Code Build)</p>
+</li>
+<li>
+<p>staging 혹은 production 배포(Code Deploy)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_11.html&text=(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_11.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_11.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_11.html&title=(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_11.html&title=(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_11.html&title=(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_11.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/학습.html'>학습</a></li>
+ 	        <li><a href='../tags/AWS.html'>AWS</a></li>
+
+				<li><a class="icon fa-comment" href="../aws_study_11.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -486,447 +776,13 @@
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../aws_study_05.html">(기초) AWS - S3</a></h2>
-
-
-            <p>AWS에 대해 알아봅니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 10, 2021'>
-            May 10, 2021</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#s3">1. S3</a>
-<ul class="sectlevel2">
-<li><a href="#s3_object_구성요소">1.1. S3 Object 구성요소</a></li>
-<li><a href="#s3_data_consistency_model">1.2. S3 Data Consistency Model</a></li>
-<li><a href="#s3_스토리지_종류">1.3. S3 스토리지 종류</a></li>
-<li><a href="#s3_요금">1.4. S3 요금</a></li>
-</ul>
-</li>
-<li><a href="#s3_버켓_생성시_알아야_할_것들">2. S3 - 버켓 생성시 알아야 할 것들</a>
-<ul class="sectlevel2">
-<li><a href="#s3_사용_용례">2.1. S3 사용 용례</a></li>
-<li><a href="#최초_s3_버켓_생성시_비공개private">2.2. 최초 S3 버켓 생성시 &#8594; 비공개(Private)</a></li>
-</ul>
-</li>
-<li><a href="#s3_암호화encryption">3. S3 암호화(Encryption)</a>
-<ul class="sectlevel2">
-<li><a href="#암호화_유형">3.1. 암호화 유형</a></li>
-<li><a href="#s3_암호화_과정">3.2. S3 암호화 과정</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="s3">1. S3</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>S3(Simple Storage Service) AWS에서 가장 처음 런칭</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>안전하고 가변적인(Scaling) Object(OS 불가, 이미지, 파일 등만 가능) 저장공간을 제공(ex: Google Cloud)</p>
-</li>
-<li>
-<p>편리한 UI 인터페이스를 통해 어디서나 쉽게 데이터를 저장하고 불러올 수 있음</p>
-</li>
-<li>
-<p>파일 크기는 0KB 부터 5TB까지 지원</p>
-</li>
-<li>
-<p>저장공간 무제한(자동으로 저장공간이 늘어남)</p>
-</li>
-<li>
-<p>Bucket이라는 이름을 사용함(디렉토리와 유사함)</p>
-</li>
-<li>
-<p>Bucket은 보편적인 namespace를 사용함(Bucket 이름은 유니크 해야함)</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="s3_object_구성요소">1.1. S3 Object 구성요소</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Key (파일명)</p>
-</li>
-<li>
-<p>Value (파일 내 데이터)</p>
-</li>
-<li>
-<p>Version ID (S3 고유 특징)</p>
-</li>
-<li>
-<p>Metadata</p>
-</li>
-<li>
-<p>CORS(Cross Origin Resource Sharing) (AWS 사용시 종종 출현, 한 버켓의 파일은 다른 버켓에서 접근 가능하게 해주는 기능(지역무시))</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="s3_data_consistency_model">1.2. S3 Data Consistency Model</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>(PUT) Read after Write Consistency</p>
-</li>
-<li>
-<p>(UPDATE, DELETE) Eventual Consistency (바로 바뀐것 같아 보이지만, 내부적으로는 아님)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="s3_스토리지_종류">1.3. S3 스토리지 종류</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>일반 S3</p>
-</li>
-<li>
-<p>S3 - IA(Infrequent Access)</p>
-</li>
-<li>
-<p>S3 - One Zone IA</p>
-</li>
-<li>
-<p>Glacier</p>
-</li>
-<li>
-<p>Intelligent Tiering</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="일반_s3">1.3.1. 일반 S3</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>가장 보편적으로 사용되는 스토리지 타입</p>
-</li>
-<li>
-<p>높은 내구성, 가용성(Durability, Availability) (데이터 손실없이 잘 복원 되는지, 데이터 접근이 얼마나 용이한지)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="s3_iainfrequent_access">1.3.2. S3 - IA(Infrequent Access)</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>자주 접근되지는 않으나 접근시 빠른 접근이 요구되는 파일이 많을시 유용</p>
-</li>
-<li>
-<p>일반 S3에 비해 비용은 저렴하나 접근시 추가 비용 발생</p>
-</li>
-<li>
-<p>멀티 AZ를 통한 데이터 저장 (가용성 높음)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="s3_one_zone_ia">1.3.3. S3 - One Zone IA</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>단일 AZ를 통한 데이터 저장</p>
-</li>
-<li>
-<p>단일 AZ에 의한 데이터 접근 제한(조금 낮은 가용성)</p>
-</li>
-<li>
-<p>데이터 접근시 S3 - IA 보다 20% 비용 저렴 (비용과 가용성을 잘 따져 사용)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="glacier">1.3.4. Glacier</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>거의 접근하지 않을 데이터 저장 시 유용</p>
-</li>
-<li>
-<p>매우 저렴한 비용</p>
-</li>
-<li>
-<p>데이터 접근시 대략 4-5시간 소요</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="intelligent_tiering">1.3.5. Intelligent Tiering</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>2018년 런칭</p>
-</li>
-<li>
-<p>데이터 접근 주기가 불규칙할 때 매우 유용</p>
-</li>
-<li>
-<p>2가지 티어 존재 (AWS가 자동분류)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Frequent Tier (데이터 접근이 한달 없을 경우 분류)</p>
-</li>
-<li>
-<p>Infrequent Tier (데이터 접근할시 분류)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>데이터 접근 주기에 따라 두가지 티어중 하나로 선택됨</p>
-</li>
-<li>
-<p>Frequent Tier가 비용이 약간 더 비쌈</p>
-</li>
-<li>
-<p>최고의 비용 절감 효율을 누릴 수 있음</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="s3_요금">1.4. S3 요금</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>GB 당</p>
-</li>
-<li>
-<p>PUT, GET, COPY 요청 횟수당</p>
-</li>
-<li>
-<p>데이터 다운로드 시 / 다른 리소스로 전송시</p>
-</li>
-<li>
-<p>Metadata (object tag)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="s3_버켓_생성시_알아야_할_것들">2. S3 - 버켓 생성시 알아야 할 것들</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="s3_사용_용례">2.1. S3 사용 용례</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>파일 저장소 (로그, 다양한 파일들(이미지, 비디오, 압축파일 등))</p>
-</li>
-<li>
-<p>웹사이트 호스팅</p>
-</li>
-<li>
-<p>CORS(Cross Origin Resource Sharing)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="최초_s3_버켓_생성시_비공개private">2.2. 최초 S3 버켓 생성시 &#8594; 비공개(Private)</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>버켓 정책 변경(Bucket Policy)</p>
-</li>
-<li>
-<p>접근 제어 리스트 변경 (Access Control List)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="s3_암호화encryption">3. S3 암호화(Encryption)</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="암호화_유형">3.1. 암호화 유형</h3>
-<div class="sect3">
-<h4 id="파일_업로드다운로드_시">3.1.1. 파일 업로드/다운로드 시</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>SSL / TLS (Secure Socket Layer / Transport Layer Security)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="가만히_있을_시">3.1.2. 가만히 있을 시</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>SSE(Server-Side Encryption)</p>
-</li>
-<li>
-<p>SEE-S3</p>
-</li>
-<li>
-<p>SSE-KMS (누가, 언제, 어떻게 암호를 풀었는지 기록)</p>
-</li>
-<li>
-<p>SSE-C (딱히 장점은 없어 보임)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="s3_암호화_과정">3.2. S3 암호화 과정</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>PUT 요청이 생성됨</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>PUT /simon-image.jpg HTTP/1.1
-Host: SimonBucket.s3.&lt;Region&gt;.amazonaws.com
-Date: Thu, 12 Feb 2020 14:26:00 GMT
-Authorization: authorization string
-Content-Type: text/plain
-Content-Length: 82253
-x-amz-meta-author: Simon
-Expect: 100-continue
-[82253 bytes of object data]</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>x-amz-server-side-encryption-paramerer</p>
-<div class="ulist">
-<ul>
-<li>
-<p>암호화되지 않은 파일 제한</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>PUT /simon-image.jpg HTTP/1.1
-Host: SimonBucket.s3.&lt;Region&gt;.amazonaws.com
-Date: Thu, 12 Feb 2020 14:26:00 GMT
-Authorization: authorization string
-Content-Type: text/plain
-Content-Length: 82253
-x-amz-meta-author: Simon
-Expect: 100-continue
-x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
-[82253 bytes of object data]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_05.html&text=(기초) AWS - S3&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_05.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_05.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_05.html&title=(기초) AWS - S3" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_05.html&title=(기초) AWS - S3" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_05.html&title=(기초) AWS - S3" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_05.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/학습.html'>학습</a></li>
- 	        <li><a href='../tags/AWS.html'>AWS</a></li>
-
-				<li><a class="icon fa-comment" href="../aws_study_05.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../"
             class=" button big previous">PREVIOUS</a></li>
 
     <li><span
-            class="button big"> 2 of 14 </span></li>
+            class="button big"> 2 of 15 </span></li>
 
     <li><a href="../3/"
             class=" button big next">NEXT</a></li>
@@ -990,6 +846,17 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h3>
+                                 <time class="published"
+							            datetime='May 15, 2021'>
+							            May 15, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_07.html">(기초) AWS - Lambda</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
@@ -1013,17 +880,6 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                         <article>
                             <header>
                                 <h3><a href="../aws_study_11.html">(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline</a></h3>
-                                 <time class="published"
-							            datetime='May 14, 2021'>
-							            May 14, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_08.html">(기초) AWS - CloudFront</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
 							            May 14, 2021</time>
@@ -1056,7 +912,7 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 11 </span>
+                                <span style="float:right;"> 12 </span>
                             </header>
                         </article>
                     </li>
@@ -1128,7 +984,7 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 11 </span>
+                                <span style="float:right;"> 12 </span>
                             </header>
                         </article>
                     </li>

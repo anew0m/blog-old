@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="../../aws_study_11.html"><p>(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_08.html"><p>(기초) AWS - CloudFront</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,220 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../HandsOnML2_01-6.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</a></h2>
+
+
+            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.6절 테스트와 검증 요약 및 정리</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='Sep 21, 2020'>
+            Sep 21, 2020</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
+<ul class="sectlevel2">
+<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
+<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
+<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
+<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
+<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
+<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
+<li><a href="#연습문제">1.7. 연습문제</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
+<div class="sectionbody">
+<hr>
+<div class="sect2">
+<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>훈련데이터를 훈련 세트와 테스트 세트 두 개로 나누는 것</p>
+</li>
+<li>
+<p>새로운 샘플에 대한 오류 비율을 일반화 오차(generalization error) 또는 외부 샘플 오차(out-of-sample error)</p>
+</li>
+<li>
+<p>테스트 세트에서 모델을 평가함으로써 오차에 대한 추정값(estimation)을 얻음</p>
+</li>
+<li>
+<p>훈련 오차가 낮지만 일반화 오차가 높다면 이는 모델이 훈련 데이터에 과대적합되었다는 뜻</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>하이퍼파라미터 튜닝과 모델 선택</p>
+<div class="ulist">
+<ul>
+<li>
+<p>하이퍼파라미터(hyperparameter)는 학습 알고리즘의 파라미터로써 학습 알고리즘으로부터 영향을 받지 않으며, 훈련 전에 미리 지정되고, 훈련하는 동안에는 상수로 남아 있음</p>
+<div class="ulist">
+<ul>
+<li>
+<p>하이퍼 파라미터를 매우 큰 값으로 지정하면 거의 평편한 모델을 얻게 됨</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>모델 평가 시 홀드아웃 검증(holdout validation)을 사용하며 이 세트를 검증세트(validation set) 또는 개발 세트(development set), 데브 세트(dev set)라고 함</p>
+<div class="ulist">
+<ul>
+<li>
+<p>훈련 세트의 일부를 떼어내어 여러 후보 모델을 평가하고 가장 좋은 하나를 선택</p>
+</li>
+<li>
+<p>검증 세트가 너무 작으면 모델이 정확하게 평가 되지 않으며 이에 대한 해결책으로, 작은 검증 세트를 여러 개를 사용해 반복적인 교차 검증(cross-validation) 수행</p>
+<div class="ulist">
+<ul>
+<li>
+<p>훈련 시간이 검증 세트의 개수에 비례해 늘어남</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>데이터 불일치</p>
+<div class="ulist">
+<ul>
+<li>
+<p>검증 세트와 테스트 세트에 대표 데이터가 배타적으로 포함되어야 함</p>
+</li>
+<li>
+<p>훈련-개발 세트(train-dev set)으로 훈련 데이터의 일부를 떼어내어 또 다른 세트를 만들어 훈련한 다음 훈련-개발 세트에서 평가</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
+<hr>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-6.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-6.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-6.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/데이터분석.html'>데이터분석</a></li>
+ 	        <li><a href='../tags/책정리.html'>책정리</a></li>
+
+				<li><a class="icon fa-comment" href="../HandsOnML2_01-6.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -617,519 +831,13 @@
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../HandsOnML2_01-4.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.4 머신러닝 시스템의 종류</a></h2>
-
-
-            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.4절 머신러닝 시스템의 종류 요약 및 정리</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='Sep 19, 2020'>
-            Sep 19, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
-<ul class="sectlevel2">
-<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
-<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
-<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
-<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
-<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
-<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
-<li><a href="#연습문제">1.7. 연습문제</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div id="preamble">
-<div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
-<div class="sectionbody">
-<hr>
-<div class="sect2">
-<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>지도, 비지도, 준지도, 강화 학습</p>
-<div class="ulist">
-<ul>
-<li>
-<p>사람의 감독하에 훈련 여부</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>배치 학습, 온라인 학습, 외부 메모리 학습</p>
-<div class="ulist">
-<ul>
-<li>
-<p>실시간으로 점진적으로 학습 여부</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>사례 기반 학습과 모델 기반 학습</p>
-<div class="ulist">
-<ul>
-<li>
-<p>데이터를 비교하는지 아니며 패턴을 발견하여 예측 모델을 만드는 것인지</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>지도 학습, 비지도 학습, 준지도 학습, 강화 학습</p>
-<div class="ulist">
-<ul>
-<li>
-<p>학습하는 동안의 감독 형태나 정보량에 따라 분류</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>지도 학습(supervised learning)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>알고리즘을 주입하는 훈련 데이터에 레이블(label)이라는 원하는 답이 포함</p>
-</li>
-<li>
-<p>분류(classification)와 회귀(regression) 사용하며, 분류와 회귀를</p>
-<div class="ulist">
-<ul>
-<li>
-<p>분류의 예로 스팸 필터</p>
-</li>
-<li>
-<p>회귀의 예로 예측 변수(predictor variable)라 부르는 특성(feature)을 사용해 타깃(target) 중고차 가격 수치 예측</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>지도 학습 알고리즘</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>k-최근접 이웃(k-nearest neighbors)</p>
-</li>
-<li>
-<p>선형 회귀(linear regression)</p>
-</li>
-<li>
-<p>로지스틱 회귀(logistic regression)</p>
-</li>
-<li>
-<p>서포트 벡터 머신(support vector machine; SVM)</p>
-</li>
-<li>
-<p>결정 트리(decision tree)와 랜덤 포레스트(random forest)</p>
-</li>
-<li>
-<p>신경망(neural networks)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>일부 신경망 구조는 비지도/준지도 학습일 수 있음</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>비지도 학습(unsupervised learning)</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>알고리즘을 주입하는 훈련 데이터에 레이블(label)이 없음</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>비지도 학습 알고리즘</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>군집(clustering)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>비슷한 유형끼리 그룹으로 묶는 알고리즘</p>
-</li>
-<li>
-<p>k-평균(k-means)</p>
-</li>
-<li>
-<p>DBSCAN</p>
-</li>
-<li>
-<p>계층 군집 분석(hierarchical cluster analysis; HCA)</p>
-</li>
-<li>
-<p>이상치 탐지(outlier detection)</p>
-</li>
-<li>
-<p>특이치 탐치(novelty detection)</p>
-</li>
-<li>
-<p>원-클래스(one-class SVM)</p>
-</li>
-<li>
-<p>아이솔레이션 포레스트(isolation forest)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>시각화(Visualization)와 차원 축소(dimensionality reduction)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>시각화는 도식화가 가능한 2D/3D 표현을 만들어주며, 차원 축소는 너무 많은 정보를 잃지 않으면서 데이터를 간소화</p>
-</li>
-<li>
-<p>주성분 분석(principal component analysis; PCA)</p>
-</li>
-<li>
-<p>커널(kernel) PCA</p>
-</li>
-<li>
-<p>지역적 선형 임베딩(locally-linear embedding; LLE)</p>
-</li>
-<li>
-<p>t-SNE(t-distributed stochastic neighbor embedding)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>연관 규칙 학습(association rule learning)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>대량의 데이터에서 특성 간의 흥미로운 관계를 찾음</p>
-</li>
-<li>
-<p>어프라이어리(Apriori)</p>
-</li>
-<li>
-<p>이클렛(Eclat)</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>준지도 학습(semisupervised learning)</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>레이블이 일부만 있는 학습으로 지도 학습과 비지도 학습의 조합으로 이루어짐</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>강화 학습(reinforcement learning)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>학습하는 시스템을 에이전트라고 부르며 환경(environment)을 관찰해서 행동(action)을 실행하고 그 결과로 보상(reward)/벌점(penalty)을 받음</p>
-</li>
-<li>
-<p>따라서 보상을 얻기 위해 정책(policy)라고 불리는 최상의 전략을 스스로 학습</p>
-<div class="ulist">
-<ul>
-<li>
-<p>정책은 주어진 상황에서 에이전트가 어떤 행동을 선택해야 할지 정의</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>배치 학습, 온라인 학습, 외부 메모리 학습</p>
-<div class="ulist">
-<ul>
-<li>
-<p>입력 데이터의 스트림(stream)부터 점진적 학습 여부</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>배치 학습(batch learning)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>오프라인 학습(offline learning)이라고도 함</p>
-</li>
-<li>
-<p>배치 작업이기에 시스템이 점진적으로 학습할 수 없으며, 학습한 것을 적용만 할 수 있음</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>온라인 학습(online learning)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>빠른 변화에 스스로 적응해야 하는 시스템에 적합</p>
-</li>
-<li>
-<p>모델을 훈련하고 제품에 론칭한 뒤에도 새로운 데이터가 들어오면 계속 학습</p>
-</li>
-<li>
-<p>데이터를 순차적으로 한 개씩 또는 미니배치(mini-batch)라 부르는 작은 묶음 단위로 주입하여 시스템을 훈련시킴</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>학습률(learning rate)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>변화하는 데이터에 얼마나 빠르게 적응할 것인지</p>
-</li>
-<li>
-<p>학습률을 높이면 빠르게 적응하지만, 예전 데이터는 잊혀짐</p>
-</li>
-<li>
-<p>학습률을 낮추면 더디게 적응하지만, 새로운 데이터에 있는 데이터 잡음이나 대표선 없는 데이터 포인트에 덜 민감</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>외부 메모리 학습(out-of-core learning)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>보통 오프라인으로 실행되나 온라인에서 사용될 수 있음</p>
-</li>
-<li>
-<p>점진적 학습(incremental learning) 사용</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>사례 기반 학습과 모델 기반 학습</p>
-<div class="ulist">
-<ul>
-<li>
-<p>일반화 방법에 따라 분류</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>사례 기반 학습(instance-based learning)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>기존의 A 데이터와 새로운 B 데이터의 유사도(similarity)를 측정하여 데이터 학습하고
-데이터를 비교하는 식으로 일반화</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>모델 기반 학습(model-based learning)</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>샘플들의 모델을 만들어 예측(prediction)</p>
-</li>
-<li>
-<p>모델(model)은 모델의 종류나 완전히 정의된 모델 구조나 예측에 사용하기 위해 훈련된 최종 모델을 의미</p>
-</li>
-<li>
-<p>모델 선택(model selection)은 모델의 종류나 완전히 정의된 모델 구조를 선택하는 것</p>
-</li>
-<li>
-<p>모델 훈련(model training)은 훈련 데이터에 가장 잘 맞는 모델 파라미터를 찾기 위해 알고리즘을 실행하는 것</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>작업 순서</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>데이터 분석</p>
-</li>
-<li>
-<p>모델 선택</p>
-</li>
-<li>
-<p>훈련 데이터로 모델 훈련</p>
-</li>
-<li>
-<p>새로운 데이터에 모델을 적용해 예측/추론(inference)</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>모델 기반 학습 상세</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>모델은 두 개의 모델 파라미터(model parameter) \$theta_(0)\$과 \$theta_(1)\$을 가짐</p>
-</li>
-<li>
-<p>모델이 좋은지 측정하는 효용 함수(utility function) 또는 적합도 함소(fitness function)를 정의</p>
-</li>
-<li>
-<p>모델이 나쁜지 측정하는 비용 함수(cost function) 정의</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
-<hr>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-4.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.4 머신러닝 시스템의 종류&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-4.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-4.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-4.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.4 머신러닝 시스템의 종류" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-4.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.4 머신러닝 시스템의 종류" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-4.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.4 머신러닝 시스템의 종류" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-4.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/데이터분석.html'>데이터분석</a></li>
- 	        <li><a href='../tags/책정리.html'>책정리</a></li>
-
-				<li><a class="icon fa-comment" href="../HandsOnML2_01-4.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../4/"
             class=" button big previous">PREVIOUS</a></li>
 
     <li><span
-            class="button big"> 5 of 14 </span></li>
+            class="button big"> 5 of 15 </span></li>
 
     <li><a href="../6/"
             class=" button big next">NEXT</a></li>
@@ -1193,6 +901,17 @@
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h3>
+                                 <time class="published"
+							            datetime='May 15, 2021'>
+							            May 15, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_07.html">(기초) AWS - Lambda</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
@@ -1216,17 +935,6 @@
                         <article>
                             <header>
                                 <h3><a href="../aws_study_11.html">(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline</a></h3>
-                                 <time class="published"
-							            datetime='May 14, 2021'>
-							            May 14, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_08.html">(기초) AWS - CloudFront</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
 							            May 14, 2021</time>
@@ -1259,7 +967,7 @@
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 11 </span>
+                                <span style="float:right;"> 12 </span>
                             </header>
                         </article>
                     </li>
@@ -1331,7 +1039,7 @@
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 11 </span>
+                                <span style="float:right;"> 12 </span>
                             </header>
                         </article>
                     </li>

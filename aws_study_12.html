@@ -7,12 +7,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>어떡하집 프로젝트 - 1차 시스템 구축 계획 - 정민호의 블로그</title>
+    <title>(응용) AWS - Advanced IAM - 정민호의 블로그</title>
     <meta name="google-site-verification" content="NjTrEtPZ_cX4UYx9pg4mIKBm4cl_zNC7V7PNl4sj4aQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="1차 시스템 목표로 Elastic 스택을 기반으로 데이터를 저장하고 시각화 합니다.">
+    <meta name="description" content="AWS에 대해 알아봅니다.">
     <meta name="author" content="정민호">
-    <meta name="keywords" content="부동산, 개인프로젝트">
+    <meta name="keywords" content="학습, AWS">
     <meta name="generator" content="JBake">
 	<meta property="og:image" content="https://anew0m.netlify.com/img/jdk/duke.jpg"/>
 
@@ -161,14 +161,14 @@
 <article class="post">
    <header>
     <div class="title">
-                    <h1><a href="HowHome-03-Dev-01.html">어떡하집 프로젝트 - 1차 시스템 구축 계획</a></h1>
+                    <h1><a href="aws_study_12.html">(응용) AWS - Advanced IAM</a></h1>
 
-            <p>1차 시스템 목표로 Elastic 스택을 기반으로 데이터를 저장하고 시각화 합니다.</p>
+            <p>AWS에 대해 알아봅니다.</p>
     </div>
     <div class="meta">
          <time class="published"
-            datetime='Mar 22, 2020'>
-            Mar 22, 2020</time>
+            datetime='May 15, 2021'>
+            May 15, 2021</time>
             <div class="published eta"></div>
         <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
     </div>
@@ -181,83 +181,221 @@
        <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#들어가며">1. 들어가며</a></li>
-<li><a href="#1차_시스템_구성도_및_데이터_흐름도">2. 1차 : 시스템 구성도 및 데이터 흐름도</a></li>
-<li><a href="#데이터_수집_코드">3. 데이터 수집 코드</a></li>
+<li><a href="#iam">1. IAM</a>
+<ul class="sectlevel2">
+<li><a href="#inline_policies_vs_managed_policies_vs_custom_policies">1.1. Inline Policies VS Managed Policies VS Custom Policies</a></li>
+<li><a href="#web_identity_federationwif">1.2. Web Identity Federation(WIF)</a></li>
+<li><a href="#cognito">1.3. Cognito</a></li>
+<li><a href="#cognito_user_pool">1.4. Cognito User Pool</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="sect1">
-<h2 id="들어가며">1. 들어가며</h2>
+<h2 id="iam">1. IAM</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>기존에 ELK를 사용하던 경험이 있어 Elastic 스택을 사용하기로 결정하였습니다.
-Logstash와 Fluentd 사이에서 고민을 하였지만, 아직 배경지식이 얕아 차후에 고민을 더 해보겠습니다.</p>
+<p>AWS 내에서 유저를 만들고 Role과 Policy 관리</p>
 </div>
 <div class="paragraph">
-<p>제가 구상하는 시스템의 모토(?)는 아래와 같습니다. 생각되로 잘 될지는 모르겠지만 노력해 보겠습니다.</p>
+<p>3가지 IAM Policy 유형</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>PC에 종속적이지 않을 것</p>
+<p>Inline</p>
 </li>
 <li>
-<p>무중단 운영</p>
+<p>Managed</p>
 </li>
 <li>
-<p>SW간 상호 독립적일 것</p>
-</li>
-<li>
-<p>누구나 사용할 수 있을 것</p>
+<p>Customer</p>
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="inline_policies_vs_managed_policies_vs_custom_policies">1.1. Inline Policies VS Managed Policies VS Custom Policies</h3>
+<div class="sect3">
+<h4 id="inline">1.1.1. Inline</h4>
 <div class="paragraph">
-<p>우선 1차 시스템을 목표로 하고 저의 시야가 보</p>
+<p>유저, 그룹에 직접 policy를 심어줌</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1:1 관계</p>
+</li>
+<li>
+<p>다른 유저나 그룹에 inline policy 적용x</p>
+</li>
+<li>
+<p>유저나 그룹 삭제시 inline policy 역시 삭제됨</p>
+</li>
+</ul>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="1차_시스템_구성도_및_데이터_흐름도">2. 1차 : 시스템 구성도 및 데이터 흐름도</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/01/HowHome_시스템구성도_1차.png" alt="1차 시스템구성도">
-</div>
-</div>
+<div class="sect3">
+<h4 id="managed">1.1.2. Managed</h4>
 <div class="paragraph">
-<p>위의 그림은 1차 시스템 구성도 입니다.
-기본적으로 모든 시스템은 도커를 이용하여 컨테이너 기반으로 구성하였고, 이를 관리하기 위해 쿠버네티스와 앤서블을 사용할 계획입니다.
-각 시스템을 컨테이너로 구성함으로써 개별 PC의 개별 도커로 운영될 수도 있고, 공용 PC의 공용 도커에서 운영될 수도 있습니다.</p>
+<p>AWS에서 생성되고 관리되어지는 Policies</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>우리가 직접 Policy 만들 필요 없음</p>
+</li>
+<li>
+<p>Managed Policy는 다수의 유저와 그룹에 적용 가능</p>
+</li>
+<li>
+<p>Managed Policy는 수정 및 삭제 불가</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) AmazonDynamoDBFullAccess</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="customer">1.1.3. Customer</h4>
 <div class="paragraph">
-<p>아래 그림은 1차 시스템의 데이터흐름도 입니다.</p>
+<p>우리들이 직접 새로운 Policy를 만들 수 있음</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/01/HowHome_데이터흐름도_1차.png" alt="1차 데이터흐름도">
+<div class="ulist">
+<ul>
+<li>
+<p>기존에 존재하는 Managed Policy 사용</p>
+</li>
+<li>
+<p>원하는 요구사항에 맞게 수정하고 사용</p>
+</li>
+<li>
+<p>Managed Policy에서 원하는 Policy가 없을 때 사용</p>
+</li>
+</ul>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="web_identity_federationwif">1.2. Web Identity Federation(WIF)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>아마존, 구글 등을 통하여 유저들에게 AWS 접근 권한제공</p>
+</li>
+<li>
+<p>인증코드(토큰) 사용</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) 이중 인증(Two-Factor Authentication)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cognito">1.3. Cognito</h3>
 <div class="paragraph">
-<p>공공데이터포털이나 법정동코드, 도로명주소는 RDB 기반의 PostgreSQL 에 저장할 수 있도록 하였습니다.
-현재는 주소 데이터를 CSV 파일 기반으로 받아서 수동으로 업로드 하고 있지만 차후 자동화할 계획입니다.</p>
+<p>Web Identity Federation(WIF) 기능을 제공</p>
 </div>
+<div class="sect3">
+<h4 id="cognito_주요_특징">1.3.1. Cognito 주요 특징</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>회원가입, 로그인 기능(Guest로 로그인 가능)</p>
+</li>
+<li>
+<p>어프리케이션과 Web Provider간의 중재자 역할</p>
+</li>
+<li>
+<p>다양한 기기로 부터 사용자 정보를 동기화함 &#8594; 확장성</p>
+</li>
+<li>
+<p>사용자 Credentials을 자동으로 관리</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cognito_use_cases">1.3.2. Cognito Use Cases</h4>
 <div class="paragraph">
-<p>아파트 정보는 파이썬으로 수집하고 Filebeat를 이용해 Kafka로 전달하고, Logstash를 통해 Kafka가 전달받은 데이터를 가져와 Elasticsearch 또는 PostgreSQL에 저장하도록 합니다.
-Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하여 보여줍니다.</p>
+<p>Facebook, Google과 같은 소셜미디어를 통한 WIF</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>사용자 &#8594; Facebook &#8594; Token &#8594; Cognito (AWS credentials) &#8594; Token &#8594; 사용자 &#8594; AWS(EC2, S3, DanamoDB)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="데이터_수집_코드">3. 데이터 수집 코드</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>파이썬으로 작성한 데이터 수집코드는 기존 단일 파일로 구현하였던것을 각 기능(역할)별로 파일로 나누어 리팩토링 하였습니다.
-파이썬의 코드의 작성규칙은 <a href="https://www.python.org/dev/peps/pep-0008/">pep8</a>을 준수하려했지만 아직 완벽하지 않은것 같습니다.</p>
+<div class="sect2">
+<h3 id="cognito_user_pool">1.4. Cognito User Pool</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>모바일, 웹 어플리케이션의 회원가입과 로그인 기능을 관리하는 곳</p>
+</li>
+<li>
+<p>유저는 User Pool을 거쳐 직접 로그인을 할 수 있음</p>
+</li>
+<li>
+<p>Json Web Token(JWT)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사용자 &#8592;&#8594; User Pool &#8592;(JWT Token)&#8594; Facebook</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사용자 &#8592;(AWS credentials)&#8594; Identity Pool</p>
+<div class="ulist">
+<ul>
+<li>
+<p>JWT Token과 AWS credentials을 일시적으로 교환</p>
+</li>
+<li>
+<p>Identity Pool은 우리들이 유저들을 위해 고유한 Identity를 만들수 있고, 소셜미디어를 통해 인증 가능하게 해주는 기능을 제공(User Pool로 부터 받은 JWT Token과 교환해주는 중추적인 역할)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>유저는 생성된 Identity를 가지고 AWS credentials을 얻을 수 있는데 제약이 필요함(AWS에 대한 모든 권한을 제공할순 없으니까!).</p>
+</li>
+<li>
+<p>이러한 커스텀 설정을 제공하는게 Identity Pool.</p>
+</li>
+</ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="img/HowHome/Dev/01/Python%20수집소스%20구성.png" alt="1차 데이터흐름도">
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>AWS(EC2, S3, RDS) &#8592;&#8594; 사용자</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AWS credentials 을 통해 AWS에 접근</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -269,43 +407,43 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
 <!-- Social Share Button HTML -->
 
 <!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&text=어떡하집 프로젝트 - 1차 시스템 구축 계획&via=" target="_blank" class="share-btn twitter">
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_12.html&text=(응용) AWS - Advanced IAM&via=" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
 </a></li>
 
 <!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html" target="_blank" class="share-btn google-plus">
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_12.html" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
 </a></li>
 
 <!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HowHome-03-Dev-01.html" target="_blank" class="share-btn facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_12.html" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
 </a></li>
 
 <!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&title=어떡하집 프로젝트 - 1차 시스템 구축 계획" target="_blank" class="share-btn reddit">
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_12.html&title=(응용) AWS - Advanced IAM" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
 </a></li>
 
 <!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&title=어떡하집 프로젝트 - 1차 시스템 구축 계획" target="_blank" class="share-btn linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_12.html&title=(응용) AWS - Advanced IAM" target="_blank" class="share-btn linkedin">
     <i class="fa fa-linkedin"></i>
     <p>LinkedIn</p>
 </a></li>
 
 <!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HowHome-03-Dev-01.html&title=어떡하집 프로젝트 - 1차 시스템 구축 계획" target="_blank" class="share-btn stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_12.html&title=(응용) AWS - Advanced IAM" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
 </a></li>
 
 <!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HowHome-03-Dev-01.html" target="_blank" class="share-btn email">
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_12.html" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
 </a></li>
@@ -318,10 +456,10 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
 		<ul class="stats">
     	    <!-- Display the categories associated with this post -->
     	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='tags/부동산.html'>부동산</a></li>
- 	        <li><a href='tags/개인프로젝트.html'>개인프로젝트</a></li>
+ 	        <li><a href='tags/학습.html'>학습</a></li>
+ 	        <li><a href='tags/AWS.html'>AWS</a></li>
 
-				<li><a class="icon fa-comment" href="HowHome-03-Dev-01.html#disqus_thread"> &nbsp;</a></li>
+				<li><a class="icon fa-comment" href="aws_study_12.html#disqus_thread"> &nbsp;</a></li>
  		</ul>
     	
     </footer>
@@ -329,10 +467,8 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
 		
 <ul class="actions pagination">
   	
-  		        <li><a href="HowHome-02-AptData-05.html" 
-                class="button big previous">어떡하집 프로젝트 - 아파트 정보 수집 계획(아파트 정보 저장 방안 수립-1)</a></li>
-        <li><a href="Bigdata_basic_study_02.html" 
-                class="button big next">빅데이터 관련 학습노트 - 02 - 의사결정트리(Decision Tree)</a></li>
+  		        <li><a href="aws_study_07.html" 
+                class="button big previous">(기초) AWS - Lambda</a></li>
 	
 </ul>
 		
@@ -340,7 +476,7 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_config = function () {
-      this.page.identifier = 'HowHome-03-Dev-01.html';
+      this.page.identifier = 'aws_study_12.html';
     };
     var disqus_shortname = 'anew0m';
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -616,8 +752,8 @@ Elasticsearch에 저장되어 있는 데이터를 Kibana를 통해 시각화하�
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-149448484-1', 'auto');
   ga('send', 'pageview', {
-    'page': 'HowHome-03-Dev-01.html',
-    'title': '어떡하집 프로젝트 - 1차 시스템 구축 계획'
+    'page': 'aws_study_12.html',
+    'title': '(응용) AWS - Advanced IAM'
       });
 </script>
 		<!-- This is called by default since this theme uses highlight.js -->
