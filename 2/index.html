@@ -140,10 +140,10 @@
                         <a href="../../aws_study_15.html"><p>(응용) AWS - Serverless</p></a>
                     </li>
                     <li>
-                        <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
+                        <a href="../../aws_study_17.html"><p>(응용) AWS - X-Ray</p></a>
                     </li>
                     <li>
-                        <a href="../../aws_study_14.html"><p>(응용) AWS - Advanced DynamoDB</p></a>
+                        <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,313 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h2>
+
+
+            <p>AWS에 대해 알아봅니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 15, 2021'>
+            May 15, 2021</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#iam">1. IAM</a>
+<ul class="sectlevel2">
+<li><a href="#inline_policies_vs_managed_policies_vs_custom_policies">1.1. Inline Policies VS Managed Policies VS Custom Policies</a></li>
+<li><a href="#web_identity_federationwif">1.2. Web Identity Federation(WIF)</a></li>
+<li><a href="#cognito">1.3. Cognito</a></li>
+<li><a href="#cognito_user_pool">1.4. Cognito User Pool</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="iam">1. IAM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AWS 내에서 유저를 만들고 Role과 Policy 관리</p>
+</div>
+<div class="paragraph">
+<p>3가지 IAM Policy 유형</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Inline</p>
+</li>
+<li>
+<p>Managed</p>
+</li>
+<li>
+<p>Customer</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="inline_policies_vs_managed_policies_vs_custom_policies">1.1. Inline Policies VS Managed Policies VS Custom Policies</h3>
+<div class="sect3">
+<h4 id="inline">1.1.1. Inline</h4>
+<div class="paragraph">
+<p>유저, 그룹에 직접 policy를 심어줌</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1:1 관계</p>
+</li>
+<li>
+<p>다른 유저나 그룹에 inline policy 적용x</p>
+</li>
+<li>
+<p>유저나 그룹 삭제시 inline policy 역시 삭제됨</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="managed">1.1.2. Managed</h4>
+<div class="paragraph">
+<p>AWS에서 생성되고 관리되어지는 Policies</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>우리가 직접 Policy 만들 필요 없음</p>
+</li>
+<li>
+<p>Managed Policy는 다수의 유저와 그룹에 적용 가능</p>
+</li>
+<li>
+<p>Managed Policy는 수정 및 삭제 불가</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) AmazonDynamoDBFullAccess</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="customer">1.1.3. Customer</h4>
+<div class="paragraph">
+<p>우리들이 직접 새로운 Policy를 만들 수 있음</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>기존에 존재하는 Managed Policy 사용</p>
+</li>
+<li>
+<p>원하는 요구사항에 맞게 수정하고 사용</p>
+</li>
+<li>
+<p>Managed Policy에서 원하는 Policy가 없을 때 사용</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="web_identity_federationwif">1.2. Web Identity Federation(WIF)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>아마존, 구글 등을 통하여 유저들에게 AWS 접근 권한제공</p>
+</li>
+<li>
+<p>인증코드(토큰) 사용</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) 이중 인증(Two-Factor Authentication)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cognito">1.3. Cognito</h3>
+<div class="paragraph">
+<p>Web Identity Federation(WIF) 기능을 제공</p>
+</div>
+<div class="sect3">
+<h4 id="cognito_주요_특징">1.3.1. Cognito 주요 특징</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>회원가입, 로그인 기능(Guest로 로그인 가능)</p>
+</li>
+<li>
+<p>어프리케이션과 Web Provider간의 중재자 역할</p>
+</li>
+<li>
+<p>다양한 기기로 부터 사용자 정보를 동기화함 &#8594; 확장성</p>
+</li>
+<li>
+<p>사용자 Credentials을 자동으로 관리</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cognito_use_cases">1.3.2. Cognito Use Cases</h4>
+<div class="paragraph">
+<p>Facebook, Google과 같은 소셜미디어를 통한 WIF</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>사용자 &#8594; Facebook &#8594; Token &#8594; Cognito (AWS credentials) &#8594; Token &#8594; 사용자 &#8594; AWS(EC2, S3, DanamoDB)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cognito_user_pool">1.4. Cognito User Pool</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>모바일, 웹 어플리케이션의 회원가입과 로그인 기능을 관리하는 곳</p>
+</li>
+<li>
+<p>유저는 User Pool을 거쳐 직접 로그인을 할 수 있음</p>
+</li>
+<li>
+<p>Json Web Token(JWT)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사용자 &#8592;&#8594; User Pool &#8592;(JWT Token)&#8594; Facebook</p>
+<div class="ulist">
+<ul>
+<li>
+<p>사용자 &#8592;(AWS credentials)&#8594; Identity Pool</p>
+<div class="ulist">
+<ul>
+<li>
+<p>JWT Token과 AWS credentials을 일시적으로 교환</p>
+</li>
+<li>
+<p>Identity Pool은 우리들이 유저들을 위해 고유한 Identity를 만들수 있고, 소셜미디어를 통해 인증 가능하게 해주는 기능을 제공(User Pool로 부터 받은 JWT Token과 교환해주는 중추적인 역할)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>유저는 생성된 Identity를 가지고 AWS credentials을 얻을 수 있는데 제약이 필요함(AWS에 대한 모든 권한을 제공할순 없으니까!).</p>
+</li>
+<li>
+<p>이러한 커스텀 설정을 제공하는게 Identity Pool.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>AWS(EC2, S3, RDS) &#8592;&#8594; 사용자</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AWS credentials 을 통해 AWS에 접근</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_12.html&text=(응용) AWS - Advanced IAM&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_12.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_12.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_12.html&title=(응용) AWS - Advanced IAM" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_12.html&title=(응용) AWS - Advanced IAM" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_12.html&title=(응용) AWS - Advanced IAM" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_12.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/학습.html'>학습</a></li>
+ 	        <li><a href='../tags/AWS.html'>AWS</a></li>
+
+				<li><a class="icon fa-comment" href="../aws_study_12.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -965,183 +1272,6 @@ hooks:
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../aws_study_07.html">(기초) AWS - Lambda</a></h2>
-
-
-            <p>AWS에 대해 알아봅니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 14, 2021'>
-            May 14, 2021</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#lambda">1. Lambda</a>
-<ul class="sectlevel2">
-<li><a href="#lambda_비용">1.1. Lambda 비용</a></li>
-<li><a href="#lambda_기타">1.2. Lambda 기타</a></li>
-<li><a href="#lambda_사용용례">1.3. Lambda 사용용례</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="lambda">1. Lambda</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Serverless의 주축을 담당</p>
-</li>
-<li>
-<p>Events를 통하여 Lambda를 실행시킴</p>
-</li>
-<li>
-<p>NodeJS, Python, Java, GO 등 다양한 언어 지원</p>
-</li>
-<li>
-<p>Lambda Function</p>
-</li>
-<li>
-<p>Lambda &#8594; 다른 서비스 호출</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="lambda_비용">1.1. Lambda 비용</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Lambda Function이 실행될때만 돈 지불</p>
-</li>
-<li>
-<p>매달 1,000,000 함수 호출까지 무료</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="lambda_기타">1.2. Lambda 기타</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>최대 300초(5분) 런타임 시간 허용 (Lamda 코드 최대 5분 실행시간 제공)</p>
-</li>
-<li>
-<p>512MB의 일시적인 디스크 공간 제공(/tmp/)</p>
-</li>
-<li>
-<p>최대 50MB Deployment Package 허용(50MB가 초과될시 S3 버켓 사용)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="lambda_사용용례">1.3. Lambda 사용용례</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>S3 &#8594; Lambda &#8594; DB</p>
-<div class="ulist">
-<ul>
-<li>
-<p>S3(PutObject) &#8594; Lambda(데이터변환, 불필요한 데이터 삭제) &#8594; DB(정제된 데이터 업로드)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>IoT &#8594; Lambda &#8594; SNS</p>
-<div class="ulist">
-<ul>
-<li>
-<p>IoT(Topic 속도) &#8594; Lambda(Km &#8594; Mi) &#8594; SNS(속도 게시)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_07.html&text=(기초) AWS - Lambda&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_07.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_07.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_07.html&title=(기초) AWS - Lambda" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_07.html&title=(기초) AWS - Lambda" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_07.html&title=(기초) AWS - Lambda" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_07.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/학습.html'>학습</a></li>
- 	        <li><a href='../tags/AWS.html'>AWS</a></li>
-
-				<li><a class="icon fa-comment" href="../aws_study_07.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../"
@@ -1234,7 +1364,7 @@ hooks:
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h3>
+                                <h3><a href="../aws_study_17.html">(응용) AWS - X-Ray</a></h3>
                                  <time class="published"
 							            datetime='May 15, 2021'>
 							            May 15, 2021</time>
@@ -1245,7 +1375,7 @@ hooks:
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../aws_study_14.html">(응용) AWS - Advanced DynamoDB</a></h3>
+                                <h3><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h3>
                                  <time class="published"
 							            datetime='May 15, 2021'>
 							            May 15, 2021</time>
@@ -1278,7 +1408,7 @@ hooks:
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 16 </span>
+                                <span style="float:right;"> 17 </span>
                             </header>
                         </article>
                     </li>
@@ -1350,7 +1480,7 @@ hooks:
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 16 </span>
+                                <span style="float:right;"> 17 </span>
                             </header>
                         </article>
                     </li>
