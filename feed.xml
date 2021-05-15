@@ -6,8 +6,8 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sat, 15 May 2021 09:24:40 +0000</pubDate>
-    <lastBuildDate>Sat, 15 May 2021 09:24:40 +0000</lastBuildDate>
+    <pubDate>Sat, 15 May 2021 12:18:20 +0000</pubDate>
+    <lastBuildDate>Sat, 15 May 2021 12:18:20 +0000</lastBuildDate>
 
     <item>
       <title>(응용) AWS - Advanced S3</title>
@@ -1284,6 +1284,76 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
+    <item>
+      <title>(응용) AWS - Advanced CI/CD</title>
+      <link>https://anew0m.netlify.com//aws_study_16.html</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">aws_study_16.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#code_deploy_life_cycle_event_hooks&quot;&gt;1. Code Deploy Life Cycle Event Hooks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;code_deploy_life_cycle_event_hooks&quot;&gt;1. Code Deploy Life Cycle Event Hooks&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;appspec.yml 파일&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;CodeDeploy 하는데 있어 모든 설정관련 정보들이 내포되어 있는 중추적인 역할을 하는 파일&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;version: 0.2
+os: linux
+files:
+  - source: config/config.txt
+    destination: /webapps/Config
+  - source: Source
+    destination: /webapps/myApp
+hooks:
+ BeforeInstall:
+   - location: Scripts/UnzipResourceBundles.sh
+   - location: Scripts/UnzipDataBundles.sh
+ AfterInstall:
+   - location: Scripts/RunResourcesTests.sh
+     timeout: 360
+ ApplicationStart:
+   - location: Scripts/RunFunctionalTests.sh
+ ValidateService:
+   - location: Scripts/ValidateService.sh
+     timeout: 3600&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;많이 사용되는 이벤트 hooks(Run Order(State의 순서가 정해져 있음)) 종류&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ELB[ ApplicationStop &amp;#8594; DownloadBundle &amp;#8594; BeforeInstall &amp;#8594; Install &amp;#8594; AfterInstall &amp;#8594; ApplicationStart &amp;#8594; ValidateService ]ELB&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
