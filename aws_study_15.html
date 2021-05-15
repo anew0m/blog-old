@@ -7,12 +7,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>기초 통계분석 - 02 - 기술통계학 - 정민호의 블로그</title>
+    <title>(응용) AWS - Serverless - 정민호의 블로그</title>
     <meta name="google-site-verification" content="NjTrEtPZ_cX4UYx9pg4mIKBm4cl_zNC7V7PNl4sj4aQ" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습">
+    <meta name="description" content="AWS에 대해 알아봅니다.">
     <meta name="author" content="정민호">
-    <meta name="keywords" content="빅데이터, 통계분석">
+    <meta name="keywords" content="학습, AWS">
     <meta name="generator" content="JBake">
 	<meta property="og:image" content="https://anew0m.netlify.com/img/jdk/duke.jpg"/>
 
@@ -161,14 +161,14 @@
 <article class="post">
    <header>
     <div class="title">
-                    <h1><a href="Basic_statistical_study_02.html">기초 통계분석 - 02 - 기술통계학</a></h1>
+                    <h1><a href="aws_study_15.html">(응용) AWS - Serverless</a></h1>
 
-            <p>'R 통계분석(제대로 알고 쓰는) - 이윤환저'의 책을 통해 기초 통계분석 학습</p>
+            <p>AWS에 대해 알아봅니다.</p>
     </div>
     <div class="meta">
          <time class="published"
-            datetime='May 18, 2020'>
-            May 18, 2020</time>
+            datetime='May 15, 2021'>
+            May 15, 2021</time>
             <div class="published eta"></div>
         <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
     </div>
@@ -181,276 +181,293 @@
        <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#기술통계학">1. 기술통계학</a>
+<li><a href="#serverless">1. Serverless</a>
 <ul class="sectlevel2">
-<li><a href="#그래프">1.1. 그래프</a></li>
-<li><a href="#모수와_통계량">1.2. 모수와 통계량</a></li>
+<li><a href="#aws는_우리를_위해서_무엇을">1.1. AWS는 우리를 위해서 무엇을?</a></li>
+<li><a href="#serverless_이점">1.2. Serverless 이점</a></li>
+<li><a href="#serverless_aws_서비스">1.3. Serverless AWS 서비스</a></li>
+</ul>
+</li>
+<li><a href="#step_function">2. Step Function</a>
+<ul class="sectlevel2">
+<li><a href="#workflow">2.1. Workflow</a></li>
+</ul>
+</li>
+<li><a href="#lambda_version_control">3. Lambda - Version Control</a></li>
+<li><a href="#lambda_vpc_access">4. Lambda - VPC Access</a>
+<ul class="sectlevel2">
+<li><a href="#vpc_안에_lambda가_접근하려면">4.1. VPC 안에 Lambda가 접근하려면?</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="sect1">
-<h2 id="기술통계학">1. 기술통계학</h2>
+<h2 id="serverless">1. Serverless</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="그래프">1.1. 그래프</h3>
-<div class="sect3">
-<h4 id="기술통계학의_개요">1.1.1. 기술통계학의 개요</h4>
 <div class="paragraph">
-<p>통게학은 기술통계학을 통해 자료를 요약하고, 이를 바탕으로 추측통계학을 통해 모집단의 특성을 추측한다.
-통계학에서 자료를 통해 알고자 하는 것이 '모집단&#8217;의 특성이다.</p>
+<p>서버가 없는게 아니라 서버를 우리가 관리할 필요 없이 알아서 우리들의 어플리케이션 코드를 클라우드에서 돌릴 수 있게 해줌
+(Resource Management, Auto Scaling UP/Down 등 해줌)</p>
 </div>
+<div class="paragraph">
+<p>AWS는 Infrastructure Management를 알아서 해줌, <strong>우리가 할 일은 코드를 짜고 구현만 하면됨</strong></p>
+</div>
+<div class="sect2">
+<h3 id="aws는_우리를_위해서_무엇을">1.1. AWS는 우리를 위해서 무엇을?</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>기술통계학(descriptive statistics) : 자료를 수집 및 정리하여 자료의 특성으로 자료를 요약하는 분야</p>
-</li>
-<li>
-<p>추측통계학(inferential statistics) : 표본의 특성을 통해 모집단의특성을 추론</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="그래프의_개요">1.1.2. 그래프의 개요</h4>
+<p>Capacity Provisioning</p>
 <div class="ulist">
 <ul>
 <li>
-<p>그래프(graph) : 자료의 모양을 그림으로 표현하는 것</p>
+<p>예) DynamoDB/EC2의 경우 얼마나 많은 읽기/쓰기가 발생하는지 서버과부하가 생기는지 감시하고 그에 따라 대응</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="산점도">1.1.3. 산점도</h4>
+</li>
+<li>
+<p>Auto-Scaling</p>
 <div class="ulist">
 <ul>
 <li>
-<p>산점도(plot) : x축과 y축으로 구성된 좌표계 위에 이차원(양적변수 두 개) 자료를 점으로 표현하여 두 변수 간의 관계를 나타낼 수 있는 도표</p>
+<p>사람의 개입없이 서버를 키웠다 줄였다 조절</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="막대그래프와_히스토그램">1.1.4. 막대그래프와 히스토그램</h4>
+</li>
+<li>
+<p>Patching</p>
 <div class="ulist">
 <ul>
 <li>
-<p>막대그래프 : 이산형 혹은 질적 자료의 개수를 나타내기 위해 주로 사용</p>
-</li>
-<li>
-<p>히스토그램 : 연속현 자료의 개수 호근 비율을 나타내기 위해 주로 사용</p>
+<p>EC2 인스턴스에서 OS를 돌리거나 RDS에서 DB를 구축할 때 알아서 업데이트 및 패치를 시켜줌</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="원_도표">1.1.5. 원 도표</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>원도표(pie-chart) : 질적 자료에서 각 범주가 데이터에서 차지하는 비율을 나타내는데 사용할 수 있는 그래프.
-원의 각 조각은 데이터의 범주를 나태내므로, 조각의 크기를 비교, 대조함으로써 각 범주의 상대적인 크기를 평가할 수 있음</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="모수와_통계량">1.2. 모수와 통계량</h3>
+<h3 id="serverless_이점">1.2. Serverless 이점</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>기본적인 자료의 특성</p>
+<p>빠른 배포(Faster Deployment)</p>
+</li>
+<li>
+<p>대단한 확장성(Scalable)</p>
+</li>
+<li>
+<p>비용 절감(Lower Cost)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>최대값과 최솟값 : 자료 중 가장 큰 값과 가장 작은 값</p>
-</li>
-<li>
-<p>최빈값 : 가장 많이 관찰된 값</p>
-</li>
-<li>
-<p>평균과 중앙값 : 자료들의 중심</p>
-</li>
-<li>
-<p>표준편차와 사분위수 범위 : 자료들이 퍼져 있는 정도</p>
+<p>항상 돌아가는게 아니라 Event에 근거하여 돌아가기 떄문에 비용이 저렴함 (Lambda와 같음)</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="serverless_aws_서비스">1.3. Serverless AWS 서비스</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Lambda</p>
+<div class="ulist">
+<ul>
+<li>
+<p>서버를 구축할 필요없이 단순히 코드작성</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>SQS(Simple Queue Service)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>메세지를 큐에 담고 들어온 순서에 따라 메세지를 처리</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>SNS(Simple Notification Service)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>메세지 서비스로 특정 이벤트 발생이 텍스트나 이메일을 보내주는 서비스</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>API Gateway</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Serverless 이며 확장성이 뛰어난 API를 만들고 퍼블리쉬를 관리하는 서비스</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>DynamoDB</p>
+<div class="ulist">
+<ul>
+<li>
+<p>테이블을 만들고 설정만 해준다면 알아서 테이블을 업데이트 해줌</p>
+</li>
+<li>
+<p>RCU와 WCU를 Auto Scaling 해줄 뿐만 아니라 TTL을 통하여 테이블 클리너 제공</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>S3</p>
+<div class="ulist">
+<ul>
+<li>
+<p>웹사이트 호스팅 및 오브젝트를 보관하는 스토리지</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="step_function">2. Step Function</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Serverless 어플리케이션을 구축함에 있어 시각적 인터페이스 제공</p>
+</li>
+<li>
+<p>일련의 Step으로 Serverless 어플리케이션을 관리할 수 있음</p>
+</li>
+<li>
+<p>Step은 Business Logic에 의해 순서대로 실행되어짐</p>
+</li>
+<li>
+<p>Step의 output은 또다른 Step의 input이 될 수 있음</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="workflow">2.1. Workflow</h3>
+<div class="sect3">
+<h4 id="sequential_workflow_state_machine">2.1.1. Sequential Workflow (State Machine)</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>START &#8594; Strip Strings &#8594; Remove WhiteSpace &#8594; Word Counts &#8594; END</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="최대값과_최솟값">1.2.1. 최대값과 최솟값</h4>
+<h4 id="parallel_workflow">2.1.2. Parallel Workflow</h4>
 <div class="ulist">
 <ul>
 <li>
-<p>최대값 : 자료들 중 가장 큰 값</p>
-</li>
-<li>
-<p>최솟값 : 자료들 중 가장 작은 값</p>
+<p>START &#8594; Process Photo &#8594; [Extract Metadata - Adjust Image Size - Update Color Channel - Crop Image] &#8594; Store in DB &#8594; END</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="최빈값">1.2.2. 최빈값</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>최빈값(mode) : 자료등중 가장 많이 관찰된 값</p>
-</li>
-</ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="평균과_중앙값">1.2.3. 평균과 중앙값</h4>
+</div>
+<div class="sect1">
+<h2 id="lambda_version_control">3. Lambda - Version Control</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>평균과 중앙값이 전체 자료들을 대표하는 값이기는 하지만, 대표값만으로 전체 집단을 나타내면 개별 자료가 갖고 있는 특성들은 모두 무시됨</p>
+<p>Lambda Function을 처음 만들면 Version은 <strong>$LATEST</strong> 가 됨</p>
 </li>
 <li>
-<p>중앙값(median) 또는 중위수 : 자료들의 순서상 중심, 자료를 순서대로 나열해 놓아 순서상 가운데 위치하는 값을 나타냄</p>
-<div class="ulist">
-<ul>
-<li>
-<p>중앙값 수식</p>
-<div class="ulist">
-<ul>
-<li>
-<p>홀수일 때 : \$x_{median} = x_{ ({n+1} / {2}) }\$</p>
+<p>변경된 Lambda Function을 업로드하면 그 Version이 <strong>$LATEST</strong> 가 됨</p>
 </li>
 <li>
-<p>짝수일 때 : \$x_{median} = { x_{ ({n} / {2}) } + x_{ ({n} / {2} + 1) } } / {2}\$</p>
+<p>Version은 우리가 <strong>Alias</strong> 를 부여할 수 있음</p>
+<div class="ulist">
+<ul>
+<li>
+<p>다른 Lambda Version을 가질 수 있음</p>
+</li>
+<li>
+<p>다른 Lambda Version은 <strong><em>다른 ARN</em></strong> 이 존재함</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>중앙값 특성</p>
-<div class="ulist">
-<ul>
-<li>
-<p>강건함(robust) :</p>
-<div class="ulist">
-<ul>
-<li>
-<p>양 끝 값의 변화에 민감하게 반응하지 않음</p>
-</li>
-<li>
-<p>끝 값이 변하더라도 순위에 영향을 미치지 않으면, 중앙값은 변하지 않음</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>평균(mean) : 자료들의 무게 중심, 산술평균</p>
+<p><strong>Alias</strong> 는 다른 Version으로 변환 시 사용되어짐</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="표준편차와_사분위수_범위">1.2.4. 표준편차와 사분위수 범위</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>표준편차</p>
-<div class="ulist">
-<ul>
-<li>
-<p>편차(deviation) : 개별 관찰값과 평균과의 차이</p>
-</li>
-<li>
-<p>자유도(degrees of freedom) : n개의 자료가 있을 때 그들의 편차 중 (n-1)개는 원하는 값을 마음대로 가질 수 있는 정도</p>
-</li>
-<li>
-<p>분산(variance) : 편차 제곱의 평균</p>
-</li>
-<li>
-<p>표준편차(standard deviation)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>평균과 분산을 같이 쓰기에는 평균의 단위는 길이이고 분산의 단위는 면적이므로 일치하지 않음</p>
-</li>
-<li>
-<p>따라서 단위를 맞추기 위해 제곱으로 되어 있는 분산의 제곱근을 구하면됨</p>
-</li>
-<li>
-<p>표준편차를 이용하여 일반적으로 '평균±표준편차&#8217;의 형태로 자료의 편균과 퍼진 정도를 숫자로 표현</p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p>변동계수(coefficient of variance) : 평균에 대한 상대적인 변동성의 크기</p>
+<div class="sect1">
+<h2 id="lambda_vpc_access">4. Lambda - VPC Access</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>수식 : \$CV = {8} / {bar x}\$</p>
+<p>Lambda 함수를 만들고 Private PC 혹은 Private Subnet 안에 있는 Resource 를 접근해야하는 일이 있었을 텐데 당연하지만 밖에서는 접근되어선 안됨</p>
+</li>
+<li>
+<p>Lambda &#8594; Private VPC[Private Subnet(EC2, RDS)]</p>
+</li>
+<li>
+<p>Lambda 함수가 Private VPC에 접근해야하는 상황</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) Lambda 함수가 Serverless Website 에서 RDS DB 읽기&amp;쓰기</p>
+</li>
+<li>
+<p>예) Lambda 함수가 보안적인 부분에 문제가 생긴 EC2 인스턴스 종료해야하는 상황</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>사분위수</p>
+<div class="sect2">
+<h3 id="vpc_안에_lambda가_접근하려면">4.1. VPC 안에 Lambda가 접근하려면?</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>사분위수(quartile) : 전체 자료를 순서대로 나열한 후 4등분 한 각각의 위치로, 자료의 25%, 50%, 75%, 100%가 되는 값</p>
+<p>Lambda 함수가 Private Subnet 에 접근할 수 있게 허용해줘야함</p>
+</li>
+<li>
+<p>Lambda 함수는 아래와 같은 VPC Configuration 이 요구됨</p>
 <div class="ulist">
 <ul>
 <li>
-<p>25% : 제1사분위수(Q1), 50% : 제2사분위수(Q2) / 중앙값, 75% : 제3사분위수(Q3), 100% : 제1사분위수(Q4)</p>
+<p>Private Subnet ID</p>
+</li>
+<li>
+<p>Security Group ID</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>사분위수 범위(inter quartile range) : 제1사분위수에서 제3사분위수. 중앙값을 포함하는 영역을 나타내는 가장 작은 영역</p>
-</li>
-<li>
-<p>이상치(outlier) : 관찰된 자료가 다른 값들과 많이 떨어져 있는 값</p>
-<div class="ulist">
-<ul>
-<li>
-<p>사분위수와 사분위수 범위를 이용해 판별</p>
+<p>Lambda 함수는 Private Subnet 으로부터 사용 가능한 IP 주소를 부여해주는 <strong>ENI(Elastic Network Interface)</strong> 를 셋업함</p>
 </li>
 </ul>
-</div>
-</li>
-<li>
-<p>자료 출처에 따른 자료의 특성</p>
-<div class="ulist">
-<ul>
-<li>
-<p>표본 : 통계량(statistic)</p>
-</li>
-<li>
-<p>모집단 : 모수(parameter)</p>
-</li>
-<li>
-<p>즉 표본의 특성을 통계량, 모집단의 특성을 모수</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -462,43 +479,43 @@
 <!-- Social Share Button HTML -->
 
 <!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_02.html&text=기초 통계분석 - 02 - 기술통계학&via=" target="_blank" class="share-btn twitter">
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_15.html&text=(응용) AWS - Serverless&via=" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
 </a></li>
 
 <!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//Basic_statistical_study_02.html" target="_blank" class="share-btn google-plus">
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_15.html" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
 </a></li>
 
 <!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//Basic_statistical_study_02.html" target="_blank" class="share-btn facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_15.html" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
 </a></li>
 
 <!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_02.html&title=기초 통계분석 - 02 - 기술통계학" target="_blank" class="share-btn reddit">
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_15.html&title=(응용) AWS - Serverless" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
 </a></li>
 
 <!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//Basic_statistical_study_02.html&title=기초 통계분석 - 02 - 기술통계학" target="_blank" class="share-btn linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_15.html&title=(응용) AWS - Serverless" target="_blank" class="share-btn linkedin">
     <i class="fa fa-linkedin"></i>
     <p>LinkedIn</p>
 </a></li>
 
 <!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//Basic_statistical_study_02.html&title=기초 통계분석 - 02 - 기술통계학" target="_blank" class="share-btn stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_15.html&title=(응용) AWS - Serverless" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
 </a></li>
 
 <!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//Basic_statistical_study_02.html" target="_blank" class="share-btn email">
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_15.html" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
 </a></li>
@@ -511,10 +528,10 @@
 		<ul class="stats">
     	    <!-- Display the categories associated with this post -->
     	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='tags/빅데이터.html'>빅데이터</a></li>
- 	        <li><a href='tags/통계분석.html'>통계분석</a></li>
+ 	        <li><a href='tags/학습.html'>학습</a></li>
+ 	        <li><a href='tags/AWS.html'>AWS</a></li>
 
-				<li><a class="icon fa-comment" href="Basic_statistical_study_02.html#disqus_thread"> &nbsp;</a></li>
+				<li><a class="icon fa-comment" href="aws_study_15.html#disqus_thread"> &nbsp;</a></li>
  		</ul>
     	
     </footer>
@@ -522,10 +539,10 @@
 		
 <ul class="actions pagination">
   	
-  		        <li><a href="Basic_statistical_study_01.html" 
-                class="button big previous">기초 통계분석 - 01</a></li>
-        <li><a href="Basic_statistical_study_03.html" 
-                class="button big next">기초 통계분석 - 03 - 확률과 확률분포</a></li>
+  		        <li><a href="aws_study_12.html" 
+                class="button big previous">(응용) AWS - Advanced IAM</a></li>
+        <li><a href="aws_study_13.html" 
+                class="button big next">(응용) AWS - Advanced S3</a></li>
 	
 </ul>
 		
@@ -533,7 +550,7 @@
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_config = function () {
-      this.page.identifier = 'Basic_statistical_study_02.html';
+      this.page.identifier = 'aws_study_15.html';
     };
     var disqus_shortname = 'anew0m';
     /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -809,8 +826,8 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-149448484-1', 'auto');
   ga('send', 'pageview', {
-    'page': 'Basic_statistical_study_02.html',
-    'title': '기초 통계분석 - 02 - 기술통계학'
+    'page': 'aws_study_15.html',
+    'title': '(응용) AWS - Serverless'
       });
 </script>
 		<!-- This is called by default since this theme uses highlight.js -->

@@ -137,13 +137,13 @@
                         <a href="../../aws_study_13.html"><p>(응용) AWS - Advanced S3</p></a>
                     </li>
                     <li>
+                        <a href="../../aws_study_15.html"><p>(응용) AWS - Serverless</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
                     </li>
                     <li>
                         <a href="../../aws_study_14.html"><p>(응용) AWS - Advanced DynamoDB</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,360 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../aws_study_03.html">(기초) AWS - EC2</a></h2>
+
+
+            <p>AWS에 대해 알아봅니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 07, 2021'>
+            May 07, 2021</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#ec2">1. EC2</a>
+<ul class="sectlevel2">
+<li><a href="#ec2_과금_정책">1.1. EC2 과금 정책</a></li>
+<li><a href="#ec2_과금_활용_방안">1.2. EC2 과금 활용 방안</a></li>
+</ul>
+</li>
+<li><a href="#ebs">2. EBS</a>
+<ul class="sectlevel2">
+<li><a href="#availability_zoneaz">2.1. Availability Zone(AZ)</a></li>
+<li><a href="#ebs_볼륨_타입">2.2. EBS 볼륨 타입</a></li>
+</ul>
+</li>
+<li><a href="#elb">3. ELB</a>
+<ul class="sectlevel2">
+<li><a href="#elb_타입">3.1. ELB 타입</a></li>
+<li><a href="#load_balancer_error_504_error">3.2. Load Balancer Error : 504 Error</a></li>
+<li><a href="#x_forwarded_for_헤더">3.3. X-Forwarded-For 헤더</a></li>
+</ul>
+</li>
+<li><a href="#route53">4. Route53</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="ec2">1. EC2</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EC2(Elastic Compute Cloud)는 클라우드환경에서 스토리지가 유연하게 변경될 수 있도록 제공</p>
+</div>
+<div class="paragraph">
+<p>EC2를 사용하기 위해 EBS라는 디스크 볼륨을 요구함</p>
+</div>
+<div class="sect2">
+<h3 id="ec2_과금_정책">1.1. EC2 과금 정책</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>On-demand : 시간 단위로 가격이 고정되어 있음</p>
+</li>
+<li>
+<p>Reserved : 한정된 EC2 용량 사용 가능, 1-3년동안 시간별로 할인 적용 받을 수 있음</p>
+</li>
+<li>
+<p>Spot : 입찰(경매) 가격 적용. 가장 큰 할인률을 적용 받으며 특히 인스턴스의 시작과 끝 기간이 전혀 중요하지 않을 때 매우 유용.(갑자기 켜지고 꺼지는 경우 발생)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ec2_과금_활용_방안">1.2. EC2 과금 활용 방안</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>On-demand : 오랜시간동안 선물을 내지 않고 최소한의 비용을 지불하여 EC2 인스턴스를 사용하고 싶을 때, 특히 개발 시 최초로 EC2 인스턴스에 deploy 할 때 매우 유용.(개발 시작과 끝의 기간을 알 수 없을 때 권장)</p>
+</li>
+<li>
+<p>Reserved : 안정된, 예상 가능한 workload 시 Reserved 사용 권장, 선불로 인한 컴퓨팅 비용 대폭 감소(개발 시작과 끝의 기간을 알 수 있을 때 권장)</p>
+</li>
+<li>
+<p>Spot : 경매와 유사. 단순히 비용 절감 시 유용함. 인스턴스의 시작/끝 시점에 구애 받지 않을 경우 권장</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ebs">2. EBS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EBS(Elastic Block Storage)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>저장 공간이 생성되어지며 EC2 인스턴스에 부착됨</p>
+</li>
+<li>
+<p>디스크 볼륨 위에 File System이 생성됨</p>
+</li>
+<li>
+<p>EBS는 특정 Availability Zone에 생성됨</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="availability_zoneaz">2.1. Availability Zone(AZ)</h3>
+<div class="paragraph">
+<p>하나의 Region 안에 여러개의 Availability Zone(이하 AZ)가 존재 할 수 있음</p>
+</div>
+<div class="paragraph">
+<p>서버가 다운되었을 때 AZ라는 백업을 통해 서비스 제공을 가능하게 해줌</p>
+</div>
+<div class="paragraph">
+<p>일종의 Disaster Recovery</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ebs_볼륨_타입">2.2. EBS 볼륨 타입</h3>
+<div class="sect3">
+<h4 id="ssd">2.2.1. SSD</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>(GP2) General Purpose SSD</strong> : 최대 10K IOPS를 지원하며 1GB당 3 IOPS 속도가 나옴(보편적으로 사용됨)</p>
+</li>
+<li>
+<p><strong>(I01) Provisioned IOPS SSD</strong> : 극도의 I/O률을 요구하는 환경에서 주로 사용됨. 10K 이상의 IOPS를 지원함 (예: 매우 큰 DB관리)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="magnetichdd">2.2.2. Magnetic/HDD</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>(ST1) Throughput Optimized HDD</strong> : 빅데이터 Datawarehouse, Log 프로세싱시 주로 사용</p>
+</li>
+<li>
+<p><strong>(SC1) CDD HDD</strong> : 파일 서버와 같이 드문 volume 접근시 주로 사용되며 매우 저렴한 비용(boot volume으로 사용 불가능, OS 설치 불가)</p>
+</li>
+<li>
+<p><strong>(Standard) Magnetic</strong> : 디스크 1GB당 가장 싼 비용을 자랑함. (Boot volume으로 사용 가능)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="elb">3. ELB</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ELB(Elastic Load Balancers)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>수많은 서버의 흐름을 균형있게 흘려보내는데 중추적인 역할을 함</p>
+</li>
+<li>
+<p>하나의 서버로 traffic이 몰리는 병목현상(bottleneck) 방지</p>
+</li>
+<li>
+<p>Traffic의 흐름을 Unhealthy instance &#8594; healthy instance로
+(Unhealthy는 인스턴스 Shutdown, 등으로 발생)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="elb_타입">3.1. ELB 타입</h3>
+<div class="sect3">
+<h4 id="application_load_balancer">3.1.1. Application Load Balancer</h4>
+<div class="paragraph">
+<p>OSI Layer 7에서 작동됨(Application Layer)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HTTP, HTTPS와 같은 traffic의 load balancing에 가장 적합함</p>
+</li>
+<li>
+<p>고급 request 라우팅 설정을 통하여 특정 서버로 request를 보낼 수 있음(root를 변경하는 것)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="network_load_balancer">3.1.2. Network Load Balancer</h4>
+<div class="paragraph">
+<p>OSI Layer 4에서 작동되고 매우 빠른 속도를 자랑하며 Production 환경에서 종종 쓰임
+(Transport Layer)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>극도의 performance가 요구되는 TCP traffic에서 적합함</p>
+</li>
+<li>
+<p>초당 수백만개의 request를 아주 미세한 delay로 처리 가능</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="classic_load_balancer">3.1.3. Classic Load Balancer</h4>
+<div class="paragraph">
+<p>현재 Legacy로 간주됨, 따라서 거의 쓰이지 않음(Legacy ELB 라고도 함)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>성능은 뒤쳐지지만 Layer 4, 7 지원</p>
+</li>
+<li>
+<p>Layer 7의 HTTP/HTTPS 라우팅 기능 지원</p>
+</li>
+<li>
+<p>Layer 4의 TCP traffic 라우팅 기능도 지원</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="load_balancer_error_504_error">3.2. Load Balancer Error : 504 Error</h3>
+<div class="paragraph">
+<p>EC2는 언제나 정상 동작한다는 보장이 없기 때문에 ELB에서 Error를 발견하여 504 Error를 사용자에게 보여줌</p>
+</div>
+<div class="paragraph">
+<p>Application 또는 Server가 응답받지 못할 때 나타나는 현상</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>웹서버/DB Layer에서 해결 가능</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="x_forwarded_for_헤더">3.3. X-Forwarded-For 헤더</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>USER --(DNS)-&#8594; ELB -&#8594; EC2</p>
+</li>
+<li>
+<p>public IP address --(DNS)-&#8594; Private IP -&#8594; EC2</p>
+</li>
+<li>
+<p>152.12.3.225 --(DNS)-&#8594; 10.0.0.23 -&#8594; 10.0.0.23</p>
+</li>
+<li>
+<p>따라서 EC2는 Private IP address 밖에 볼 수가 없음</p>
+</li>
+<li>
+<p>하지만 EC2는 X-Forwarded-For 헤더 를 사용해 public IP address 를 알 수 있음</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="route53">4. Route53</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AWS에서 제공하는 DNS 서비스. 도메인 주소를 구매하여 아래 3가지와 연결가능</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>S3 Bucket</p>
+</li>
+<li>
+<p>EC2 instance</p>
+</li>
+<li>
+<p>Load Balancer</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_03.html&text=(기초) AWS - EC2&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_03.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_03.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_03.html&title=(기초) AWS - EC2" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_03.html&title=(기초) AWS - EC2" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_03.html&title=(기초) AWS - EC2" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_03.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/학습.html'>학습</a></li>
+ 	        <li><a href='../tags/AWS.html'>AWS</a></li>
+
+				<li><a class="icon fa-comment" href="../aws_study_03.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -519,227 +873,13 @@ Lambda Function)과 병합하여 더욱 정교한 파이프라인을 만들고 �
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../HandsOnML2_01-6.html">핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증</a></h2>
-
-
-            <p>'데이터분석 관련 책 `핸즈온 머신러닝 2판`의 1장 1.6절 테스트와 검증 요약 및 정리</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='Sep 21, 2020'>
-            Sep 21, 2020</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</a>
-<ul class="sectlevel2">
-<li><a href="#머신러닝이란">1.1. 머신러닝이란?</a></li>
-<li><a href="#왜_머신러닝을_사용하는가">1.2. 왜 머신러닝을 사용하는가?</a></li>
-<li><a href="#애플리케이션_사례">1.3. 애플리케이션 사례</a></li>
-<li><a href="#머신러닝_시스템의_종류">1.4. 머신러닝 시스템의 종류</a></li>
-<li><a href="#머신러닝의_주요_도전_과제">1.5. 머신러닝의 주요 도전 과제</a></li>
-<li><a href="#테스트와_검증">1.6. 테스트와 검증</a></li>
-<li><a href="#연습문제">1.7. 연습문제</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div id="preamble">
-<div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="한눈에_보는_머신러닝">1. 한눈에 보는 머신러닝</h2>
-<div class="sectionbody">
-<hr>
-<div class="sect2">
-<h3 id="머신러닝이란">1.1. <a href="https://anew0m.netlify.app/handsonml2_01-1">머신러닝이란?</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="왜_머신러닝을_사용하는가">1.2. <a href="https://anew0m.netlify.app/handsonml2_01-2">왜 머신러닝을 사용하는가?</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="애플리케이션_사례">1.3. <a href="https://anew0m.netlify.app/handsonml2_01-3">애플리케이션 사례</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="머신러닝_시스템의_종류">1.4. <a href="https://anew0m.netlify.app/handsonml2_01-4">머신러닝 시스템의 종류</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="머신러닝의_주요_도전_과제">1.5. <a href="https://anew0m.netlify.app/handsonml2_01-5">머신러닝의 주요 도전 과제</a></h3>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="테스트와_검증">1.6. <a href="https://anew0m.netlify.app/handsonml2_01-6">테스트와 검증</a></h3>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>훈련데이터를 훈련 세트와 테스트 세트 두 개로 나누는 것</p>
-</li>
-<li>
-<p>새로운 샘플에 대한 오류 비율을 일반화 오차(generalization error) 또는 외부 샘플 오차(out-of-sample error)</p>
-</li>
-<li>
-<p>테스트 세트에서 모델을 평가함으로써 오차에 대한 추정값(estimation)을 얻음</p>
-</li>
-<li>
-<p>훈련 오차가 낮지만 일반화 오차가 높다면 이는 모델이 훈련 데이터에 과대적합되었다는 뜻</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>하이퍼파라미터 튜닝과 모델 선택</p>
-<div class="ulist">
-<ul>
-<li>
-<p>하이퍼파라미터(hyperparameter)는 학습 알고리즘의 파라미터로써 학습 알고리즘으로부터 영향을 받지 않으며, 훈련 전에 미리 지정되고, 훈련하는 동안에는 상수로 남아 있음</p>
-<div class="ulist">
-<ul>
-<li>
-<p>하이퍼 파라미터를 매우 큰 값으로 지정하면 거의 평편한 모델을 얻게 됨</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>모델 평가 시 홀드아웃 검증(holdout validation)을 사용하며 이 세트를 검증세트(validation set) 또는 개발 세트(development set), 데브 세트(dev set)라고 함</p>
-<div class="ulist">
-<ul>
-<li>
-<p>훈련 세트의 일부를 떼어내어 여러 후보 모델을 평가하고 가장 좋은 하나를 선택</p>
-</li>
-<li>
-<p>검증 세트가 너무 작으면 모델이 정확하게 평가 되지 않으며 이에 대한 해결책으로, 작은 검증 세트를 여러 개를 사용해 반복적인 교차 검증(cross-validation) 수행</p>
-<div class="ulist">
-<ul>
-<li>
-<p>훈련 시간이 검증 세트의 개수에 비례해 늘어남</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>데이터 불일치</p>
-<div class="ulist">
-<ul>
-<li>
-<p>검증 세트와 테스트 세트에 대표 데이터가 배타적으로 포함되어야 함</p>
-</li>
-<li>
-<p>훈련-개발 세트(train-dev set)으로 훈련 데이터의 일부를 떼어내어 또 다른 세트를 만들어 훈련한 다음 훈련-개발 세트에서 평가</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-<hr>
-</div>
-<div class="sect2">
-<h3 id="연습문제">1.7. <a href="https://anew0m.netlify.app/handsonml2_01-7">연습문제</a></h3>
-<hr>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&text=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//HandsOnML2_01-6.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//HandsOnML2_01-6.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//HandsOnML2_01-6.html&title=핸즈온 머신러닝 1장 한눈에 보는 머신러닝 - 1.6 테스트와 검증" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//HandsOnML2_01-6.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/데이터분석.html'>데이터분석</a></li>
- 	        <li><a href='../tags/책정리.html'>책정리</a></li>
-
-				<li><a class="icon fa-comment" href="../HandsOnML2_01-6.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../4/"
             class=" button big previous">PREVIOUS</a></li>
 
     <li><span
-            class="button big"> 5 of 15 </span></li>
+            class="button big"> 5 of 16 </span></li>
 
     <li><a href="../6/"
             class=" button big next">NEXT</a></li>
@@ -814,6 +954,17 @@ Lambda Function)과 병합하여 더욱 정교한 파이프라인을 만들고 �
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_15.html">(응용) AWS - Serverless</a></h3>
+                                 <time class="published"
+							            datetime='May 15, 2021'>
+							            May 15, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h3>
                                  <time class="published"
 							            datetime='May 15, 2021'>
@@ -829,17 +980,6 @@ Lambda Function)과 병합하여 더욱 정교한 파이프라인을 만들고 �
                                  <time class="published"
 							            datetime='May 15, 2021'>
 							            May 15, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_07.html">(기초) AWS - Lambda</a></h3>
-                                 <time class="published"
-							            datetime='May 14, 2021'>
-							            May 14, 2021</time>
                             </header>
                         </article>
                     </li>
@@ -869,7 +1009,7 @@ Lambda Function)과 병합하여 더욱 정교한 파이프라인을 만들고 �
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 14 </span>
+                                <span style="float:right;"> 15 </span>
                             </header>
                         </article>
                     </li>
@@ -941,7 +1081,7 @@ Lambda Function)과 병합하여 더욱 정교한 파이프라인을 만들고 �
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 14 </span>
+                                <span style="float:right;"> 15 </span>
                             </header>
                         </article>
                     </li>
