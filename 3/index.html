@@ -140,10 +140,10 @@
                         <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
                     </li>
                     <li>
-                        <a href="../../aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
+                        <a href="../../aws_study_14.html"><p>(응용) AWS - Advanced DynamoDB</p></a>
                     </li>
                     <li>
-                        <a href="../../aws_study_09.html"><p>(기초) AWS - DynamoDB</p></a>
+                        <a href="../../aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,151 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../aws_study_08.html">(기초) AWS - CloudFront</a></h2>
+
+
+            <p>AWS에 대해 알아봅니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 14, 2021'>
+            May 14, 2021</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#cloudfront">1. CloudFront</a>
+<ul class="sectlevel2">
+<li><a href="#cloudfront_용어_정리">1.1. CloudFront 용어 정리</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="cloudfront">1. CloudFront</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>정적, 동적, 실시간 웹사이트 컨텐츠를 유저들에게 전달</p>
+</li>
+<li>
+<p>Edge Location을 사용</p>
+</li>
+<li>
+<p>컨텐트 딜리버리 네트워크 Content Delivery Network(CDN)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>멀어질 수록 지연시간 증가</p>
+</li>
+<li>
+<p>CDN은 컨텐트 딜리버리 서버, 웹 페이지가 어디에서 불려지는지, 웹 페이지를 불러오려는 사용자가 어느 지역에 거주하는지에 근거하여 컨텐츠 웹페이지에 딜리버리 해줌</p>
+</li>
+<li>
+<p>특정 홈페이지 방문시 CDN을 통해 속도를 개선시킬 수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>분산 네트워크(Distributed Network)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="cloudfront_용어_정리">1.1. CloudFront 용어 정리</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Edge Location(엣지 지역) : 컨텐츠들이 캐시(Cache)에 보관되어지는 장소</p>
+</li>
+<li>
+<p>Origin(오리진) : 원래 컨텐츠들이 들어있는 곳, 웹서버 호스팅이 되어지는 곳. EC2 인스턴스가 오리진이 될 수 있음</p>
+</li>
+<li>
+<p>Distribution(분선) : CDN에서 사용되어지며 Edge Location들을 묶고 있다는 개념</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_08.html&text=(기초) AWS - CloudFront&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_08.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_08.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_08.html&title=(기초) AWS - CloudFront" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_08.html&title=(기초) AWS - CloudFront" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_08.html&title=(기초) AWS - CloudFront" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_08.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/학습.html'>학습</a></li>
+ 	        <li><a href='../tags/AWS.html'>AWS</a></li>
+
+				<li><a class="icon fa-comment" href="../aws_study_08.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -775,414 +920,6 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../aws_study_04.html">(기초) AWS - RDS</a></h2>
-
-
-            <p>AWS에 대해 알아봅니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 10, 2021'>
-            May 10, 2021</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#rds">1. RDS</a>
-<ul class="sectlevel2">
-<li><a href="#relational_db_종류">1.1. Relational DB 종류</a></li>
-<li><a href="#data_warehousing">1.2. Data Warehousing</a></li>
-<li><a href="#oltp_vs_olap">1.3. OLTP vs OLAP</a></li>
-</ul>
-</li>
-<li><a href="#database_back_ups">2. Database Back-ups</a>
-<ul class="sectlevel2">
-<li><a href="#자동백업_automated_backups_ab">2.1. 자동백업 (Automated Backups; AB)</a></li>
-<li><a href="#db_스냅샷_db_snapshots">2.2. DB 스냅샷 (DB Snapshots)</a></li>
-<li><a href="#db_백업">2.3. DB 백업</a></li>
-</ul>
-</li>
-<li><a href="#multi_az_그리고_read_replicas">3. Multi AZ 그리고 Read Replicas</a>
-<ul class="sectlevel2">
-<li><a href="#multi_azavailability_zones">3.1. Multi AZ(Availability Zones)</a></li>
-<li><a href="#read_replica">3.2. Read Replica</a></li>
-</ul>
-</li>
-<li><a href="#elasticcache">4. ElasticCache</a>
-<ul class="sectlevel2">
-<li><a href="#memcached">4.1. Memcached</a></li>
-<li><a href="#redis">4.2. Redis</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="rds">1. RDS</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>RDS(Relational DB Service) 관계형 데이터베이스(그 외 NoSQLDB)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>데이터베이스</p>
-</li>
-<li>
-<p>테이블</p>
-</li>
-<li>
-<p>필드(컬럼)</p>
-</li>
-<li>
-<p>데이터</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="relational_db_종류">1.1. Relational DB 종류</h3>
-<div class="paragraph">
-<p>AWS RDS에서 사용가능</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Microsoft SQL</p>
-</li>
-<li>
-<p>Oracle</p>
-</li>
-<li>
-<p>MySQL</p>
-</li>
-<li>
-<p>Postgre</p>
-</li>
-<li>
-<p><strong>Aurora</strong> (AWS에서 제공하는 DB 형태이며, FreeTier 아님)</p>
-</li>
-<li>
-<p>MariaDB</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="data_warehousing">1.2. Data Warehousing</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Business Intelligence</p>
-</li>
-<li>
-<p>리포트 작성, 데이터 분석시 사용(Production Database &#8594; DataWarehousing)</p>
-</li>
-<li>
-<p>매우 방대한 분량의 데이터 로드시 사용</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="oltp_vs_olap">1.3. OLTP vs OLAP</h3>
-<div class="sect3">
-<h4 id="oltp">1.3.1. OLTP</h4>
-<div class="paragraph">
-<p>Insert와 같이 종종 사용되어지는, 혹은 규모가 작은 데이터를 불러올 때 사용되는 SQL 쿼리가 필요할 때 유용</p>
-</div>
-<div class="paragraph">
-<p>예) Order # 210  에만 해당되는 customer 이름, 주소, 시간 정보 Insert</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="olap">1.3.2. OLAP</h4>
-<div class="paragraph">
-<p>매우 큰 데이터를 불러올 때 사용. 주로 덩치가 큰 Select 쿼리가 사용됨</p>
-</div>
-<div class="paragraph">
-<p>예) 특정 회사 부서의 Net Profit, Products</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="database_back_ups">2. Database Back-ups</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>자동백업 (Automated Backups)</p>
-</li>
-<li>
-<p>DB 스냅샷 (DB Snapshots)</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="자동백업_automated_backups_ab">2.1. 자동백업 (Automated Backups; AB)</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>RDS 생성시 디폴트 셋팅으로 적용되어 있음.</p>
-</li>
-<li>
-<p>Retention Period(1-35일) 안의 어떤 시간으로 돌아가게 할 수 있음 (Point In Time;PIT)</p>
-</li>
-<li>
-<p>AB는 그 날 생성된 스냅샷과 Transaction Logs(TL)을 참고함</p>
-</li>
-<li>
-<p>디폴트로 AB기능이 설정되어 있으며 백업 정보는 S3에 저장 (특정 조건을 달성할 시 S3는 과금 주의)</p>
-</li>
-<li>
-<p>AB동안(S3에 데이터를 저장할 때) 약간의 I/O suspension이 존재할 수 있음 &#8594; Latency (체감은 낮음)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="db_스냅샷_db_snapshots">2.2. DB 스냅샷 (DB Snapshots)</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>주로 사용자에 의해 실행됨</p>
-</li>
-<li>
-<p>원본 RDS Instance를 삭제해도 스냅샷은 존재함(vs AB)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="db_백업">2.3. DB 백업</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>original</strong>.ap-northeast-2.rds.amazonaws.com &#8594; <strong>restored</strong>.ap-northeast-2.rds.amazonaws.com</p>
-</li>
-<li>
-<p>RDS Instance &#8594; RDS Endpoint</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="multi_az_그리고_read_replicas">3. Multi AZ 그리고 Read Replicas</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="multi_azavailability_zones">3.1. Multi AZ(Availability Zones)</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>원래 존재하는 RDS DB에 무언가 변화(Write 등)가 생길 때 다른 Availability Zone에 똑같은 복제본이 만들어짐 = Synchronize</p>
-</li>
-<li>
-<p>AWS에 의해서 자동으로 관리가 이루어짐 (No admin intervention)</p>
-</li>
-<li>
-<p>원본 RDS DB에 문제가 생길 시 자동으로 다른 AZ의 복제본이 사용됨(Disaster Recovery)</p>
-</li>
-<li>
-<p><strong><em>Disaster Recovery Only!</em></strong> (성능개선을 위해서 사용되지 않음. 성능 개선을 위해선 <strong><em>Read Replica</em></strong> 사용)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="read_replica">3.2. Read Replica</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Production DB의 읽기 전용 복제본이 생성됨</p>
-</li>
-<li>
-<p>주로 Read-Heavy DB 작업시 효율성의 극대화를 위해 사용됨(Scaling이 주목적)</p>
-</li>
-<li>
-<p><strong><em>Disaster Recovery 용도가 아님!</em></strong></p>
-</li>
-<li>
-<p>하나의 RDS에 대해 최대 5개 Read Replica DB 허용</p>
-</li>
-<li>
-<p>Read Replica의 Read Replica 생성 가능(단 Latency 발생)</p>
-</li>
-<li>
-<p>각각의 Read Replica는 자기만의 고유 Endpoint 존재(IP 주소가 아님)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="elasticcache">4. ElasticCache</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>RDS의 개념이 아니라 Cache</p>
-</li>
-<li>
-<p>클라우드 내에서 In-Memory 캐시를 만들어줌</p>
-</li>
-<li>
-<p>데이터베이스에서 데이터를 읽어오는 것이 아니라 캐시에서 빠른 속도로 데이터를 읽어옴</p>
-</li>
-<li>
-<p>Read-Heavy 어플리케이션에서 상당한 Latency 감소 효과 누림</p>
-</li>
-<li>
-<p>초반 APP 개발이나 테스트 용도에는 적합하지 않음</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="memcached">4.1. Memcached</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Object 캐시 시스템으로 잘 알려져 있음</p>
-</li>
-<li>
-<p>ElastiCache는 Memcached의 프로토콜을 디폴트로 따름</p>
-</li>
-<li>
-<p>EC2 Auto Scaling 처럼 크기가 커졌다 작아졌다 가능함</p>
-</li>
-<li>
-<p>오픈소스</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="memcached_사용처">4.1.1. Memcached 사용처</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>가장 단순한 캐싱 모델이 필요할 때</p>
-</li>
-<li>
-<p>Object caching이 주된 목적일 때</p>
-</li>
-<li>
-<p>캐시 크기를 마음대로 scaling하기를 원할 때</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redis">4.2. Redis</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Key-Value, Set, List 와 같은 형태의 데이터를 In-Memory에 저장 가능함</p>
-</li>
-<li>
-<p>오픈소스</p>
-</li>
-<li>
-<p>Multi-AZ 지원</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="redis_사용처">4.2.1. Redis 사용처</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>List, Set과 같은 데이터셋을 사용할 때</p>
-</li>
-<li>
-<p>리더보드처럼 데이터셋의 랭킹을 정렬하는 용도가 필요할 때</p>
-</li>
-<li>
-<p>Multi AZ 기능이 사용되야할 때</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_04.html&text=(기초) AWS - RDS&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_04.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_04.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_04.html&title=(기초) AWS - RDS" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_04.html&title=(기초) AWS - RDS" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_04.html&title=(기초) AWS - RDS" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_04.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/학습.html'>학습</a></li>
- 	        <li><a href='../tags/AWS.html'>AWS</a></li>
-
-				<li><a class="icon fa-comment" href="../aws_study_04.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../2/"
@@ -1275,10 +1012,10 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../aws_study_07.html">(기초) AWS - Lambda</a></h3>
+                                <h3><a href="../aws_study_14.html">(응용) AWS - Advanced DynamoDB</a></h3>
                                  <time class="published"
-							            datetime='May 14, 2021'>
-							            May 14, 2021</time>
+							            datetime='May 15, 2021'>
+							            May 15, 2021</time>
                             </header>
                         </article>
                     </li>
@@ -1286,7 +1023,7 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                     <li>
                         <article>
                             <header>
-                                <h3><a href="../aws_study_09.html">(기초) AWS - DynamoDB</a></h3>
+                                <h3><a href="../aws_study_07.html">(기초) AWS - Lambda</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
 							            May 14, 2021</time>
@@ -1319,7 +1056,7 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 13 </span>
+                                <span style="float:right;"> 14 </span>
                             </header>
                         </article>
                     </li>
@@ -1391,7 +1128,7 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 13 </span>
+                                <span style="float:right;"> 14 </span>
                             </header>
                         </article>
                     </li>

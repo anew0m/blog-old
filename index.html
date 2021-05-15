@@ -140,10 +140,10 @@
                         <a href="aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
                     </li>
                     <li>
-                        <a href="aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
+                        <a href="aws_study_14.html"><p>(응용) AWS - Advanced DynamoDB</p></a>
                     </li>
                     <li>
-                        <a href="aws_study_09.html"><p>(기초) AWS - DynamoDB</p></a>
+                        <a href="aws_study_07.html"><p>(기초) AWS - Lambda</p></a>
                     </li>
             </ul>
         </section>
@@ -712,15 +712,15 @@
 <article class="post">
    <header>
     <div class="title">
-                    <h2><a href="aws_study_07.html">(기초) AWS - Lambda</a></h2>
+                    <h2><a href="aws_study_14.html">(응용) AWS - Advanced DynamoDB</a></h2>
 
 
             <p>AWS에 대해 알아봅니다.</p>
     </div>
     <div class="meta">
          <time class="published"
-            datetime='May 14, 2021'>
-            May 14, 2021</time>
+            datetime='May 15, 2021'>
+            May 15, 2021</time>
             <div class="published eta"></div>
         <span class="author"/><span class="name">정민호</span><img src="img/main/jmh.jpg" alt="정민호" /></span>
     </div>
@@ -733,86 +733,568 @@
        <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#lambda">1. Lambda</a>
+<li><a href="#provisioned_throughput">1. Provisioned Throughput</a>
 <ul class="sectlevel2">
-<li><a href="#lambda_비용">1.1. Lambda 비용</a></li>
-<li><a href="#lambda_기타">1.2. Lambda 기타</a></li>
-<li><a href="#lambda_사용용례">1.3. Lambda 사용용례</a></li>
+<li><a href="#rcu_샘플_문제1">1.1. RCU 샘플 문제1</a></li>
+<li><a href="#rcu_샘플_문제2">1.2. RCU 샘플 문제2</a></li>
+<li><a href="#wcu_샘플_문제">1.3. WCU 샘플 문제</a></li>
+</ul>
+</li>
+<li><a href="#access_control">2. Access Control</a></li>
+<li><a href="#ttltime_to_live">3. TTL(Time To Live)</a></li>
+<li><a href="#provisioned_throughput_exceeded_exponential_backoff">4. Provisioned Throughput Exceeded &amp; Exponential Backoff</a>
+<ul class="sectlevel2">
+<li><a href="#provisioned_throughput_exceeded">4.1. Provisioned Throughput Exceeded</a></li>
+<li><a href="#exponential_backoff">4.2. Exponential Backoff</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="sect1">
-<h2 id="lambda">1. Lambda</h2>
+<h2 id="provisioned_throughput">1. Provisioned Throughput</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Serverless의 주축을 담당</p>
+<p>Capacity Unit 단위로 계산</p>
 </li>
 <li>
-<p>Events를 통하여 Lambda를 실행시킴</p>
+<p>쓰기 (Write Capacity Unit) = WCU</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1 Write Capacity Unit = 1초에 1KB 데이터 쓰기</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>NodeJS, Python, Java, GO 등 다양한 언어 지원</p>
+<p>읽기 (Read Capacity Unit) = RCU</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1 Read Capacity Unit = 1초에 4 KB SC(Strongly Consistent) 데이터 읽기</p>
 </li>
 <li>
-<p>Lambda Function</p>
+<p>1 Read Capacity Unit = 1초에 2 * 4 KB EC(Eventually Consistent) 데이터 읽기 (디폴트)</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Lambda &#8594; 다른 서비스 호출</p>
+<p>SC(Strongly Consistent)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>가장 최신의 데이터를 불러올 수 있으나 EC에 비해 지연 발생</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>EC(Eventually Consistent)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>가장 최신의 데이터를 반환하지 않을 수 있음. 즉 실시간으로 업데이트되지 않음</p>
+</li>
+<li>
+<p>하지만 계속 요청을 보내다보면 최신의 데이터를 받아 볼 수 있음</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">고객아이디</th>
+<th class="tableblock halign-left valign-top">주문번호</th>
+<th class="tableblock halign-left valign-top">주문날짜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29358235</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3/24/2021</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">73649172</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20009</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3/29/2021</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">57497462</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3/18/2021</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12093221</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20006</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3/27/2021</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>5 WCU, 5 RCU</p>
+<div class="ulist">
+<ul>
+<li>
+<p>5 * (2 * 4 KB EC 데이터) &#8594; 초당 40 KB 데이터 읽음</p>
+</li>
+<li>
+<p>5 * (4 KB SC 데이터) &#8594; 초당 20 KB 데이터 읽음</p>
+</li>
+<li>
+<p>5 * (1 KB 데이터) &#8594; 초당 5 KB 데이터 씀</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>데이터 크기 &gt; Capacity Unit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>추가 비용에 대응하기위해 APP에 따라 RCU / WCU 설정</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="lambda_비용">1.1. Lambda 비용</h3>
+<h3 id="rcu_샘플_문제1">1.1. RCU 샘플 문제1</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Lambda Function이 실행될때만 돈 지불</p>
+<p>RCU의 크기는 얼마로 잡아야 할까요?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>초당 80개의 데이터를 읽어와야함</p>
 </li>
 <li>
-<p>매달 1,000,000 함수 호출까지 무료</p>
+<p>Strongly Consistent 데이터</p>
+</li>
+<li>
+<p>1개의 데이터 크기 = 3 KB</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="rcu_샘플_문제1_해결방안">1.1.1. RCU 샘플 문제1 해결방안</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>얼마나 많은 4 KB RCU가 필요한지 구함</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3 KB / 4 KB = 0.75</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>정수로 떨어지지 않으면 반올림</p>
+<div class="ulist">
+<ul>
+<li>
+<p>0.75 &#8594; 1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>초당 얼마나 많은 데이터를 읽어오는지 계산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1 * 80 = 80 RCU</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rcu_샘플_문제2">1.2. RCU 샘플 문제2</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>RCU의 크기는 얼마로 잡아야 할까요?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>초당 80개의 데이터를 읽어와야함</p>
+</li>
+<li>
+<p>Eventually Consistent 데이터</p>
+</li>
+<li>
+<p>1개의 데이터 크기 = 3 KB</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="rcu_샘플_문제2_해결방안">1.2.1. RCU 샘플 문제2 해결방안</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>얼마나 많은 4 KB RCU가 필요한지 구함</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3 KB / 4 KB = 0.75</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>정수로 떨어지지 않으면 반올림</p>
+<div class="ulist">
+<ul>
+<li>
+<p>0.75 &#8594; 1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>초당 얼마나 많은 데이터를 읽어오는지 계산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1 * 80 = 80 RCU</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>위에서 구한 RCU를 2로 나눠줌</p>
+<div class="ulist">
+<ul>
+<li>
+<p>80 RCU / 2 = 40 RCU</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wcu_샘플_문제">1.3. WCU 샘플 문제</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>WCU의 크기는 얼마로 잡아야 할까요?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>초당 100개의 데이터를 써야함</p>
+</li>
+<li>
+<p>1개의 데이터 크기 = 512 BYTES</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="wcu_샘플_문제_해결방안">1.3.1. WCU 샘플 문제 해결방안</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>얼마나 많은 1 KB WCU가 필요한지 구함</p>
+<div class="ulist">
+<ul>
+<li>
+<p>512 BYTES / 1KB (1024 BYTES) = 0.5</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>정수로 떨어지지 않으면 반올림</p>
+<div class="ulist">
+<ul>
+<li>
+<p>0.5 &#8594; 1</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>초당 얼마나 많은 데이터를 읽어오는지 계산</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1 * 100 = 80 WCU</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="access_control">2. Access Control</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>AWS IAM</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users</p>
+</li>
+<li>
+<p>IAM 역할</p>
+</li>
+<li>
+<p>Groups</p>
+<div class="ulist">
+<ul>
+<li>
+<p>역할과 그룹에 따라 유저들은 전혀 다른 권한을 가질 수 있음</p>
+<div class="ulist">
+<ul>
+<li>
+<p>테이블 생성, 데이터 삽입 &amp; 수정 &amp; 삭제 등</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>테이블 별로 유저 권한 필터링 &#8594; IAM Conditions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>IAM Conditions : 파티션키 == 유저 아이디 일때만 데이터 읽기 권한 부여</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>“Sid” : “AllowAccessToOnlyItemsMatchingUserID”,
+    “Effect” : “Allow”,
+    “Action” : [
+                “dynamodb:GetItem”,
+                “dynamodb:PutItem”,
+                “dynamodb:UpdateItem”
+                ],
+    “Resource” : [ “arn:aws:dynamodb:ap-northeast-2:123456789012:table/HighScores” ],
+    “Condition” : {
+        “ForAllValues:StringEquals” : {
+            “dynamodb:LeadingKeys” : [
+                “${www.minho.com:user_id}”
+            ],
+        ....
+        ...</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ttltime_to_live">3. TTL(Time To Live)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>데이터 유효기간을 설정하는것</p>
+<div class="ulist">
+<ul>
+<li>
+<p>불필요하거나 일시적인 데이터(Session, Event Log) 삭제</p>
+</li>
+<li>
+<p>테이블 청소로 인하여 데이터 유지 비용 절감</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">유저아이디</th>
+<th class="tableblock halign-left valign-top">세션아이디</th>
+<th class="tableblock halign-left valign-top">세션생성시간</th>
+<th class="tableblock halign-left valign-top">TTL</th>
+<th class="tableblock halign-left valign-top">세션데이터</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">84724</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">657381</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1544031271</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1544038471</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26495</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">758293</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1544013196</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1544020396</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">92742</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">782938</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1544008931</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1544018723</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>세션생성시간/TTL &#8594; Epoch Time / Unix Time</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1970년 1월 1일 오전 12시 기준, 얼마나 많은 초(seconds)가 지났는지 알려줌</p>
+</li>
+<li>
+<p>(TTL - 세션생성시간) 이 0보다 작을 시 삭제 또는 필터</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="provisioned_throughput_exceeded_exponential_backoff">4. Provisioned Throughput Exceeded &amp; Exponential Backoff</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="provisioned_throughput_exceeded">4.1. Provisioned Throughput Exceeded</h3>
+<div class="paragraph">
+<p>예외 Exception의 한 종류</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>PTE Exception</p>
+<div class="ulist">
+<ul>
+<li>
+<p>너무 많은 읽기/쓰기 요청 발생시 일어남</p>
+</li>
+<li>
+<p>수용할 수 있는 최대치를 넘겼을 때</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>AWS SDK</p>
+<div class="ulist">
+<ul>
+<li>
+<p>요청을 성공적으로 처리할 때까지 계속 전송</p>
+<div class="ulist">
+<ul>
+<li>
+<p>그렇지 않다면 DynamoDB 설정에 들어가서 요청 프리퀀시를 조정</p>
+</li>
+<li>
+<p>동시에 들어오는 요청의 갯수를 줄여 DynamoDB에 요청을 보내는데 있어 부하를 줄이는 방법도 있음</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>No AWS SDK</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Exponential Backoff</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>많은 네트워크 요청이 발생함에 따라 서버에 지연이 발생할 수 있고 나아가 요청이 실패할 수 있음</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) 수강신청 등</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Swich, DNS, ELB 고통받음..</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="lambda_기타">1.2. Lambda 기타</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>최대 300초(5분) 런타임 시간 허용 (Lamda 코드 최대 5분 실행시간 제공)</p>
-</li>
-<li>
-<p>512MB의 일시적인 디스크 공간 제공(/tmp/)</p>
-</li>
-<li>
-<p>최대 50MB Deployment Package 허용(50MB가 초과될시 S3 버켓 사용)</p>
-</li>
-</ul>
+<h3 id="exponential_backoff">4.2. Exponential Backoff</h3>
+<div class="paragraph">
+<p>요청이 실패할 때마다 기다리는 시간을 늘려주는 것</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="lambda_사용용례">1.3. Lambda 사용용례</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>S3 &#8594; Lambda &#8594; DB</p>
+<p>요청 &#8594; 요청실패 &#8594; 50ms &#8594; 요청 재시도 &#8594; 요청실패 &#8594; 100ms &#8594; 요청 재시도 &#8594; 성공</p>
 <div class="ulist">
 <ul>
 <li>
-<p>S3(PutObject) &#8594; Lambda(데이터변환, 불필요한 데이터 삭제) &#8594; DB(정제된 데이터 업로드)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>IoT &#8594; Lambda &#8594; SNS</p>
-<div class="ulist">
-<ul>
-<li>
-<p>IoT(Topic 속도) &#8594; Lambda(Km &#8594; Mi) &#8594; SNS(속도 게시)</p>
+<p>요청이 실패할 수록 대기시간을 늘려줌으로써 서버부하 및 병목현상을 줄여줌</p>
 </li>
 </ul>
 </div>
@@ -829,43 +1311,43 @@
 <!-- Social Share Button HTML -->
 
 <!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_07.html&text=(기초) AWS - Lambda&via=" target="_blank" class="share-btn twitter">
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_14.html&text=(응용) AWS - Advanced DynamoDB&via=" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
 </a></li>
 
 <!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_07.html" target="_blank" class="share-btn google-plus">
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_14.html" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
 </a></li>
 
 <!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_07.html" target="_blank" class="share-btn facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_14.html" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
 </a></li>
 
 <!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_07.html&title=(기초) AWS - Lambda" target="_blank" class="share-btn reddit">
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_14.html&title=(응용) AWS - Advanced DynamoDB" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
 </a></li>
 
 <!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_07.html&title=(기초) AWS - Lambda" target="_blank" class="share-btn linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_14.html&title=(응용) AWS - Advanced DynamoDB" target="_blank" class="share-btn linkedin">
     <i class="fa fa-linkedin"></i>
     <p>LinkedIn</p>
 </a></li>
 
 <!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_07.html&title=(기초) AWS - Lambda" target="_blank" class="share-btn stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_14.html&title=(응용) AWS - Advanced DynamoDB" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
 </a></li>
 
 <!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_07.html" target="_blank" class="share-btn email">
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_14.html" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
 </a></li>
@@ -881,7 +1363,7 @@
  	        <li><a href='tags/학습.html'>학습</a></li>
  	        <li><a href='tags/AWS.html'>AWS</a></li>
 
-				<li><a class="icon fa-comment" href="aws_study_07.html#disqus_thread"> &nbsp;</a></li>
+				<li><a class="icon fa-comment" href="aws_study_14.html#disqus_thread"> &nbsp;</a></li>
  		</ul>
     	
     </footer>
@@ -978,10 +1460,10 @@
                     <li>
                         <article>
                             <header>
-                                <h3><a href="aws_study_07.html">(기초) AWS - Lambda</a></h3>
+                                <h3><a href="aws_study_14.html">(응용) AWS - Advanced DynamoDB</a></h3>
                                  <time class="published"
-							            datetime='May 14, 2021'>
-							            May 14, 2021</time>
+							            datetime='May 15, 2021'>
+							            May 15, 2021</time>
                             </header>
                         </article>
                     </li>
@@ -989,7 +1471,7 @@
                     <li>
                         <article>
                             <header>
-                                <h3><a href="aws_study_09.html">(기초) AWS - DynamoDB</a></h3>
+                                <h3><a href="aws_study_07.html">(기초) AWS - Lambda</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
 							            May 14, 2021</time>
@@ -1022,7 +1504,7 @@
                             <header>
                                 <a href="tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 13 </span>
+                                <span style="float:right;"> 14 </span>
                             </header>
                         </article>
                     </li>
@@ -1094,7 +1576,7 @@
                             <header>
                                 <a href="tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 13 </span>
+                                <span style="float:right;"> 14 </span>
                             </header>
                         </article>
                     </li>
