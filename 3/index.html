@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="../../aws_study_13.html"><p>(응용) AWS - Advanced S3</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="../../aws_study_09.html"><p>(기초) AWS - DynamoDB</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_11.html"><p>(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,188 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../aws_study_10.html">(기초) AWS - API Gateway</a></h2>
+
+
+            <p>AWS에 대해 알아봅니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 14, 2021'>
+            May 14, 2021</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#api_restful_api">1. API &amp; RESTful API</a>
+<ul class="sectlevel2">
+<li><a href="#restful_api">1.1. RESTful API</a></li>
+</ul>
+</li>
+<li><a href="#api_gateway">2. API Gateway</a>
+<ul class="sectlevel2">
+<li><a href="#들어가기전">2.1. 들어가기전</a></li>
+<li><a href="#api_gateway_란">2.2. API Gateway 란?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="api_restful_api">1. API &amp; RESTful API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>API(Application Programming Interface)</p>
+</div>
+<div class="sect2">
+<h3 id="restful_api">1.1. RESTful API</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>API 종류들 중 하나</p>
+</li>
+<li>
+<p>REpresentational State Transfer</p>
+</li>
+<li>
+<p>CREATE(post), READ(get), UPDATE(put), DELETE(delete)</p>
+</li>
+<li>
+<p>JSON 형태로 요청을 받고 해결함</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예) {"customer_id" : "minho_05", "category" : "car"}</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="api_gateway">2. API Gateway</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="들어가기전">2.1. 들어가기전</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>대부분의 어플리케이션은 RESTful API 기반으로 운용</p>
+</li>
+<li>
+<p>매우 힘든 RESTful API 관리</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Authentication &amp; Authorization</p>
+</li>
+<li>
+<p>API 요청을 모니터링 해야함</p>
+</li>
+<li>
+<p>더 나은 성능을 위해 API 요청 캐시 시스템 필요</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="api_gateway_란">2.2. API Gateway 란?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>뛰어난 확장성 제공 및 API를 만들고 운영하고 모니터링 가능</p>
+</li>
+<li>
+<p>Back-end 서비스 (웹 어플리케이션 EC2)에 들어있는 데이터 접근 허용</p>
+</li>
+<li>
+<p>Pay As You Go</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_10.html&text=(기초) AWS - API Gateway&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_10.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_10.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_10.html&title=(기초) AWS - API Gateway" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_10.html&title=(기초) AWS - API Gateway" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_10.html&title=(기초) AWS - API Gateway" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_10.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/학습.html'>학습</a></li>
+ 	        <li><a href='../tags/AWS.html'>AWS</a></li>
+
+				<li><a class="icon fa-comment" href="../aws_study_10.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -1001,283 +1183,6 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../aws_study_06.html">(기초) AWS - CloudWatch</a></h2>
-
-
-            <p>AWS에 대해 알아봅니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 10, 2021'>
-            May 10, 2021</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#cloudwatch">1. CloudWatch</a>
-<ul class="sectlevel2">
-<li><a href="#cloudwatch_모니터링_종류">1.1. CloudWatch 모니터링 종류</a></li>
-<li><a href="#cloudwatch_사용_용례">1.2. CloudWatch 사용 용례</a></li>
-</ul>
-</li>
-<li><a href="#alarm">2. Alarm</a>
-<ul class="sectlevel2">
-<li><a href="#alarm_state">2.1. Alarm State</a></li>
-<li><a href="#billing_alarm">2.2. Billing Alarm</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="cloudwatch">1. CloudWatch</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>이벤트</p>
-<div class="ulist">
-<ul>
-<li>
-<p>S3 버킷 파일 업로드 &amp; 삭제</p>
-</li>
-<li>
-<p>S3 버킷 접근 시 접근거부 발생</p>
-</li>
-<li>
-<p>RDS 데이터베이스에 접속 시도</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>AWS 리소스 사용의 실시간 모니터링 기능 지원</p>
-</li>
-<li>
-<p>다양한 이벤트들을 수집하여 로그파일로 저장</p>
-</li>
-<li>
-<p>이벤트&amp;알람 설정을 통해 SNS, AWS Lambda로 전송 가능</p>
-</li>
-<li>
-<p>[CloudWatch 사용 가능 서비스들]: EC2, RDS, S3, ELB 등등</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="cloudwatch_모니터링_종류">1.1. CloudWatch 모니터링 종류</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Basic Monitoring</p>
-<div class="ulist">
-<ul>
-<li>
-<p>무료, 5분 간격으로 최소의 Metrics 제공</p>
-</li>
-<li>
-<p>주로 CPU 사용량, 디스크 사용량, 네트워크 I/O</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Detailed Monitoring</p>
-<div class="ulist">
-<ul>
-<li>
-<p>유료, 1분 간격으로 자세한 Metrics 제공</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="cloudwatch_사용_용례">1.2. CloudWatch 사용 용례</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>사례</p>
-<div class="ulist">
-<ul>
-<li>
-<p>UseCase : 매일 얼마나 많은 사용자들이 모바일 앱을 사용하는지 알고 싶음</p>
-</li>
-<li>
-<p>Potential Issue : 특정날에 수많은 traffic이 몰릴 수 있어 병목현상이 생길 수 있음</p>
-</li>
-<li>
-<p>Solution : 매일 traffic rate와 특정 버튼의 유저 클릭 횟수를 분석하여 더 효율적인 앱개발을 할 수 있는 통찰력을 얻을 수 있음</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>사례</p>
-<div class="ulist">
-<ul>
-<li>
-<p>UseCase : 특정 시간대에 웹서버 상태를 점검하여 비용 절감 목표</p>
-</li>
-<li>
-<p>Potential Issue : 똑같은 비용을 내며 AWS 리소스들을 사용하지만 낮시간대와 밤시간대에 필요한 서버의 성능은 달라질 수 있기 때문에 금전적 손실이 생길 수 있음
-(주로 밤시간대가 낮시간대보다 서버가 오랫동안 idle)</p>
-</li>
-<li>
-<p>Solution : 알람 설정을 통하여 특정 threshold 에 도달했을 때 개발자에게 상황을 보고해줌으로써 서버 management 를 할 수 있음</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="alarm">2. Alarm</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>임의로 정해놓은 값에 도달할 시 Alarm 을 울림</p>
-</li>
-<li>
-<p>Alarm 이 울릴 시 특정 이벤트들을 작동시킬 수 있음</p>
-</li>
-<li>
-<p>오전 7시 알람 설정 &#8594; 기상 후 조식 &amp; 세수 &amp; 옷갈아입기 &#8594; 오전 9시 출근</p>
-<div class="ulist">
-<ul>
-<li>
-<p>임의의 값 &#8594; 이벤트 &#8594; 임의의 값</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="alarm_state">2.1. Alarm State</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Alarm</p>
-</li>
-<li>
-<p>Insufficient</p>
-<div class="ulist">
-<ul>
-<li>
-<p>무언가 불충분.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>OK</p>
-<div class="ulist">
-<ul>
-<li>
-<p>알람이 울리지않고 범위내에서 잘 돌아간다는 뜻</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="billing_alarm">2.2. Billing Alarm</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>우리들이 정해놓은 지출 임계값을 초과할 경우 SNS를 통하여 경고를 함</p>
-</li>
-<li>
-<p>현재 N.Virginia(us-east-1) 지역에서만 이 기능이 지원됨 (2020.07 기준)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_06.html&text=(기초) AWS - CloudWatch&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_06.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_06.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_06.html&title=(기초) AWS - CloudWatch" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_06.html&title=(기초) AWS - CloudWatch" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_06.html&title=(기초) AWS - CloudWatch" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_06.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/학습.html'>학습</a></li>
- 	        <li><a href='../tags/AWS.html'>AWS</a></li>
-
-				<li><a class="icon fa-comment" href="../aws_study_06.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../2/"
@@ -1348,6 +1253,17 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_13.html">(응용) AWS - Advanced S3</a></h3>
+                                 <time class="published"
+							            datetime='May 15, 2021'>
+							            May 15, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h3>
                                  <time class="published"
 							            datetime='May 15, 2021'>
@@ -1371,17 +1287,6 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                         <article>
                             <header>
                                 <h3><a href="../aws_study_09.html">(기초) AWS - DynamoDB</a></h3>
-                                 <time class="published"
-							            datetime='May 14, 2021'>
-							            May 14, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_11.html">(기초) AWS - Code Commit &amp; Code Deploy &amp; Code Pipeline</a></h3>
                                  <time class="published"
 							            datetime='May 14, 2021'>
 							            May 14, 2021</time>
@@ -1414,7 +1319,7 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 12 </span>
+                                <span style="float:right;"> 13 </span>
                             </header>
                         </article>
                     </li>
@@ -1486,7 +1391,7 @@ x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 12 </span>
+                                <span style="float:right;"> 13 </span>
                             </header>
                         </article>
                     </li>
