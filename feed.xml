@@ -6,9 +6,29 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sat, 15 May 2021 13:41:53 +0000</pubDate>
-    <lastBuildDate>Sat, 15 May 2021 13:41:53 +0000</lastBuildDate>
+    <pubDate>Sun, 16 May 2021 05:38:27 +0000</pubDate>
+    <lastBuildDate>Sun, 16 May 2021 05:38:27 +0000</lastBuildDate>
 
+    <item>
+      <title>배포가 왜 안돼지&amp;#8230;&amp;#8203;</title>
+      <link>https://anew0m.netlify.com//aws_study_18.html</link>
+      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">aws_study_18.html</guid>
+      	<description>
+	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#테스트&quot;&gt;1. 테스트&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;테스트&quot;&gt;1. 테스트&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+	</description>
+    </item>
     <item>
       <title>(응용) AWS - Advanced S3</title>
       <link>https://anew0m.netlify.com//aws_study_13.html</link>

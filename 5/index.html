@@ -134,6 +134,9 @@
                     <h3>Recent Posts</h3>
                 </header>
                     <li>
+                        <a href="../../aws_study_18.html"><p>배포가 왜 안돼지&#8230;&#8203;</p></a>
+                    </li>
+                    <li>
                         <a href="../../aws_study_13.html"><p>(응용) AWS - Advanced S3</p></a>
                     </li>
                     <li>
@@ -141,9 +144,6 @@
                     </li>
                     <li>
                         <a href="../../aws_study_17.html"><p>(응용) AWS - X-Ray</p></a>
-                    </li>
-                    <li>
-                        <a href="../../aws_study_12.html"><p>(응용) AWS - Advanced IAM</p></a>
                     </li>
             </ul>
         </section>
@@ -159,6 +159,440 @@
 </section>
 	
 	<div id="main">
+<article class="post">
+   <header>
+    <div class="title">
+                    <h2><a href="../aws_study_05.html">(기초) AWS - S3</a></h2>
+
+
+            <p>AWS에 대해 알아봅니다.</p>
+    </div>
+    <div class="meta">
+         <time class="published"
+            datetime='May 10, 2021'>
+            May 10, 2021</time>
+            <div class="published eta"></div>
+        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
+    </div>
+</header>
+
+    
+  
+         
+    <div id="content">
+       <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#s3">1. S3</a>
+<ul class="sectlevel2">
+<li><a href="#s3_object_구성요소">1.1. S3 Object 구성요소</a></li>
+<li><a href="#s3_data_consistency_model">1.2. S3 Data Consistency Model</a></li>
+<li><a href="#s3_스토리지_종류">1.3. S3 스토리지 종류</a></li>
+<li><a href="#s3_요금">1.4. S3 요금</a></li>
+</ul>
+</li>
+<li><a href="#s3_버켓_생성시_알아야_할_것들">2. S3 - 버켓 생성시 알아야 할 것들</a>
+<ul class="sectlevel2">
+<li><a href="#s3_사용_용례">2.1. S3 사용 용례</a></li>
+<li><a href="#최초_s3_버켓_생성시_비공개private">2.2. 최초 S3 버켓 생성시 &#8594; 비공개(Private)</a></li>
+</ul>
+</li>
+<li><a href="#s3_암호화encryption">3. S3 암호화(Encryption)</a>
+<ul class="sectlevel2">
+<li><a href="#암호화_유형">3.1. 암호화 유형</a></li>
+<li><a href="#s3_암호화_과정">3.2. S3 암호화 과정</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="s3">1. S3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>S3(Simple Storage Service) AWS에서 가장 처음 런칭</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>안전하고 가변적인(Scaling) Object(OS 불가, 이미지, 파일 등만 가능) 저장공간을 제공(ex: Google Cloud)</p>
+</li>
+<li>
+<p>편리한 UI 인터페이스를 통해 어디서나 쉽게 데이터를 저장하고 불러올 수 있음</p>
+</li>
+<li>
+<p>파일 크기는 0KB 부터 5TB까지 지원</p>
+</li>
+<li>
+<p>저장공간 무제한(자동으로 저장공간이 늘어남)</p>
+</li>
+<li>
+<p>Bucket이라는 이름을 사용함(디렉토리와 유사함)</p>
+</li>
+<li>
+<p>Bucket은 보편적인 namespace를 사용함(Bucket 이름은 유니크 해야함)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="s3_object_구성요소">1.1. S3 Object 구성요소</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Key (파일명)</p>
+</li>
+<li>
+<p>Value (파일 내 데이터)</p>
+</li>
+<li>
+<p>Version ID (S3 고유 특징)</p>
+</li>
+<li>
+<p>Metadata</p>
+</li>
+<li>
+<p>CORS(Cross Origin Resource Sharing) (AWS 사용시 종종 출현, 한 버켓의 파일은 다른 버켓에서 접근 가능하게 해주는 기능(지역무시))</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3_data_consistency_model">1.2. S3 Data Consistency Model</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>(PUT) Read after Write Consistency</p>
+</li>
+<li>
+<p>(UPDATE, DELETE) Eventual Consistency (바로 바뀐것 같아 보이지만, 내부적으로는 아님)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3_스토리지_종류">1.3. S3 스토리지 종류</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>일반 S3</p>
+</li>
+<li>
+<p>S3 - IA(Infrequent Access)</p>
+</li>
+<li>
+<p>S3 - One Zone IA</p>
+</li>
+<li>
+<p>Glacier</p>
+</li>
+<li>
+<p>Intelligent Tiering</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="일반_s3">1.3.1. 일반 S3</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>가장 보편적으로 사용되는 스토리지 타입</p>
+</li>
+<li>
+<p>높은 내구성, 가용성(Durability, Availability) (데이터 손실없이 잘 복원 되는지, 데이터 접근이 얼마나 용이한지)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="s3_iainfrequent_access">1.3.2. S3 - IA(Infrequent Access)</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>자주 접근되지는 않으나 접근시 빠른 접근이 요구되는 파일이 많을시 유용</p>
+</li>
+<li>
+<p>일반 S3에 비해 비용은 저렴하나 접근시 추가 비용 발생</p>
+</li>
+<li>
+<p>멀티 AZ를 통한 데이터 저장 (가용성 높음)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="s3_one_zone_ia">1.3.3. S3 - One Zone IA</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>단일 AZ를 통한 데이터 저장</p>
+</li>
+<li>
+<p>단일 AZ에 의한 데이터 접근 제한(조금 낮은 가용성)</p>
+</li>
+<li>
+<p>데이터 접근시 S3 - IA 보다 20% 비용 저렴 (비용과 가용성을 잘 따져 사용)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="glacier">1.3.4. Glacier</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>거의 접근하지 않을 데이터 저장 시 유용</p>
+</li>
+<li>
+<p>매우 저렴한 비용</p>
+</li>
+<li>
+<p>데이터 접근시 대략 4-5시간 소요</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="intelligent_tiering">1.3.5. Intelligent Tiering</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>2018년 런칭</p>
+</li>
+<li>
+<p>데이터 접근 주기가 불규칙할 때 매우 유용</p>
+</li>
+<li>
+<p>2가지 티어 존재 (AWS가 자동분류)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Frequent Tier (데이터 접근이 한달 없을 경우 분류)</p>
+</li>
+<li>
+<p>Infrequent Tier (데이터 접근할시 분류)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>데이터 접근 주기에 따라 두가지 티어중 하나로 선택됨</p>
+</li>
+<li>
+<p>Frequent Tier가 비용이 약간 더 비쌈</p>
+</li>
+<li>
+<p>최고의 비용 절감 효율을 누릴 수 있음</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3_요금">1.4. S3 요금</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>GB 당</p>
+</li>
+<li>
+<p>PUT, GET, COPY 요청 횟수당</p>
+</li>
+<li>
+<p>데이터 다운로드 시 / 다른 리소스로 전송시</p>
+</li>
+<li>
+<p>Metadata (object tag)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="s3_버켓_생성시_알아야_할_것들">2. S3 - 버켓 생성시 알아야 할 것들</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="s3_사용_용례">2.1. S3 사용 용례</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>파일 저장소 (로그, 다양한 파일들(이미지, 비디오, 압축파일 등))</p>
+</li>
+<li>
+<p>웹사이트 호스팅</p>
+</li>
+<li>
+<p>CORS(Cross Origin Resource Sharing)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="최초_s3_버켓_생성시_비공개private">2.2. 최초 S3 버켓 생성시 &#8594; 비공개(Private)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>버켓 정책 변경(Bucket Policy)</p>
+</li>
+<li>
+<p>접근 제어 리스트 변경 (Access Control List)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="s3_암호화encryption">3. S3 암호화(Encryption)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="암호화_유형">3.1. 암호화 유형</h3>
+<div class="sect3">
+<h4 id="파일_업로드다운로드_시">3.1.1. 파일 업로드/다운로드 시</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>SSL / TLS (Secure Socket Layer / Transport Layer Security)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="가만히_있을_시">3.1.2. 가만히 있을 시</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>SSE(Server-Side Encryption)</p>
+</li>
+<li>
+<p>SEE-S3</p>
+</li>
+<li>
+<p>SSE-KMS (누가, 언제, 어떻게 암호를 풀었는지 기록)</p>
+</li>
+<li>
+<p>SSE-C (딱히 장점은 없어 보임)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="s3_암호화_과정">3.2. S3 암호화 과정</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>PUT 요청이 생성됨</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>PUT /simon-image.jpg HTTP/1.1
+Host: SimonBucket.s3.&lt;Region&gt;.amazonaws.com
+Date: Thu, 12 Feb 2020 14:26:00 GMT
+Authorization: authorization string
+Content-Type: text/plain
+Content-Length: 82253
+x-amz-meta-author: Simon
+Expect: 100-continue
+[82253 bytes of object data]</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>x-amz-server-side-encryption-paramerer</p>
+<div class="ulist">
+<ul>
+<li>
+<p>암호화되지 않은 파일 제한</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>PUT /simon-image.jpg HTTP/1.1
+Host: SimonBucket.s3.&lt;Region&gt;.amazonaws.com
+Date: Thu, 12 Feb 2020 14:26:00 GMT
+Authorization: authorization string
+Content-Type: text/plain
+Content-Length: 82253
+x-amz-meta-author: Simon
+Expect: 100-continue
+x-amz-server-side-encryption-parameter: AES-256   &lt;--&lt;--
+[82253 bytes of object data]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+	
+	<section id="social-share">
+        <ul class="icons">
+<!-- Social Share Button HTML -->
+
+<!-- Twitter -->
+<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_05.html&text=(기초) AWS - S3&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+<!-- Google Plus -->
+<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_05.html" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+<!-- Facebook -->
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_05.html" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+<!-- Reddit (url, title) -->
+<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_05.html&title=(기초) AWS - S3" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+<!-- LinkedIn -->
+<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_05.html&title=(기초) AWS - S3" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+<!-- StumbleUpon (url, title) -->
+<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_05.html&title=(기초) AWS - S3" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+<!-- Email -->
+<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_05.html" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+        </ul>
+    </section>
+     
+
+    <footer>
+	
+		<ul class="stats">
+    	    <!-- Display the categories associated with this post -->
+    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
+ 	        <li><a href='../tags/학습.html'>학습</a></li>
+ 	        <li><a href='../tags/AWS.html'>AWS</a></li>
+
+				<li><a class="icon fa-comment" href="../aws_study_05.html#disqus_thread"> &nbsp;</a></li>
+ 		</ul>
+    	
+    </footer>
+</article>
 <article class="post">
    <header>
     <div class="title">
@@ -844,367 +1278,13 @@
     	
     </footer>
 </article>
-<article class="post">
-   <header>
-    <div class="title">
-                    <h2><a href="../aws_study_03.html">(기초) AWS - EC2</a></h2>
-
-
-            <p>AWS에 대해 알아봅니다.</p>
-    </div>
-    <div class="meta">
-         <time class="published"
-            datetime='May 07, 2021'>
-            May 07, 2021</time>
-            <div class="published eta"></div>
-        <span class="author"/><span class="name">정민호</span><img src="../img/main/jmh.jpg" alt="정민호" /></span>
-    </div>
-</header>
-
-    
-  
-         
-    <div id="content">
-       <div id="toc" class="toc">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#ec2">1. EC2</a>
-<ul class="sectlevel2">
-<li><a href="#ec2_과금_정책">1.1. EC2 과금 정책</a></li>
-<li><a href="#ec2_과금_활용_방안">1.2. EC2 과금 활용 방안</a></li>
-</ul>
-</li>
-<li><a href="#ebs">2. EBS</a>
-<ul class="sectlevel2">
-<li><a href="#availability_zoneaz">2.1. Availability Zone(AZ)</a></li>
-<li><a href="#ebs_볼륨_타입">2.2. EBS 볼륨 타입</a></li>
-</ul>
-</li>
-<li><a href="#elb">3. ELB</a>
-<ul class="sectlevel2">
-<li><a href="#elb_타입">3.1. ELB 타입</a></li>
-<li><a href="#load_balancer_error_504_error">3.2. Load Balancer Error : 504 Error</a></li>
-<li><a href="#x_forwarded_for_헤더">3.3. X-Forwarded-For 헤더</a></li>
-</ul>
-</li>
-<li><a href="#route53">4. Route53</a></li>
-</ul>
-</div>
-<div class="sect1">
-<h2 id="ec2">1. EC2</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>EC2(Elastic Compute Cloud)는 클라우드환경에서 스토리지가 유연하게 변경될 수 있도록 제공</p>
-</div>
-<div class="paragraph">
-<p>EC2를 사용하기 위해 EBS라는 디스크 볼륨을 요구함</p>
-</div>
-<div class="sect2">
-<h3 id="ec2_과금_정책">1.1. EC2 과금 정책</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>On-demand : 시간 단위로 가격이 고정되어 있음</p>
-</li>
-<li>
-<p>Reserved : 한정된 EC2 용량 사용 가능, 1-3년동안 시간별로 할인 적용 받을 수 있음</p>
-</li>
-<li>
-<p>Spot : 입찰(경매) 가격 적용. 가장 큰 할인률을 적용 받으며 특히 인스턴스의 시작과 끝 기간이 전혀 중요하지 않을 때 매우 유용.(갑자기 켜지고 꺼지는 경우 발생)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ec2_과금_활용_방안">1.2. EC2 과금 활용 방안</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>On-demand : 오랜시간동안 선물을 내지 않고 최소한의 비용을 지불하여 EC2 인스턴스를 사용하고 싶을 때, 특히 개발 시 최초로 EC2 인스턴스에 deploy 할 때 매우 유용.(개발 시작과 끝의 기간을 알 수 없을 때 권장)</p>
-</li>
-<li>
-<p>Reserved : 안정된, 예상 가능한 workload 시 Reserved 사용 권장, 선불로 인한 컴퓨팅 비용 대폭 감소(개발 시작과 끝의 기간을 알 수 있을 때 권장)</p>
-</li>
-<li>
-<p>Spot : 경매와 유사. 단순히 비용 절감 시 유용함. 인스턴스의 시작/끝 시점에 구애 받지 않을 경우 권장</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="ebs">2. EBS</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>EBS(Elastic Block Storage)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>저장 공간이 생성되어지며 EC2 인스턴스에 부착됨</p>
-</li>
-<li>
-<p>디스크 볼륨 위에 File System이 생성됨</p>
-</li>
-<li>
-<p>EBS는 특정 Availability Zone에 생성됨</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="availability_zoneaz">2.1. Availability Zone(AZ)</h3>
-<div class="paragraph">
-<p>하나의 Region 안에 여러개의 Availability Zone(이하 AZ)가 존재 할 수 있음</p>
-</div>
-<div class="paragraph">
-<p>서버가 다운되었을 때 AZ라는 백업을 통해 서비스 제공을 가능하게 해줌</p>
-</div>
-<div class="paragraph">
-<p>일종의 Disaster Recovery</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="ebs_볼륨_타입">2.2. EBS 볼륨 타입</h3>
-<div class="sect3">
-<h4 id="ssd">2.2.1. SSD</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>(GP2) General Purpose SSD</strong> : 최대 10K IOPS를 지원하며 1GB당 3 IOPS 속도가 나옴(보편적으로 사용됨)</p>
-</li>
-<li>
-<p><strong>(I01) Provisioned IOPS SSD</strong> : 극도의 I/O률을 요구하는 환경에서 주로 사용됨. 10K 이상의 IOPS를 지원함 (예: 매우 큰 DB관리)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="magnetichdd">2.2.2. Magnetic/HDD</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>(ST1) Throughput Optimized HDD</strong> : 빅데이터 Datawarehouse, Log 프로세싱시 주로 사용</p>
-</li>
-<li>
-<p><strong>(SC1) CDD HDD</strong> : 파일 서버와 같이 드문 volume 접근시 주로 사용되며 매우 저렴한 비용(boot volume으로 사용 불가능, OS 설치 불가)</p>
-</li>
-<li>
-<p><strong>(Standard) Magnetic</strong> : 디스크 1GB당 가장 싼 비용을 자랑함. (Boot volume으로 사용 가능)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="elb">3. ELB</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>ELB(Elastic Load Balancers)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>수많은 서버의 흐름을 균형있게 흘려보내는데 중추적인 역할을 함</p>
-</li>
-<li>
-<p>하나의 서버로 traffic이 몰리는 병목현상(bottleneck) 방지</p>
-</li>
-<li>
-<p>Traffic의 흐름을 Unhealthy instance &#8594; healthy instance로
-(Unhealthy는 인스턴스 Shutdown, 등으로 발생)</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="elb_타입">3.1. ELB 타입</h3>
-<div class="sect3">
-<h4 id="application_load_balancer">3.1.1. Application Load Balancer</h4>
-<div class="paragraph">
-<p>OSI Layer 7에서 작동됨(Application Layer)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>HTTP, HTTPS와 같은 traffic의 load balancing에 가장 적합함</p>
-</li>
-<li>
-<p>고급 request 라우팅 설정을 통하여 특정 서버로 request를 보낼 수 있음(root를 변경하는 것)</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="network_load_balancer">3.1.2. Network Load Balancer</h4>
-<div class="paragraph">
-<p>OSI Layer 4에서 작동되고 매우 빠른 속도를 자랑하며 Production 환경에서 종종 쓰임
-(Transport Layer)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>극도의 performance가 요구되는 TCP traffic에서 적합함</p>
-</li>
-<li>
-<p>초당 수백만개의 request를 아주 미세한 delay로 처리 가능</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="classic_load_balancer">3.1.3. Classic Load Balancer</h4>
-<div class="paragraph">
-<p>현재 Legacy로 간주됨, 따라서 거의 쓰이지 않음(Legacy ELB 라고도 함)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>성능은 뒤쳐지지만 Layer 4, 7 지원</p>
-</li>
-<li>
-<p>Layer 7의 HTTP/HTTPS 라우팅 기능 지원</p>
-</li>
-<li>
-<p>Layer 4의 TCP traffic 라우팅 기능도 지원</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="load_balancer_error_504_error">3.2. Load Balancer Error : 504 Error</h3>
-<div class="paragraph">
-<p>EC2는 언제나 정상 동작한다는 보장이 없기 때문에 ELB에서 Error를 발견하여 504 Error를 사용자에게 보여줌</p>
-</div>
-<div class="paragraph">
-<p>Application 또는 Server가 응답받지 못할 때 나타나는 현상</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>웹서버/DB Layer에서 해결 가능</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="x_forwarded_for_헤더">3.3. X-Forwarded-For 헤더</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>USER --(DNS)-&#8594; ELB -&#8594; EC2</p>
-</li>
-<li>
-<p>public IP address --(DNS)-&#8594; Private IP -&#8594; EC2</p>
-</li>
-<li>
-<p>152.12.3.225 --(DNS)-&#8594; 10.0.0.23 -&#8594; 10.0.0.23</p>
-</li>
-<li>
-<p>따라서 EC2는 Private IP address 밖에 볼 수가 없음</p>
-</li>
-<li>
-<p>하지만 EC2는 X-Forwarded-For 헤더 를 사용해 public IP address 를 알 수 있음</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="route53">4. Route53</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>AWS에서 제공하는 DNS 서비스. 도메인 주소를 구매하여 아래 3가지와 연결가능</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>S3 Bucket</p>
-</li>
-<li>
-<p>EC2 instance</p>
-</li>
-<li>
-<p>Load Balancer</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-    </div>
-	
-	<section id="social-share">
-        <ul class="icons">
-<!-- Social Share Button HTML -->
-
-<!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://anew0m.netlify.com//aws_study_03.html&text=(기초) AWS - EC2&via=" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-</a></li>
-
-<!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://anew0m.netlify.com//aws_study_03.html" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-</a></li>
-
-<!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://anew0m.netlify.com//aws_study_03.html" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-</a></li>
-
-<!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://anew0m.netlify.com//aws_study_03.html&title=(기초) AWS - EC2" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-</a></li>
-
-<!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://anew0m.netlify.com//aws_study_03.html&title=(기초) AWS - EC2" target="_blank" class="share-btn linkedin">
-    <i class="fa fa-linkedin"></i>
-    <p>LinkedIn</p>
-</a></li>
-
-<!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://anew0m.netlify.com//aws_study_03.html&title=(기초) AWS - EC2" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-</a></li>
-
-<!-- Email -->
-<li><a href="mailto:?subject=Check out this post by 정민호&body=https://anew0m.netlify.com//aws_study_03.html" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-</a></li>
-        </ul>
-    </section>
-     
-
-    <footer>
-	
-		<ul class="stats">
-    	    <!-- Display the categories associated with this post -->
-    	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
- 	        <li><a href='../tags/학습.html'>학습</a></li>
- 	        <li><a href='../tags/AWS.html'>AWS</a></li>
-
-				<li><a class="icon fa-comment" href="../aws_study_03.html#disqus_thread"> &nbsp;</a></li>
- 		</ul>
-    	
-    </footer>
-</article>
 		
 <ul class="actions pagination">
     <li><a href="../4/"
             class=" button big previous">PREVIOUS</a></li>
 
     <li><span
-            class="button big"> 5 of 16 </span></li>
+            class="button big"> 5 of 17 </span></li>
 
     <li><a href="../6/"
             class=" button big next">NEXT</a></li>
@@ -1268,6 +1348,17 @@
                     <li>
                         <article>
                             <header>
+                                <h3><a href="../aws_study_18.html">배포가 왜 안돼지&#8230;&#8203;</a></h3>
+                                 <time class="published"
+							            datetime='May 16, 2021'>
+							            May 16, 2021</time>
+                            </header>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <header>
                                 <h3><a href="../aws_study_13.html">(응용) AWS - Advanced S3</a></h3>
                                  <time class="published"
 							            datetime='May 15, 2021'>
@@ -1291,17 +1382,6 @@
                         <article>
                             <header>
                                 <h3><a href="../aws_study_17.html">(응용) AWS - X-Ray</a></h3>
-                                 <time class="published"
-							            datetime='May 15, 2021'>
-							            May 15, 2021</time>
-                            </header>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <header>
-                                <h3><a href="../aws_study_12.html">(응용) AWS - Advanced IAM</a></h3>
                                  <time class="published"
 							            datetime='May 15, 2021'>
 							            May 15, 2021</time>
@@ -1334,7 +1414,7 @@
                             <header>
                                 <a href="../tags/학습.html">학습</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 17 </span>
+                                <span style="float:right;"> 18 </span>
                             </header>
                         </article>
                     </li>
@@ -1406,7 +1486,7 @@
                             <header>
                                 <a href="../tags/AWS.html">AWS</a>
                                 <!-- JBake 2.5.1 Issue#357 prevents accessing db, If you are using 2.5.1 or earlier comment below SPAN element. -->
-                                <span style="float:right;"> 17 </span>
+                                <span style="float:right;"> 18 </span>
                             </header>
                         </article>
                     </li>
