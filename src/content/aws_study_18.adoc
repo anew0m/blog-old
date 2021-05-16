@@ -1,0 +1,14 @@
+= 배포가 왜 안돼지...
+정민호
+2021-05-16
+:jbake-last_updated: 2021-05-16
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: 학습, AWS
+:description: 테스트
+:jbake-og: {"image": "img/jdk/duke.jpg"}
+:idprefix:
+:toc:
+:sectnums:
+
+== 테스트
