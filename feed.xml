@@ -6,14 +6,14 @@
     <atom:link href="https://anew0m.netlify.com//feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Mon, 17 May 2021 10:55:17 +0000</pubDate>
-    <lastBuildDate>Mon, 17 May 2021 10:55:17 +0000</lastBuildDate>
+    <pubDate>Mon, 17 May 2021 11:00:21 +0000</pubDate>
+    <lastBuildDate>Mon, 17 May 2021 11:00:21 +0000</lastBuildDate>
 
     <item>
-      <title>(기초) 딥러닝 CNN - 딥러닝 기반 이해(딥러닝 개요와 경사 하강법) - 머신러닝의 이해</title>
-      <link>https://anew0m.netlify.com//DL_CNN_basic_study_0101.html</link>
+      <title>(기초) 딥러닝 CNN - 들어가면서</title>
+      <link>https://anew0m.netlify.com//DL_CNN_basic_study_0001.html</link>
       <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
-      <guid isPermaLink="false">DL_CNN_basic_study_0101.html</guid>
+      <guid isPermaLink="false">DL_CNN_basic_study_0001.html</guid>
       	<description>
 	&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
 &lt;div id=&quot;toctitle&quot;&gt;Table of Contents&lt;/div&gt;
