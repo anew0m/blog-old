@@ -2,23 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://anew0m.netlify.com/about.html</loc>
-        <lastmod>2021-05-16</lastmod>
+        <lastmod>2021-05-17</lastmod>
     </url>
     <url>
         <loc>https://anew0m.netlify.com/404.html</loc>
         <lastmod>2017-05-11</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/aws_study_13.html</loc>
-        <lastmod>2021-05-15</lastmod>
-    </url>
-    <url>
-        <loc>https://anew0m.netlify.com/aws_study_15.html</loc>
-        <lastmod>2021-05-15</lastmod>
-    </url>
-    <url>
-        <loc>https://anew0m.netlify.com/aws_study_17.html</loc>
-        <lastmod>2021-05-15</lastmod>
+        <loc>https://anew0m.netlify.com/DL_CNN_basic_study_001.html</loc>
+        <lastmod>2021-05-17</lastmod>
     </url>
     <url>
         <loc>https://anew0m.netlify.com/aws_study_12.html</loc>
@@ -33,6 +25,26 @@
         <lastmod>2021-05-15</lastmod>
     </url>
     <url>
+        <loc>https://anew0m.netlify.com/aws_study_13.html</loc>
+        <lastmod>2021-05-15</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/aws_study_15.html</loc>
+        <lastmod>2021-05-15</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/aws_study_17.html</loc>
+        <lastmod>2021-05-15</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/aws_study_08.html</loc>
+        <lastmod>2021-05-14</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/aws_study_10.html</loc>
+        <lastmod>2021-05-14</lastmod>
+    </url>
+    <url>
         <loc>https://anew0m.netlify.com/aws_study_07.html</loc>
         <lastmod>2021-05-14</lastmod>
     </url>
@@ -45,18 +57,6 @@
         <lastmod>2021-05-14</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/aws_study_08.html</loc>
-        <lastmod>2021-05-14</lastmod>
-    </url>
-    <url>
-        <loc>https://anew0m.netlify.com/aws_study_10.html</loc>
-        <lastmod>2021-05-14</lastmod>
-    </url>
-    <url>
-        <loc>https://anew0m.netlify.com/aws_study_05.html</loc>
-        <lastmod>2021-05-10</lastmod>
-    </url>
-    <url>
         <loc>https://anew0m.netlify.com/aws_study_04.html</loc>
         <lastmod>2021-05-10</lastmod>
     </url>
@@ -65,32 +65,28 @@
         <lastmod>2021-05-10</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/aws_study_03.html</loc>
-        <lastmod>2021-05-07</lastmod>
+        <loc>https://anew0m.netlify.com/aws_study_05.html</loc>
+        <lastmod>2021-05-10</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/aws_study_01.html</loc>
-        <lastmod>2021-05-06</lastmod>
+        <loc>https://anew0m.netlify.com/aws_study_03.html</loc>
+        <lastmod>2021-05-07</lastmod>
     </url>
     <url>
         <loc>https://anew0m.netlify.com/aws_study_02.html</loc>
         <lastmod>2021-05-06</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/HandsOnML2_01-6.html</loc>
-        <lastmod>2020-09-21</lastmod>
+        <loc>https://anew0m.netlify.com/aws_study_01.html</loc>
+        <lastmod>2021-05-06</lastmod>
     </url>
     <url>
         <loc>https://anew0m.netlify.com/HandsOnML2_01-7.html</loc>
         <lastmod>2020-09-21</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/HandsOnML2_01-2.html</loc>
-        <lastmod>2020-09-19</lastmod>
-    </url>
-    <url>
-        <loc>https://anew0m.netlify.com/HandsOnML2_01-4.html</loc>
-        <lastmod>2020-09-19</lastmod>
+        <loc>https://anew0m.netlify.com/HandsOnML2_01-6.html</loc>
+        <lastmod>2020-09-21</lastmod>
     </url>
     <url>
         <loc>https://anew0m.netlify.com/HandsOnML2_01-3.html</loc>
@@ -101,8 +97,12 @@
         <lastmod>2020-09-19</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/HandsOnML2_00.html</loc>
-        <lastmod>2020-09-13</lastmod>
+        <loc>https://anew0m.netlify.com/HandsOnML2_01-2.html</loc>
+        <lastmod>2020-09-19</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/HandsOnML2_01-4.html</loc>
+        <lastmod>2020-09-19</lastmod>
     </url>
     <url>
         <loc>https://anew0m.netlify.com/HandsOnML2_01-1.html</loc>
@@ -110,6 +110,10 @@
     </url>
     <url>
         <loc>https://anew0m.netlify.com/HowHome-03-Dev-02.html</loc>
+        <lastmod>2020-09-13</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/HandsOnML2_00.html</loc>
         <lastmod>2020-09-13</lastmod>
     </url>
     <url>
@@ -173,20 +177,12 @@
         <lastmod>2020-02-13</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-07.html</loc>
-        <lastmod>2019-12-12</lastmod>
-    </url>
-    <url>
         <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-06.html</loc>
         <lastmod>2019-12-12</lastmod>
     </url>
     <url>
-        <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-01.html</loc>
-        <lastmod>2019-10-04</lastmod>
-    </url>
-    <url>
-        <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-03.html</loc>
-        <lastmod>2019-10-04</lastmod>
+        <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-07.html</loc>
+        <lastmod>2019-12-12</lastmod>
     </url>
     <url>
         <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-02.html</loc>
@@ -194,6 +190,14 @@
     </url>
     <url>
         <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note.html</loc>
+        <lastmod>2019-10-04</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-01.html</loc>
+        <lastmod>2019-10-04</lastmod>
+    </url>
+    <url>
+        <loc>https://anew0m.netlify.com/Relational_Data_Modeling_Note-03.html</loc>
         <lastmod>2019-10-04</lastmod>
     </url>
     <url>
