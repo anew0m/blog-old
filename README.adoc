@@ -2,6 +2,8 @@
 
 image::(https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status)[![Netlify Status]]
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status)](https://app.netlify.com/sites/anew0m/deploys)
+
 평범한 일상과 IT와 관련된 글을 작성하는 블로그입니다.
 
 본 블로그는 https://blog.benelog.net/migration-to-static-site.html[개발 수양록 블로그의 정상혁님이 작성하신 글]을 참조하였으며, 정상혁님의 레파지토리를 fork 하여 구축되었습니다.
