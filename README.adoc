@@ -1,6 +1,6 @@
 = 정민호의 블로그
 
-image::(https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status)[Netlify Status]
+image::[![Netlify Status](https://api.netlify.com/api/v1/badges/3201946c-a12e-482a-9d15-1272e33e37c7/deploy-status)](https://app.netlify.com/sites/anew0m/deploys)
 
 평범한 일상과 IT와 관련된 글을 작성하는 블로그입니다.
 
