@@ -1,0 +1,48 @@
+= 블로그 이전
+정민호
+2022-08-07
+:jbake-last_updated: 2022-08-07
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: 기타
+:description: 블로그 이전
+:jbake-og: {"image": "img/jdk/duke.jpg"}
+:idprefix:
+:toc:
+:sectnums:
+
+
+== 블로그 이전
+블로그를 이전하게 되었습니다. 
+
+ - https://minho.blog/
+
+이 블로그는 https://blog.benelog.net/migration-to-static-site.html[개발 수양록 블로그의 정상혁님이 작성하신 글]을 참조하여 만들어졌습니다.
+
+
+웹에 대한 지식이 부족하다보니 정상혁님께 동의를 구한 후 레파지토리를 fork 하여 구축되었습니다.
+
+
+블로그를 이전하게 된 계기는 fork 로 구축한것을 탈피하기 위한것과, adoc으로 작성된 문서가 툴마다 다르게 보인다는 점이 다소 불편했습니다.
+
+새로 구축한 블로그에서 asciidoctor 를 설치 후 adoc 파일을 불러왔지만, 이 블로그의 문법이 다 표현되지 않았습니다. 이 점이 가장 불편한 부분입니다.
+
+아마도 asciidoctor 와 asciidoc 의 차이가 아닌가 생각됩니다.
+
+
+새로 구축한 블로그는 Hugo 프레임워크를 이용했고, LoveIt 테마를 사용했습니다.
+
+이 블로그와 마찬가리고 Netlify를 이용해 서비스를 제공합니다.
+
+- Hugo : https://gohugo.io/
+
+- LoveIt : https://github.com/dillonzq/LoveIt
+
+
+그 동안 방문해주신 분들에게 감사드립니다.
+
+여기서 작성된 글을 모두 이전하긴했지만 100% 복원되진 못했습니다.
+
+시간이 나는대로 짬짬히 복원해보겠습니다.
+
+감사합니다.
